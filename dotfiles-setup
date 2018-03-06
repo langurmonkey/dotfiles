@@ -12,10 +12,16 @@ if [ ! -f ~/.vim/autoload/pathogen.vim ]; then
     curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 fi
 
+DIR_VIMPLUGINS=~/.vim/bundle
+
 # Install vim-surround
-DIR_VIMSURR=~/.vim/bundle/vim-surround/
-if [ ! -d "$DIR_VIMSURR" ]; then
-    git clone git://github.com/tpope/vim-surround.git $DIR_VIMSURR
+if [ ! -d "$DIR_VIMPLUGINS"/vim-surround ]; then
+    git clone git://github.com/tpope/vim-surround.git $DIR_VIMPLUGINS/vim-surround
+fi
+
+# Install Ctrl-P
+if [ ! -f "$DIR_VIMPLUGINS"/ctrlp.vim ]; then
+    git clone https://github.com/kien/ctrlp.vim.git $DIR_VIMPLUGINS/ctrlp.vim
 fi
 
 # Create .vimrc symlink
