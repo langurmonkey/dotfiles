@@ -2,17 +2,40 @@
 
 DOTFILES_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
+#
+# VIM
+#
+
 # Install pathogen if needed
-mkdir -p ~/.vim/autoload ~/.vim/bundle 
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+if [ ! -f ~/.vim/autoload/pathogen.vim ]; then
+    mkdir -p ~/.vim/autoload ~/.vim/bundle 
+    curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+fi
 
 # Install vim-surround
-git clone git://github.com/tpope/vim-surround.git ~/.vim/bundle/vim-surround/
+DIR_VIMSURR=~/.vim/bundle/vim-surround/
+if [ ! -d "$DIR_VIMSURR" ]; then
+    git clone git://github.com/tpope/vim-surround.git $DIR_VIMSURR
+fi
 
 # Create .vimrc symlink
 rm ~/.vimrc
 ln -s $DOTFILES_PATH/.vimrc ~/.vimrc
 
+#
+# TMUX
+#
+
+# Install tmux resurrect
+DIR_TMUXR=~/git/tmux-resurrect/
+if [ ! -d "$DIR_TMUXR" ]; then
+    mkdir -p ~/git
+    git clone https://github.com/tmux-plugins/tmux-resurrect $DIR_TMUXR
+fi
+
+# Create .tmux.conf symlink
+rm ~/.tmux.conf
+ln -s $DOTFILES_PATH/.tmux.conf ~/.tmux.conf
 
 # Set keyboard repeat and delay - gnome only
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 20
