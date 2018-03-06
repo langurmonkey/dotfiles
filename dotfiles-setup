@@ -1,0 +1,12 @@
+#!/bin/bash
+
+DOTFILES_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
+# Create .vimrc symlink
+rm ~/.vimrc
+ln -s $DOTFILES_PATH/.vimrc ~/.vimrc
+
+
+# Set keyboard repeat and delay - gnome only
+gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 20
+gsettings set org.gnome.desktop.peripherals.keyboard delay 250
