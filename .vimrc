@@ -56,8 +56,11 @@ set wildignore+=*.class,*.a,*.o
 set wildignore+=*.out,*.dvi
 set wildignore+=.DS_Store,.git,.hg,.svn
 set wildignore+=*~,*.swp,*.tmp
-
-" general key mappings
+" Ctrl-P open in new tab by default, <C-t> opens in current tab
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
 
 " center view on the search result
 noremap n nzz
