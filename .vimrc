@@ -59,6 +59,7 @@ set wildignore+=*.class,*.a,*.o
 set wildignore+=*.out,*.dvi
 set wildignore+=.DS_Store,.git,.hg,.svn
 set wildignore+=*~,*.swp,*.tmp
+set wildignore+=*/releases/**
 " Ctrl-P open in new tab by default, <C-t> opens in current tab
 let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("e")': ['<c-t>'],
