@@ -2,6 +2,13 @@
 
 DOTFILES_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
+# Install pathogen if needed
+mkdir -p ~/.vim/autoload ~/.vim/bundle 
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+# Install vim-surround
+git clone git://github.com/tpope/vim-surround.git ~/.vim/bundle/vim-surround/
+
 # Create .vimrc symlink
 rm ~/.vimrc
 ln -s $DOTFILES_PATH/.vimrc ~/.vimrc
