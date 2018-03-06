@@ -11,6 +11,9 @@ set path+=**
 " enable pathogen
 execute pathogen#infect()
 
+" use system clipboard as default
+set clipboard=unnamedplus
+
 " enable syntax
 syntax on
 colorscheme 256-jungle
