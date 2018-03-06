@@ -62,6 +62,7 @@ let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
     \ }
 
+
 " center view on the search result
 noremap n nzz
 noremap N Nzz
