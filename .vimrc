@@ -26,7 +26,7 @@ set expandtab
 set tabstop=4
 set ts=4
 set softtabstop=4
-" When using << or >> commands, shift lines by 4 spaces
+" when using << or >> commands, shift lines by 4 spaces
 set shiftwidth=4
 
 set relativenumber              " show line numbers
@@ -40,7 +40,7 @@ set showmatch           " show parenthesis matching
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
 
-" Disable omnicompletion
+" disable omnicompletion
 filetype plugin off
 set omnifunc=
 let g:pymode_rope_lookup_project = 0
@@ -48,7 +48,10 @@ let g:pymode_rope_lookup_project = 0
 " disable folding
 set nofoldenable
 
-" Prompt for reload when file changes
+" csyntaxafter
+autocmd! FileType c,cpp,java,php call CSyntaxAfter() 
+
+" prompt for reload when file changes
 :au WinEnter * checktime
 
 " Ctrl-P config
@@ -140,18 +143,17 @@ function MyTabLine()
 endfunction
 
 
-" Open NERDTree at startup if no files specified
+" open NERDTree at startup if no files specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-" Open NERDTree at startup on opening a directory
+" open NERDTree at startup on opening a directory
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
-" Map ctrl-t to NERDTree
+" map ctrl-t to NERDTree
 map <C-t> :NERDTreeToggle<CR>
 
-" Close vim if only NERDTree is left open
+" close vim if only NERDTree is left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
 

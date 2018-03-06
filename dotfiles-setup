@@ -29,6 +29,11 @@ if [ ! -d "$DIR_VIMPLUGINS"/nerdtree ]; then
     git clone https://github.com/scrooloose/nerdtree.git $DIR_VIMPLUGINS/nerdtree
 fi
 
+# Install CSyntaxAfter
+curl -o csyntaxafter.zip https://www.vim.org/scripts/download_script.php?src_id=24609
+unzip csyntaxafter.zip -d ~/.vim/
+rm csyntaxafter.zip
+
 # Create .vimrc symlink
 rm ~/.vimrc
 ln -s $DOTFILES_PATH/.vimrc ~/.vimrc
