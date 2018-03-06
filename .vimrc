@@ -51,6 +51,11 @@ set nofoldenable
 " Prompt for reload when file changes
 :au WinEnter * checktime
 
+" Ctrl-P config
+set wildignore+=*.class,*.a,*.o
+set wildignore+=*.out,*.dvi
+set wildignore+=.DS_Store,.git,.hg,.svn
+set wildignore+=*~,*.swp,*.tmp
 
 " general key mappings
 
