@@ -20,8 +20,13 @@ if [ ! -d "$DIR_VIMPLUGINS"/vim-surround ]; then
 fi
 
 # Install Ctrl-P
-if [ ! -f "$DIR_VIMPLUGINS"/ctrlp.vim ]; then
+if [ ! -d "$DIR_VIMPLUGINS"/ctrlp.vim ]; then
     git clone https://github.com/kien/ctrlp.vim.git $DIR_VIMPLUGINS/ctrlp.vim
+fi
+
+# Install NERDTree
+if [ ! -d "$DIR_VIMPLUGINS"/nerdtree ]; then
+    git clone https://github.com/scrooloose/nerdtree.git $DIR_VIMPLUGINS/nerdtree
 fi
 
 # Create .vimrc symlink
