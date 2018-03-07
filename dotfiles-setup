@@ -44,6 +44,12 @@ if [ ! -d ~/.vim/after/syntax ]; then
     rm csyntaxafter.zip
 fi
 
+# Add setcolors.vim
+#if [ ! -f ~/.vim/plugin/setcolors.vim ]; then
+#    mkdir -p ~/.vim/plugin/
+#    ln -s $DOTFILES_PATH/vim/setcolors.vim ~/.vim/plugin/setcolors.vim
+#fi
+
 # Create .vimrc symlink
 rm ~/.vimrc
 ln -s $DOTFILES_PATH/.vimrc ~/.vimrc

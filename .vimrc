@@ -1,9 +1,9 @@
 " not compatible with ancient versions
 set nocompatible
 
-if has("mouse")
-    set mouse=a
-endif
+" use mouse to resize, scroll, etc. even within tmux
+set mouse+=a
+set ttymouse=xterm2
 
 " recursive within current directory
 set path+=**
@@ -45,8 +45,11 @@ filetype plugin off
 set omnifunc=
 let g:pymode_rope_lookup_project = 0
 
-" disable folding
-set nofoldenable
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬
 
 " map ctr-movement to move across splits
 map <C-h> <C-w>h
