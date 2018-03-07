@@ -48,6 +48,12 @@ let g:pymode_rope_lookup_project = 0
 " disable folding
 set nofoldenable
 
+" map ctr-movement to move across splits
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
 " csyntaxafter
 autocmd! FileType c,cpp,java,php call CSyntaxAfter() 
 
