@@ -57,6 +57,9 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" map space to insert a single character and return to normal mode
+nnoremap <Space> i_<Esc>r
+
 " csyntaxafter
 autocmd! FileType c,cpp,java,php call CSyntaxAfter() 
 
