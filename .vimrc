@@ -41,9 +41,7 @@ set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
 
 " disable omnicompletion
-filetype plugin off
-set omnifunc=
-let g:pymode_rope_lookup_project = 0
+filetype plugin on
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>

@@ -69,6 +69,20 @@ fi
 rm ~/.tmux.conf
 ln -s $DOTFILES_PATH/.tmux.conf ~/.tmux.conf
 
+
+#
+# RANGER
+#
+DIR_RANGER=~/.config/ranger
+if [ ! -d "$DIR_RANGER" ]; then
+    mkdir -p $DIR_RANGER
+fi
+
+# Create scope.sh symlink
+rm $DIR_RANGER/scope.sh
+ln -s $DOTFILES_PATH/ranger/scope.sh $DIR_RANGER/scope.sh
+
+
 # Set keyboard repeat and delay - gnome only
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 20
 gsettings set org.gnome.desktop.peripherals.keyboard delay 250
