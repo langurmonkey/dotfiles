@@ -1,0 +1,15 @@
+# Standard stuff
+# Format for listings and directory usages
+alias ll='ls -alFtr'
+alias la='ls -Atr'
+alias l='ls -CFtr'
+alias df='df -h'
+alias du='du -h'
+
+# Regular utils
+
+# Fbx conv with right libraries
+alias fbx-conv='LD_LIBRARY_PATH=~/Programs/fbx-conv;~/Programs/fbx-conv/fbx-conv-lin64'
+
+# Extract youtube audio as mp3
+alias youtube-audio='youtube-dl --external-downloader aria2c -x --audio-format mp3 --audio-quality 6'

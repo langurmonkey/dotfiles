@@ -44,6 +44,12 @@ if [ ! -d ~/.vim/after/syntax ]; then
     rm csyntaxafter.zip
 fi
 
+# Install fugitive
+#if [ ! -d "$DIR_VIMPLUGINS"/vim-fugitive ]; then
+#    git clone https://github.com/tpope/vim-fugitive.git $DIR_VIMPLUGINS/vim-fugitive
+#fi
+
+
 # Add setcolors.vim
 #if [ ! -f ~/.vim/plugin/setcolors.vim ]; then
 #    mkdir -p ~/.vim/plugin/
