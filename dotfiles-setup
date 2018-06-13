@@ -8,6 +8,7 @@ DOTFILES_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
 # Install pathogen if needed
 if [ ! -f ~/.vim/autoload/pathogen.vim ]; then
+    echo "Installing pathogen"
     mkdir -p ~/.vim/autoload ~/.vim/bundle 
     curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 fi
@@ -16,6 +17,7 @@ DIR_VIMPLUGINS=~/.vim/bundle
 
 # Install color schemes
 if [ ! -d ~/.vim/colors ]; then
+    echo "Installing vim color schemes"
     git clone https://github.com/flazz/vim-colorschemes.git ~/git/vim-colorschemes
     mkdir -p ~/.vim/colors/
     mv ~/git/vim-colorschemes/colors/* ~/.vim/colors/
@@ -24,34 +26,49 @@ fi
 
 # Install vim-surround
 if [ ! -d "$DIR_VIMPLUGINS"/vim-surround ]; then
+    echo "Installing vim-surround"
     git clone git://github.com/tpope/vim-surround.git $DIR_VIMPLUGINS/vim-surround
 fi
 
 # Install Ctrl-P
 if [ ! -d "$DIR_VIMPLUGINS"/ctrlp.vim ]; then
+    echo "Installing Ctrl-P"
     git clone https://github.com/kien/ctrlp.vim.git $DIR_VIMPLUGINS/ctrlp.vim
 fi
 
 # Install NERDTree
 if [ ! -d "$DIR_VIMPLUGINS"/nerdtree ]; then
+    echo "Installing NERDTree"
     git clone https://github.com/scrooloose/nerdtree.git $DIR_VIMPLUGINS/nerdtree
 fi
 
 # Install CSyntaxAfter
 if [ ! -d ~/.vim/after/syntax ]; then
+    echo "Installing CSyntaxAfter"
     curl -o csyntaxafter.zip https://www.vim.org/scripts/download_script.php?src_id=24609
     unzip csyntaxafter.zip -d ~/.vim/
     rm csyntaxafter.zip
 fi
 
+# Install GLSL syntax
+if [ ! -f ~/.vim/syntax/glsl.vim ]; then
+    echo "Installing vim-glsl"
+    git clone https://github.com/tikhomirov/vim-glsl.git ~/git/vim-glsl
+    rm ~/git/vim-glsl/README.MD ~/git/vim-glsl/LICENSE
+    cp -r ~/git/vim-glsl/* ~/.vim/
+    rm -rf ~/git/vim-glsl
+fi
+
 # Install fugitive
 #if [ ! -d "$DIR_VIMPLUGINS"/vim-fugitive ]; then
+#    echo "Installing fugitive"
 #    git clone https://github.com/tpope/vim-fugitive.git $DIR_VIMPLUGINS/vim-fugitive
 #fi
 
 
 # Add setcolors.vim
 #if [ ! -f ~/.vim/plugin/setcolors.vim ]; then
+#    echo "Adding setcolors.vim"
 #    mkdir -p ~/.vim/plugin/
 #    ln -s $DOTFILES_PATH/vim/setcolors.vim ~/.vim/plugin/setcolors.vim
 #fi
@@ -67,6 +84,7 @@ ln -s $DOTFILES_PATH/.vimrc ~/.vimrc
 # Install tmux resurrect
 DIR_TMUXR=~/git/tmux-resurrect/
 if [ ! -d "$DIR_TMUXR" ]; then
+    echo "Installing tmux-resurrect"
     mkdir -p ~/git
     git clone https://github.com/tmux-plugins/tmux-resurrect $DIR_TMUXR
 fi
@@ -90,5 +108,6 @@ ln -s $DOTFILES_PATH/ranger/scope.sh $DIR_RANGER/scope.sh
 
 
 # Set keyboard repeat and delay - gnome only
+echo "Setting repeat delay to 250 ms"
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 20
 gsettings set org.gnome.desktop.peripherals.keyboard delay 250

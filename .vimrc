@@ -49,6 +49,9 @@ nmap <leader>l :set list!<CR>
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
 
+" GLSL syntax
+autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
+
 " map ctr-movement to move across splits
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -79,6 +82,9 @@ let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
+
+" glsl syntax
+autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
 
 " center view on the search result
 noremap n nzz
