@@ -13,8 +13,9 @@ set -e
 _msg() { printf "\r\033[2K\033[0;32m[ .. ] %s\033[0m\n" "$*"; }
 _uncallable() { ! command -v "$1" >/dev/null; }
 
+
 if _uncallable zsh || _uncallable git; then
-    _msg "Installing git, zsh, vim, ranger and tmux"
+    _msg "Installing git, zsh, vim, ranger and tmux..."
     if [[ -f /etc/arch-release ]]; then
         sudo pacman --needed --noconfirm -S git zsh vim tmux ranger
     elif [[ -f /etc/debian_version ]]; then
@@ -32,9 +33,11 @@ if [[ ! -d ~/.dotfiles ]]; then
     git clone --recursive "$dfrepo" "$DOTFILES"
 fi
 
+_msg "Installing oh-my-zshrc..."
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 #
 _msg
 _msg "And done!"
 _msg
-_msg "Use $DOTFILES/deploy to install your dotfiles, I suggest you begin"
-_msg "with 'base/arch' or 'base/ubuntu'."
+_msg "Use $DOTFILES/deploy to install your dotfiles"

@@ -1,6 +1,15 @@
 #!/bin/bash
 
-# helpers
+# VARIABLES ======================================
+
+DOTFILES_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
+DIR_VIMPLUGINS=~/.vim/bundle
+DIR_RANGER=~/.config/ranger
+DIR_TMUXR=~/git/tmux-resurrect/
+
+
+# HELPERS ========================================
+
 function echo-debug { echo "$@" | sed -e "s%$HOME%~%g" -e "s%$DOTFILES%.%g"; }
 function echo-info  { printf "\r\033[2K\033[0;34m[ .. ]\033[0m %s\n" "$*"; }
 function echo-skip  { printf "\r\033[2K\033[38;05;240m[SKIP]\033[0m %s\n" "$*"; }
@@ -8,7 +17,72 @@ function echo-ok    { printf "\r\033[2K\033[0;32m[ OK ]\033[0m %s\n" "$*"; }
 function echo-fail { printf "\r\033[2K\033[0;31m[FAIL]\033[0m %s\n" "$*"; }
 function echo-custom { printf "\n\r\033[2K\033[0;33m[$1]\033[0m %s\n" "$2"; }
 
-DOTFILES_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
+# FUNCTIONS ======================================
+
+# Clones a git repo to the target directory
+# USAGE: do-clone targetdir url name
+function do-clone {
+    #echo-debug "    Folder: $1"
+    #echo-debug "       URL: $2"
+    #echo-debug "      Name: $3"
+    if [ ! -d $1 ]; then
+        echo-info "Installing $3"
+        git clone $2 $1
+        echo-ok "Done"
+    else
+        echo-skip "$3"
+    fi
+}
+
+# Pulls a file from curl and puts them into a specific location
+# If the directory where target is does not exist, it is created
+# USAGE: do-curl-fetchfile target url name
+function do-curl-fetchfile {
+    #echo-debug "    Target: $1"
+    #echo-debug "       URL: $2"
+    #echo-debug "      Name: $3"
+    if [ ! -f $1 ]; then
+        echo-info "Installing $3"
+        LOCATION=$(dirname "${1}")
+        mkdir -p "$LOCATION" 
+        curl -LSso $1 $2
+        echo-ok "Done"
+    else
+        echo-skip "$3"
+    fi
+}
+
+# Does a symlink between target and link_name, deleting it if it exists
+# USAGE: do-symlink target link_name
+function do-symlink {
+    #echo-debug "    Target: $1"
+    #echo-debug " Link name: $2"
+    echo-info "Symlink: $2 -> $1"
+    rm $2
+    ln -s $1 $2
+}
+
+# Sources a shell file in the given shell's rc file, if it is not there yet
+# USAGE: do-source shell file
+function do-source {
+    #echo-debug "      Shell: $1"
+    #echo-debug "       File: $2"
+    if [ -x "$(command -v $1)" ]; then
+        CONF=~/.$1rc
+        FILENAME=$(basename "$2")
+        # If file not yet sourced, source it
+        if ! grep -q $FILENAME $CONF
+        then
+            echo-info "$2: $CONF"
+            echo -e "\n# Auto source $FILENAME\nif [ -f $2 ]; then\n\tsource $2\nfi" >> $CONF
+        else
+            echo-skip "$1"
+        fi
+    fi
+}
+
+# START ===================================
 
 #
 # VIM
@@ -16,45 +90,19 @@ DOTFILES_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
 echo-custom " ** " "==== VIM ===="
 
 # Install pathogen if needed
-if [ ! -f ~/.vim/autoload/pathogen.vim ]; then
-    echo-info "Installing pathogen"
-    mkdir -p ~/.vim/autoload ~/.vim/bundle 
-    curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-    echo-ok "Done"
-fi
-
-DIR_VIMPLUGINS=~/.vim/bundle
+do-curl-fetchfile ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim pathogen
 
 # Install color schemes
-if [ ! -d ~/.vim/colors ]; then
-    echo-info "Installing vim color schemes"
-    git clone https://github.com/flazz/vim-colorschemes.git ~/git/vim-colorschemes
-    mkdir -p ~/.vim/colors/
-    mv ~/git/vim-colorschemes/colors/* ~/.vim/colors/
-    rm -rf ~/git/vim-colorschemes
-    echo-ok "Done"
-fi
+do-clone ~/.vim/colors https://github.com/flazz/vim-colorschemes.git vim-colorschemes
 
 # Install vim-surround
-if [ ! -d "$DIR_VIMPLUGINS"/vim-surround ]; then
-    echo-info "Installing vim-surround"
-    git clone git://github.com/tpope/vim-surround.git $DIR_VIMPLUGINS/vim-surround
-    echo-ok "Done"
-fi
+do-clone "$DIR_VIMPLUGINS"/vim-surround git://github.com/tpope/vim-surround.git vim-surround
 
 # Install Ctrl-P
-if [ ! -d "$DIR_VIMPLUGINS"/ctrlp.vim ]; then
-    echo-info "Installing Ctrl-P"
-    git clone https://github.com/kien/ctrlp.vim.git $DIR_VIMPLUGINS/ctrlp.vim
-    echo-ok "Done"
-fi
+do-clone "$DIR_VIMPLUGINS"/ctrlp.vim https://github/com/kien/ctrlp.vim.git CtrlP
 
 # Install NERDTree
-if [ ! -d "$DIR_VIMPLUGINS"/nerdtree ]; then
-    echo-info "Installing NERDTree"
-    git clone https://github.com/scrooloose/nerdtree.git $DIR_VIMPLUGINS/nerdtree
-    echo-ok "Done"
-fi
+do-clone "$DIR_VIMPLUGINS"/nerdtree https://github.com/scrooloose/nerdtree.git NERDTree
 
 # Install CSyntaxAfter
 if [ ! -d ~/.vim/after/syntax ]; then
@@ -63,24 +111,15 @@ if [ ! -d ~/.vim/after/syntax ]; then
     unzip csyntaxafter.zip -d ~/.vim/
     rm csyntaxafter.zip
     echo-ok "Done"
+else
+    echo-skip "CSyntaxAfter"
 fi
 
 # Install GLSL syntax
-if [ ! -f ~/.vim/syntax/glsl.vim ]; then
-    echo-info "Installing vim-glsl"
-    git clone https://github.com/tikhomirov/vim-glsl.git ~/git/vim-glsl
-    rm ~/git/vim-glsl/README.MD ~/git/vim-glsl/LICENSE
-    cp -r ~/git/vim-glsl/* ~/.vim/
-    rm -rf ~/git/vim-glsl
-    echo-ok "Done"
-fi
-
+do-curl-fetchfile ~/.vim/syntax/glsl.vim https://raw.githubusercontent.com/tikhomirov/vim-glsl/master/syntax/glsl.vim vim-glsl
 
 # Create .vimrc symlink
-echo-info "Creating .vimrc symlink"
-rm ~/.vimrc
-ln -s $DOTFILES_PATH/.vimrc ~/.vimrc
-echo-ok "Done"
+do-symlink $DOTFILES_PATH/.vimrc ~/.vimrc
 
 #
 # TMUX
@@ -88,43 +127,55 @@ echo-ok "Done"
 echo-custom " ** " "==== TMUX ===="
 
 # Install tmux resurrect
-DIR_TMUXR=~/git/tmux-resurrect/
-if [ ! -d "$DIR_TMUXR" ]; then
-    echo-info "Installing tmux-resurrect"
-    mkdir -p ~/git
-    git clone https://github.com/tmux-plugins/tmux-resurrect $DIR_TMUXR
-    echo-ok "Done"
-fi
+do-clone $DIR_TMUXR https://github.com/tmux-plugins/tmux-resurrect tmux-resurrect
 
 # Create .tmux.conf symlink
-echo-info "Creating .tmux.conf symlink"
-rm ~/.tmux.conf
-ln -s $DOTFILES_PATH/.tmux.conf ~/.tmux.conf
-echo-ok "Done"
+do-symlink $DOTFILES_PATH/.tmux.conf ~/.tmux.conf
 
 #
 # RANGER
 #
 echo-custom " ** " "==== RANGER ===="
 
-DIR_RANGER=~/.config/ranger
 if [ ! -d "$DIR_RANGER" ]; then
     mkdir -p $DIR_RANGER
 fi
 
 # Create scope.sh symlink
-echo-info "Creating ranger scope.sh symlink"
-rm $DIR_RANGER/scope.sh
-ln -s $DOTFILES_PATH/ranger/scope.sh $DIR_RANGER/scope.sh
-echo-ok "Done"
+do-symlink $DOTFILES_PATH/ranger/scope.sh $DIR_RANGER/scope.sh
 
+
+#
+# SHELL ALIASES
+#
+echo-custom " ** " "==== SHELL ALIASES ===="
+
+# Symlink shell aliases file
+do-symlink $DOTFILES_PATH/.shell_aliases ~/.shell_aliases
+
+# Source in bash and zsh
+do-source "bash" ~/.shell_aliases
+do-source "zsh"  ~/.shell_aliases
+
+echo-ok "Done"
 
 # Set keyboard repeat and delay - gnome only
 echo-custom " ** " "==== REPEAT DELAY 250 ms ===="
-gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 20
-gsettings set org.gnome.desktop.peripherals.keyboard delay 250
-echo-ok "Done"
+if [ "$XDG_CURRENT_DESKTOP" = "" ]
+then
+    desktop=$(echo "$XDG_DATA_DIRS" | sed 's/.*\(xfce\|kde\|gnome\).*/\1/')
+else
+    desktop=$XDG_CURRENT_DESKTOP
+fi
+desktop=${desktop,,}  # convert to lower case
+if [ $desktop = "gnome" ]; then
+    gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 20
+    gsettings set org.gnome.desktop.peripherals.keyboard delay 250
+    echo-ok "Repeat delay set for desktop: $desktop"
+else
+    echo-fail "Not setting repeat interval for desktop: $desktop"
+fi
 
 # Done
 echo ""
-echo-ok "Done! Your environment should be ready"
+echo-ok "Done! Your environment should be ready to go"
