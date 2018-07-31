@@ -14,11 +14,11 @@ _msg() { printf "\r\033[2K\033[0;32m[ .. ] %s\033[0m\n" "$*"; }
 _uncallable() { ! command -v "$1" >/dev/null; }
 
 if _uncallable zsh || _uncallable git; then
-    _msg "Installing git, zsh, vim and tmux"
+    _msg "Installing git, zsh, vim, ranger and tmux"
     if [[ -f /etc/arch-release ]]; then
-        sudo pacman --needed --noconfirm -S git zsh vim tmux
+        sudo pacman --needed --noconfirm -S git zsh vim tmux ranger
     elif [[ -f /etc/debian_version ]]; then
-        sudo apt-get update && sudo apt-get install -y git zsh vim tmux
+        sudo apt-get update && sudo apt-get install -y git zsh vim tmux ranger
     fi
 fi
 
