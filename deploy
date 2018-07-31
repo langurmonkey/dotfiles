@@ -1,113 +1,130 @@
 #!/bin/bash
 
+# helpers
+function echo-debug { echo "$@" | sed -e "s%$HOME%~%g" -e "s%$DOTFILES%.%g"; }
+function echo-info  { printf "\r\033[2K\033[0;34m[ .. ]\033[0m %s\n" "$*"; }
+function echo-skip  { printf "\r\033[2K\033[38;05;240m[SKIP]\033[0m %s\n" "$*"; }
+function echo-ok    { printf "\r\033[2K\033[0;32m[ OK ]\033[0m %s\n" "$*"; }
+function echo-fail { printf "\r\033[2K\033[0;31m[FAIL]\033[0m %s\n" "$*"; }
+function echo-custom { printf "\n\r\033[2K\033[0;33m[$1]\033[0m %s\n" "$2"; }
+
 DOTFILES_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
 #
 # VIM
 #
+echo-custom " ** " "==== VIM ===="
 
 # Install pathogen if needed
 if [ ! -f ~/.vim/autoload/pathogen.vim ]; then
-    echo "Installing pathogen"
+    echo-info "Installing pathogen"
     mkdir -p ~/.vim/autoload ~/.vim/bundle 
     curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+    echo-ok "Done"
 fi
 
 DIR_VIMPLUGINS=~/.vim/bundle
 
 # Install color schemes
 if [ ! -d ~/.vim/colors ]; then
-    echo "Installing vim color schemes"
+    echo-info "Installing vim color schemes"
     git clone https://github.com/flazz/vim-colorschemes.git ~/git/vim-colorschemes
     mkdir -p ~/.vim/colors/
     mv ~/git/vim-colorschemes/colors/* ~/.vim/colors/
     rm -rf ~/git/vim-colorschemes
+    echo-ok "Done"
 fi
 
 # Install vim-surround
 if [ ! -d "$DIR_VIMPLUGINS"/vim-surround ]; then
-    echo "Installing vim-surround"
+    echo-info "Installing vim-surround"
     git clone git://github.com/tpope/vim-surround.git $DIR_VIMPLUGINS/vim-surround
+    echo-ok "Done"
 fi
 
 # Install Ctrl-P
 if [ ! -d "$DIR_VIMPLUGINS"/ctrlp.vim ]; then
-    echo "Installing Ctrl-P"
+    echo-info "Installing Ctrl-P"
     git clone https://github.com/kien/ctrlp.vim.git $DIR_VIMPLUGINS/ctrlp.vim
+    echo-ok "Done"
 fi
 
 # Install NERDTree
 if [ ! -d "$DIR_VIMPLUGINS"/nerdtree ]; then
-    echo "Installing NERDTree"
+    echo-info "Installing NERDTree"
     git clone https://github.com/scrooloose/nerdtree.git $DIR_VIMPLUGINS/nerdtree
+    echo-ok "Done"
 fi
 
 # Install CSyntaxAfter
 if [ ! -d ~/.vim/after/syntax ]; then
-    echo "Installing CSyntaxAfter"
+    echo-info "Installing CSyntaxAfter"
     curl -o csyntaxafter.zip https://www.vim.org/scripts/download_script.php?src_id=24609
     unzip csyntaxafter.zip -d ~/.vim/
     rm csyntaxafter.zip
+    echo-ok "Done"
 fi
 
 # Install GLSL syntax
 if [ ! -f ~/.vim/syntax/glsl.vim ]; then
-    echo "Installing vim-glsl"
+    echo-info "Installing vim-glsl"
     git clone https://github.com/tikhomirov/vim-glsl.git ~/git/vim-glsl
     rm ~/git/vim-glsl/README.MD ~/git/vim-glsl/LICENSE
     cp -r ~/git/vim-glsl/* ~/.vim/
     rm -rf ~/git/vim-glsl
+    echo-ok "Done"
 fi
 
-# Install fugitive
-#if [ ! -d "$DIR_VIMPLUGINS"/vim-fugitive ]; then
-#    echo "Installing fugitive"
-#    git clone https://github.com/tpope/vim-fugitive.git $DIR_VIMPLUGINS/vim-fugitive
-#fi
-
-
-# Add setcolors.vim
-#if [ ! -f ~/.vim/plugin/setcolors.vim ]; then
-#    echo "Adding setcolors.vim"
-#    mkdir -p ~/.vim/plugin/
-#    ln -s $DOTFILES_PATH/vim/setcolors.vim ~/.vim/plugin/setcolors.vim
-#fi
 
 # Create .vimrc symlink
+echo-info "Creating .vimrc symlink"
 rm ~/.vimrc
 ln -s $DOTFILES_PATH/.vimrc ~/.vimrc
+echo-ok "Done"
 
 #
 # TMUX
 #
+echo-custom " ** " "==== TMUX ===="
 
 # Install tmux resurrect
 DIR_TMUXR=~/git/tmux-resurrect/
 if [ ! -d "$DIR_TMUXR" ]; then
-    echo "Installing tmux-resurrect"
+    echo-info "Installing tmux-resurrect"
     mkdir -p ~/git
     git clone https://github.com/tmux-plugins/tmux-resurrect $DIR_TMUXR
+    echo-ok "Done"
 fi
 
 # Create .tmux.conf symlink
+echo-info "Creating .tmux.conf symlink"
 rm ~/.tmux.conf
 ln -s $DOTFILES_PATH/.tmux.conf ~/.tmux.conf
-
+echo-ok "Done"
 
 #
 # RANGER
 #
+echo-custom " ** " "==== RANGER ===="
+
 DIR_RANGER=~/.config/ranger
 if [ ! -d "$DIR_RANGER" ]; then
     mkdir -p $DIR_RANGER
 fi
 
 # Create scope.sh symlink
+echo-info "Creating ranger scope.sh symlink"
 rm $DIR_RANGER/scope.sh
 ln -s $DOTFILES_PATH/ranger/scope.sh $DIR_RANGER/scope.sh
+echo-ok "Done"
 
 
 # Set keyboard repeat and delay - gnome only
-echo "Setting repeat delay to 250 ms"
+echo-custom " ** " "==== REPEAT DELAY 250 ms ===="
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 20
 gsettings set org.gnome.desktop.peripherals.keyboard delay 250
+echo-ok "Done"
+
+# Done
+echo ""
+echo-ok "Done! Your environment should be ready"
