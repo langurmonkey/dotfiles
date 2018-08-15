@@ -13,3 +13,6 @@ alias fbx-conv='LD_LIBRARY_PATH=~/Programs/fbx-conv;~/Programs/fbx-conv/fbx-conv
 
 # Extract youtube audio as mp3
 alias youtube-audio='youtube-dl --external-downloader aria2c -x --audio-format mp3 --audio-quality 6'
+
+# Docker with sudo by default
+alias docker='sudo docker'
