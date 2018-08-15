@@ -33,8 +33,14 @@ if [[ ! -d ~/.dotfiles ]]; then
     git clone --recursive "$dfrepo" "$DOTFILES"
 fi
 
-_msg "Installing oh-my-zshrc..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+read -p "Install oh-my-zsh (Y/n)? " -n 1 -r
+REPLY=${REPLY,,} # lower case
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^(y| )$ ]] || [[ -z $REPLY ]];
+then
+    _msg "Installing oh-my-zshrc..."
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"    
+fi
 
 #
 _msg
