@@ -3,7 +3,7 @@
 alias ll='ls -alFtr'
 alias la='ls -Atr'
 alias l='ls -CFtr'
-alias df='df -h'
+alias df='df -Th'
 alias du='du -h'
 
 # Regular utils

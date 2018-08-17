@@ -1,0 +1,3 @@
+#!/bin/bash
+
+$PROGRAMS/Eclipses/current-eclipse/eclipse -application org.eclipse.jdt.core.JavaCodeFormatter -config $FL_HOME/.settings/org.eclipse.jdt.core.prefs $1
