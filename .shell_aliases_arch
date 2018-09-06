@@ -1,0 +1,5 @@
+
+alias update='sudo pacman -Syu'
+alias updateaur='yay -Syu'
+alias install='sudo pacman -S'
+alias remove='sudo pacman -R'

@@ -5,8 +5,10 @@ alias la='ls -Atr'
 alias l='ls -CFtr'
 alias df='df -Th'
 alias du='du -h'
+alias cp='cp -i'
 
 # Regular utils
+alias shit='sudo $(lc -ln -1)'
 
 # Fbx conv with right libraries
 alias fbx-conv='LD_LIBRARY_PATH=~/Programs/fbx-conv;~/Programs/fbx-conv/fbx-conv-lin64'

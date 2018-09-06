@@ -157,6 +157,13 @@ do-symlink $DOTFILES_PATH/.shell_aliases ~/.shell_aliases
 do-source "bash" ~/.shell_aliases
 do-source "zsh"  ~/.shell_aliases
 
+
+if [[ -f /etc/arch-release ]]; then
+    do-symlink $DOTFILES_PATH/.shell_aliases_arch ~/.shell_aliases_arch
+    do-source "bash" ~/.shell_aliases_arch
+    do-source "zsh" ~/.shell_aliases_arch
+fi
+
 echo-ok "Done"
 
 # Set keyboard repeat and delay - gnome only
