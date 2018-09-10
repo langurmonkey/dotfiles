@@ -166,6 +166,18 @@ fi
 
 echo-ok "Done"
 
+
+#
+# QUTEBROWSER
+#
+echo-custom " ** " "==== QUTEBROWSER ===="
+
+# Symlink config
+do-symlink $DOTFILES_PATH/qutebrowser ~/.config/qutebrowser
+
+echo-ok "Done"
+
+
 # Set keyboard repeat and delay - gnome only
 echo-custom " ** " "==== REPEAT DELAY 250 ms ===="
 if [ "$XDG_CURRENT_DESKTOP" = "" ]
