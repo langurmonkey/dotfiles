@@ -1314,7 +1314,7 @@ c.aliases.update({'gmail': 'open mail.google.com'})
 ## used by prepending the search engine name to the search term, e.g.
 ## `:open google qutebrowser`.
 ## Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://startpage.com/do/search?query={}'}
+c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/{}'}
 c.url.searchengines.update({'yt': 'https://youtube.com/results?search_query={}'})
 c.url.searchengines.update({'tw': 'https://twitter.com/{}'})
 c.url.searchengines.update({'aw': 'https://wiki.archlinux.org/?search={}'})
