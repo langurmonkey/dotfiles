@@ -182,7 +182,7 @@ bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 bindsym $mod+shift+x exec i3lock
 
 # wallpaper
-#exec "feh --bg-scale ~/.dotfiles/assets/wallpapers/grub-bg-monkey.jpg"
+exec_always "feh --bg-max ~/.dotfiles/assets/wallpapers/grub-bg-monkey.jpg"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -219,3 +219,7 @@ bar {
         #status_command i3status
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
 }
+
+
+# Startup applications
+exec thunderbird
