@@ -181,8 +181,6 @@ bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 # lock
 bindsym $mod+shift+x exec i3lock
 
-# wallpaper
-exec_always "feh --bg-max /home/tsagrista/Pictures/wallpaper.jpg"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -225,4 +223,8 @@ bar {
 exec thunderbird
 exec_always megasync
 
+# Setup screens
 exec_always /home/tsagrista/Scripts/current-randr.sh
+
+# Wallpaper
+exec_always "feh --bg-max /home/tsagrista/Pictures/wallpaper.jpg"
