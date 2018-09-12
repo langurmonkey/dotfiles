@@ -175,7 +175,10 @@ echo-custom " ** " "==== i3 CONFIG ===="
 do-symlink $DOTFILES_PATH/i3 ~/.config/i3
 
 # xkblayout
-sudo cp $DOTFILES_PATH/bin/xkblayout-state /usr/local/bin/
+cp $DOTFILES_PATH/bin/xkblayout-state ~/.local/bin/
+cp $DOTFILES_PATH/bin/mpc_toggle ~/.local/bin/
+cp $DOTFILES_PATH/bin/my_mute ~/.local/bin/
+
 
 echo-ok "Done"
 

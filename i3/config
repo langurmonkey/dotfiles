@@ -129,6 +129,15 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# lock screen
+bindsym $mod+ctrl exec slock
+
+# bind media player keys
+bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPlay exec mpc_toggle
+bindsym XF86AudioMute exec my_mute
+
 # keyboard layouts
 exec "setxkbmap -layout us,de,es"
 exec "setxkbmap -option 'grp:alt_shift_toggle'"
