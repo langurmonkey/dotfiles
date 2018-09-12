@@ -24,20 +24,20 @@ set $color2 #666666
 set $borders 2
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window pixel $borders
-new_float pixel $borders
+#new_window pixel $borders
+#new_float pixel $borders
 
 # Hide borders
 #hide_edge_borders none
 
 # Change borders
-bindsym $mod+u border none
-bindsym $mod+y border pixel 2
-bindsym $mod+n border normal
+#bindsym $mod+u border none
+#bindsym $mod+y border pixel 2
+#bindsym $mod+n border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Droid Sans 16
+font pango:System San Francisco Display 13
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -54,7 +54,7 @@ font pango:Droid Sans 16
 floating_modifier $mod
 
 # Start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -145,7 +145,7 @@ bindsym $mod+shift+f exec i3-sensible-terminal -e "ranger"
 
 # WORKSPACES
 set $ws1 "1:"
-set $ws2 "2:"
+set $ws2 "2:"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -224,16 +224,19 @@ exec --no-startup-id xset r rate 200 35 # initial delay 300 ms, repeat 35 ms
 # finds out, if available)
 bar {
         #status_command i3status
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+        status_command i3blocks -c /home/tsagrista/.config/i3/i3blocks.conf
 }
 
 
 # Startup applications
 exec thunderbird
-exec_always megasync
+exec megasync
 
 # Setup screens
 exec_always /home/tsagrista/Scripts/current-randr.sh
 
 # Wallpaper
-exec_always "feh --bg-max /home/tsagrista/Pictures/wallpaper.jpg"
+exec_always "feh --bg-fill /home/tsagrista/Pictures/wallpaper.jpg"
+
+# Trackpad
+exec_always "xinput set-prop 12 'libinput Accel Speed' 0.6"
