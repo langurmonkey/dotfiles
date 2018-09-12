@@ -144,8 +144,8 @@ bindsym $mod+shift+b exec qutebrowser
 bindsym $mod+shift+f exec i3-sensible-terminal -e "ranger"
 
 # WORKSPACES
-set $ws1 "Term"
-set $ws2 "Bwsr"
+set $ws1 "1:Term"
+set $ws2 "2:Bwsr"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
