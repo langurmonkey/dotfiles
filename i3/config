@@ -4,6 +4,13 @@
 
 set $mod Mod4
 
+# Colors
+set $bg-color 	         #2f343f
+set $inactive-bg-color   #202830
+set $text-color          #f3f4f5
+set $inactive-text-color #676E7D
+set $urgent-bg-color     #E53935
+
 # Window border multiplier
 set $borders 2
 
@@ -28,7 +35,8 @@ bindsym $mod+minus scratchpad show
 # start dmenu (a program launcher)
 bindsym $mod+shift+d exec dmenu_run
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec rofi -show run -lines 20 -eh 1.3 -opacity "85" -bw 0 -font "System San Francisco Display 12"
+#bindsym $mod+d exec rofi -show run -lines 20 -eh 1.3 -opacity "85" -bw 0 -font "System San Francisco Display 12"
+bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 
 # change focus
 bindsym $mod+h focus left
@@ -153,7 +161,7 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
+        #bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
@@ -174,11 +182,6 @@ bindsym $mod+r mode "resize"
 # Repeat interval and delay
 exec --no-startup-id xset r rate 200 35 # initial delay 300 ms, repeat 35 ms
 
-set $bg-color 	         #2f343f
-set $inactive-bg-color   #202830
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
 
 # window colors
 #                       border              background         text                 indicator
@@ -190,15 +193,19 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # bar
 bar {
   	#status_command i3blocks -c /home/tsagrista/.config/i3/i3blocks.conf
-    status_command i3status
-	colors {
-		background $bg-color
-	    	separator #757575
+   
+
+    status_command bumblebee-status -m layout disk cpu memory battery brightness datetime pulseaudio -p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t solarized-powerline
+
+    #status_command i3status
+	#colors {
+	#	background $bg-color
+	#    	separator #757575
 		#                  border             background         text
-		focused_workspace  $bg-color          $bg-color          $text-color
-		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-	}
+	#	focused_workspace  $bg-color          $bg-color          $text-color
+	#	inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+	#	urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+	#}
 }
 
 
