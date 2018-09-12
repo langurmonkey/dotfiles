@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# Purpose: Backup of important data
+# Created on: 2016
+# Author: Toni Sagrista
+# Version: 1.0
+
+#
+# START
+#
+DATE=`date +%Y%m%d_%H%M%S`
+# Backup home directory
+SRC_DIR=$HOME
+
+if [[ $# -eq 0 ]]; then
+    echo "Backup $DATE : Missing arguments"
+    echo "Usage:"
+    echo "  backup.sh [destination_folder]"
+    exit 1
+fi
+
+# Destination
+DST_DIR=$1
+
+if [ ! -d "$DST_DIR" ]; then
+    logger -t "backup" "Backup $DATE : Folder $DST_DIR does not exist! Exiting."
+    echo "Backup $DATE : Folder $DST_DIR does not exist! Exiting."
+    exit 1
+fi
+
+BACKUP_FOLDER="${DST_DIR}"/"${DATE}"_$(hostname)"_backup"
+
+logger -t "backup" "Backup $DATE : Starting backup to folder: ${BACKUP_FOLDER}"
+
+if [ ! -d "$BACKUP_FOLDER" ]; then
+	mkdir "${BACKUP_FOLDER}"
+else
+	rm -rf "${BACKUP_FOLDER}"
+fi
+
+tar --exclude='/home/tsagrista/The Escapists' --exclude='/home/tsagrista/Mega' --exclude='/home/tsagrista/mega' --exclude="/home/tsagrista/.cache" --exclude="/home/tsagrista/.steam" --exclude="/home/tsagrista/.gradle" -cvpzf "$BACKUP_FOLDER"/backup.tar.gz "$SRC_DIR"
+
+logger -t "backup" "Backup $DATE : Executed successfully: $BACKUP_FOLDER"
+#
+# END
+#
+
