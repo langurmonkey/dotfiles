@@ -21,7 +21,7 @@ set $color2 #666666
 # workspace_layout tabbed <stacking|tabbed>
 
 # Window border multiplier
-set $borders 1
+set $borders 2
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 new_window pixel $borders
@@ -144,8 +144,8 @@ bindsym $mod+shift+b exec qutebrowser
 bindsym $mod+shift+f exec i3-sensible-terminal -e "ranger"
 
 # WORKSPACES
-set $ws1 "1:Term"
-set $ws2 "2:Bwsr"
+set $ws1 "1:"
+set $ws2 "2:"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
