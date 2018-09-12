@@ -181,6 +181,13 @@ cp $DOTFILES_PATH/bin/xkblayout-state ~/.local/bin/
 echo-ok "Done"
 
 #
+# FONTS
+#
+echo-custom " ** " "==== FONTS ===="
+do-symlink $DOTFILES_PATH/fonts ~/.fonts
+echo-ok "Done"
+
+#
 # QUTEBROWSER
 #
 echo-custom " ** " "==== QUTEBROWSER ===="
