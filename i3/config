@@ -70,9 +70,14 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
+##
+## MENU
+##
+#
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec rofi -show run -lines 20 -eh 1.3 -opacity "85" -bw 0 -font "System San Francisco Display 12"
 
 # change focus
 bindsym $mod+h focus left
@@ -162,6 +167,9 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# wallpaper
+exec "feh --bg-scale ~/.dotfiles/assets/wallpapers/grub-bg-monkey.jpg"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
