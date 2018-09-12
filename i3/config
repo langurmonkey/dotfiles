@@ -96,10 +96,14 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 
+# backlight - edit /usr/local/lib/brightnessctl/configuration.sh for step size
+bindsym XF86MonBrightnessUp exec brightness+
+bindsym XF86MonBrightnessDown exec brightness-
+
 # keyboard layouts
-exec "setxkbmap -layout us,de,es"
-exec "setxkbmap -option 'grp:alt_shift_toggle'"
-bindsym ISO_Next_Group exec pkill -RTMIN+1 i3blocks
+#exec "setxkbmap -layout us,de,es"
+#exec "setxkbmap -option 'grp:alt_shift_toggle'"
+#bindsym ISO_Next_Group exec pkill -RTMIN+1 i3blocks
 
 # Start Applications
 bindsym $mod+shift+b exec qutebrowser
@@ -195,7 +199,7 @@ bar {
   	#status_command i3blocks -c /home/tsagrista/.config/i3/i3blocks.conf
    
 
-    status_command bumblebee-status -m layout disk cpu memory battery brightness datetime pulseaudio -p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t solarized-powerline
+    status_command bumblebee-status -m layout disk cpu memory battery brightness datetime amixer -p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t solarized-powerline
 
     #status_command i3status
 	#colors {
