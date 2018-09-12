@@ -224,3 +224,5 @@ bar {
 # Startup applications
 exec thunderbird
 exec_always megasync
+
+exec_always /home/tsagrista/Scripts/current-randr.sh
