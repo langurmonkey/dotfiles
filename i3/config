@@ -11,9 +11,40 @@
 
 set $mod Mod4
 
+# Color chooser
+# arch blue     #1793D1
+# debian red    #D70A53
+# manjaro green #2ECC71
+# plasma green  #18B092
+# matrix green  #00FF00
+# mint green    #5FAA24
+# numix         #C84433
+# ubuntu orange #F37320
+# vertex dark   #2C6FF0
+set $color1 #15967D
+set $color2 #666666
+
+# Set default desktop layout (default is tiling)
+# workspace_layout tabbed <stacking|tabbed>
+
+# Window border multiplier
+set $borders 1
+
+# Configure border style <normal|1pixel|pixel xx|none|pixel>
+new_window pixel $borders
+new_float pixel $borders
+
+# Hide borders
+hide_edge_borders none
+
+# Change borders
+bindsym $mod+u border none
+bindsym $mod+y border pixel 2
+bindsym $mod+n border normal
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:Droid Sans 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -29,18 +60,19 @@ font pango:monospace 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
+# Start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# Scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+#bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -92,8 +124,13 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# keyboard layouts
 exec "setxkbmap -layout us,de,es"
 exec "setxkbmap -option 'grp:alt_shift_toggle'"
+
+# Start Applications
+bindsym $mod+shift+b exec qutebrowser
+bindsym $mod+shift+f exec i3-sensible-terminal -e "ranger"
 
 # switch to workspace
 bindsym $mod+1 workspace 1
