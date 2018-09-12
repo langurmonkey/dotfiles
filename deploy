@@ -166,13 +166,22 @@ fi
 
 echo-ok "Done"
 
+#
+# i3
+#
+echo-custom " ** " "==== i3 CONFIG ===="
+
+# Symlink i3 configuration
+do-symlink $DOTFILES_PATH/i3 ~/.config/i3
+
+echo-ok "Done"
 
 #
 # QUTEBROWSER
 #
 echo-custom " ** " "==== QUTEBROWSER ===="
 
-# Symlink config
+# Symlink qutebrowser config
 do-symlink $DOTFILES_PATH/qutebrowser ~/.config/qutebrowser
 
 echo-ok "Done"
@@ -191,6 +200,8 @@ if [ $desktop = "gnome" ]; then
     gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 20
     gsettings set org.gnome.desktop.peripherals.keyboard delay 250
     echo-ok "Repeat delay set for desktop: $desktop"
+elif [ $desktop = "i3" ]; then
+    echo-ok "Repeat interval and delay for $desktop set in ~/.config/i3/config"
 else
     echo-fail "Not setting repeat interval for desktop: $desktop"
 fi
