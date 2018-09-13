@@ -234,6 +234,8 @@ bar {
 exec thunderbird
 exec megasync
 
+# Tray icons
+
 # Setup screens
 exec_always /home/tsagrista/Scripts/current-randr.sh
 
