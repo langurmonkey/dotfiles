@@ -231,8 +231,5 @@ exec_always "xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Accel Sp
 # tapping enabled
 exec_always "xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Tapping Enabled' 1"
 
-# ssh key
-exec_always ssh-add /home/tsagrista/.ssh/id_rsa
-
 # Compositor
 exec compton
