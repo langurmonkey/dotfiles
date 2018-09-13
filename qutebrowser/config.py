@@ -12,6 +12,10 @@ config.load_autoconfig()
 ## Type: Dict
 c.aliases = {'w': 'session-save', 'q': 'quit', 'wq': 'quit --save', 'home': 'open tonisagrista.com'}
 c.aliases.update({'gmail': 'open mail.google.com'})
+c.aliases.update({'github': 'open github.com'})
+c.aliases.update({'gitlab': 'open gitlab.com'})
+c.aliases.update({'netflix': 'open netflix.com'})
+c.aliases.update({'gaia': 'open cosmos.esa.int/web/gaia'})
 
 ## Time interval (in milliseconds) between auto-saves of
 ## config/cookies/etc.
