@@ -5,10 +5,10 @@
 set $mod Mod4
 
 # Colors
-set $bg-color 	         #565656
-set $inactive-bg-color   #121212
+set $bg-color 	         #305b66
+set $inactive-bg-color   #002b36
 set $text-color          #ffffff
-set $inactive-text-color #888888
+set $inactive-text-color #75758a
 set $urgent-bg-color     #E42343
 
 # Window border multiplier
@@ -17,7 +17,7 @@ set $borders 2
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 #font pango:System San Francisco Display 13
-font pango:System System San Francisco Display, FontAwesome 13
+font pango:System System San Francisco Display, FontAwesome 11
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -146,9 +146,9 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws0
 
 # default workspaces
-assign [class="qutebrowser"] $ws2
+#assign [class="qutebrowser"] $ws2
 assign [class="Thunderbird"] $ws2
-assign [class="URxvt"] $ws1
+#assign [class="URxvt"] $ws1
 
 # default floating
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -229,12 +229,15 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 # bar
 bar {
-    font pango: Liberation Mono,FontAwesome 14
+    font pango: Liberation Mono,FontAwesome 15
     status_command bumblebee-status -m layout cpu memory battery brightness pasource pasink date time -p time.format="%H:%M CW %V" date.format="%Y-%m-%d" time.format="%H:%M:%S" date.left-click="gsimplecal" -t solarized-powerline
+    colors {
+        background $inactive-bg-color
+        }
 }
 
 # Startup applications
-exec thunderbird
+#exec thunderbird
 exec megasync
 
 # Tray icons
@@ -253,6 +256,9 @@ exec_always --no-startup-id xset r rate 200 35 # initial delay 300 ms, repeat 35
 exec_always "xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Accel Speed' 0.6"
 # tapping enabled
 exec_always "xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Tapping Enabled' 1"
+
+# Monitors daemon
+exec_always mons -a
 
 # Compositor
 exec compton
