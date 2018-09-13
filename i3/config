@@ -111,7 +111,7 @@ bindsym $mod+shift+f exec gnome-terminal -e "ranger"
 
 # WORKSPACES
 set $ws1 "1:"
-set $ws2 "2:"
+set $ws2 "2:"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
