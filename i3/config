@@ -225,3 +225,6 @@ exec_always "feh --bg-fill /home/tsagrista/Pictures/wallpaper.jpg"
 
 # Trackpad  - Dell XPS13 trackpad speed
 exec_always "xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Accel Speed' 0.6"
+
+# Compositor
+exec compton
