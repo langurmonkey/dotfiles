@@ -36,8 +36,7 @@ bindsym $mod+minus scratchpad show
 # start dmenu (a program launcher)
 bindsym $mod+shift+d exec dmenu_run
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-#bindsym $mod+d exec rofi -show run -lines 20 -eh 1.3 -opacity "85" -bw 0 -font "System San Francisco Display 12"
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
+bindsym $mod+d exec rofi -show run -lines 20 -eh 1.3 -opacity "85" -bw 0 -font "System San Francisco Display 12"
 
 # change focus
 bindsym $mod+h focus left
