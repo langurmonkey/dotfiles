@@ -14,7 +14,7 @@ The following line checks out the repository into `~/.dotfiles` and installs the
 
 ## Create environment
 
-Deploy the environment using the `deploy` script:
+Deploy the environment anytime using the `deploy` script:
 
 ```
  $  ~/.dotfiles/deploy
