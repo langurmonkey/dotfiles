@@ -29,6 +29,6 @@ URxvt*depth: 32
 
 ! fonts
 ! run "fc-list" for a list of available fonts
-URxvt*font: xft:Monospace:pixelsize=15
+URxvt*font: xft:Monospace:pixelsize=14
 
 URxvt*scrollBar: False
