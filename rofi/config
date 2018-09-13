@@ -1,9 +1,1 @@
 rofi.theme: /home/tsagrista/.dotfiles/rofi/themes/sidetab.rasi
-rofi.width: 80
-rofi.heigh: 80
-rofi.padding: 400
-rofi.line-margin: 15
-rofi.lines: 3
-rofi.separator-style: none
-rofi.columns: 1
-rofi.font: System San Francisco Display 22
