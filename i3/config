@@ -167,8 +167,6 @@ for_window [class="Arandr"] floating enable border normal
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Shut down, restart and locking
 bindsym $mod+Escape mode "$mode_system"
@@ -230,7 +228,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # bar
 bar {
     font pango: Liberation Mono,FontAwesome 15
-    status_command bumblebee-status -m layout cpu memory battery brightness pasource pasink date time -p time.format="%H:%M CW %V" date.format="%Y-%m-%d" time.format="%H:%M:%S" date.left-click="gsimplecal" -t solarized-powerline
+    status_command bumblebee-status -m layout cpu disk battery brightness pasource pasink date time -p time.format="%H:%M CW %V" date.format="%Y-%m-%d" time.format="%H:%M:%S" date.left-click="gsimplecal" -t solarized-powerline
     colors {
         background $inactive-bg-color
         }
