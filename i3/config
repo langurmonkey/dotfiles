@@ -185,10 +185,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Repeat interval and delay
-exec --no-startup-id xset r rate 200 35 # initial delay 300 ms, repeat 35 ms
-
-
 # window colors
 #                       border              background         text                 indicator
 client.focused          $bg-color           $bg-color          $text-color          #00ff00
@@ -214,7 +210,6 @@ bar {
 	#}
 }
 
-
 # Startup applications
 exec thunderbird
 exec megasync
@@ -224,6 +219,9 @@ exec_always /home/tsagrista/Scripts/current-randr.sh
 
 # Wallpaper
 exec_always "feh --bg-fill /home/tsagrista/Pictures/wallpaper.jpg"
+
+# Repeat interval and delay
+exec_always --no-startup-id xset r rate 200 35 # initial delay 300 ms, repeat 35 ms
 
 # Trackpad  - Dell XPS13 
 # trackpad speed
