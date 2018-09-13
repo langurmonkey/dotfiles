@@ -1,7 +1,8 @@
 # Dotfiles
 
 This repository contains some configuration files to set up
-my dev environment the way I like it. 
+my dev environment the way I like it. It contains config files for
+vim, ranger, tmux, i3 and some other programs.
 
 ## Bootstrap
 
