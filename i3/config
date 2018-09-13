@@ -24,7 +24,7 @@ font pango:System San Francisco Display, FontAwesome 13
 floating_modifier $mod
 
 # Start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -77,7 +77,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+t floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -109,7 +109,7 @@ bindsym XF86MonBrightnessDown exec brightness-
 
 # Start Applications
 bindsym $mod+shift+b exec qutebrowser
-bindsym $mod+shift+f exec gnome-terminal -e "ranger"
+bindsym $mod+shift+f exec i3-sensible-terminal -e "ranger"
 
 # WORKSPACES
 set $ws1 "1:"

@@ -175,6 +175,8 @@ echo-custom " ** " "==== i3 CONFIG ===="
 do-symlink $DOTFILES_PATH/i3 ~/.config/i3
 # Symlink rofi config
 do-symlink $DOTFILES_PATH/rofi ~/.config/rofi
+# xdefaults
+do-symlink $DOTFILES_PATH/.Xdefaults ~/.Xdefaults
 
 # xkblayout
 cp $DOTFILES_PATH/bin/xkblayout-state ~/.local/bin/
