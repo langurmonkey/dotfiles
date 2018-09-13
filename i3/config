@@ -5,11 +5,11 @@
 set $mod Mod4
 
 # Colors
-set $bg-color 	         #3f445f
-set $inactive-bg-color   #202830
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
+set $bg-color 	         #565656
+set $inactive-bg-color   #121212
+set $text-color          #ffffff
+set $inactive-text-color #888888
+set $urgent-bg-color     #E42343
 
 # Window border multiplier
 set $borders 2
