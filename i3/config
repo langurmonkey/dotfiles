@@ -204,7 +204,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 bar {
   	#status_command i3blocks -c /home/tsagrista/.config/i3/i3blocks.conf
    
-
+    font pango: Liberation Mono,FontAwesome 16
     status_command bumblebee-status -m layout disk cpu memory battery brightness pasink date time -p root.path=/ time.format="%H:%M CW %V" date.format="%Y-%m-%d" time.format="%H:%M:%S" date.left-click="gsimplecal" -t solarized-powerline
 
     #status_command i3status
