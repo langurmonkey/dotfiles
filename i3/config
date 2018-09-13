@@ -169,7 +169,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # Shut down, restart and locking
 bindsym $mod+Escape mode "$mode_system"
-set $mode_system (l)ock, (e)xit, l(o)gout, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+set $mode_system (l)ock, (e)xit, l(o)gout, (s)uspend, (h)ibernate, (r)eboot, Shut(d)own
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3lock-fancy, mode "default"
     bindsym s exec --no-startup-id $HOME/.config/i3/i3exit suspend, mode "default"
@@ -177,7 +177,7 @@ mode "$mode_system" {
     bindsym e exec --no-startup-id $HOME/.config/i3/i3exit logout, mode "default"
     bindsym h exec --no-startup-id $HOME/.config/i3/i3exit hibernate, mode "default"
     bindsym r exec --no-startup-id $HOME/.config/i3/i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+    bindsym d exec --no-startup-id $HOME/.config/i3/i3exit shutdown, mode "default"
 
     # exit system mode: "Enter" or "Escape"
     bindsym Return mode "default"
