@@ -1,1 +1,9 @@
-rofi.theme: /usr/share/rofi/themes/gruvbox-dark.rasi
+rofi.theme: /usr/share/rofi/themes/android_notification.rasi
+rofi.width: 80
+rofi.heigh: 80
+rofi.padding: 400
+rofi.line-margin: 15
+rofi.lines: 3
+rofi.separator-style: none
+rofi.columns: 1
+rofi.font: System San Francisco Display 22
