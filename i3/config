@@ -27,6 +27,7 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
+bindsym $mod+q kill
 bindsym $mod+Shift+q kill
 
 # Scratchpad
@@ -102,10 +103,6 @@ bindsym $mod+F11 exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86MonBrightnessUp exec brightness+
 bindsym XF86MonBrightnessDown exec brightness-
 
-# keyboard layouts
-#exec "setxkbmap -layout us,de,es"
-#exec "setxkbmap -option 'grp:alt_shift_toggle'"
-#bindsym ISO_Next_Group exec pkill -RTMIN+1 i3blocks
 
 # Start Applications
 bindsym $mod+shift+b exec qutebrowser
@@ -148,10 +145,20 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws0
 
-
+# default workspaces
 assign [class="qutebrowser"] $ws2
 assign [class="Thunderbird"] $ws2
 assign [class="URxvt"] $ws1
+
+# default floating
+for_window [title="alsamixer"] floating enable border pixel 1
+for_window [class="GParted"] floating enable border normal
+for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [class="qt5ct"] floating enable sticky enable border normal
+for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
+for_window [class="Skype"] floating enable border normal
+for_window [class="Grub-customizer"] floating enable border normal
+
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -159,6 +166,23 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Shut down, restart and locking
+bindsym $mod+Escape mode "$mode_system"
+set $mode_system (l)ock, (e)xit, l(o)gout, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3lock-fancy, mode "default"
+    bindsym s exec --no-startup-id $HOME/.config/i3/i3exit suspend, mode "default"
+    bindsym o exec --no-startup-id $HOME/.config/i3/i3exit logout, mode "default"
+    bindsym e exec --no-startup-id $HOME/.config/i3/i3exit logout, mode "default"
+    bindsym h exec --no-startup-id $HOME/.config/i3/i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id $HOME/.config/i3/i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    # exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
 # bindings for caps and num
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
@@ -202,20 +226,8 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 # bar
 bar {
-  	#status_command i3blocks -c /home/tsagrista/.config/i3/i3blocks.conf
-   
     font pango: Liberation Mono,FontAwesome 14
-    status_command bumblebee-status -m layout disk cpu memory battery brightness pasink date time -p root.path=/ time.format="%H:%M CW %V" date.format="%Y-%m-%d" time.format="%H:%M:%S" date.left-click="gsimplecal" -t solarized-powerline
-
-    #status_command i3status
-	#colors {
-	#	background $bg-color
-	#    	separator #757575
-		#                  border             background         text
-	#	focused_workspace  $bg-color          $bg-color          $text-color
-	#	inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-	#	urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-	#}
+    status_command bumblebee-status -m layout cpu memory battery brightness pasource pasink date time -p time.format="%H:%M CW %V" date.format="%Y-%m-%d" time.format="%H:%M:%S" date.left-click="gsimplecal" -t solarized-powerline
 }
 
 # Startup applications
