@@ -179,8 +179,7 @@ mode "resize" {
         bindsym Right resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+        bindsym Return mode "default" bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -197,7 +196,7 @@ bar {
   	#status_command i3blocks -c /home/tsagrista/.config/i3/i3blocks.conf
    
 
-    status_command bumblebee-status -m layout disk cpu memory battery brightness datetime amixer -p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t solarized-powerline
+    status_command bumblebee-status -m layout disk cpu memory battery brightness datetime pulseaudio -p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" pulseaudio.autostart="true" -t solarized-powerline
 
     #status_command i3status
 	#colors {
