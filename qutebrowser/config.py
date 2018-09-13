@@ -1342,7 +1342,7 @@ c.url.searchengines.update({'aw': 'https://wiki.archlinux.org/?search={}'})
 
 ## Default zoom level.
 ## Type: Perc
-c.zoom.default = '150%'
+#c.zoom.default = '150%'
 
 ## Available zoom levels.
 ## Type: List of Perc
