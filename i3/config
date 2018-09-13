@@ -196,7 +196,7 @@ bar {
   	#status_command i3blocks -c /home/tsagrista/.config/i3/i3blocks.conf
    
 
-    status_command bumblebee-status -m layout disk cpu memory battery brightness date time pasink -p root.path=/ time.format="%H:%M CW %V" date.format="%Y-%m-%d" time.format="%H:%M:%S" date.left-click="gsimplecal" -t solarized-powerline
+    status_command bumblebee-status -m layout disk cpu memory battery brightness pasink date time -p root.path=/ time.format="%H:%M CW %V" date.format="%Y-%m-%d" time.format="%H:%M:%S" date.left-click="gsimplecal" -t solarized-powerline
 
     #status_command i3status
 	#colors {
