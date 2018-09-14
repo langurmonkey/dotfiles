@@ -162,6 +162,8 @@ for_window [title="Volume Control"] floating enable border normal
 for_window [class="Gsimplecal"] floating enable border normal
 for_window [class="Arandr"] floating enable border normal
 for_window [class="Nemo"] floating enable border normal
+for_window [class="Gaia Sky - 2.1.0"] floating enable border normal
+for_window [class="Gaia Sky"] floating enable border normal
 
 
 # reload the configuration file
@@ -220,11 +222,11 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # window colors
-#                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          #00ff00
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+# type                  border              background         text                 indicator
+client.focused          $bg-color           $bg-color          $text-color          #90a0ff
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color  #90a0ff
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color  #90a0ff
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #90a0ff
 
 # bar
 bar {
