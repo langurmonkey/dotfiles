@@ -151,6 +151,7 @@ assign [class="Thunderbird"] $ws2
 
 # default floating
 for_window [title="alsamixer"] floating enable border pixel 1
+for_window [class="Blueman-manager"] floating enable border pixel 1
 for_window [class="GParted"] floating enable border normal
 for_window [class="Lxappearance"] floating enable sticky enable border normal
 for_window [class="qt5ct"] floating enable sticky enable border normal
@@ -269,6 +270,8 @@ exec_always "xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Tapping 
 
 # network manager
 exec --no-startup-id nm-applet
+# bluetooth
+exec --no-startup-id blueman-applet
 # volume
 exec --no-startup-id pasystray
 # Megasync client
