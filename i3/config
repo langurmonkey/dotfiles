@@ -237,13 +237,15 @@ bar {
         }
 }
 
-# Startup applications
+
+
+#
+# STARTUP APPLICATIONS
+#
+
 #exec thunderbird
-exec megasync
 
-# Tray icons
-
-# Setup screens
+# Setup screens if needed
 exec_always /home/tsagrista/Scripts/current-randr.sh
 
 # Wallpaper
@@ -252,19 +254,43 @@ exec_always "feh --bg-fill /home/tsagrista/Pictures/wallpaper.jpg"
 # Repeat interval and delay
 exec_always --no-startup-id xset r rate 200 35 # initial delay 300 ms, repeat 35 ms
 
-# Trackpad  - Dell XPS13 
+
+
+#
+# TRACKPAD  - Dell XPS13 
+#
+
 # trackpad speed
 exec_always "xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Accel Speed' 0.6"
 # tapping enabled
 exec_always "xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Tapping Enabled' 1"
 
+
+#
+# SYSTEM TRAY
+#
+
 # network manager
-exec_always --no-startup-id nm-applet
+exec --no-startup-id nm-applet
 # volume
 exec --no-startup-id pasystray
+# Redshift
+exec --no-startup-id redshift-gtk
+# Megasync client
+exec --no-startup-id megasync
 
-# Monitors daemon
+
+
+#
+# MONITORS AND XRANDR
+#
+
 exec_always mons -a
 
-# Compositor
+
+
+# 
+# COMPOSITOR
+#
+
 exec compton
