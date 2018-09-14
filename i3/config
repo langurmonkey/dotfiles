@@ -24,7 +24,7 @@ font pango:System System San Francisco Display, FontAwesome 11
 floating_modifier $mod
 
 # Start a terminal
-bindsym $mod+Return exec urxvt -cd "`$HOME/.config/i3/xcwd`"
+bindsym $mod+Return exec gnome-terminal --hide-menubar --working-directory="`$HOME/.config/i3/xcwd`"
 
 # kill focused window
 bindsym $mod+q kill

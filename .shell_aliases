@@ -23,5 +23,5 @@ alias docker='sudo docker'
 export GPGKEY=448C2B189756743013D5F7C22FD2A59C1D734C1F
 
 # Terminal
-export TERMINAL=urxvt
+export TERMINAL=gnome-terminal
 
