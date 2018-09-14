@@ -253,8 +253,6 @@ exec_always "feh --bg-fill /home/tsagrista/Pictures/wallpaper.jpg"
 # Repeat interval and delay
 exec_always --no-startup-id xset r rate 200 35 # initial delay 300 ms, repeat 35 ms
 
-
-
 #
 # TRACKPAD  - Dell XPS13 
 #
