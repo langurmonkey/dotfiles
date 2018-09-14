@@ -272,7 +272,7 @@ exec --no-startup-id nm-applet
 # volume
 exec --no-startup-id pasystray
 # Megasync client
-exec --no-startup-id megasync
+exec --no-startup-id  (sleep 5 ; megasync)
 
 
 
