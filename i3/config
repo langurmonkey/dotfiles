@@ -258,6 +258,8 @@ exec_always "xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Tapping 
 
 # network manager
 exec_always --no-startup-id nm-applet
+# volume
+exec_always --no-startup-id pasystray
 
 # Monitors daemon
 exec_always mons -a
