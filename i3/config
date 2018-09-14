@@ -24,7 +24,7 @@ font pango:System System San Francisco Display, FontAwesome 11
 floating_modifier $mod
 
 # Start a terminal
-bindsym $mod+Return exec "$HOME/.config/i3/launch-shell"
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+q kill
