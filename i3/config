@@ -161,6 +161,7 @@ for_window [class="Grub-customizer"] floating enable border normal
 for_window [title="Volume Control"] floating enable border normal
 for_window [class="Gsimplecal"] floating enable border normal
 for_window [class="Arandr"] floating enable border normal
+for_window [class="Nemo"] floating enable border normal
 
 
 # reload the configuration file
