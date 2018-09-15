@@ -2,7 +2,10 @@
 # i3 config file (v4)
 #
 
-set $mod Mod4
+# Mod key: alt
+set $mod Mod1
+# Windows key - launch programs
+set $sup Mod4
 
 # Colors
 set $bg-color 	         #305b66
@@ -24,7 +27,7 @@ font pango:System System San Francisco Display, FontAwesome 11
 floating_modifier $mod
 
 # Start a terminal
-bindsym $mod+Return exec gnome-terminal --hide-menubar --working-directory="`$HOME/.config/i3/xcwd`"
+bindsym $mod+Return exec gnome-terminal --hide-menubar --working-directory "`$HOME/.config/i3/xcwd`"
 
 # kill focused window
 bindsym $mod+q kill
@@ -104,8 +107,10 @@ bindsym XF86MonBrightnessDown exec brightness-
 
 
 # Start Applications
-bindsym $mod+shift+b exec qutebrowser
-bindsym $mod+shift+f exec i3-sensible-terminal -e ranger $($HOME/.config/i3/xcwd)
+bindsym $sup+b exec qutebrowser
+bindsym $sup+f exec i3-sensible-terminal -e ranger $($HOME/.config/i3/xcwd)
+bindsym $sup+v exec vlc
+bindsym $sup+g exec gnome-terminal --hide-menubar --working-directory "$HOME/git/gaiasky"
 
 # WORKSPACES
 set $ws1 "1:"
