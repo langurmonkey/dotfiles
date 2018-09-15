@@ -16,9 +16,9 @@ c.aliases.update({'github': 'open github.com'})
 c.aliases.update({'gitlab': 'open gitlab.com'})
 c.aliases.update({'netflix': 'open netflix.com'})
 c.aliases.update({'gaia': 'open cosmos.esa.int/web/gaia'})
-c.aliases.update({'tw': 'twitter.com'})
-c.aliases.update({'twitter': 'twitter.com'})
-c.aliases.update({'yt': 'youtube.com'})
+c.aliases.update({'tw': 'open twitter.com'})
+c.aliases.update({'twitter': 'open twitter.com'})
+c.aliases.update({'yt': 'open youtube.com'})
 
 ## Time interval (in milliseconds) between auto-saves of
 ## config/cookies/etc.
