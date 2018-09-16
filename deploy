@@ -164,13 +164,6 @@ if [[ -f /etc/arch-release ]]; then
     do-source "zsh" ~/.shell_aliases_arch
 fi
 
-# install bash-it
-if [[ ! -d ~/.bash_it ]]; then
-    echo-info "Installing bash_it"
-    do-clone ~/.bash_it https://github.com/Bash-it/bash-it.git bash-it
-    ~/.bash_it/install.sh
-fi
-
 echo-ok "Done"
 
 #
@@ -209,7 +202,7 @@ do-symlink $DOTFILES_PATH/qutebrowser ~/.config/qutebrowser
 echo-ok "Done"
 
 
-# Set keyboard repeat and delay - gnome only
+# Set keyboard repeat and delay - gnome or i3wm only
 echo-custom " ** " "==== REPEAT DELAY 250 ms ===="
 if [ "$XDG_CURRENT_DESKTOP" = "" ]
 then

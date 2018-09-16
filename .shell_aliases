@@ -31,8 +31,8 @@ export VULKAN_SDK=$VULKAN/VulkanSDK/1.1.73.0/x86_64
 
 # Other utils
 export TERMINAL=gnome-terminal
-export BROWSER=/usr/bin/qutebrowser
-export EDITOR=/usr/bin/vim
+export BROWSER=qutebrowser
+export EDITOR=vim
 GPG_TTY=$(tty)
 export GPG_TTY
 
