@@ -9,19 +9,36 @@ alias cp='cp -i'
 
 # Regular utils
 alias shit='sudo $(lc -ln -1)'
-
 # Fbx conv with right libraries
 alias fbx-conv='LD_LIBRARY_PATH=~/Programs/fbx-conv;~/Programs/fbx-conv/fbx-conv-lin64'
-
 # Extract youtube audio as mp3
 alias youtube-audio='youtube-dl --external-downloader aria2c -x --audio-format mp3 --audio-quality 6'
-
+# VPN
+alias vpnheidelberguni='sudo openconnect -u st0@ix.urz.uni-heidelberg.de vpn-ac.urz.uni-heidelberg.de'
+# Topcat
+alias topcat='java -jar /home/tsagrista/Programs/Topcat/topcat-full.jar'
 # Docker with sudo by default
 alias docker='sudo docker'
 
 # GPG Key
 export GPGKEY=448C2B189756743013D5F7C22FD2A59C1D734C1F
 
-# Terminal
+# My variables
+export PATH=$PATH:.
+export PATH=$PATH:~/.local/bin
+export JAVA_HOME=/usr/lib/jvm/default
+export GIT=$HOME/git
+export GS=$GIT/gaiasky
+export VULKAN=$HOME/Workspaces/vulkan
+export VULKAN_SDK=$VULKAN/VulkanSDK/1.1.73.0/x86_64
+
+# Other utils
 export TERMINAL=gnome-terminal
+export BROWSER=/usr/bin/qutebrowser
+export EDITOR=/usr/bin/vim
+GPG_TTY=$(tty)
+export GPG_TTY
+
+# Add key to keychain
+eval $(keychain --eval /home/tsagrista/.ssh/id_rsa)
 
