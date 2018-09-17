@@ -109,7 +109,7 @@ bindsym XF86MonBrightnessDown exec brightness-
 # Start Applications
 bindsym $sup+b exec qutebrowser
 bindsym $sup+t exec thunderbird
-bindsym $sup+f exec i3-sensible-terminal -e ranger $($HOME/.config/i3/xcwd)
+bindsym $sup+f exec gnome-terminal --hide-menubar --working-directory "`$HOME/.config/i3/xcwd`" -e ranger
 bindsym $sup+v exec vlc
 bindsym $sup+g exec gnome-terminal --hide-menubar --working-directory "$HOME/git/gaiasky"
 

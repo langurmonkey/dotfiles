@@ -159,11 +159,11 @@ c.aliases.update({'reddit': 'open reddit.com'})
 ## Background color for hints. Note that you can use a `rgba(...)` value
 ## for transparency.
 ## Type: QssColor
-# c.colors.hints.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 247, 133, 0.8), stop:1 rgba(255, 197, 66, 0.8))'
+c.colors.hints.bg = '#305b66'
 
 ## Font color for hints.
 ## Type: QssColor
-# c.colors.hints.fg = 'black'
+c.colors.hints.fg = 'white'
 
 ## Font color for the matched part of hints.
 ## Type: QssColor
@@ -223,7 +223,7 @@ c.aliases.update({'reddit': 'open reddit.com'})
 
 ## Border used around UI elements in prompts.
 ## Type: String
-# c.colors.prompts.border = '1px solid gray'
+c.colors.prompts.border = '2px solid gray'
 
 ## Foreground color for prompts.
 ## Type: QssColor
@@ -864,7 +864,7 @@ c.aliases.update({'reddit': 'open reddit.com'})
 
 ## CSS border value for hints.
 ## Type: String
-# c.hints.border = '1px solid #E3BE23'
+c.hints.border = '2px solid #000000'
 
 ## Characters used for hint strings.
 ## Type: UniqueCharString
@@ -1615,3 +1615,8 @@ config.bind('J', 'tab-prev')
 
 ## Bindings for register mode
 # config.bind('<Escape>', 'leave-mode', mode='register')
+
+## Youtube special bindings
+config.bind('M', 'hint links spawn mpv {hint-url}')
+config.bind(';M', 'spawn urxvt -e youtube-dl --all-subs --output "~/Videos/YouTube/%(title)s.%(ext)s" {url}')
+config.bind(';A', 'spawn urxvt -e youtube-dl -x --audio-format mp3 --output "~/Music/YouTube/%(title)s.%(ext)s" {url}')
