@@ -9,14 +9,14 @@ set $sup Mod4
 
 # Gaps
 #for_window [class="^.*"] border pixel 0 
-default_border pixel 0
+default_border pixel 2
 default_floating_border normal
 smart_borders on
 gaps inner 15
 gaps outer 0
 
 # Colors
-set $bg-color 	         #305b66
+set $bg-color 	         #3dd0bd
 set $inactive-bg-color   #002b36
 set $text-color          #ffffff
 set $inactive-text-color #75758a
@@ -24,13 +24,12 @@ set $urgent-bg-color     #E42343
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-#font pango:System San Francisco Display 13
 font pango:System System San Francisco Display, FontAwesome 11
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod 
 # Start a terminal
-bindsym $mod+Return exec gnome-terminal --hide-menubar --window-with-profile=NoScrollbar --working-directory "`$HOME/.config/i3/xcwd`"
+bindsym $mod+Return exec urxvt -cd "`$HOME/.config/i3/xcwd`"
 
 # kill focused window
 bindsym $mod+q kill
@@ -111,9 +110,9 @@ bindsym XF86MonBrightnessDown exec brightness-
 # Start Applications
 bindsym $sup+b exec qutebrowser
 bindsym $sup+t exec thunderbird
-bindsym $sup+f exec gnome-terminal --hide-menubar --window-with-profile=NoScrollbar --working-directory "`$HOME/.config/i3/xcwd`" -e ranger
+bindsym $sup+f exec urxvt -cd "`$HOME/.config/i3/xcwd`" -e ranger
 bindsym $sup+v exec vlc
-bindsym $sup+g exec gnome-terminal --hide-menubar --window-with-profile=NoScrollbar --working-directory "$HOME/git/gaiasky"
+bindsym $sup+g exec urxvt -cd "$HOME/git/gaiasky"
 
 # WORKSPACES
 set $ws1 "1:"
