@@ -10,16 +10,16 @@ config.load_autoconfig()
 ## Aliases for commands. The keys of the given dictionary are the
 ## aliases, while the values are the commands they map to.
 ## Type: Dict
-c.aliases = {'w': 'session-save', 'q': 'quit', 'wq': 'quit --save', 'home': 'open tonisagrista.com'}
-c.aliases.update({'gmail': 'open mail.google.com'})
-c.aliases.update({'github': 'open github.com'})
-c.aliases.update({'gitlab': 'open gitlab.com'})
-c.aliases.update({'netflix': 'open netflix.com'})
-c.aliases.update({'gaia': 'open cosmos.esa.int/web/gaia'})
-c.aliases.update({'tw': 'open twitter.com'})
-c.aliases.update({'twitter': 'open twitter.com'})
-c.aliases.update({'yt': 'open youtube.com'})
-c.aliases.update({'reddit': 'open reddit.com'})
+c.aliases = {'w': 'session-save', 'q': 'quit', 'wq': 'quit --save', 'home': 'open -t tonisagrista.com'}
+c.aliases.update({'gmail': 'open -t mail.google.com'})
+c.aliases.update({'github': 'open -t github.com'})
+c.aliases.update({'gitlab': 'open -t gitlab.com'})
+c.aliases.update({'netflix': 'open -t netflix.com'})
+c.aliases.update({'gaia': 'open -t cosmos.esa.int/web/gaia'})
+c.aliases.update({'tw': 'open -t twitter.com'})
+c.aliases.update({'twitter': 'open -t twitter.com'})
+c.aliases.update({'yt': 'open -t youtube.com'})
+c.aliases.update({'reddit': 'open -t reddit.com'})
 
 ## Time interval (in milliseconds) between auto-saves of
 ## config/cookies/etc.
