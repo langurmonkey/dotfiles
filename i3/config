@@ -181,7 +181,7 @@ for_window [class="Gaia Sky"] floating enable border normal
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift-+r restart
+bindsym $mod+Shift+r restart
 
 # Shut down, restart and locking
 bindsym $mod+Escape mode "$mode_system"
