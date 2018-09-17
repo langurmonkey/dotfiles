@@ -151,17 +151,17 @@ do-symlink $DOTFILES_PATH/ranger/scope.sh $DIR_RANGER/scope.sh
 echo-custom " ** " "==== SHELL ALIASES ===="
 
 # Symlink shell aliases file
-do-symlink $DOTFILES_PATH/.shell_aliases ~/.shell_aliases
+do-symlink $DOTFILES_PATH/.env_global ~/.env_global
 
 # Source in bash and zsh
-do-source "bash" ~/.shell_aliases
-do-source "zsh"  ~/.shell_aliases
+do-source "bash" ~/.env_global
+do-source "zsh"  ~/.env_global
 
 
 if [[ -f /etc/arch-release ]]; then
-    do-symlink $DOTFILES_PATH/.shell_aliases_arch ~/.shell_aliases_arch
-    do-source "bash" ~/.shell_aliases_arch
-    do-source "zsh" ~/.shell_aliases_arch
+    do-symlink $DOTFILES_PATH/.env_arch ~/.env_arch
+    do-source "bash" ~/.env_arch
+    do-source "zsh" ~/.env_arch
 fi
 
 echo-ok "Done"
