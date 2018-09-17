@@ -175,7 +175,7 @@ for_window [class="Gaia Sky"] floating enable border normal
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift-+r restart
 
 # Shut down, restart and locking
 bindsym $mod+Escape mode "$mode_system"
@@ -203,6 +203,7 @@ bindsym $mod+shift+x exec i3lock-fancy
 
 
 # resize window (you can also use the mouse for that)
+bindsym $mod+r mode "resize"
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
@@ -222,10 +223,9 @@ mode "resize" {
         bindsym Right resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape
-        bindsym Return mode "default" bindsym Escape mode "default"
+        bindsym Return mode "default" 
+        bindsym Escape mode "default"
 }
-
-bindsym $mod+r mode "resize"
 
 # window colors
 # type                  border              background         text                 indicator
