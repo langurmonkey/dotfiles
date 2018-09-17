@@ -179,9 +179,10 @@ bindsym $mod+Shift-+r restart
 
 # Shut down, restart and locking
 bindsym $mod+Escape mode "$mode_system"
-set $mode_system (l)ock, (e)xit, l(o)gout, (s)uspend, (r)eboot, Shut(d)own
+set $mode_system (l)ock, sloc(k), (e)xit, l(o)gout, (s)uspend, (r)eboot, Shut(d)own
 mode "$mode_system" {
     bindsym l exec --no-startup-id $HOME/.config/i3/i3exit lock, mode "default"
+    bindsym k exec --no-startup-id $HOME/.config/i3/i3exit slock, mode "default"
     bindsym s exec --no-startup-id $HOME/.config/i3/i3exit suspend, mode "default"
     bindsym o exec --no-startup-id $HOME/.config/i3/i3exit logout, mode "default"
     bindsym e exec --no-startup-id $HOME/.config/i3/i3exit logout, mode "default"
@@ -194,7 +195,8 @@ mode "$mode_system" {
 }
 
 # lock
-bindsym $mod+shift+x exec i3lock-fancy
+bindsym $mod+shift+x exec --no-startup-id i3lock-fancy
+bindsym $mod+shift+z exec --no-startup-id gnome-terminal -e slock
 
 
 # resize window (you can also use the mouse for that)
