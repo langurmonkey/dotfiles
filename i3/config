@@ -7,6 +7,13 @@ set $mod Mod1
 # Windows key - launch programs
 set $sup Mod4
 
+# Gaps
+for_window [class="^.*"] border pixel 0
+gaps inner 15
+gaps outer 0
+gaps inner all set 20
+gaps outer current plus 5
+
 # Colors
 set $bg-color 	         #305b66
 set $inactive-bg-color   #002b36
@@ -27,7 +34,7 @@ font pango:System System San Francisco Display, FontAwesome 11
 floating_modifier $mod
 
 # Start a terminal
-bindsym $mod+Return exec gnome-terminal --hide-menubar --working-directory "`$HOME/.config/i3/xcwd`"
+bindsym $mod+Return exec gnome-terminal --hide-menubar --window-with-profile=NoScrollbar --working-directory "`$HOME/.config/i3/xcwd`"
 
 # kill focused window
 bindsym $mod+q kill
@@ -108,9 +115,9 @@ bindsym XF86MonBrightnessDown exec brightness-
 # Start Applications
 bindsym $sup+b exec qutebrowser
 bindsym $sup+t exec thunderbird
-bindsym $sup+f exec gnome-terminal --hide-menubar --working-directory "`$HOME/.config/i3/xcwd`" -e ranger
+bindsym $sup+f exec gnome-terminal --hide-menubar --window-with-profile=NoScrollbar --working-directory "`$HOME/.config/i3/xcwd`" -e ranger
 bindsym $sup+v exec vlc
-bindsym $sup+g exec gnome-terminal --hide-menubar --working-directory "$HOME/git/gaiasky"
+bindsym $sup+g exec gnome-terminal --hide-menubar --window-with-profile=NoScrollbar --working-directory "$HOME/git/gaiasky"
 
 # WORKSPACES
 set $ws1 "1:"
@@ -193,6 +200,49 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 
+
+
+#
+# GAPS
+#
+
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
 # lock
 bindsym $mod+shift+x exec --no-startup-id i3lock-fancy
 bindsym $mod+shift+z exec --no-startup-id gnome-terminal -e slock
@@ -236,7 +286,7 @@ bar {
     status_command bumblebee-status -m layout cpu disk battery brightness pasource pasink date time -p time.format="%H:%M CW %V" date.format="%Y-%m-%d" time.format="%H:%M:%S" date.left-click="gsimplecal" -t solarized-powerline
     colors {
         background $inactive-bg-color
-        }
+    }
 }
 
 
