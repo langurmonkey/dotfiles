@@ -16,7 +16,7 @@ set clipboard=unnamedplus
 
 " enable syntax
 syntax on
-colorscheme 256-jungle
+colorscheme 3dglasses
 
 " enable auto indent
 set autoindent
