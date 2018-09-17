@@ -321,7 +321,7 @@ c.colors.prompts.border = '2px solid gray'
 ## Foreground color of the URL in the statusbar on successful load
 ## (https).
 ## Type: QssColor
-# c.colors.statusbar.url.success.https.fg = 'lime'
+c.colors.statusbar.url.success.https.fg = '#ff8c1a'
 
 ## Foreground color of the URL in the statusbar when there's a warning.
 ## Type: QssColor
@@ -329,15 +329,15 @@ c.colors.prompts.border = '2px solid gray'
 
 ## Background color of the tab bar.
 ## Type: QtColor
-# c.colors.tabs.bar.bg = '#555555'
+c.colors.tabs.bar.bg = 'blue'
 
 ## Background color of unselected even tabs.
 ## Type: QtColor
-# c.colors.tabs.even.bg = 'darkgrey'
+c.colors.tabs.even.bg = '#804000'
 
 ## Foreground color of unselected even tabs.
 ## Type: QtColor
-# c.colors.tabs.even.fg = 'white'
+c.colors.tabs.even.fg = '#aaaaaa'
 
 ## Color for the tab indicator on errors.
 ## Type: QtColor
@@ -349,7 +349,7 @@ c.colors.prompts.border = '2px solid gray'
 
 ## Color gradient end for the tab indicator.
 ## Type: QtColor
-# c.colors.tabs.indicator.stop = '#00aa00'
+c.colors.tabs.indicator.stop = '#00aa00'
 
 ## Color gradient interpolation system for the tab indicator.
 ## Type: ColorSystem
@@ -362,27 +362,27 @@ c.colors.prompts.border = '2px solid gray'
 
 ## Background color of unselected odd tabs.
 ## Type: QtColor
-# c.colors.tabs.odd.bg = 'grey'
+c.colors.tabs.odd.bg = '#804000'
 
 ## Foreground color of unselected odd tabs.
 ## Type: QtColor
-# c.colors.tabs.odd.fg = 'white'
+c.colors.tabs.odd.fg = '#aaaaaa'
 
 ## Background color of selected even tabs.
 ## Type: QtColor
-# c.colors.tabs.selected.even.bg = 'black'
+c.colors.tabs.selected.even.bg = '#ff8c1a'
 
 ## Foreground color of selected even tabs.
 ## Type: QtColor
-# c.colors.tabs.selected.even.fg = 'white'
+c.colors.tabs.selected.even.fg = 'black'
 
 ## Background color of selected odd tabs.
 ## Type: QtColor
-# c.colors.tabs.selected.odd.bg = 'black'
+c.colors.tabs.selected.odd.bg = '#ff8c1a'
 
 ## Foreground color of selected odd tabs.
 ## Type: QtColor
-# c.colors.tabs.selected.odd.fg = 'white'
+c.colors.tabs.selected.odd.fg = 'black'
 
 ## Background color for webpages if unset (or empty to use the theme's
 ## color).
