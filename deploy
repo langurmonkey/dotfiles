@@ -205,6 +205,13 @@ do-symlink $DOTFILES_PATH/urxvt/font-size ~/.urxvt/ext/font-size
 echo-ok "Done"
 
 #
+# CLI-VISUALIZER
+#
+echo-custom " ** " "==== cli-vis ==="
+do-symlink $DOTFILES_PATH/vis ~/.config/vis
+echo-ok "Done"
+
+#
 # FONTS
 #
 echo-custom " ** " "==== FONTS ===="
