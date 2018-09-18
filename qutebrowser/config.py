@@ -21,6 +21,8 @@ c.aliases.update({'tw': 'open -t twitter.com'})
 c.aliases.update({'twitter': 'open -t twitter.com'})
 c.aliases.update({'yt': 'open -t youtube.com'})
 c.aliases.update({'reddit': 'open -t reddit.com'})
+c.aliases.update({'e': 'set-cmd-text :open {url:pretty}'})
+c.aliases.update({'eu': 'edit-url'})
 
 ## Time interval (in milliseconds) between auto-saves of
 ## config/cookies/etc.
