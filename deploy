@@ -178,6 +178,7 @@ do-symlink $DOTFILES_PATH/i3 ~/.config/i3
 do-symlink $DOTFILES_PATH/rofi ~/.config/rofi
 
 # xkblayout
+mkdir -p ~/.local/bin/
 cp $DOTFILES_PATH/bin/xkblayout-state ~/.local/bin/
 
 
