@@ -21,8 +21,6 @@ c.aliases.update({'tw': 'open -t twitter.com'})
 c.aliases.update({'twitter': 'open -t twitter.com'})
 c.aliases.update({'yt': 'open -t youtube.com'})
 c.aliases.update({'reddit': 'open -t reddit.com'})
-c.aliases.update({'e': 'set-cmd-text :open {url:pretty}'})
-c.aliases.update({'ee': 'edit-url'})
 
 ## Time interval (in milliseconds) between auto-saves of
 ## config/cookies/etc.
@@ -1460,6 +1458,7 @@ config.bind('J', 'tab-prev')
 # config.bind('gB', 'set-cmd-text -s :bookmark-load -t')
 # config.bind('gC', 'tab-clone')
 # config.bind('gO', 'set-cmd-text :open -t -r {url:pretty}')
+config.bind('e', 'set-cmd-text :open {url:pretty}')
 # config.bind('gU', 'navigate up -t')
 # config.bind('g^', 'tab-focus 1')
 # config.bind('ga', 'open -t')
