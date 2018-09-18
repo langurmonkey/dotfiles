@@ -16,7 +16,7 @@ gaps inner 15
 gaps outer 0
 
 # Colors
-set $bg-color 	         #3dd0bd
+set $bg-color 	         #007ec0
 set $inactive-bg-color   #002b36
 set $text-color          #ffffff
 set $inactive-text-color #75758a
