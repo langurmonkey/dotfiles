@@ -3,6 +3,7 @@
 # VARIABLES ======================================
 
 DOTFILES_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
+DIR_GIT=~/git
 DIR_VIMPLUGINS=~/.vim/bundle
 DIR_RANGER=~/.config/ranger
 DIR_TMUXR=~/git/tmux-resurrect/
@@ -29,6 +30,10 @@ function do-clone {
     if [ ! -d $1 ]; then
         echo-info "Installing $3"
         git clone $2 $1
+        echo-ok "Done"
+    elif [ -d $1/.git ]; then
+        echo-info "Updating $3"
+        git --work-tree=$1 --git-dir=$1/.git pull origin master
         echo-ok "Done"
     else
         echo-skip "$3"
@@ -228,6 +233,16 @@ do-symlink $DOTFILES_PATH/qutebrowser ~/.config/qutebrowser
 
 echo-ok "Done"
 
+
+#
+# PYWAL
+#
+echo-custom " ** " "==== WAL ===="
+do-clone "$DIR_GIT"/pywal https://github.com/dylanaraps/pywal.git pywal
+# Install pywal
+echo-info "Installing pywal"
+pip3 install --user "$DIR_GIT"/pywal
+echo-ok "Done"
 
 # Set keyboard repeat and delay - gnome or i3wm only
 echo-custom " ** " "==== REPEAT DELAY 250 ms ===="
