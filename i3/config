@@ -158,6 +158,7 @@ bindsym $mod+Shift+0 move container to workspace $ws0
 #assign [class="qutebrowser"] $ws2
 assign [class="Thunderbird"] $ws3
 #assign [class="URxvt"] $ws1
+assign [class="Eclipse"] $ws4
 
 # default floating
 for_window [title="alsamixer"] floating enable border pixel 1
