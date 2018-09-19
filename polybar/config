@@ -17,15 +17,14 @@
 ;==========================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
-background = #b0222222
+#background = ${xrdb:color0:#c0222222}
+background = #c0222222
 background-alt = #444
-;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
-foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
+foreground = ${xrdb:color7:#dfdfdf}
+foreground-alt = ${xrdb:color7:#dfdfdf}
+primary = ${xrdb:color1:#ffb52a}
+secondary = ${xrdb:color2:#e60053}
+alert = ${xrdb:color3:#bd2c40}
 
 [bar/bar-fhd]
 monitor = ${env:MONITOR:fallback-value}
@@ -60,7 +59,7 @@ font-4 = "Font Awesome 5 Brands:style=Regular:size=10;4"
 
 modules-left = i3 
 modules-center = 
-modules-right = filesystem xbacklight xkeyboard memory cpu temperature battery pulseaudio date
+modules-right = xkeyboard filesystem memory cpu temperature xbacklight battery pulseaudio date
 
 tray-position = right
 tray-padding = 2
@@ -322,11 +321,11 @@ label =  %date%   %time%
 type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
+label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
 
-label-muted = 🔇 muted
-label-muted-foreground = #666
+label-muted =  muted
+label-muted-foreground = #aaa
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55

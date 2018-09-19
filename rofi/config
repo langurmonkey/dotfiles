@@ -1,1 +1,5 @@
-rofi.theme: /home/tsagrista/.dotfiles/rofi/themes/sidetab.rasi
+# Default
+#rofi.theme: /home/tsagrista/.dotfiles/rofi/themes/sidetab.rasi
+
+# Dark theme.
+rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
