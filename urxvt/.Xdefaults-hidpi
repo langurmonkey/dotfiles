@@ -34,5 +34,4 @@ URxvt*font: xft:Monospace:pixelsize=18
 ! font size
 URxvt.perl-ext-common: font-size
 
-
 URxvt*scrollBar: False
