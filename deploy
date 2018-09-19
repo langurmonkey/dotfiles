@@ -186,6 +186,15 @@ do-symlink $DOTFILES_PATH/rofi ~/.config/rofi
 mkdir -p ~/.local/bin/
 cp $DOTFILES_PATH/bin/xkblayout-state ~/.local/bin/
 
+echo-ok "Done"
+
+#
+# POLYBAR
+#
+echo-custom " ** " "==== POLYBAR ===="
+
+# Symlink polybar config
+do-symlink $DOTFILES_PATH/polybar ~/.config/polybar
 
 echo-ok "Done"
 

@@ -22,8 +22,7 @@ set $text-color          #ffffff
 set $inactive-text-color #75758a
 set $urgent-bg-color     #E42343
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
+# Font for window titles.
 font pango:System System San Francisco Display, FontAwesome 11
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -115,16 +114,16 @@ bindsym $sup+v exec vlc
 bindsym $sup+g exec urxvt -cd "$HOME/git/gaiasky"
 
 # WORKSPACES
-set $ws1 "1:"
-set $ws2 "2:"
-set $ws3 "3:"
-set $ws4 "4:"
-set $ws5 "5:"
-set $ws6 "6:"
-set $ws7 "7:"
-set $ws8 "8:"
-set $ws9 "9:"
-set $ws0 "10:"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws0 "10"
 
 
 # switch to workspace
@@ -275,22 +274,26 @@ client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-col
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color  #90a0ff
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #90a0ff
 
-# bar
-bar {
-    font pango: Liberation Mono,FontAwesome 15
-    status_command bumblebee-status -m layout cpu disk battery brightness pasource pasink date time -p time.format="%H:%M CW %V" date.format="%Y-%m-%d" time.format="%H:%M:%S" date.left-click="gsimplecal" -t solarized-powerline
-    colors {
-        background $inactive-bg-color
-    }
-}
+#
+# BAR (polybar, bumblebee-status, i3status...)
+#
 
+# bumblebee-status
 
+#bar {
+#    font pango: Liberation Mono,FontAwesome 15
+#    status_command bumblebee-status -m layout cpu disk battery brightness pasource pasink date time -p time.format="%H:%M CW %V" date.format="%Y-%m-%d" time.format="%H:%M:%S" date.left-click="gsimplecal" -t solarized-powerline
+#    colors {
+#        background $inactive-bg-color
+#    }
+#}
+
+# polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 #
 # STARTUP APPLICATIONS
 #
-
-#exec thunderbird
 
 # Setup screens if needed
 exec_always /home/tsagrista/Scripts/current-randr.sh
@@ -304,7 +307,6 @@ exec_always --no-startup-id xset r rate 200 35 # initial delay 300 ms, repeat 35
 #
 # TRACKPAD  - Dell XPS13 
 #
-
 # trackpad speed
 exec_always "xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Accel Speed' 0.6"
 # tapping enabled
@@ -314,7 +316,6 @@ exec_always "xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Tapping 
 #
 # SYSTEM TRAY
 #
-
 # network manager
 exec --no-startup-id nm-applet
 # bluetooth
@@ -324,20 +325,14 @@ exec --no-startup-id pasystray
 # Megasync client
 exec --no-startup-id  (sleep 5 ; megasync)
 
-
-
 #
 # MONITORS AND XRANDR
 #
-
 exec_always mons -a
-
-
 
 # 
 # COMPOSITOR
 #
-
 exec compton
 
 #
