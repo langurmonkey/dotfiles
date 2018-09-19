@@ -7,7 +7,7 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch bar1
-DISPLAY1="$(xrandr -q | grep 'eDP1' | cut -d ' ' -f1)"
+DISPLAY1="$(xrandr -q | grep 'eDP-1' | cut -d ' ' -f1)"
 [[ ! -z "$DISPLAY1" ]] && MONITOR="$DISPLAY1" polybar bar-fhd &
 
 DISPLAY2="$(xrandr -q | grep 'DP-0' | cut -d ' ' -f1)"
