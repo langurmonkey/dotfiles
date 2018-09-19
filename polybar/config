@@ -56,13 +56,14 @@ font-1 = "Font Awesome:style=Regular:size=10;1"
 font-2 = "Font Awesome 5 Free:style=Regular:size=10;2"
 font-3 = "Font Awesome 5 Free:style=Solid:size=10;3"
 font-4 = "Font Awesome 5 Brands:style=Regular:size=10;4"
+font-5 = "MaterialIcons:style=Regular:size=10;5"
 
 modules-left = i3 
 modules-center = 
-modules-right = xkeyboard filesystem memory cpu temperature xbacklight battery pulseaudio date
+modules-right = xkeyboard filesystem memory cpu temperature wlan backlight battery pulseaudio date
 
 tray-position = right
-tray-padding = 2
+tray-padding = 4
 ;tray-transparent = true
 ;tray-background = #0063ff
 
@@ -99,7 +100,7 @@ label = %title:0:30:...%
 [module/xkeyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-prefix-underline = ${colors.secondary}
 
@@ -108,8 +109,8 @@ label-layout-underline = ${colors.secondary}
 
 label-indicator-padding = 2
 label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
+;label-indicator-background = ${colors.secondary}
+;label-indicator-underline = ${colors.secondary}
 
 [module/filesystem]
 type = internal/fs
@@ -120,6 +121,9 @@ mount-0 = /
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
+
+label-mounted-underline = ${colors.primary}
+label-unmounted-underline = ${colors.secondary}
 
 [module/bspwm]
 type = internal/bspwm
@@ -138,10 +142,7 @@ label-urgent-padding = 2
 
 label-empty = %index%
 label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
-
-; Separator in between workspaces
-; label-separator = |
+label-empty-padding = 
 
 [module/i3]
 type = internal/i3
@@ -195,32 +196,51 @@ label-urgent-padding = ${module/bspwm.label-urgent-padding}
 ; Separator in between workspaces
 ; label-separator = |
 
-[module/xbacklight]
-type = internal/xbacklight
+[module/backlight]
+type = internal/backlight
 
-format = <label> <bar>
-label = BL
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+card = intel_backlight
 
+; Available tags:
+;   <label> (default)
+;   <ramp>
+;   <bar>
+format = <ramp> <label>
+
+; Available tokens:
+;   %percentage% (default)
+label = %percentage%%
+
+; Only applies if <ramp> is used
+ramp-0 =  
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+
+format-underline = #ddd
+;ramp-0-underline = #333
+;ramp-1-underline = #666
+;ramp-2-underline = #999
+;ramp-3-underline = #bbb
+;ramp-4-underline = #ddd
+
+
+; Only applies if <bar> is used
 bar-width = 10
 bar-indicator = |
-bar-indicator-foreground = #fff
-bar-indicator-font = 2
 bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
 bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
 
-[module/backlight-acpi]
-inherit = module/xbacklight
-type = internal/backlight
-card = intel_backlight
+;bar-fill-underline = ${colors.primary}
+;bar-empty-underline = ${colors.secondary}
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
 
@@ -233,7 +253,7 @@ label =  %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 
@@ -258,7 +278,7 @@ label =  %percentage_used%% (%gb_used%)
 
 [module/wlan]
 type = internal/network
-interface = wlp3s0
+interface = wlp2s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -273,7 +293,7 @@ format-connected-underline = #9f78e1
 ;   %downspeed% [wireless+wired]
 ;   %linkspeed% [wired]
 ; Default: %ifname% %local_ip%
-label-connected =  %signal%
+label-connected =  %essid%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -321,14 +341,20 @@ label =  %date%   %time%
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
-label-volume =  %percentage%%
+format-volume = <ramp-volume> <label-volume>
+label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
+format-volume-underline = ${colors.primary}
 
 label-muted =  muted
 label-muted-foreground = #aaa
+format-muted-underline = ${colors.secondary}
 
-bar-volume-width = 10
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+bar-volume-width = 60
 bar-volume-foreground-0 = #55aa55
 bar-volume-foreground-1 = #55aa55
 bar-volume-foreground-2 = #55aa55
@@ -389,24 +415,24 @@ format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 
-label-charging =  %percentage%
-label-discharging =  %percentage%
-label-full =  %percentage%
+label-charging = %percentage%
+label-discharging = %percentage%
+label-full = %percentage%
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-foreground = ${colors.foreground-alt}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
+animation-charging-0 =  
+animation-charging-1 = 
+animation-charging-2 = 
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
 animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
 
@@ -420,13 +446,13 @@ format-underline = #f50a4d
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
-label =  %temperature-c%
-label-warn =  %temperature-c%
+label = %temperature-c%
+label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
