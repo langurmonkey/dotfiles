@@ -12,11 +12,10 @@ set $sup Mod4
 default_border pixel 2
 default_floating_border normal
 smart_borders on
-gaps inner 15
-gaps outer 0
+gaps inner 25
+gaps outer 10
 
 # Colors
-
 #set_from_resource $wal-fg i3wm.color7 #f0f0f0
 set_from_resource $wal-bg i3wm.color2 #f0f0f0
 
