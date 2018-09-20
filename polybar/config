@@ -60,7 +60,7 @@ font-5 = "MaterialIcons:style=Regular:size=10;5"
 
 modules-left = i3 
 modules-center = 
-modules-right = xkeyboard updatesarch filesystem memory cpu temperature wlan backlight battery pulseaudio date
+modules-right = xkeyboard updates-arch filesystem memory cpu temperature wlan backlight battery pulseaudio date
 
 tray-position = right
 tray-padding = 4
@@ -96,7 +96,7 @@ font-4 = "Font Awesome 5 Brands:style=Regular:size=16;4"
 ; same as bar-hidpi but it shows ubuntu updates instead of arch
 [bar/bar-hidpi-ubuntu]
 inherit = bar/bar-hidpi
-modules-right = xkeyboard updatesubuntu filesystem memory cpu temperature wlan backlight battery pulseaudio date
+modules-right = xkeyboard updates-ubuntu filesystem memory cpu temperature wlan backlight battery pulseaudio date
 
 ; same as other, but only show workspaces on slave bar
 [bar/bar-hidpi-slave]
@@ -109,24 +109,24 @@ tray-position =
 type = internal/xwindow
 label = %title:0:30:...%
 
-[module/updatesarch]
+[module/updates-arch]
 type = custom/script
 
 exec = ~/.config/polybar/scripts/updates-arch.sh
 format = <label>
 format-padding = 1
 label = %output%
-interval = 120
+interval = 300
 format-underline = ${colors.primary}
 
-[module/updatesubuntu]
+[module/updates-ubuntu]
 type = custom/script
 
 exec = ~/.config/polybar/scripts/updates-ubuntu.sh
 format = <label>
 format-padding = 1
 label = %output%
-interval = 120
+interval = 300
 format-underline = ${colors.primary}
 
 [module/xkeyboard]
