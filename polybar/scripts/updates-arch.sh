@@ -7,7 +7,7 @@ no_connection_color='#373737'
 arch_updates=$(checkupdates 2>&1)
 
 if [[ $arch_updates =~ '==>' ]]; then
-	echo "%{F${no_connection_color}}%{F-}"
+	echo "%{F${no_connection_color}}%{F-}"
 	exit
 fi
 

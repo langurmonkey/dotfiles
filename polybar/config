@@ -51,16 +51,17 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Sans-Regular:size=10;0
-font-1 = "Font Awesome:style=Regular:size=10;1"
-font-2 = "Font Awesome 5 Free:style=Regular:size=10;2"
-font-3 = "Font Awesome 5 Free:style=Solid:size=10;3"
-font-4 = "Font Awesome 5 Brands:style=Regular:size=10;4"
-font-5 = "MaterialIcons:style=Regular:size=10;5"
+font-0 = "Misc Fixed:size=12;0"
+font-1 = "Liberation Mono:size=10;0"
+font-2 = "Font Awesome:style=Regular:size=10;1"
+font-3 = "Font Awesome 5 Free:style=Regular:size=10;2"
+font-4 = "Font Awesome 5 Free:style=Solid:size=10;3"
+font-5 = "Font Awesome 5 Brands:style=Regular:size=10;4"
+font-6 = "MaterialIcons:style=Regular:size=10;5"
 
 modules-left = i3 
-modules-center = 
-modules-right = xkeyboard updates-arch filesystem memory cpu temperature wlan backlight battery pulseaudio date
+modules-center = xwindow 
+modules-right =  xkeyboard updates-arch filesystem memory cpu temperature wlan backlight battery pulseaudio-tail date
 
 tray-position = right
 tray-padding = 4
@@ -87,27 +88,56 @@ monitor = ${env:MONITOR:DP-0}
 height = 65
 line-size = 8
 border-size = 8
-font-0 = Sans-Regular:size=18;0
-font-1 = "Font Awesome:style=Regular:size=16;1"
-font-2 = "Font Awesome 5 Free:style=Regular:size=16;2"
-font-3 = "Font Awesome 5 Free:style=Solid:size=16;3"
-font-4 = "Font Awesome 5 Brands:style=Regular:size=16;4"
+
+font-0 = "Misc Fixed:size=20;0"
+font-1 = "Liberation Mono:size=18;0"
+font-2 = "Font Awesome:style=Regular:size=16;1"
+font-3 = "Font Awesome 5 Free:style=Regular:size=16;2"
+font-4 = "Font Awesome 5 Free:style=Solid:size=16;3"
+font-5 = "Font Awesome 5 Brands:style=Regular:size=16;4"
 
 ; same as bar-hidpi but it shows ubuntu updates instead of arch
 [bar/bar-hidpi-ubuntu]
 inherit = bar/bar-hidpi
-modules-right = xkeyboard updates-ubuntu filesystem memory cpu temperature wlan backlight battery pulseaudio date
+modules-right = xkeyboard updates-ubuntu filesystem memory cpu temperature wlan backlight battery pulseaudio-tail date
 
 ; same as other, but only show workspaces on slave bar
 [bar/bar-hidpi-slave]
 inherit = bar/bar-hidpi
 monitor = ${env:MONITOR:DVI-D-0}
-modules-right = memory cpu temperature pulseaudio date 
+modules-right = memory cpu temperature pulseaudio-tail date 
 tray-position =
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
+; Available tags:
+;   <label> (default)
+format = <label>
+format-background =
+format-foreground = #fff
+format-padding = 4
+
+; Available tokens:
+;   %title%
+; Default: %title%
+label = - %title% -
+label-maxlen = 50
+
+; Used instead of label when there is no window title
+; Available tokens:
+;   None
+label-empty = Empty
+label-empty-foreground = #707880
+
+[module/pulseaudio-tail]
+type = custom/script
+exec = ~/.config/polybar/scripts/pulseaudio-tail.sh
+tail = true
+click-right = exec pavucontrol &
+click-left = ~/.config/polybar/scripts/pulseaudio-tail.sh --mute
+scroll-up = ~/.config/polybar/scripts/pulseaudio-tail.sh --up
+scroll-down = ~/.config/polybar/scripts/pulseaudio-tail.sh --down
+format-underline = ${colors.primary}
 
 [module/updates-arch]
 type = custom/script
