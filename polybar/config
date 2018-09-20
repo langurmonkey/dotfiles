@@ -120,8 +120,8 @@ format-padding = 4
 ; Available tokens:
 ;   %title%
 ; Default: %title%
-label = - %title% -
-label-maxlen = 50
+label = < %title% >
+label-maxlen = 70
 
 ; Used instead of label when there is no window title
 ; Available tokens:
