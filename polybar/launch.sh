@@ -15,7 +15,7 @@ DISPLAY1="$(xrandr -q | grep 'eDP-1' | cut -d ' ' -f1)"
 
 # ARI hidalgo - 2 bars - hidpi
 if [[ $HOSTNAME == "hidalgo" ]]; then
-    MONITOR=DP-0 polybar bar-hidpi &
+    MONITOR=DP-0 polybar bar-hidpi-ubuntu &
     MONITOR=DVI-D-0 polybar bar-hidpi-slave &
 fi
 
