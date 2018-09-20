@@ -240,10 +240,15 @@ echo-ok "Done"
 #
 echo-custom " ** " "==== QUTEBROWSER ===="
 
+QB_CONFIG=~/.config/qutebrowser
+QB_DATA=~/.local/share/qutebrowser
+
 # Symlink qutebrowser config
-do-symlink $DOTFILES_PATH/qutebrowser ~/.config/qutebrowser
+do-symlink $DOTFILES_PATH/qutebrowser $QB_CONFIG
 # Symlink userscripts
-do-symlink $DOTFILES_PATH/qutebrowser/userscripts ~/.local/share/qutebrowser/userscripts
+do-symlink $DOTFILES_PATH/qutebrowser/data/userscripts $QB_DATA/userscripts
+# Symlink greasemonkey js
+do-symlink $DOTFILES_PATH/qutebrowser/data/greasemonkey $QB_DATA/greasemonkey
 
 echo-ok "Done"
 
