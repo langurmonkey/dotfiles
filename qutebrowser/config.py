@@ -1622,3 +1622,7 @@ config.bind('e', 'set-cmd-text :open {url:pretty}')
 config.bind('M', 'hint links spawn mpv {hint-url}')
 config.bind(';M', 'spawn urxvt -e youtube-dl --all-subs --output "~/Videos/YouTube/%(title)s.%(ext)s" {url}')
 config.bind(';A', 'spawn urxvt -e youtube-dl -x --audio-format mp3 --output "~/Music/YouTube/%(title)s.%(ext)s" {url}')
+
+## Open google translate with selection
+config.bind('tR', 'spawn --userscript gtranslate-sel')
+config.bind('tr', 'spawn --userscript gtranslate-url')

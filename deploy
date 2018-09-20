@@ -242,6 +242,8 @@ echo-custom " ** " "==== QUTEBROWSER ===="
 
 # Symlink qutebrowser config
 do-symlink $DOTFILES_PATH/qutebrowser ~/.config/qutebrowser
+# Symlink userscripts
+do-symlink $DOTFILES_PATH/qutebrowser/userscripts ~/.local/share/qutebrowser/userscripts
 
 echo-ok "Done"
 
