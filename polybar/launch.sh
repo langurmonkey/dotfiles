@@ -11,6 +11,9 @@ DISPLAY1="$(xrandr -q | grep 'eDP-1' | cut -d ' ' -f1)"
 [[ ! -z "$DISPLAY1" ]] && MONITOR="$DISPLAY1" polybar bar-fhd &
 
 DISPLAY2="$(xrandr -q | grep 'DP-0' | cut -d ' ' -f1)"
-[[ ! -z $DISPLAY2 ]] && MONITOR=$DISPLAY2 polybar bar-hidpi &
+if [[ ! -z $DISPLAY2 ]]; then
+    MONITOR=$DISPLAY2 polybar bar-hidpi &
+    polybar bar-hidpi-slave &
+fi
 
 echo "Bar launched..."

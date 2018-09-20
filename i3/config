@@ -332,14 +332,19 @@ exec --no-startup-id pasystray
 exec --no-startup-id  (sleep 5 ; megasync)
 
 #
-# MONITORS AND XRANDR
+# MONITORS AND XRANDR - autodetect plug-in monitors
 #
-exec_always mons -a
+exec --no-startup-id mons -a
 
 # 
-# COMPOSITOR
+# COMPOSITOR - window compositor
 #
-exec compton
+exec --no-startup-id compton
+
+#
+# UDISKIE - automount
+#
+exec --no-startup-id udiskie --tray
 
 #
 # WAL THEME

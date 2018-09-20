@@ -92,6 +92,12 @@ font-2 = "Font Awesome 5 Free:style=Regular:size=16;2"
 font-3 = "Font Awesome 5 Free:style=Solid:size=16;3"
 font-4 = "Font Awesome 5 Brands:style=Regular:size=16;4"
 
+[bar/bar-hidpi-slave]
+; same as other, but only show workspaces on slave bar
+inherit = bar/bar-hidpi
+monitor = DVI-D-0
+modules-right = memory cpu temperature pulseaudio date 
+tray-position =
 
 [module/xwindow]
 type = internal/xwindow
@@ -151,7 +157,7 @@ index-sort = true
 wrapping-scroll = false
 
 ; Only show workspaces on the same output as the bar
-;pin-workspaces = true
+pin-workspaces = true
 
 ; workspaces
 ; ws-icon-[0-9]+ = label;icon
