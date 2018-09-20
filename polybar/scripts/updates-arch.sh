@@ -16,7 +16,7 @@ arch_updates=$(echo "$arch_updates" | wc -l)
 
 updates=$((arch_updates + aur_updates))
 
-if [ "$updates" -lt 40 ]; then
+if [ "$updates" -lt 20 ]; then
 	echo " $updates"
 elif [ "$updates" -lt 80 ]; then
 	echo "%{F${normal_color}} $updates%{F-}"

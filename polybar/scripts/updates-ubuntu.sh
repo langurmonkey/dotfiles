@@ -6,7 +6,7 @@ no_connection_color='#373737'
 
 updates=$(apt-get dist-upgrade -s --quiet=2 | grep ^Inst | wc -l)
 
-if [ "$updates" -lt 40 ]; then
+if [ "$updates" -lt 20 ]; then
 	echo " $updates"
 elif [ "$updates" -lt 80 ]; then
 	echo "%{F${normal_color}} $updates%{F-}"
