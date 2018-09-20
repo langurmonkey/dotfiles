@@ -64,7 +64,10 @@ function do-symlink {
     #echo-debug "    Target: $1"
     #echo-debug " Link name: $2"
     echo-info "Symlink: $2 -> $1"
-    rm $2
+    # Remove link if exists
+    if [ -L $2 ]; then
+        rm $2
+    fi
     ln -s $1 $2
 }
 
