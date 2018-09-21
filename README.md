@@ -1,8 +1,8 @@
 # Dotfiles
 
-This repository contains some configuration files to set up
-my dev environment the way I like it. It contains config files for
-vim, ranger, tmux, i3 and some other programs.
+**This** is my Linux configuration. 
+It contains utilities to bootstrap and deploy my environment and dotfiles for
+i3wm, polybar, vim, ranger, and some other programs.
 
 ## Bootstrap
 
@@ -19,4 +19,16 @@ Deploy the environment anytime using the `deploy` script:
 ```
  $  ~/.dotfiles/deploy
 ```
+
+## More info
+
+- [Background story](docs/bg.md)
+- [Deploying](docs/deploy.md)
+- [i3wm](docs/i3wm.md)
+- [qutebrowser](docs/qutebrowser.md)
+- [polybar](docs/polybar.md)
+- [rofi](docs/rofi.md)
+- [ranger](docs/ranger.md)
+- [vim](docs/vim.md)
+- [pass](docs/pass.md)
 

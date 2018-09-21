@@ -127,7 +127,7 @@ fi
 do-curl-fetchfile ~/.vim/syntax/glsl.vim https://raw.githubusercontent.com/tikhomirov/vim-glsl/master/syntax/glsl.vim vim-glsl
 
 # Create .vimrc symlink
-do-symlink $DOTFILES_PATH/.vimrc ~/.vimrc
+do-symlink $DOTFILES_PATH/vim/.vimrc ~/.vimrc
 
 #
 # TMUX
@@ -138,7 +138,7 @@ echo-custom " ** " "==== TMUX ===="
 do-clone $DIR_TMUXR https://github.com/tmux-plugins/tmux-resurrect tmux-resurrect
 
 # Create .tmux.conf symlink
-do-symlink $DOTFILES_PATH/.tmux.conf ~/.tmux.conf
+do-symlink $DOTFILES_PATH/tmux/.tmux.conf ~/.tmux.conf
 
 #
 # RANGER
@@ -155,22 +155,22 @@ do-symlink $DOTFILES_PATH/ranger/rc.conf $DIR_RANGER/rc.conf
 
 
 #
-# SHELL ALIASES
+# SHELL ENVIRONMENT
 #
-echo-custom " ** " "==== SHELL ALIASES ===="
+echo-custom " ** " "==== SHELL ENVIRONMENT ===="
 
 # Symlink shell aliases file
-do-symlink $DOTFILES_PATH/.env_global ~/.env_global
+do-symlink $DOTFILES_PATH/env/.env_global ~/.env_global
 
 # Source in bash and zsh
-do-source "bash" ~/.env_global
-do-source "zsh"  ~/.env_global
+do-source "bash" ~/env/.env_global
+do-source "zsh"  ~/env/.env_global
 
 
 if [[ -f /etc/arch-release ]]; then
-    do-symlink $DOTFILES_PATH/.env_arch ~/.env_arch
-    do-source "bash" ~/.env_arch
-    do-source "zsh" ~/.env_arch
+    do-symlink $DOTFILES_PATH/env/.env_arch ~/.env_arch
+    do-source "bash" ~/env/.env_arch
+    do-source "zsh" ~/env/.env_arch
 fi
 
 echo-ok "Done"
@@ -202,21 +202,23 @@ do-symlink $DOTFILES_PATH/polybar ~/.config/polybar
 echo-ok "Done"
 
 #
-# URXVT
+# X and URXVT
 #
-echo-custom " ** " "==== urxvt ===="
+echo-custom " ** " "==== X and  urxvt ===="
 
 mkdir -p ~/.urxvt/ext/
 # xdefaults
+do-symlink $DOTFILES_PATH/X/.Xdefaults ~/.Xdefaults
 XRES=$(xwininfo -root|sed '/Width/!d;s/.* //')
-if [[ $XRES -le 2000 ]]; then
-    # FullHD or equivalent
-    do-symlink $DOTFILES_PATH/urxvt/.Xdefaults ~/.Xdefaults
-else
+if [[ $XRES -gt 2000 ]]; then
     # HiDPI
-    do-symlink $DOTFILES_PATH/urxvt/.Xdefaults-hidpi ~/.Xdefaults
+    do-symlink $DOTFILES_PATH/X/.Xresources-hidpi ~/.Xresources
+    do-symlink $DOTFILES_PATH/X/.Xdefaults-hidpi ~/.Xdefaults
+else
+    # Regular
+    do-symlink $DOTFILES_PATH/X/.Xdefaults ~/.Xdefaults
 fi
-# font-size
+# font-size urxvt plugin
 do-symlink $DOTFILES_PATH/urxvt/font-size ~/.urxvt/ext/font-size
 
 echo-ok "Done"

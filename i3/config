@@ -12,7 +12,7 @@ set $sup Mod4
 default_border pixel 2
 default_floating_border normal
 smart_borders on
-gaps inner 25
+gaps inner 10
 gaps outer 10
 
 # Colors
@@ -31,7 +31,7 @@ font pango:System System San Francisco Display, FontAwesome 11
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod 
 # Start a terminal
-bindsym $mod+Return exec urxvt -cd "`$HOME/.config/i3/xcwd`"
+bindsym $mod+Return exec urxvt -cd "`$HOME/.dotfiles/bin/xcwd`"
 
 # kill focused window
 bindsym $mod+q kill
@@ -112,8 +112,7 @@ bindsym XF86MonBrightnessDown exec brightness-
 # Start Applications
 bindsym $sup+b exec qutebrowser
 bindsym $sup+t exec thunderbird
-bindsym $sup+f exec urxvt -cd "`$HOME/.config/i3/xcwd`" -e ranger --cmd="shell ~/.local/bin/wal -R"
-bindsym $sup+v exec vlc
+bindsym $sup+f exec ~/.dotfiles/bin/ranger-urxvt "`$HOME/.dotfiles/bin/xcwd`"
 bindsym $sup+g exec urxvt -cd "$HOME/git/gaiasky"
 
 # WORKSPACES
@@ -185,13 +184,13 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Escape mode "$mode_system"
 set $mode_system (l)ock, sloc(k), (e)xit, l(o)gout, (s)uspend, (r)eboot, Shut(d)own
 mode "$mode_system" {
-    bindsym l exec --no-startup-id $HOME/.config/i3/i3exit lock, mode "default"
-    bindsym k exec --no-startup-id $HOME/.config/i3/i3exit slock, mode "default"
-    bindsym s exec --no-startup-id $HOME/.config/i3/i3exit suspend, mode "default"
-    bindsym o exec --no-startup-id $HOME/.config/i3/i3exit logout, mode "default"
-    bindsym e exec --no-startup-id $HOME/.config/i3/i3exit logout, mode "default"
-    bindsym r exec --no-startup-id $HOME/.config/i3/i3exit reboot, mode "default"
-    bindsym d exec --no-startup-id $HOME/.config/i3/i3exit shutdown, mode "default"
+    bindsym l exec --no-startup-id $HOME/.dotfiles/bin/i3exit lock, mode "default"
+    bindsym k exec --no-startup-id $HOME/.dotfiles/bin/i3exit slock, mode "default"
+    bindsym s exec --no-startup-id $HOME/.dotfiles/bin/i3exit suspend, mode "default"
+    bindsym o exec --no-startup-id $HOME/.dotfiles/bin/i3exit logout, mode "default"
+    bindsym e exec --no-startup-id $HOME/.dotfiles/bin/i3exit logout, mode "default"
+    bindsym r exec --no-startup-id $HOME/.dotfiles/bin/i3exit reboot, mode "default"
+    bindsym d exec --no-startup-id $HOME/.dotfiles/bin/i3exit shutdown, mode "default"
 
     # exit system mode: "Enter" or "Escape"
     bindsym Return mode "default"
@@ -334,7 +333,7 @@ exec --no-startup-id  (sleep 5 ; megasync)
 #
 # MONITORS AND XRANDR - autodetect plug-in monitors
 #
-exec --no-startup-id mons -a
+exec --no-startup-id mons -a > /dev/null 2>&1
 
 # 
 # COMPOSITOR - window compositor
@@ -344,9 +343,9 @@ exec --no-startup-id compton
 #
 # UDISKIE - automount
 #
-exec --no-startup-id udiskie --tray
+exec --no-startup-id udiskie -f "/home/tsagrista/.dotfiles/bin/ranger-urxvt" --tray
 
 #
 # WAL THEME
 #
-wal -R
+exec --no-startup-id wal -R
