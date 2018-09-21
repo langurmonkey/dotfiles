@@ -99,7 +99,7 @@ font-5 = "Font Awesome 5 Brands:style=Regular:size=16;4"
 ; same as bar-hidpi but it shows ubuntu updates instead of arch
 [bar/bar-hidpi-ubuntu]
 inherit = bar/bar-hidpi
-modules-right = xkeyboard updates-ubuntu filesystem memory cpu temperature wlan backlight battery pulseaudio-tail date
+modules-right = xkeyboard updates-ubuntu fs-hidalgo memory cpu temperature wlan backlight battery pulseaudio-tail date
 
 ; same as other, but only show workspaces on slave bar
 [bar/bar-hidpi-slave]
@@ -162,7 +162,7 @@ format-underline = ${colors.primary}
 [module/xkeyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-prefix-underline = ${colors.secondary}
 
@@ -186,6 +186,10 @@ label-unmounted-foreground = ${colors.foreground-alt}
 
 label-mounted-underline = ${colors.primary}
 label-unmounted-underline = ${colors.secondary}
+
+[module/fs-hidalgo]
+inherit = module/filesystem
+mount-1 = /media/tsagrista/Daten
 
 [module/bspwm]
 type = internal/bspwm
