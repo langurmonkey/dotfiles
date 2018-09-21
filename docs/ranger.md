@@ -13,7 +13,7 @@ map bg shell cp %f ~/Pictures/wallpaper.jpg && feh --bg-fil ~/Pictures/wallpaper
 map bw shell cp %f ~/Pictures/wallpaper.jpg && ~/.local/bin/wal -c && ~/.local/bin/wal -a 85 -i ~/Pictures/wallpaper.jpg
 ```
 
-Additionally, I use a script which I use to launch a new instance of `ranger` inside a `urxvt` terminal with a specific working directory:
+Additionally, I use a script to launch a new instance of `ranger` inside a `urxvt` terminal with a specific working directory:
 
 ```
 #!/bin/bash
