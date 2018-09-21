@@ -22,7 +22,7 @@ I also use this program in my [ranger](ranger.md) launch script in order to open
 
 ### Media player and volume controls
 
-I use `playerctl` to issue commands to my music players and **pactl** to control the pulse audio volume levels. Just bind the relevant `XF86...` key to the right command:
+I use `playerctl` to issue commands to my music players and `pactl` to control the pulse audio volume levels. Just bind the relevant `XF86...` key to the right command:
 
 ```
 # media player controls
