@@ -1,3 +1,3 @@
-# *ranger*
+# Ranger
 
 TODO
