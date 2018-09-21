@@ -202,21 +202,23 @@ do-symlink $DOTFILES_PATH/polybar ~/.config/polybar
 echo-ok "Done"
 
 #
-# URXVT
+# X and URXVT
 #
-echo-custom " ** " "==== urxvt ===="
+echo-custom " ** " "==== X and  urxvt ===="
 
 mkdir -p ~/.urxvt/ext/
 # xdefaults
+do-symlink $DOTFILES_PATH/X/.Xdefaults ~/.Xdefaults
 XRES=$(xwininfo -root|sed '/Width/!d;s/.* //')
-if [[ $XRES -le 2000 ]]; then
-    # FullHD or equivalent
-    do-symlink $DOTFILES_PATH/urxvt/.Xdefaults ~/.Xdefaults
-else
+if [[ $XRES -gt 2000 ]]; then
     # HiDPI
-    do-symlink $DOTFILES_PATH/urxvt/.Xdefaults-hidpi ~/.Xdefaults
+    do-symlink $DOTFILES_PATH/X/.Xresources-hidpi ~/.Xresources
+    do-symlink $DOTFILES_PATH/X/.Xdefaults-hidpi ~/.Xdefaults
+else
+    # Regular
+    do-symlink $DOTFILES_PATH/X/.Xdefaults ~/.Xdefaults
 fi
-# font-size
+# font-size urxvt plugin
 do-symlink $DOTFILES_PATH/urxvt/font-size ~/.urxvt/ext/font-size
 
 echo-ok "Done"
