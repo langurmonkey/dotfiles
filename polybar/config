@@ -114,7 +114,7 @@ type = internal/xwindow
 ;   <label> (default)
 format = <label>
 format-background =
-format-foreground = #fff
+format-foreground = ${colors.foreground} 
 format-padding = 4
 
 ; Available tokens:
@@ -127,7 +127,7 @@ label-maxlen = 70
 ; Available tokens:
 ;   None
 label-empty = Empty
-label-empty-foreground = #707880
+label-empty-foreground = ${colors.foreground}
 
 [module/pulseaudio-tail]
 type = custom/script

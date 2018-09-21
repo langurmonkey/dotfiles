@@ -155,9 +155,9 @@ do-symlink $DOTFILES_PATH/ranger/rc.conf $DIR_RANGER/rc.conf
 
 
 #
-# SHELL ALIASES
+# SHELL ENVIRONMENT
 #
-echo-custom " ** " "==== SHELL ALIASES ===="
+echo-custom " ** " "==== SHELL ENVIRONMENT ===="
 
 # Symlink shell aliases file
 do-symlink $DOTFILES_PATH/env/.env_global ~/.env_global
