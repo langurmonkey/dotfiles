@@ -163,14 +163,14 @@ echo-custom " ** " "==== SHELL ENVIRONMENT ===="
 do-symlink $DOTFILES_PATH/env/.env_global ~/.env_global
 
 # Source in bash and zsh
-do-source "bash" ~/env/.env_global
-do-source "zsh"  ~/env/.env_global
+do-source "bash" ~/.env_global
+do-source "zsh"  ~/.env_global
 
 
 if [[ -f /etc/arch-release ]]; then
     do-symlink $DOTFILES_PATH/env/.env_arch ~/.env_arch
-    do-source "bash" ~/env/.env_arch
-    do-source "zsh" ~/env/.env_arch
+    do-source "bash" ~/.env_arch
+    do-source "zsh" ~/.env_arch
 fi
 
 echo-ok "Done"
