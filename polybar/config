@@ -51,7 +51,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = "Misc Fixed:size=12;0"
+font-0 = "xos4 Terminus:size=13;0"
 font-1 = "Liberation Mono:size=10;0"
 font-2 = "Font Awesome:style=Regular:size=10;1"
 font-3 = "Font Awesome 5 Free:style=Regular:size=10;2"
@@ -88,8 +88,9 @@ monitor = ${env:MONITOR:DP-0}
 height = 65
 line-size = 8
 border-size = 8
+modules-center = xwindow-long
 
-font-0 = "Misc Fixed:size=20;0"
+font-0 = "xos4 Terminus:size=20;0"
 font-1 = "Liberation Mono:size=18;0"
 font-2 = "Font Awesome:style=Regular:size=16;1"
 font-3 = "Font Awesome 5 Free:style=Regular:size=16;2"
@@ -120,14 +121,18 @@ format-padding = 4
 ; Available tokens:
 ;   %title%
 ; Default: %title%
-label = < %title% >
-label-maxlen = 70
+label = %title%
+label-maxlen = 40
 
 ; Used instead of label when there is no window title
 ; Available tokens:
 ;   None
 label-empty = Empty
 label-empty-foreground = ${colors.foreground}
+
+[module/xwindow-long]
+inherit = module/xwindow
+label-maxlen = 70
 
 [module/pulseaudio-tail]
 type = custom/script
