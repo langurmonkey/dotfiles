@@ -17,12 +17,15 @@ DISPLAY1="$(xrandr -q | grep 'eDP-1' | cut -d ' ' -f1)"
 if [[ $HOSTNAME == "hidalgo" ]]; then
     MONITOR=DP-0 polybar bar-hidpi-ubuntu &
     MONITOR=DVI-D-0 polybar bar-hidpi-slave &
-fi
 
 # IWR herschel - 2 bars - hidpi
-if [[ $HOSTNAME == "herschel" ]]; then
+elif [[ $HOSTNAME == "herschel" ]]; then
     MONITOR=DP-0 polybar bar-hidpi &
     MONITOR=DP-4 polybar bar-hidpi-slave &
+
+# Home bonobo - 1 fhd bar
+elif [[ $HOSTNAME == "bonobo" ]]; then
+    MONITOR=DVI-I-0 polybar bar-fhd &
 fi
 
 

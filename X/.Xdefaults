@@ -24,7 +24,7 @@ URxvt.color7  : #D3D3D7D7CFCF
 URxvt.color15 : #EEEEEEEEECEC
 
 URxvt*foreground : White
-URxvt*background : [70]Black
+URxvt*background : [85]Black
 URxvt*depth: 32
 
 ! fonts

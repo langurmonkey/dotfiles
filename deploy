@@ -68,6 +68,9 @@ function do-symlink {
     if [ -L $2 ]; then
         rm $2
     fi
+    if [ -d $2 ]; then
+        rm -rf $2
+    fi
     ln -s $1 $2
 }
 
@@ -208,7 +211,6 @@ echo-custom " ** " "==== X and  urxvt ===="
 
 mkdir -p ~/.urxvt/ext/
 # xdefaults
-do-symlink $DOTFILES_PATH/X/.Xdefaults ~/.Xdefaults
 XRES=$(xwininfo -root|sed '/Width/!d;s/.* //')
 if [[ $XRES -gt 2000 ]]; then
     # HiDPI
