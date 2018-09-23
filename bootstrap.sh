@@ -17,7 +17,7 @@ _uncallable() { ! command -v "$1" >/dev/null; }
 if _uncallable zsh || _uncallable git; then
     _msg "Installing git, zsh, vim, ranger and tmux..."
     if [[ -f /etc/arch-release ]]; then
-        sudo pacman --needed --noconfirm -S git zsh vim tmux ranger slock qutebrowser rofi keychain udiskie
+        $DOTFILES/bootstrap-arch.sh
     elif [[ -f /etc/debian_version ]]; then
         sudo apt-get update && sudo apt-get install -y git zsh vim tmux ranger slock qutebrowser rofi keychain udiskie
     fi
