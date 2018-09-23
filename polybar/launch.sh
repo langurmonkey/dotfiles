@@ -9,23 +9,22 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 # We will run a configuration depending on the host name
 HOSTNAME=$(hostname)
 
-# XPS13 laptop - 1 bar
-DISPLAY1="$(xrandr -q | grep 'eDP-1' | cut -d ' ' -f1)"
-[[ ! -z "$DISPLAY1" ]] && MONITOR="$DISPLAY1" polybar bar-fhd &
 
-# ARI hidalgo - 2 bars - hidpi
+# ARI hidalgo - 2 bars - ubuntu+hidpi
 if [[ $HOSTNAME == "hidalgo" ]]; then
     MONITOR=DP-0 polybar bar-hidpi-ubuntu &
     MONITOR=DVI-D-0 polybar bar-hidpi-slave &
 
-# IWR herschel - 2 bars - hidpi
+# IWR herschel - 2 bars - arch+hidpi
 elif [[ $HOSTNAME == "herschel" ]]; then
     MONITOR=DP-0 polybar bar-hidpi &
     MONITOR=DP-4 polybar bar-hidpi-slave &
 
-# Home bonobo - 1 fhd bar
-elif [[ $HOSTNAME == "bonobo" ]]; then
-    MONITOR=DVI-I-0 polybar bar-fhd &
+# Others - same bar in all monitors
+else
+    for m in $(polybar --list-monitors | cut -d":" -f1); do
+        MONITOR=$m polybar --reload bar-fhd &
+    done
 fi
 
 
