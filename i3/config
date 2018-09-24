@@ -26,7 +26,7 @@ set $inactive-text-color #75758a
 set $urgent-bg-color     #E42343
 
 # Font for window titles.
-font pango:xos4 Terminus, FontAwesome 11
+font pango:xos4 Terminus, Terminus, FontAwesome 11
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod 

@@ -29,7 +29,7 @@ URxvt*depth: 32
 
 ! fonts
 ! run "fc-list" for a list of available fonts
-URxvt*font: xft:xos4 Terminus:pixelsize=16
+URxvt*font: xft:Liberation Mono:pixelsize=16
 
 ! font size
 URxvt.perl-ext-common: font-size

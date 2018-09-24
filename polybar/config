@@ -57,7 +57,6 @@ font-2 = "Font Awesome:style=Regular:size=10;1"
 font-3 = "Font Awesome 5 Free:style=Regular:size=10;2"
 font-4 = "Font Awesome 5 Free:style=Solid:size=10;3"
 font-5 = "Font Awesome 5 Brands:style=Regular:size=10;4"
-font-6 = "MaterialIcons:style=Regular:size=10;5"
 
 modules-left = i3 
 modules-center = xwindow 
@@ -90,12 +89,13 @@ line-size = 8
 border-size = 8
 modules-center = xwindow-long
 
-font-0 = "xos4 Terminus:style=Bold:size=20;0"
-font-1 = "Liberation Mono:size=18;0"
-font-2 = "Font Awesome:style=Regular:size=16;1"
-font-3 = "Font Awesome 5 Free:style=Regular:size=16;2"
-font-4 = "Font Awesome 5 Free:style=Solid:size=16;3"
-font-5 = "Font Awesome 5 Brands:style=Regular:size=16;4"
+font-0 = "Misc Fixed:size=20;0"
+font-1 = "xos4 Terminus:style=Bold:size=20;1"
+font-2 = "Liberation Mono:size=18;2"
+font-3 = "Font Awesome:style=Regular:size=16;3"
+font-4 = "Font Awesome 5 Free:style=Regular:size=16;4"
+font-5 = "Font Awesome 5 Free:style=Solid:size=16;5"
+font-6 = "Font Awesome 5 Brands:style=Regular:size=16;6"
 
 ; same as bar-hidpi but it shows ubuntu updates instead of arch
 [bar/bar-hidpi-ubuntu]
@@ -132,7 +132,7 @@ label-empty-foreground = ${colors.foreground}
 
 [module/xwindow-long]
 inherit = module/xwindow
-label-maxlen = 70
+label-maxlen = 55
 
 [module/pulseaudio-tail]
 type = custom/script

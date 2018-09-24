@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 # Deploys the environment in arch and derivatives
-sudo apt-get update && sudo apt-get install -y git zsh vim tmux ranger slock qutebrowser rofi keychain udiskie feh 
+sudo apt-get update && sudo apt-get install -y git zsh vim tmux ranger slock qutebrowser rofi keychain udiskie feh xfonts-terminus
