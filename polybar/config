@@ -17,8 +17,8 @@
 ;==========================================================
 
 [colors]
-#background = ${xrdb:color0:#c0222222}
-background = #c0222222
+background = ${xrdb:color0:#c0222222}
+#background = #c0222222
 background-alt = #444
 foreground = ${xrdb:color7:#dfdfdf}
 foreground-alt = ${xrdb:color7:#dfdfdf}
@@ -63,9 +63,9 @@ modules-center = xwindow
 modules-right =  xkeyboard updates-arch filesystem memory cpu temperature wlan backlight battery pulseaudio-tail date
 
 tray-position = right
-tray-padding = 4
+tray-padding = 0
 ;tray-transparent = true
-;tray-background = #0063ff
+tray-background = ${colors.background}
 
 ;wm-restack = bspwm
 ;wm-restack = i3
