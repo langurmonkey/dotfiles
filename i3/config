@@ -15,7 +15,7 @@ font pango:xos4 Terminus, Terminus, FontAwesome 11
 default_border pixel 2
 default_floating_border normal
 gaps inner 10
-gaps outer 10
+gaps outer 5
 
 # Colors
 #set_from_resource $wal-fg i3wm.color7 #f0f0f0
