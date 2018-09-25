@@ -7,6 +7,9 @@ set $mod Mod1
 # Windows key - launch programs
 set $sup Mod4
 
+# Font for window titles.
+font pango:xos4 Terminus, Terminus, FontAwesome 11
+
 # Gaps
 #for_window [class="^.*"] border pixel 0 
 default_border pixel 2
@@ -23,9 +26,6 @@ set $inactive-bg-color   #002b36
 set $text-color          #ffffff
 set $inactive-text-color #75758a
 set $urgent-bg-color     #E42343
-
-# Font for window titles.
-font pango:xos4 Terminus, Terminus, FontAwesome 11
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod 
