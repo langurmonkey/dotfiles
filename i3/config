@@ -158,8 +158,8 @@ assign [class="Thunderbird"] $ws3
 assign [class="Eclipse"] $ws4
 
 # default floating
-for_window [title="alsamixer"] floating enable border pixel 1
-for_window [class="Blueman-manager"] floating enable border pixel 1
+for_window [title="alsamixer"] floating enable border normal
+for_window [class="Blueman-manager"] floating enable border normal
 for_window [class="GParted"] floating enable border normal
 for_window [class="Lxappearance"] floating enable sticky enable border normal
 for_window [class="qt5ct"] floating enable sticky enable border normal
@@ -172,6 +172,7 @@ for_window [class="Arandr"] floating enable border normal
 for_window [class="Nemo"] floating enable border normal
 for_window [class="Gaia Sky - 2.1.0"] floating enable border normal
 for_window [class="Gaia Sky"] floating enable border normal
+for_window [class="obs"] floating enable border normal
 
 
 # reload the configuration file
