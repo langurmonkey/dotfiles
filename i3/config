@@ -107,6 +107,11 @@ bindsym $mod+F11 exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86MonBrightnessUp exec brightness+
 bindsym XF86MonBrightnessDown exec brightness-
 
+# screenshots
+# scrot & gimp - root
+bindsym Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
+# scrot & gimp - select window or rectangle
+bindsym $mod+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
 
 # Start Applications
 bindsym $sup+b exec qutebrowser
