@@ -21,6 +21,7 @@ c.aliases.update({'tw': 'open -t twitter.com'})
 c.aliases.update({'twitter': 'open -t twitter.com'})
 c.aliases.update({'yt': 'open -t youtube.com'})
 c.aliases.update({'reddit': 'open -t reddit.com'})
+c.aliases.update({'tr': 'open -t translate.google.com'})
 
 ## Time interval (in milliseconds) between auto-saves of
 ## config/cookies/etc.
@@ -1626,3 +1627,4 @@ config.bind(';A', 'spawn urxvt -e youtube-dl -x --audio-format mp3 --output "~/M
 ## Open google translate with selection
 config.bind('tR', 'spawn --userscript gtranslate-sel')
 config.bind('tr', 'spawn --userscript gtranslate-url')
+config.bind('tg', 'open -t translate.google.com')
