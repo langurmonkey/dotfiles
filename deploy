@@ -179,6 +179,13 @@ fi
 echo-ok "Done"
 
 #
+# GIT
+#
+echo-custom " ** " "==== GIT CONFIG ===="
+do-symlink $DOTFILES_PATH/git/.gitconfig ~/.gitconfig
+echo-ok "Done"
+
+#
 # i3
 #
 echo-custom " ** " "==== i3 CONFIG ===="
