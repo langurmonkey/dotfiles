@@ -1303,7 +1303,7 @@ c.hints.border = '2px solid #000000'
 ## Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 ## for a blank page.
 ## Type: FuzzyUrl
-# c.url.default_page = 'https://start.duckduckgo.com/'
+c.url.default_page = 'https://duckduckgo.com/'
 
 ## URL segments where `:navigate increment/decrement` will search for a
 ## number.
@@ -1324,7 +1324,7 @@ c.hints.border = '2px solid #000000'
 ## used by prepending the search engine name to the search term, e.g.
 ## `:open google qutebrowser`.
 ## Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/{}'}
+c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
 c.url.searchengines.update({'yt': 'https://youtube.com/results?search_query={}'})
 c.url.searchengines.update({'tw': 'https://twitter.com/{}'})
 c.url.searchengines.update({'aw': 'https://wiki.archlinux.org/?search={}'})
