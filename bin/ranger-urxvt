@@ -1,2 +1,2 @@
 #!/bin/bash
-urxvt -cd "$1" -e ranger --cmd="shell ~/.local/bin/wal -R"
+urxvt -e ranger --cmd="shell ~/.local/bin/wal -R" "$1"
