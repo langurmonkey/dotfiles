@@ -82,6 +82,14 @@ let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
+" Ctrl-P working directory
+let g:ctrlp_working_path_mode = 'rc'
+" Ignore files
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.dll
+" Custom file listing command
+let g:ctrlp_user_command = 'find %s -type f'
+" Ignore files in .gitignore
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " glsl syntax
 autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl

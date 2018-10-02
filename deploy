@@ -110,7 +110,7 @@ do-clone ~/.vim/colors https://github.com/flazz/vim-colorschemes.git vim-colorsc
 do-clone "$DIR_VIMPLUGINS"/vim-surround git://github.com/tpope/vim-surround.git vim-surround
 
 # Install Ctrl-P
-do-clone "$DIR_VIMPLUGINS"/ctrlp.vim https://github/com/kien/ctrlp.vim.git CtrlP
+do-clone "$DIR_VIMPLUGINS"/ctrlp.vim https://github.com/ctrlpvim/ctrlp.vim.git CtrlP
 
 # Install NERDTree
 do-clone "$DIR_VIMPLUGINS"/nerdtree https://github.com/scrooloose/nerdtree.git NERDTree
