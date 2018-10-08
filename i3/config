@@ -356,4 +356,4 @@ exec --no-startup-id udiskie -f "/home/tsagrista/.dotfiles/bin/ranger-urxvt" --t
 #
 # WAL THEME
 #
-wal -R
+exec --no-startup-id wal -R
