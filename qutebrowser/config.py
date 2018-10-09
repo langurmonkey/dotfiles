@@ -17,11 +17,17 @@ c.aliases.update({'github': 'open -t github.com'})
 c.aliases.update({'gitlab': 'open -t gitlab.com'})
 c.aliases.update({'netflix': 'open -t netflix.com'})
 c.aliases.update({'gaia': 'open -t cosmos.esa.int/web/gaia'})
+c.aliases.update({'cosmos': 'open -t cosmos.esa.int/web/gaia'})
+c.aliases.update({'jira': 'open -t issues.cosmos.esa.int/gaia'})
 c.aliases.update({'tw': 'open -t twitter.com'})
 c.aliases.update({'twitter': 'open -t twitter.com'})
 c.aliases.update({'yt': 'open -t youtube.com'})
 c.aliases.update({'reddit': 'open -t reddit.com'})
 c.aliases.update({'tr': 'open -t translate.google.com'})
+c.aliases.update({'cal': 'open -t calendar.google.com'})
+c.aliases.update({'calendar': 'open -t calendar.google.com'})
+c.aliases.update({'map': 'open -t maps.google.com'})
+c.aliases.update({'maps': 'open -t maps.google.com'})
 
 ## Time interval (in milliseconds) between auto-saves of
 ## config/cookies/etc.
