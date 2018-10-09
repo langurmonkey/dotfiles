@@ -5,21 +5,34 @@ if [[ $# -eq 0 ]]; then
     exit 1
 fi
 
+RED='\033[0;31m'
+BLUE='\033[0;34m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+
+DCOL=$BLUE
+FCOL=$GREEN
+BCOL=$RED
+
 for current in "$@"
 do
-    isFile=$(file -0 "$current" | cut -d $'\0' -f2)
-    case "$isFile" in
-    (*text*)
-        if [[ $(grep -c $'\r' $current) -gt 0 ]]; then
-            echo -e "dos\t<- $current"
-        elif [[ $(grep -c $'\n' $current) -gt 0 ]]; then
-            echo -e "unix\t<- $current"
-        else
-            echo -e "mac\t<- $current"
-        fi
-        ;;
-    (*)
-        echo -e "binary\t<- $current"
-        ;;
-    esac
+    if [ -d "$current" ]; then
+        echo -e "${DCOL}dir${NC}\t<- $current"
+    else
+        isTxt=$(file -0 "$current" | cut -d $'\0' -f2)
+        case "$isTxt" in
+        (*text*)
+            if [[ $(grep -c $'\r' $current) -gt 0 ]]; then
+                echo -e "${FCOL}dos${NC}\t<- $current"
+            elif [[ $(grep -c $'\n' $current) -gt 0 ]]; then
+                echo -e "${FCOL}unix${NC}\t<- $current"
+            else
+                echo -e "${FCOL}mac${NC}\t<- $current"
+            fi
+            ;;
+        (*)
+            echo -e "${BCOL}binary${NC}\t<- $current"
+            ;;
+        esac
+    fi
 done
