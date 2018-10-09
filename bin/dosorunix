@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [[ $# -eq 0 ]]; then
+    echo "Usage: $0 [file]"
+    exit 1
+fi
+
+for current in "$@"
+do
+    isFile=$(file -0 "$current" | cut -d $'\0' -f2)
+    case "$isFile" in
+    (*text*)
+        if [[ $(grep -c $'\r' $current) -gt 0 ]]; then
+            echo -e "dos\t<- $current"
+        elif [[ $(grep -c $'\n' $current) -gt 0 ]]; then
+            echo -e "unix\t<- $current"
+        else
+            echo -e "mac\t<- $current"
+        fi
+        ;;
+    (*)
+        echo -e "binary\t<- $current"
+        ;;
+    esac
+done
