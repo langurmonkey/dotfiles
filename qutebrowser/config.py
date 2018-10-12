@@ -63,23 +63,23 @@ c.aliases.update({'maps': 'open -t maps.google.com'})
 
 ## Background color of the completion widget category headers.
 ## Type: QssColor
-# c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #888888, stop:1 #505050)'
+c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #228855, stop:1 #005511)'
 
 ## Bottom border color of the completion widget category headers.
 ## Type: QssColor
-# c.colors.completion.category.border.bottom = 'black'
+c.colors.completion.category.border.bottom = 'black'
 
 ## Top border color of the completion widget category headers.
 ## Type: QssColor
-# c.colors.completion.category.border.top = 'black'
+c.colors.completion.category.border.top = 'black'
 
 ## Foreground color of completion widget category headers.
 ## Type: QtColor
-# c.colors.completion.category.fg = 'white'
+c.colors.completion.category.fg = 'white'
 
 ## Background color of the completion widget for even rows.
 ## Type: QssColor
-# c.colors.completion.even.bg = '#333333'
+c.colors.completion.even.bg = '#001100'
 
 ## Text color of the completion widget. May be a single color to use for
 ## all columns or a list of three colors, one for each column.
@@ -88,19 +88,19 @@ c.aliases.update({'maps': 'open -t maps.google.com'})
 
 ## Background color of the selected completion item.
 ## Type: QssColor
-# c.colors.completion.item.selected.bg = '#e8c000'
+c.colors.completion.item.selected.bg = '#01a252'
 
 ## Bottom border color of the selected completion item.
 ## Type: QssColor
-# c.colors.completion.item.selected.border.bottom = '#bbbb00'
+c.colors.completion.item.selected.border.bottom = '#006600'
 
 ## Top border color of the completion widget category headers.
 ## Type: QssColor
-# c.colors.completion.item.selected.border.top = '#bbbb00'
+c.colors.completion.item.selected.border.top = '#006600'
 
 ## Foreground color of the selected completion item.
 ## Type: QtColor
-# c.colors.completion.item.selected.fg = 'black'
+c.colors.completion.item.selected.fg = 'black'
 
 ## Foreground color of the matched text in the completion.
 ## Type: QssColor
@@ -108,15 +108,15 @@ c.aliases.update({'maps': 'open -t maps.google.com'})
 
 ## Background color of the completion widget for odd rows.
 ## Type: QssColor
-# c.colors.completion.odd.bg = '#444444'
+c.colors.completion.odd.bg = '#002211'
 
 ## Color of the scrollbar in the completion view.
 ## Type: QssColor
-# c.colors.completion.scrollbar.bg = '#333333'
+c.colors.completion.scrollbar.bg = 'black'
 
 ## Color of the scrollbar handle in the completion view.
 ## Type: QssColor
-# c.colors.completion.scrollbar.fg = 'white'
+c.colors.completion.scrollbar.fg = '#228333'
 
 ## Background color for the download bar.
 ## Type: QssColor
@@ -167,7 +167,7 @@ c.aliases.update({'maps': 'open -t maps.google.com'})
 ## Background color for hints. Note that you can use a `rgba(...)` value
 ## for transparency.
 ## Type: QssColor
-c.colors.hints.bg = '#305b66'
+c.colors.hints.bg = '#307656'
 
 ## Font color for hints.
 ## Type: QssColor
@@ -175,7 +175,7 @@ c.colors.hints.fg = 'white'
 
 ## Font color for the matched part of hints.
 ## Type: QssColor
-# c.colors.hints.match.fg = 'green'
+c.colors.hints.match.fg = '#cccc00'
 
 ## Background color of the keyhint widget.
 ## Type: QssColor
@@ -311,7 +311,7 @@ c.colors.prompts.border = '2px solid gray'
 
 ## Foreground color of the URL in the statusbar on error.
 ## Type: QssColor
-# c.colors.statusbar.url.error.fg = 'orange'
+c.colors.statusbar.url.error.fg = 'yellow'
 
 ## Default foreground color of the URL in the statusbar.
 ## Type: QssColor
@@ -319,7 +319,7 @@ c.colors.prompts.border = '2px solid gray'
 
 ## Foreground color of the URL in the statusbar for hovered links.
 ## Type: QssColor
-# c.colors.statusbar.url.hover.fg = 'aqua'
+c.colors.statusbar.url.hover.fg = 'green'
 
 ## Foreground color of the URL in the statusbar on successful load
 ## (http).
@@ -337,11 +337,11 @@ c.colors.statusbar.url.success.https.fg = '#ff8c1a'
 
 ## Background color of the tab bar.
 ## Type: QtColor
-c.colors.tabs.bar.bg = 'black'
+c.colors.tabs.bar.bg = 'white'
 
 ## Background color of unselected even tabs.
 ## Type: QtColor
-c.colors.tabs.even.bg = '#007121'
+c.colors.tabs.even.bg = '#002000'
 
 ## Foreground color of unselected even tabs.
 ## Type: QtColor
@@ -349,15 +349,15 @@ c.colors.tabs.even.fg = 'white'
 
 ## Color for the tab indicator on errors.
 ## Type: QtColor
-# c.colors.tabs.indicator.error = '#ff0000'
+c.colors.tabs.indicator.error = '#ff0000'
 
 ## Color gradient start for the tab indicator.
 ## Type: QtColor
-# c.colors.tabs.indicator.start = '#0000aa'
+c.colors.tabs.indicator.start = '#00ee00'
 
 ## Color gradient end for the tab indicator.
 ## Type: QtColor
-c.colors.tabs.indicator.stop = '#000000'
+c.colors.tabs.indicator.stop = '#00ef00'
 
 ## Color gradient interpolation system for the tab indicator.
 ## Type: ColorSystem
@@ -370,7 +370,7 @@ c.colors.tabs.indicator.system = 'rgb'
 
 ## Background color of unselected odd tabs.
 ## Type: QtColor
-c.colors.tabs.odd.bg = '#01a252'
+c.colors.tabs.odd.bg = '#000000'
 
 ## Foreground color of unselected odd tabs.
 ## Type: QtColor
@@ -378,7 +378,7 @@ c.colors.tabs.odd.fg = 'white'
 
 ## Background color of selected even tabs.
 ## Type: QtColor
-c.colors.tabs.selected.even.bg = 'black'
+c.colors.tabs.selected.even.bg = '#01a252'
 
 ## Foreground color of selected even tabs.
 ## Type: QtColor
@@ -386,7 +386,7 @@ c.colors.tabs.selected.even.fg = 'white'
 
 ## Background color of selected odd tabs.
 ## Type: QtColor
-c.colors.tabs.selected.odd.bg = 'black'
+c.colors.tabs.selected.odd.bg = '#01a252'
 
 ## Foreground color of selected odd tabs.
 ## Type: QtColor
@@ -426,7 +426,7 @@ c.colors.tabs.selected.odd.fg = 'white'
 
 ## Width (in pixels) of the scrollbar in the completion window.
 ## Type: Int
-# c.completion.scrollbar.width = 12
+# c.completion.scrollbar.width = 14
 
 ## When to show the autocompletion window.
 ## Type: String
@@ -756,7 +756,7 @@ c.colors.tabs.selected.odd.fg = 'white'
 ## `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
 ## Same as `{column}`, but starting from index 0.
 ## Type: ShellCommand
-# c.editor.command = ['gvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
+c.editor.command = ['vim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
 
 ## Encoding to use for the editor.
 ## Type: Encoding
