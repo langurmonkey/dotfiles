@@ -1050,9 +1050,14 @@ c.hints.border = '2px solid #000000'
 ## Type: Bool
 # c.qt.highdpi = False
 
-## Show a scrollbar.
-## Type: Bool
-c.scrolling.bar = True
+## When to show the scrollbar.
+## Type: String
+## Valid values:
+##   - always: Always show the scrollbar.
+##   - never: Never show the scrollbar.
+##   - when-searching: Show the scrollbar when searching for text in the webpage. With the QtWebKit backend, this is equal to `never`.
+# c.scrolling.bar = 'when-searching'
+c.scrolling.bar = 'always'
 
 ## Enable smooth scrolling for web pages. Note smooth scrolling does not
 ## work with the `:scroll-px` command.
@@ -1174,7 +1179,7 @@ c.tabs.favicons.scale = 1.5
 
 ## Show favicons in the tab bar.
 ## Type: Bool
-c.tabs.favicons.show = True
+# c.tabs.favicons.show = True
 
 ## Padding (in pixels) for tab indicators.
 ## Type: Padding
