@@ -311,29 +311,29 @@ c.colors.prompts.border = '2px solid gray'
 
 ## Foreground color of the URL in the statusbar on error.
 ## Type: QssColor
-c.colors.statusbar.url.error.fg = 'yellow'
+c.colors.statusbar.url.error.fg = 'red'
 
 ## Default foreground color of the URL in the statusbar.
 ## Type: QssColor
-# c.colors.statusbar.url.fg = 'white'
+c.colors.statusbar.url.fg = 'white'
 
 ## Foreground color of the URL in the statusbar for hovered links.
 ## Type: QssColor
-c.colors.statusbar.url.hover.fg = 'green'
+c.colors.statusbar.url.hover.fg = '#0077bb'
 
 ## Foreground color of the URL in the statusbar on successful load
 ## (http).
 ## Type: QssColor
-# c.colors.statusbar.url.success.http.fg = 'white'
+c.colors.statusbar.url.success.http.fg = '#aaaaaa'
 
 ## Foreground color of the URL in the statusbar on successful load
 ## (https).
 ## Type: QssColor
-c.colors.statusbar.url.success.https.fg = '#ff8c1a'
+c.colors.statusbar.url.success.https.fg = '#01f252'
 
 ## Foreground color of the URL in the statusbar when there's a warning.
 ## Type: QssColor
-# c.colors.statusbar.url.warn.fg = 'yellow'
+c.colors.statusbar.url.warn.fg = 'yellow'
 
 ## Background color of the tab bar.
 ## Type: QtColor
@@ -341,7 +341,7 @@ c.colors.tabs.bar.bg = 'white'
 
 ## Background color of unselected even tabs.
 ## Type: QtColor
-c.colors.tabs.even.bg = '#002000'
+c.colors.tabs.even.bg = '#004000'
 
 ## Foreground color of unselected even tabs.
 ## Type: QtColor
@@ -353,11 +353,11 @@ c.colors.tabs.indicator.error = '#ff0000'
 
 ## Color gradient start for the tab indicator.
 ## Type: QtColor
-c.colors.tabs.indicator.start = '#00ee00'
+c.colors.tabs.indicator.start = '#ffffff'
 
 ## Color gradient end for the tab indicator.
 ## Type: QtColor
-c.colors.tabs.indicator.stop = '#00ef00'
+c.colors.tabs.indicator.stop = '#ffff00'
 
 ## Color gradient interpolation system for the tab indicator.
 ## Type: ColorSystem
@@ -370,7 +370,7 @@ c.colors.tabs.indicator.system = 'rgb'
 
 ## Background color of unselected odd tabs.
 ## Type: QtColor
-c.colors.tabs.odd.bg = '#000000'
+c.colors.tabs.odd.bg = '#003000'
 
 ## Foreground color of unselected odd tabs.
 ## Type: QtColor
@@ -502,7 +502,7 @@ c.colors.tabs.selected.odd.fg = 'white'
 ## Default encoding to use for websites. The encoding must be a string
 ## describing an encoding such as _utf-8_, _iso-8859-1_, etc.
 ## Type: String
-# c.content.default_encoding = 'iso-8859-1'
+c.content.default_encoding = 'utf-8'
 
 ## Enable extra tools for Web developers. This needs to be enabled for
 ## `:inspector` to work and also adds an _Inspect_ entry to the context
@@ -530,7 +530,7 @@ c.colors.tabs.selected.odd.fg = 'white'
 
 ## Value to send in the `Accept-Language` header.
 ## Type: String
-# c.content.headers.accept_language = 'en-US,en'
+c.content.headers.accept_language = 'en-US,en,es,de'
 
 ## Custom headers for qutebrowser HTTP requests.
 ## Type: Dict
@@ -1052,7 +1052,7 @@ c.hints.border = '2px solid #000000'
 
 ## Show a scrollbar.
 ## Type: Bool
-# c.scrolling.bar = False
+c.scrolling.bar = True
 
 ## Enable smooth scrolling for web pages. Note smooth scrolling does not
 ## work with the `:scroll-px` command.
@@ -1170,19 +1170,19 @@ c.hints.border = '2px solid #000000'
 ## Scaling factor for favicons in the tab bar. The tab size is unchanged,
 ## so big favicons also require extra `tabs.padding`.
 ## Type: Float
-# c.tabs.favicons.scale = 1.0
+c.tabs.favicons.scale = 1.5
 
 ## Show favicons in the tab bar.
 ## Type: Bool
-# c.tabs.favicons.show = True
+c.tabs.favicons.show = True
 
 ## Padding (in pixels) for tab indicators.
 ## Type: Padding
-# c.tabs.indicator.padding = {'top': 2, 'bottom': 2, 'left': 0, 'right': 4}
+c.tabs.indicator.padding = {'top': 10, 'bottom': 10, 'left': 5, 'right': 10}
 
 ## Width (in pixels) of the progress indicator (0 to disable).
 ## Type: Int
-# c.tabs.indicator.width = 3
+c.tabs.indicator.width = 10
 
 ## How to behave when the last tab is closed.
 ## Type: String
@@ -1205,7 +1205,7 @@ c.hints.border = '2px solid #000000'
 ##   - next: After the current tab.
 ##   - first: At the beginning.
 ##   - last: At the end.
-# c.tabs.new_position.related = 'next'
+c.tabs.new_position.related = 'next'
 
 ## Position of new tabs which aren't opened from another tab.
 ## Type: NewTabPosition
@@ -1214,7 +1214,7 @@ c.hints.border = '2px solid #000000'
 ##   - next: After the current tab.
 ##   - first: At the beginning.
 ##   - last: At the end.
-# c.tabs.new_position.unrelated = 'last'
+c.tabs.new_position.unrelated = 'last'
 
 ## Padding (in pixels) around text for tabs.
 ## Type: Padding
@@ -1235,7 +1235,7 @@ c.hints.border = '2px solid #000000'
 ##   - bottom
 ##   - left
 ##   - right
-# c.tabs.position = 'top'
+c.tabs.position = 'bottom'
 
 ## Which tab to select when the focused tab is removed.
 ## Type: SelectOnRemove
@@ -1243,7 +1243,7 @@ c.hints.border = '2px solid #000000'
 ##   - prev: Select the tab which came before the closed one (left in horizontal, above in vertical).
 ##   - next: Select the tab which came after the closed one (right in horizontal, below in vertical).
 ##   - last-used: Select the previously selected tab.
-# c.tabs.select_on_remove = 'next'
+c.tabs.select_on_remove = 'prev'
 
 ## When to show the tab bar.
 ## Type: String
@@ -1634,3 +1634,4 @@ config.bind(';A', 'spawn urxvt -e youtube-dl -x --audio-format mp3 --output "~/M
 config.bind('tR', 'spawn --userscript gtranslate-sel')
 config.bind('tr', 'spawn --userscript gtranslate-url')
 config.bind('tg', 'open -t translate.google.com')
+
