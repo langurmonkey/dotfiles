@@ -275,7 +275,7 @@ c.colors.prompts.border = '2px solid gray'
 
 ## Background color of the statusbar in insert mode.
 ## Type: QssColor
-# c.colors.statusbar.insert.bg = 'darkgreen'
+c.colors.statusbar.insert.bg = '#1020cc'
 
 ## Foreground color of the statusbar in insert mode.
 ## Type: QssColor
@@ -1314,7 +1314,7 @@ c.tabs.select_on_remove = 'prev'
 ## Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 ## for a blank page.
 ## Type: FuzzyUrl
-c.url.default_page = 'https://duckduckgo.com/'
+c.url.default_page = 'https://www.startpage.com'
 
 ## URL segments where `:navigate increment/decrement` will search for a
 ## number.
@@ -1335,7 +1335,8 @@ c.url.default_page = 'https://duckduckgo.com/'
 ## used by prepending the search engine name to the search term, e.g.
 ## `:open google qutebrowser`.
 ## Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
+c.url.searchengines = {'DEFAULT': 'https://www.startpage.com/do/search?query={}'}
+c.url.searchengines.update({'ddg': 'https://duckduckgo.com/?q={}'})
 c.url.searchengines.update({'yt': 'https://youtube.com/results?search_query={}'})
 c.url.searchengines.update({'tw': 'https://twitter.com/{}'})
 c.url.searchengines.update({'aw': 'https://wiki.archlinux.org/?search={}'})
