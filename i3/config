@@ -353,7 +353,3 @@ exec --no-startup-id compton --unredir-if-possible
 #
 exec --no-startup-id udiskie -f "/home/tsagrista/.dotfiles/bin/ranger-urxvt" --tray
 
-#
-# WAL THEME
-#
-exec --no-startup-id wal -R
