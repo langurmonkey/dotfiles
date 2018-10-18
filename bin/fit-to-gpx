@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# This script converts all Garmin .FIT and .fit files in a folder to the open .gpx format
+
+usage()
+{
+echo "Usage: $0 -i input_folder -o output_folder"
+exit 1
+}
+
+# POSIX variable. Reset in case getopts has been used in the shell
+OPTIND=1
+
+input_folder=""
+output_folder=""
+
+if [ $# -eq 0 ]
+  then
+    usage
+fi
+
+while getopts "h?io:" opt; do
+    case "$opt" in
+    h|?)
+        usage
+        exit 0
+        ;;
+    i)  input_folder=$OPTARG
+        ;;
+    o)  output_folder=$OPTARG
+        ;;
+    esac
+done
+
+shift $((OPTIND-1))
+
+[ "${1:-}" = "--" ] && shift
+
+echo "I: $input_folder, O: $output_folder"
+
+
