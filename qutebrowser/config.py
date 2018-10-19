@@ -1639,5 +1639,6 @@ config.bind(';A', 'spawn urxvt -e youtube-dl -x --audio-format mp3 --output "~/M
 ## Open google translate with selection
 config.bind('tR', 'spawn --userscript gtranslate-sel')
 config.bind('tr', 'spawn --userscript gtranslate-url')
+config.bind('pw', 'spawn --userscript password_fill')
 config.bind('tg', 'open -t translate.google.com')
-
+config.bind('sd', 'spawn --userscript open_download')
