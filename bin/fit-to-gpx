@@ -8,34 +8,53 @@ echo "Usage: $0 -i input_folder -o output_folder"
 exit 1
 }
 
+function check_dir_exists
+{
+dir=$1
+if [ ! -d "$dir" ]; then
+    echo "Directory $dir does not exist"
+    exit 1
+fi
+}
+
 # POSIX variable. Reset in case getopts has been used in the shell
 OPTIND=1
-
-input_folder=""
-output_folder=""
 
 if [ $# -eq 0 ]
   then
     usage
 fi
 
-while getopts "h?io:" opt; do
-    case "$opt" in
-    h|?)
+while getopts ":i:o:" opt
+do
+    case "${opt}" in
+    i)  input_folder=${OPTARG}
+        ;;
+    o)  output_folder=${OPTARG}
+        ;;
+    *)
         usage
-        exit 0
-        ;;
-    i)  input_folder=$OPTARG
-        ;;
-    o)  output_folder=$OPTARG
         ;;
     esac
 done
-
 shift $((OPTIND-1))
 
 [ "${1:-}" = "--" ] && shift
 
-echo "I: $input_folder, O: $output_folder"
+if [ -z "${input_folder}" ] || [ -z "${output_folder}" ]; then
+    usage
+fi
+
+check_dir_exists ${input_folder}
+check_dir_exists ${output_folder}
+
+echo "I: ${input_folder}"
+echo "O: ${output_folder}"
+
+for f in ${input_folder}/*.FIT
+do
+    echo "$f -> $f.gpx"
+    gpsbabel -i garmin_fit -f "$f" -o gpx -F "$f".gpx
+done
 
 
