@@ -44,6 +44,7 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+d exec dmenu_run -l 10 -nb "#000" -nf "#888" -sb "#01a252" -sf "#fff"
 # start fmenu (search home)
 bindsym $mod+shift+d exec $HOME/.dotfiles/bin/fmenu -i $HOME -t +10
+bindsym XF86Search exec $HOME/.dotfiles/bin/fmenu -i $HOME -t +10
 
 # change focus
 bindsym $mod+h focus left
