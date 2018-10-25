@@ -60,7 +60,7 @@ font-5 = "Font Awesome 5 Brands:style=Regular:size=10;4"
 
 modules-left = i3 
 modules-center = xwindow 
-modules-right =  xkeyboard updates-arch filesystem memory cpu temperature wlan backlight battery pulseaudio-tail date
+modules-right =  xkeyboard updates-arch filesystem memory cpu temperature wlan backlight battery pulseaudio date
 
 tray-position = right
 tray-padding = 0

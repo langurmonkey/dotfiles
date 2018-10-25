@@ -100,11 +100,11 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPlay exec playerctl play-pause
 # pulse audio controls
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym $mod+F12 exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym $mod+F11 exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 1+ toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 5%+
+bindsym $mod+F12 exec --no-startup-id amixer -q -D pulse sset Master 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 5%-
+bindsym $mod+F11 exec --no-startup-id amixer -q -D pulse sset Master 5%-
 
 # backlight - edit /usr/local/lib/brightnessctl/configuration.sh for step size
 bindsym XF86MonBrightnessUp exec brightness+
