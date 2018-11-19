@@ -26,6 +26,7 @@ URxvt.color15 : #EEEEEEEEECEC
 URxvt*foreground : White
 URxvt*background : [85]Black
 URxvt*depth: 32
+URxvt*saveLines: 100000
 
 ! fonts
 ! run "fc-list" for a list of available fonts
@@ -34,5 +35,5 @@ URxvt*font: xft:xos4 Terminus:pixelsize=16
 ! font size
 URxvt.perl-ext-common: font-size
 
-
-URxvt*scrollBar: False
+URxvt*scrollBar: true
+URxvt*scrollWithBuffer: true

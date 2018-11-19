@@ -182,6 +182,7 @@ for_window [class="Nemo"] floating enable border normal
 for_window [class="Gaia Sky - 2.1.0"] floating enable border normal
 for_window [class="Gaia Sky"] floating enable border normal
 for_window [class="obs"] floating enable border normal
+for_window [title="deusex.exe"] floating enable border normal
 
 
 # reload the configuration file
