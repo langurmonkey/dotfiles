@@ -2,10 +2,10 @@
 # i3 config file (v4)
 #
 
-# Mod key: alt
-set $mod Mod1
-# Windows key - launch programs
-set $sup Mod4
+# Mod key: Super key
+set $mod Mod4
+# Mod2 key: Alt key
+set $mod2 Mod1
 
 # Font for window titles.
 font pango:xos4 Terminus, Terminus, FontAwesome 11
@@ -118,10 +118,9 @@ bindsym Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
 bindsym $mod+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
 
 # Start Applications
-bindsym $sup+b exec qutebrowser
-bindsym $sup+t exec thunderbird
-bindsym $sup+f exec ~/.dotfiles/bin/ranger-urxvt "`$HOME/.dotfiles/bin/xcwd`"
-bindsym $sup+g exec urxvt -cd "$HOME/git/gaiasky"
+bindsym $mod+Shift+b exec qutebrowser
+bindsym $mod+Sfhit+t exec thunderbird
+bindsym $mod+Shift+f exec ~/.dotfiles/bin/ranger-urxvt "`$HOME/.dotfiles/bin/xcwd`"
 
 # WORKSPACES
 set $ws1 "1"

@@ -175,7 +175,7 @@ c.colors.hints.fg = 'white'
 
 ## Font color for the matched part of hints.
 ## Type: QssColor
-c.colors.hints.match.fg = '#cccc00'
+c.colors.hints.match.fg = '#004626'
 
 ## Background color of the keyhint widget.
 ## Type: QssColor
