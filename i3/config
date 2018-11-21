@@ -119,7 +119,7 @@ bindsym $mod+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
 
 # Start Applications
 bindsym $mod+Shift+b exec qutebrowser
-bindsym $mod+Sfhit+t exec thunderbird
+bindsym $mod+Shift+t exec thunderbird
 bindsym $mod+Shift+f exec ~/.dotfiles/bin/ranger-urxvt "`$HOME/.dotfiles/bin/xcwd`"
 
 # WORKSPACES
