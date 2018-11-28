@@ -35,5 +35,5 @@ URxvt*font: xft:xos4 Terminus:pixelsize=16
 ! font size
 URxvt.perl-ext-common: font-size
 
-URxvt*scrollBar: true
-URxvt*scrollWithBuffer: true
+URxvt*scrollBar: False
+URxvt*scrollWithBuffer: False
