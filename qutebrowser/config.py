@@ -1642,3 +1642,6 @@ config.bind('tr', 'spawn --userscript gtranslate-url')
 config.bind('pw', 'spawn --userscript password_fill')
 config.bind('tg', 'open -t translate.google.com')
 config.bind('sd', 'spawn --userscript open_download')
+
+## Source qutewal
+config.source('qutewal.py')
