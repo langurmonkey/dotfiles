@@ -6,7 +6,6 @@ DOTFILES_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
 DIR_GIT=~/git
 DIR_VIMPLUGINS=~/.vim/bundle
 DIR_RANGER=~/.config/ranger
-DIR_TMUXR=~/git/tmux-resurrect/
 
 
 # HELPERS ========================================
@@ -131,17 +130,6 @@ do-curl-fetchfile ~/.vim/syntax/glsl.vim https://raw.githubusercontent.com/tikho
 
 # Create .vimrc symlink
 do-symlink $DOTFILES_PATH/vim/.vimrc ~/.vimrc
-
-#
-# TMUX
-#
-echo-custom " ** " "==== TMUX ===="
-
-# Install tmux resurrect
-do-clone $DIR_TMUXR https://github.com/tmux-plugins/tmux-resurrect tmux-resurrect
-
-# Create .tmux.conf symlink
-do-symlink $DOTFILES_PATH/tmux/.tmux.conf ~/.tmux.conf
 
 #
 # RANGER

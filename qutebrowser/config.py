@@ -1644,4 +1644,4 @@ config.bind('tg', 'open -t translate.google.com')
 config.bind('sd', 'spawn --userscript open_download')
 
 ## Source qutewal
-config.source('qutewal.py')
+#config.source('qutewal.py')
