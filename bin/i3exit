@@ -5,7 +5,7 @@ case "$1" in
         i3lock-fancy
         ;;
     slock)
-        gnome-terminal -e slock
+        urxvt -e slock
         ;;
     logout)
         i3-msg exit
