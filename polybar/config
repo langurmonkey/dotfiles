@@ -20,8 +20,8 @@
 background = ${xrdb:color0:#c0222222}
 #background = #c0222222
 background-alt = #444
-foreground = ${xrdb:color7:#dfdfdf}
-foreground-alt = ${xrdb:color7:#dfdfdf}
+foreground = #dfdfdf
+foreground-alt = #dfdfdf
 primary = ${xrdb:color1:#ffb52a}
 secondary = ${xrdb:color2:#e60053}
 alert = ${xrdb:color3:#bd2c40}
@@ -49,7 +49,7 @@ padding-left = 0
 padding-right = 2
 
 module-margin-left = 1
-module-margin-right = 2
+module-margin-right = 1
 
 font-0 = "xos4 Terminus:style=Bold:size=13;0"
 font-1 = "Liberation Mono:size=10;0"
@@ -60,7 +60,7 @@ font-5 = "Font Awesome 5 Brands:style=Regular:size=10;4"
 
 modules-left = i3 
 modules-center = xwindow 
-modules-right =  xkeyboard updates-arch filesystem memory cpu temperature wlan backlight battery pulseaudio date
+modules-right =  xkeyboard updates-arch cpu wlan backlight battery pulseaudio popup-calendar
 
 tray-position = right
 tray-padding = 0
@@ -100,13 +100,13 @@ font-6 = "Font Awesome 5 Brands:style=Regular:size=16;6"
 ; same as bar-hidpi but it shows ubuntu updates instead of arch
 [bar/bar-hidpi-ubuntu]
 inherit = bar/bar-hidpi
-modules-right = xkeyboard updates-ubuntu fs-hidalgo memory cpu temperature wlan backlight battery pulseaudio-tail date
+modules-right = xkeyboard updates-ubuntu cpu wlan backlight battery pulseaudio-tail popup-calendar
 
 ; same as other, but only show workspaces on slave bar
 [bar/bar-hidpi-slave]
 inherit = bar/bar-hidpi
 monitor = ${env:MONITOR:}
-modules-right = memory cpu temperature pulseaudio-tail date 
+modules-right = cpu temperature pulseaudio-tail popup-calendar 
 tray-position =
 
 [module/xwindow]
@@ -558,6 +558,13 @@ menu-2-0 = 
 menu-2-0-exec = systemctl poweroff
 menu-2-1 = 
 menu-2-1-exec = menu-open-0
+
+[module/popup-calendar]
+type = custom/script
+exec = ~/.config/polybar/scripts/popup-calendar.sh
+interval = 1
+click-left = ~/.config/polybar/scripts/popup-calendar.sh --popup
+format-underline = #0a6cf5
 
 [settings]
 screenchange-reload = true
