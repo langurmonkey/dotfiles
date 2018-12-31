@@ -352,4 +352,8 @@ exec --no-startup-id compton --unredir-if-possible
 #
 exec --no-startup-id udiskie -f "/home/tsagrista/.dotfiles/bin/ranger-urxvt" --tray
 
-exec --no-startup-id usr/bin/wal -R
+# NO SCREENSAVER
+exec --no-startup-id /home/tsagrista/.dotfiles/bin/no-screenoff.sh
+
+# PYWAL
+exec --no-startup-id /home/tsagrista/.local/bin/wal -R
