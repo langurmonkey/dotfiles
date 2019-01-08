@@ -27,7 +27,7 @@ Deploy the environment anytime using the `deploy` script:
 - [i3wm](docs/i3wm.md)
 - [qutebrowser](docs/qutebrowser.md)
 - [polybar](docs/polybar.md)
-- [rofi](docs/rofi.md)
+- [dmenu](docs/dmenu.md)
 - [ranger](docs/ranger.md)
 - [vim](docs/vim.md)
 - [pass](docs/pass.md)

@@ -182,6 +182,7 @@ for_window [class="Gaia Sky - 2.1.0"] floating enable border normal
 for_window [class="Gaia Sky"] floating enable border normal
 for_window [class="obs"] floating enable border normal
 for_window [title="deusex.exe"] floating enable border normal
+for_window [class="Yad"] floating enable
 
 
 # reload the configuration file
@@ -292,14 +293,11 @@ client.background       $wal-bg
 # BAR (polybar, bumblebee-status, i3status...)
 #
 
-# bumblebee-status
+# i3blocks
 
 #bar {
 #    font pango: Liberation Mono,FontAwesome 15
-#    status_command bumblebee-status -m layout cpu disk battery brightness pasource pasink date time -p time.format="%H:%M CW %V" date.format="%Y-%m-%d" time.format="%H:%M:%S" date.left-click="gsimplecal" -t solarized-powerline
-#    colors {
-#        background $inactive-bg-color
-#    }
+#    status_command i3blocks
 #}
 
 # polybar
@@ -354,3 +352,8 @@ exec --no-startup-id compton --unredir-if-possible
 #
 exec --no-startup-id udiskie -f "/home/tsagrista/.dotfiles/bin/ranger-urxvt" --tray
 
+# NO SCREENSAVER
+exec --no-startup-id /home/tsagrista/.dotfiles/bin/no-screenoff.sh
+
+# PYWAL
+exec --no-startup-id /home/tsagrista/.local/bin/wal -R

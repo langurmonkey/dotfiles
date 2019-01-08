@@ -15,7 +15,7 @@ _uncallable() { ! command -v "$1" >/dev/null; }
 
 
 if _uncallable zsh || _uncallable git; then
-    _msg "Installing git, zsh, vim, ranger and tmux..."
+    _msg "Installing git, zsh, vim, ranger, etc."
     if [[ -f /etc/arch-release ]]; then
         $DOTFILES/bootstrap-arch.sh
     elif [[ -f /etc/debian_version ]]; then

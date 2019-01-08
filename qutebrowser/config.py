@@ -267,7 +267,7 @@ c.colors.prompts.border = '2px solid gray'
 
 ## Background color of the statusbar in private browsing + command mode.
 ## Type: QssColor
-# c.colors.statusbar.command.private.bg = 'grey'
+c.colors.statusbar.command.private.bg = 'purple'
 
 ## Foreground color of the statusbar in private browsing + command mode.
 ## Type: QssColor
@@ -299,7 +299,7 @@ c.colors.statusbar.insert.bg = '#1020cc'
 
 ## Background color of the statusbar in private browsing mode.
 ## Type: QssColor
-# c.colors.statusbar.private.bg = '#666666'
+c.colors.statusbar.private.bg = 'purple'
 
 ## Foreground color of the statusbar in private browsing mode.
 ## Type: QssColor
@@ -1573,6 +1573,7 @@ config.bind('e', 'set-cmd-text :open {url:pretty}')
 # config.bind('<Ctrl-K>', 'rl-kill-line', mode='command')
 # config.bind('<Ctrl-N>', 'command-history-next', mode='command')
 # config.bind('<Ctrl-P>', 'command-history-prev', mode='command')
+config.bind('<Ctrl-p>', 'set-cmd-text -s :open -p ')
 # config.bind('<Ctrl-Return>', 'command-accept --rapid', mode='command')
 # config.bind('<Ctrl-Shift-C>', 'completion-item-yank --sel', mode='command')
 # config.bind('<Ctrl-Shift-Tab>', 'completion-item-focus prev-category', mode='command')
@@ -1642,3 +1643,6 @@ config.bind('tr', 'spawn --userscript gtranslate-url')
 config.bind('pw', 'spawn --userscript password_fill')
 config.bind('tg', 'open -t translate.google.com')
 config.bind('sd', 'spawn --userscript open_download')
+
+## Source qutewal
+#config.source('qutewal.py')
