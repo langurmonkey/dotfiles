@@ -1,0 +1,5 @@
+#!/bin/bash
+
+for i in *.ogg; do
+    ffmpeg -i "$i" -vn -ar 44100 -ac 2 -ab 192k -map_metadata 0 -id3v2_version 3 -f mp3 "${i:0:(-3)}mp3"
+done
