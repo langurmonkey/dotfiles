@@ -1,0 +1,6 @@
+#!/bin/bash
+gpg -K
+echo "Enter private key ID string:"
+read KEYID
+gpg --export-secret-keys -a $KEYID > private.asc
+####################  E X P O R T _ P R I V A T E _ K E Y  #####################
