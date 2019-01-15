@@ -34,5 +34,9 @@ URxvt*font: xft:Liberation Mono:pixelsize=20
 ! font size
 URxvt.perl-ext-common: font-size
 
-
+! no scrollbar
 URxvt*scrollBar: False
+
+! k and j to scroll up and down
+URxvt.keysym.Meta-k: command:\033]720;1\007
+URxvt.keysym.Meta-j: command:\033]721;1\007

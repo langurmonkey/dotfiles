@@ -35,5 +35,10 @@ URxvt*font: xft:xos4 Terminus:pixelsize=16
 ! font size
 URxvt.perl-ext-common: font-size
 
+! no scrollbars
 URxvt*scrollBar: False
 URxvt*scrollWithBuffer: False
+
+! k and j to scroll up and down
+URxvt.keysym.Meta-k: command:\033]720;1\007
+URxvt.keysym.Meta-j: command:\033]721;1\007
