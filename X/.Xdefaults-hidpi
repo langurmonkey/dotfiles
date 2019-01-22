@@ -29,10 +29,15 @@ URxvt*depth: 32
 
 ! fonts
 ! run "fc-list" for a list of available fonts
-URxvt*font: xft:Liberation Mono:pixelsize=20
+URxvt*font: xft:Inconsolata:pixelsize=20
 
-! font size
-URxvt.perl-ext-common: font-size
+! extensions: font size and URL matcher
+URxvt.perl-ext-common: font-size,matcher
+URxvt.urlLauncher: qutebrowser
+URxvt.matcher.button: 1
+
+! save lines
+URxvt.saveLines: 50000
 
 ! no scrollbar
 URxvt*scrollBar: False
