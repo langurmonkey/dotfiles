@@ -134,7 +134,6 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws0 "10"
 
-
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -178,7 +177,6 @@ for_window [title="Volume Control"] floating enable border normal
 for_window [class="Gsimplecal"] floating enable border normal
 for_window [class="Arandr"] floating enable border normal
 for_window [class="Nemo"] floating enable border normal
-for_window [class="Gaia Sky - 2.1.0"] floating enable border normal
 for_window [class="Gaia Sky"] floating enable border normal
 for_window [class="obs"] floating enable border normal
 for_window [title="deusex.exe"] floating enable border normal
@@ -206,7 +204,6 @@ mode "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-
 
 
 #
