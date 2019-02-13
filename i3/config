@@ -181,6 +181,7 @@ for_window [class="Gaia Sky"] floating enable border normal
 for_window [class="obs"] floating enable border normal
 for_window [title="deusex.exe"] floating enable border normal
 for_window [title="megasync"] floating enable border normal
+for_window [title="TimeExplorer Suite"] floating enable border normal
 for_window [class="Yad"] floating enable
 
 
