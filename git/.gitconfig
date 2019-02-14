@@ -17,9 +17,11 @@
     br = branch
     st = status
     lgb = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches
+    pushall = !"git remote | xargs -L1 git push --all"
 [core]
 	autocrlf = false
 [diff]
     tool = vimdiff
 [merge]
     tool = vimdiff
+
