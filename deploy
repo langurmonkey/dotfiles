@@ -143,6 +143,7 @@ fi
 # Create scope.sh and rc.conf symlinks
 do-symlink $DOTFILES_PATH/ranger/scope.sh $DIR_RANGER/scope.sh
 do-symlink $DOTFILES_PATH/ranger/rc.conf $DIR_RANGER/rc.conf
+do-symlink $DOTFILES_PATH/ranger/rifle.conf $DIR_RANGER/rifle.conf
 
 
 #
