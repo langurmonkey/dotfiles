@@ -3,7 +3,6 @@ set nocompatible
 
 " use mouse to resize, scroll, etc. even within tmux
 set mouse+=a
-set ttymouse=xterm2
 
 " recursive within current directory
 set path+=**
@@ -16,7 +15,7 @@ set clipboard=unnamedplus
 
 " enable syntax
 syntax on
-colorscheme 3dglasses
+colorscheme default
 
 " enable auto indent
 set autoindent

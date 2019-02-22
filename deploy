@@ -4,7 +4,9 @@
 
 DOTFILES_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
 DIR_GIT=~/git
-DIR_VIMPLUGINS=~/.vim/bundle
+DIR_VIMCONFIG=~/.config/nvim
+FILE_VIMRC=~/.config/nvim/init.vim
+DIR_VIMPLUGINS=$DIR_VIMCONFIG/bundle
 DIR_RANGER=~/.config/ranger
 
 
@@ -100,10 +102,10 @@ function do-source {
 echo-custom " ** " "==== VIM ===="
 
 # Install pathogen if needed
-do-curl-fetchfile ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim pathogen
+do-curl-fetchfile $DIR_VIMCONFIG/autoload/pathogen.vim https://tpo.pe/pathogen.vim pathogen
 
 # Install color schemes
-do-clone ~/.vim/colors https://github.com/flazz/vim-colorschemes.git vim-colorschemes
+do-clone $DIR_VIMCONFIG/colors https://github.com/flazz/vim-colorschemes.git vim-colorschemes
 
 # Install vim-surround
 do-clone "$DIR_VIMPLUGINS"/vim-surround git://github.com/tpope/vim-surround.git vim-surround
@@ -115,10 +117,10 @@ do-clone "$DIR_VIMPLUGINS"/ctrlp.vim https://github.com/ctrlpvim/ctrlp.vim.git C
 do-clone "$DIR_VIMPLUGINS"/nerdtree https://github.com/scrooloose/nerdtree.git NERDTree
 
 # Install CSyntaxAfter
-if [ ! -d ~/.vim/after/syntax ]; then
+if [ ! -d $DIR_VIMCONFIG/after/syntax ]; then
     echo-info "Installing CSyntaxAfter"
     curl -o csyntaxafter.zip https://www.vim.org/scripts/download_script.php?src_id=24609
-    unzip csyntaxafter.zip -d ~/.vim/
+    unzip csyntaxafter.zip -d $DIR_VIMCONFIG/
     rm csyntaxafter.zip
     echo-ok "Done"
 else
@@ -126,10 +128,10 @@ else
 fi
 
 # Install GLSL syntax
-do-curl-fetchfile ~/.vim/syntax/glsl.vim https://raw.githubusercontent.com/tikhomirov/vim-glsl/master/syntax/glsl.vim vim-glsl
+do-curl-fetchfile $DIR_VIMCONFIG/syntax/glsl.vim https://raw.githubusercontent.com/tikhomirov/vim-glsl/master/syntax/glsl.vim vim-glsl
 
 # Create .vimrc symlink
-do-symlink $DOTFILES_PATH/vim/.vimrc ~/.vimrc
+do-symlink $DOTFILES_PATH/vim/.vimrc $FILE_VIMRC
 
 #
 # RANGER
