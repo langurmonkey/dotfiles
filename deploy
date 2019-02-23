@@ -99,7 +99,7 @@ function do-source {
 #
 # VIM
 #
-echo-custom " ** " "==== VIM ===="
+echo-custom " ** " "==== NEOVIM ===="
 
 # Install pathogen if needed
 do-curl-fetchfile $DIR_VIMCONFIG/autoload/pathogen.vim https://tpo.pe/pathogen.vim pathogen
