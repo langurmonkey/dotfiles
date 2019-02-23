@@ -655,7 +655,7 @@ c.content.headers.accept_language = 'en-US,en,es,de'
 ## still be downloaded by clicking the download button in the pdf.js
 ## viewer.
 ## Type: Bool
-# c.content.pdfjs = False
+c.content.pdfjs = True
 
 ## Enable plugins in Web pages.
 ## Type: Bool
