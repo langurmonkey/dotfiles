@@ -15,7 +15,7 @@ set clipboard=unnamedplus
 
 " enable syntax
 syntax on
-colorscheme default
+colorscheme ron
 
 " enable auto indent
 set autoindent
