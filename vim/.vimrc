@@ -15,7 +15,7 @@ set clipboard=unnamedplus
 
 " enable syntax
 syntax on
-colorscheme colorer
+colorscheme OceanicNext
 
 " enable auto indent
 set autoindent
