@@ -102,10 +102,12 @@ function do-source {
 echo-custom " ** " "==== NEOVIM ===="
 
 # Install pathogen if needed
-do-curl-fetchfile $DIR_VIMCONFIG/autoload/pathogen.vim https://tpo.pe/pathogen.vim pathogen
+do-curl-fetchfile "$DIR_VIMCONFIG"/autoload/pathogen.vim https://tpo.pe/pathogen.vim pathogen
 
 # Install color schemes
-do-clone $DIR_VIMCONFIG/colors https://github.com/flazz/vim-colorschemes.git vim-colorschemes
+do-clone "$DIR_VIMCONFIG"/colors https://github.com/flazz/vim-colorschemes.git vim-colorschemes
+mv $DIR_VIMCONFIG/colors/colors/* $DIR_VIMCONFIG/colors
+mv $DIR_VIMCONFIG/colors/scripts $DIR_VIMCONFIG/
 
 # Install vim-surround
 do-clone "$DIR_VIMPLUGINS"/vim-surround git://github.com/tpope/vim-surround.git vim-surround
