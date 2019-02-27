@@ -256,6 +256,17 @@ echo-ok "Done"
 
 
 #
+# DUNST
+#
+echo-custom " ** " "==== DUNST ===="
+DIR_DUNST=~/.config/dunst
+if [ ! -d "$DIR_DUNST" ]; then
+    mkdir -p $DIR_DUNST
+fi
+do-symlink $DOTFILES_PATH/dunst/dunstrc $DIR_DUNST/dunstrc
+echo-ok "Done"
+
+#
 # PYWAL
 #
 echo-custom " ** " "==== WAL ===="
