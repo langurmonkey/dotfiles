@@ -106,7 +106,7 @@ modules-right = xkeyboard updates-ubuntu memory-info cpu-info wlan backlight bat
 [bar/bar-hidpi-slave]
 inherit = bar/bar-hidpi
 monitor = ${env:MONITOR:}
-modules-right = memory-info cpu-info temperature pulseaudio-tail popup-calendar 
+modules-right = memory-info cpu-info pulseaudio-tail popup-calendar 
 tray-position =
 
 [module/xwindow]
@@ -147,13 +147,13 @@ format-underline = ${colors.primary}
 [module/memory-info]
 type = custom/script
 exec = ~/.config/polybar/scripts/memory.sh
-click-left = notify-send "$(ps axch -o cmd:10,%mem k -%mem | head)"
+click-left = notify-send "Memory (%)" "$(ps axch -o cmd:10,pmem k -pmem | head | awk '$0=$0"%"' )"
 format-underline = ${colors.primary}
 
 [module/cpu-info]
 type = custom/script
 exec = ~/.config/polybar/scripts/cpu.sh
-click-left = notify-send "$(ps axch -o cmd:10,%cpu k -%cpu | head)"
+click-left = notify-send "CPU time (%)" "$(ps axch -o cmd:10,pcpu k -pcpu | head | awk '$0=$0"%"' )"
 format-underline = ${colors.primary}
 
 [module/updates-arch]
@@ -479,25 +479,6 @@ animation-discharging-1 = 
 animation-discharging-2 = 
 animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
-
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
-
-format = <ramp> <label>
-format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
-
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
 type = custom/menu
