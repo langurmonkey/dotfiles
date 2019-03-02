@@ -115,9 +115,6 @@ do-clone "$DIR_VIMPLUGINS"/vim-surround git://github.com/tpope/vim-surround.git 
 # Install Ctrl-P
 do-clone "$DIR_VIMPLUGINS"/ctrlp.vim https://github.com/ctrlpvim/ctrlp.vim.git CtrlP
 
-# Install NERDTree
-do-clone "$DIR_VIMPLUGINS"/nerdtree https://github.com/scrooloose/nerdtree.git NERDTree
-
 # Install CSyntaxAfter
 if [ ! -d $DIR_VIMCONFIG/after/syntax ]; then
     echo-info "Installing CSyntaxAfter"
