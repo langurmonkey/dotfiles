@@ -170,13 +170,17 @@ function MyTabLine()
 endfunction
 
 
-" open NERDTree at startup on opening a directory
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-
-" map ctrl-t to NERDTree
-map <C-t> :NERDTreeToggle<CR>
-
-" close vim if only NERDTree is left open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
+"
+" NetRW configuration
+"
+" map ctrl-t to NetRW
+map <C-t> :Vexplore<CR>
+" Width
+let g:netrw_winsize = 25
+" Tree-like style
+let g:netrw_liststyle = 3
+" Remove dir banner
+let g:netrw_banner = 0
+" Open files in new vertical split
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1

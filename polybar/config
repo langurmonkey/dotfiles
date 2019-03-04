@@ -147,13 +147,13 @@ format-underline = ${colors.primary}
 [module/memory-info]
 type = custom/script
 exec = ~/.config/polybar/scripts/memory.sh
-click-left = notify-send "Memory (%)" "$(ps axch -o cmd:10,pmem k -pmem | head | awk '$0=$0"%"' )"
+click-left = ~/.config/polybar/scripts/memory.sh --popup
 format-underline = ${colors.primary}
 
 [module/cpu-info]
 type = custom/script
 exec = ~/.config/polybar/scripts/cpu.sh
-click-left = notify-send "CPU time (%)" "$(ps axch -o cmd:10,pcpu k -pcpu | head | awk '$0=$0"%"' )"
+click-left = ~/.config/polybar/scripts/cpu.sh --popup
 format-underline = ${colors.primary}
 
 [module/updates-arch]
