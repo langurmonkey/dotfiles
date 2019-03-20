@@ -28,6 +28,8 @@ c.aliases.update({'cal': 'open -t calendar.google.com'})
 c.aliases.update({'calendar': 'open -t calendar.google.com'})
 c.aliases.update({'map': 'open -t maps.google.com'})
 c.aliases.update({'maps': 'open -t maps.google.com'})
+c.aliases.update({'cat': 'open -t ccma.cat/catradio/directe/catalunya-radio'}) 
+c.aliases.update({'tv3': 'open -t ccma.cat/tv3/directe/tv3'}) 
 
 ## Time interval (in milliseconds) between auto-saves of
 ## config/cookies/etc.
