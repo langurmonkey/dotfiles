@@ -23,8 +23,6 @@ set autoindent
 " expand tabs to 4 spaces
 set expandtab
 set tabstop=4
-set ts=4
-set softtabstop=4
 " when using << or >> commands, shift lines by 4 spaces
 set shiftwidth=4
 
