@@ -1,0 +1,3 @@
+#!/bin/bash
+mkdir -p ~/mnt/hidalgo/daten
+sshfs tsagrista@hidalgo:/media/tsagrista/Daten ~/mnt/hidalgo/daten
