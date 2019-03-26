@@ -225,10 +225,10 @@ do-symlink $DOTFILES_PATH/urxvt/font-size ~/.urxvt/ext/font-size
 echo-ok "Done"
 
 #
-# CLI-VISUALIZER
+# CAVA
 #
-echo-custom " ** " "==== cli-vis ==="
-do-symlink $DOTFILES_PATH/vis ~/.config/vis
+echo-custom " ** " " ==== cava ===="
+do-symlink $DOTFILES_PATH/cava ~/.config/cava
 echo-ok "Done"
 
 #
