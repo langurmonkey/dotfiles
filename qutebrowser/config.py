@@ -428,7 +428,7 @@ c.colors.tabs.selected.odd.fg = 'white'
 
 ## Width (in pixels) of the scrollbar in the completion window.
 ## Type: Int
-# c.completion.scrollbar.width = 14
+c.completion.scrollbar.width = 16
 
 ## When to show the autocompletion window.
 ## Type: String
