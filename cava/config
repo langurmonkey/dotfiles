@@ -107,9 +107,11 @@
 # or remain commented out. 1 = on, 0 = off. Warning: for certain terminal emulators cava will
 # not able to restore color definitions on exit, simply restart your terminal to restore colors.
  gradient = 1
- gradient_count = 2
- gradient_color_2 = '#0066ff'
- gradient_color_1 = '#00bb33'
+ gradient_count = 4
+ gradient_color_1 = "#008744"
+ gradient_color_2 = "#0057e7"
+ gradient_color_3 = "#d62d20"
+ gradient_color_4 = "#ffa700"
 
 
 
