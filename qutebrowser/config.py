@@ -694,7 +694,7 @@ c.content.pdfjs = True
 
 ## List of user stylesheet filenames to use.
 ## Type: List of File, or File
-# c.content.user_stylesheets = []
+c.content.user_stylesheets = [ "scrollbar.css" ]
 
 ## Enable WebGL.
 ## Type: Bool
