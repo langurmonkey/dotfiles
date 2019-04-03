@@ -30,6 +30,11 @@ c.aliases.update({'map': 'open -t maps.google.com'})
 c.aliases.update({'maps': 'open -t maps.google.com'})
 c.aliases.update({'cat': 'open -t ccma.cat/catradio/directe/catalunya-radio'}) 
 c.aliases.update({'tv3': 'open -t ccma.cat/tv3/directe/tv3'}) 
+c.aliases.update({'map': 'open -t www.openstreetmap.org'}) 
+c.aliases.update({'maps': 'open -t www.openstreetmap.org'}) 
+c.aliases.update({'osm': 'open -t www.openstreetmap.org'}) 
+c.aliases.update({'gmap': 'open -t maps.google.com'}) 
+c.aliases.update({'gmaps': 'open -t maps.google.com'}) 
 
 ## Time interval (in milliseconds) between auto-saves of
 ## config/cookies/etc.
