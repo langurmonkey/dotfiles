@@ -207,20 +207,21 @@ echo-ok "Done"
 #
 # X and URXVT
 #
-echo-custom " ** " "==== X and  urxvt ===="
+echo-custom " ** " "==== X and URXVT ===="
 
 mkdir -p ~/.urxvt/ext/
 # xdefaults
-XRES=$(xwininfo -root|sed '/Width/!d;s/.* //')
+XRES_H=$(xwininfo -root|sed '/Height/!d;s/.* //')
+XRES_W=$(xwininfo -root|sed '/Width/!d;s/.* //')
 MYHOSTNAME=$(hostname)
-if [[ $XRES -gt 2000 ]] || [[ $MYHOSTAME == "hidalgo" ]]; then
+if [[ $XRES_H -gt 1400 ]] && [[ $XRES_W -gt 2000 ]] || [[ $MYHOSTAME == "hidalgo" ]]; then
     # HiDPI
-    echo "HiDPI detected: xres=$XRES, host=$MYHOSTNAME"
+    echo "HiDPI detected: xres=($XRES_W,$XRES_H), host=$MYHOSTNAME"
     do-symlink $DOTFILES_PATH/X/.Xresources-hidpi ~/.Xresources
     do-symlink $DOTFILES_PATH/X/.Xdefaults-hidpi ~/.Xdefaults
 else
     # Regular
-    echo "Normal DPI: xres=$XRES, host=$MYHOSTNAME"
+    echo "Normal DPI: xres=($XRES_W,$XRES_H), host=$MYHOSTNAME"
     do-symlink $DOTFILES_PATH/X/.Xdefaults ~/.Xdefaults
 fi
 # font-size urxvt plugin
