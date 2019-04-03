@@ -72,6 +72,8 @@ function do-symlink {
     if [ -d $2 ]; then
         rm -rf $2
     fi
+    # Create parent directory of link if necessary
+    mkdir -p "$(dirname "$2")"
     ln -s $1 $2
 }
 
@@ -229,8 +231,24 @@ echo-ok "Done"
 #
 # CAVA
 #
-echo-custom " ** " " ==== cava ===="
+echo-custom " ** " " ==== CAVA ===="
 do-symlink $DOTFILES_PATH/cava ~/.config/cava
+echo-ok "Done"
+
+
+#
+# NCMPCPP
+#
+echo-custom " ** " " ==== NCMPCPP ===="
+do-symlink $DOTFILES_PATH/ncmpcpp ~/.config/ncmpcpp
+echo-ok "Done"
+
+#
+# MPD
+#
+echo-custom " ** " " ==== MPD ===="
+do-symlink $DOTFILES_PATH/mpd/config ~/.config/mpd
+do-symlink $DOTFILES_PATH/mpd/playlists ~/.local/share/mpd/playlists
 echo-ok "Done"
 
 #
