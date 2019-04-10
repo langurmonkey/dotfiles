@@ -181,7 +181,11 @@ for_window [class="Gaia Sky"] floating enable border normal
 for_window [class="obs"] floating enable border normal
 for_window [title="deusex.exe"] floating enable border normal
 for_window [title="megasync"] floating enable border normal
+for_window [title="TimeExplorer Suite"] floating enable border normal
 for_window [class="Yad"] floating enable
+for_window [title="Blender User Preferences"] floating enable border normal
+for_window [title="Blender Preferences"] floating enable border normal
+for_window [class="uk-ac-starlink-topcat-Driver"] floating enable border normal
 
 
 # reload the configuration file
@@ -287,19 +291,6 @@ client.urgent           $urgent-bg-color   $urgent-bg-color    $text-color      
 
 client.background       $wal-bg
 
-#
-# BAR (polybar, bumblebee-status, i3status...)
-#
-
-# i3blocks
-
-#bar {
-#    font pango: Liberation Mono,FontAwesome 15
-#    status_command i3blocks
-#}
-
-# polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 #
 # STARTUP APPLICATIONS
@@ -355,3 +346,17 @@ exec --no-startup-id /home/tsagrista/.dotfiles/bin/no-screenoff.sh
 
 # PYWAL
 exec --no-startup-id /home/tsagrista/.local/bin/wal -R
+
+#
+# BAR (polybar, bumblebee-status, i3status...)
+#
+
+# i3blocks
+
+#bar {
+#    font pango: Liberation Mono,FontAwesome 15
+#    status_command i3blocks
+#}
+
+# polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh

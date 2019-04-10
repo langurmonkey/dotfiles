@@ -28,6 +28,13 @@ c.aliases.update({'cal': 'open -t calendar.google.com'})
 c.aliases.update({'calendar': 'open -t calendar.google.com'})
 c.aliases.update({'map': 'open -t maps.google.com'})
 c.aliases.update({'maps': 'open -t maps.google.com'})
+c.aliases.update({'cat': 'open -t ccma.cat/catradio/directe/catalunya-radio'}) 
+c.aliases.update({'tv3': 'open -t ccma.cat/tv3/directe/tv3'}) 
+c.aliases.update({'map': 'open -t www.openstreetmap.org'}) 
+c.aliases.update({'maps': 'open -t www.openstreetmap.org'}) 
+c.aliases.update({'osm': 'open -t www.openstreetmap.org'}) 
+c.aliases.update({'gmap': 'open -t maps.google.com'}) 
+c.aliases.update({'gmaps': 'open -t maps.google.com'}) 
 
 ## Time interval (in milliseconds) between auto-saves of
 ## config/cookies/etc.
@@ -426,7 +433,7 @@ c.colors.tabs.selected.odd.fg = 'white'
 
 ## Width (in pixels) of the scrollbar in the completion window.
 ## Type: Int
-# c.completion.scrollbar.width = 14
+c.completion.scrollbar.width = 16
 
 ## When to show the autocompletion window.
 ## Type: String
@@ -655,7 +662,7 @@ c.content.headers.accept_language = 'en-US,en,es,de'
 ## still be downloaded by clicking the download button in the pdf.js
 ## viewer.
 ## Type: Bool
-# c.content.pdfjs = False
+c.content.pdfjs = True
 
 ## Enable plugins in Web pages.
 ## Type: Bool
@@ -692,7 +699,7 @@ c.content.headers.accept_language = 'en-US,en,es,de'
 
 ## List of user stylesheet filenames to use.
 ## Type: List of File, or File
-# c.content.user_stylesheets = []
+c.content.user_stylesheets = [ "scrollbar.css" ]
 
 ## Enable WebGL.
 ## Type: Bool
@@ -1314,7 +1321,7 @@ c.tabs.select_on_remove = 'prev'
 ## Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 ## for a blank page.
 ## Type: FuzzyUrl
-c.url.default_page = 'https://www.startpage.com'
+c.url.default_page = 'about:blank'
 
 ## URL segments where `:navigate increment/decrement` will search for a
 ## number.

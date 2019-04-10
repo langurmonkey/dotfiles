@@ -1,0 +1,11 @@
+#!/bin/sh
+author="Akira Toriyama"
+artist="Toyotaro"
+title="Dragon Ball Super"
+subject="Manga"
+keywords="manga comic"
+for filename in *.pdf; do
+    filetitle="${title} ${filename%.*}"
+    echo "$filetitle"
+    exiftool -q -overwrite_original -Artist="$artist" -Author="$author" -Subject="$subject" -Keywords="$keywords" -Title="$filetitle" "$filename"
+done

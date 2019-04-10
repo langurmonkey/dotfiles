@@ -60,7 +60,7 @@ font-5 = "Font Awesome 5 Brands:style=Regular:size=10;4"
 
 modules-left = i3 
 modules-center = xwindow 
-modules-right =  xkeyboard updates-arch cpu wlan backlight battery pulseaudio popup-calendar
+modules-right =  xkeyboard updates-arch memory-info cpu-info wlan backlight battery pulseaudio popup-calendar
 
 tray-position = right
 tray-padding = 0
@@ -100,13 +100,13 @@ font-6 = "Font Awesome 5 Brands:style=Regular:size=16;6"
 ; same as bar-hidpi but it shows ubuntu updates instead of arch
 [bar/bar-hidpi-ubuntu]
 inherit = bar/bar-hidpi
-modules-right = xkeyboard updates-ubuntu cpu wlan backlight battery pulseaudio-tail popup-calendar
+modules-right = xkeyboard updates-ubuntu memory-info cpu-info wlan backlight battery pulseaudio-tail popup-calendar
 
 ; same as other, but only show workspaces on slave bar
 [bar/bar-hidpi-slave]
 inherit = bar/bar-hidpi
 monitor = ${env:MONITOR:}
-modules-right = cpu temperature pulseaudio-tail popup-calendar 
+modules-right = memory-info cpu-info pulseaudio-tail popup-calendar 
 tray-position =
 
 [module/xwindow]
@@ -142,6 +142,18 @@ click-right = exec pavucontrol &
 click-left = ~/.config/polybar/scripts/pulseaudio-tail.sh --mute
 scroll-up = ~/.config/polybar/scripts/pulseaudio-tail.sh --up
 scroll-down = ~/.config/polybar/scripts/pulseaudio-tail.sh --down
+format-underline = ${colors.primary}
+
+[module/memory-info]
+type = custom/script
+exec = ~/.config/polybar/scripts/memory.sh
+click-left = ~/.config/polybar/scripts/memory.sh --popup
+format-underline = ${colors.primary}
+
+[module/cpu-info]
+type = custom/script
+exec = ~/.config/polybar/scripts/cpu.sh
+click-left = ~/.config/polybar/scripts/cpu.sh --popup
 format-underline = ${colors.primary}
 
 [module/updates-arch]
@@ -308,45 +320,6 @@ bar-empty = ─
 ;bar-fill-underline = ${colors.primary}
 ;bar-empty-underline = ${colors.secondary}
 
-[module/cpu]
-type = internal/cpu
-interval = 2
-format-prefix =
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
-
-; Available tokens:
-;   %percentage% (default) - total cpu load
-;   %percentage-cores% - load percentage for each core
-;   %percentage-core[1-9]% - load percentage for specific core
-label =  %percentage:2%%
-
-[module/memory]
-type = internal/memory
-interval = 2
-format-prefix =
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
-
-; Available tokens:
-;   %percentage_used% (default)
-;   %percentage_free%
-;   %gb_used%
-;   %gb_free%
-;   %gb_total%
-;   %mb_used%
-;   %mb_free%
-;   %mb_total%
-;   %percentage_swap_used%
-;   %percentage_swap_free%
-;   %mb_swap_total%
-;   %mb_swap_free%
-;   %mb_swap_used%
-;   %gb_swap_total%
-;   %gb_swap_free%
-;   %gb_swap_used%
-label =  %percentage_used%% (%gb_used%)
-
 [module/wlan]
 type = internal/network
 interface = wlp2s0
@@ -506,25 +479,6 @@ animation-discharging-1 = 
 animation-discharging-2 = 
 animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
-
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
-
-format = <ramp> <label>
-format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
-
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
 type = custom/menu

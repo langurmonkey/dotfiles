@@ -8,6 +8,9 @@ DATE="$(date +" %Y-%m-%d   %H:%M:%S")"
 case "$1" in
     --popup)
         eval "$(xdotool getmouselocation --shell)"
+        # Correct for DPI scaling
+        X=$(X * GDK_DPI_SCALE)
+        Y=$(Y * GDK_DPI_SCALE)
 
         if [ $BOTTOM = true ]; then
             : $(( pos_y = Y - YAD_HEIGHT - 20 ))

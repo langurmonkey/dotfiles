@@ -4,7 +4,9 @@
 
 DOTFILES_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
 DIR_GIT=~/git
-DIR_VIMPLUGINS=~/.vim/bundle
+DIR_VIMCONFIG=~/.config/nvim
+FILE_VIMRC=~/.config/nvim/init.vim
+DIR_VIMPLUGINS=$DIR_VIMCONFIG/bundle
 DIR_RANGER=~/.config/ranger
 
 
@@ -70,6 +72,8 @@ function do-symlink {
     if [ -d $2 ]; then
         rm -rf $2
     fi
+    # Create parent directory of link if necessary
+    mkdir -p "$(dirname "$2")"
     ln -s $1 $2
 }
 
@@ -97,13 +101,15 @@ function do-source {
 #
 # VIM
 #
-echo-custom " ** " "==== VIM ===="
+echo-custom " ** " "==== NEOVIM ===="
 
 # Install pathogen if needed
-do-curl-fetchfile ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim pathogen
+do-curl-fetchfile "$DIR_VIMCONFIG"/autoload/pathogen.vim https://tpo.pe/pathogen.vim pathogen
 
 # Install color schemes
-do-clone ~/.vim/colors https://github.com/flazz/vim-colorschemes.git vim-colorschemes
+do-clone "$DIR_VIMCONFIG"/colors https://github.com/flazz/vim-colorschemes.git vim-colorschemes
+mv $DIR_VIMCONFIG/colors/colors/* $DIR_VIMCONFIG/colors
+mv $DIR_VIMCONFIG/colors/scripts $DIR_VIMCONFIG/
 
 # Install vim-surround
 do-clone "$DIR_VIMPLUGINS"/vim-surround git://github.com/tpope/vim-surround.git vim-surround
@@ -112,13 +118,13 @@ do-clone "$DIR_VIMPLUGINS"/vim-surround git://github.com/tpope/vim-surround.git 
 do-clone "$DIR_VIMPLUGINS"/ctrlp.vim https://github.com/ctrlpvim/ctrlp.vim.git CtrlP
 
 # Install NERDTree
-do-clone "$DIR_VIMPLUGINS"/nerdtree https://github.com/scrooloose/nerdtree.git NERDTree
+# do-clone "$DIR_VIMPLUGINS"/nerdtree https://github.com/scrooloose/nerdtree.git NERDTree
 
 # Install CSyntaxAfter
-if [ ! -d ~/.vim/after/syntax ]; then
+if [ ! -d $DIR_VIMCONFIG/after/syntax ]; then
     echo-info "Installing CSyntaxAfter"
     curl -o csyntaxafter.zip https://www.vim.org/scripts/download_script.php?src_id=24609
-    unzip csyntaxafter.zip -d ~/.vim/
+    unzip csyntaxafter.zip -d $DIR_VIMCONFIG/
     rm csyntaxafter.zip
     echo-ok "Done"
 else
@@ -126,10 +132,10 @@ else
 fi
 
 # Install GLSL syntax
-do-curl-fetchfile ~/.vim/syntax/glsl.vim https://raw.githubusercontent.com/tikhomirov/vim-glsl/master/syntax/glsl.vim vim-glsl
+do-curl-fetchfile $DIR_VIMCONFIG/syntax/glsl.vim https://raw.githubusercontent.com/tikhomirov/vim-glsl/master/syntax/glsl.vim vim-glsl
 
 # Create .vimrc symlink
-do-symlink $DOTFILES_PATH/vim/.vimrc ~/.vimrc
+do-symlink $DOTFILES_PATH/vim/.vimrc $FILE_VIMRC
 
 #
 # RANGER
@@ -143,6 +149,7 @@ fi
 # Create scope.sh and rc.conf symlinks
 do-symlink $DOTFILES_PATH/ranger/scope.sh $DIR_RANGER/scope.sh
 do-symlink $DOTFILES_PATH/ranger/rc.conf $DIR_RANGER/rc.conf
+do-symlink $DOTFILES_PATH/ranger/rifle.conf $DIR_RANGER/rifle.conf
 
 
 #
@@ -200,17 +207,21 @@ echo-ok "Done"
 #
 # X and URXVT
 #
-echo-custom " ** " "==== X and  urxvt ===="
+echo-custom " ** " "==== X and URXVT ===="
 
 mkdir -p ~/.urxvt/ext/
 # xdefaults
-XRES=$(xwininfo -root|sed '/Width/!d;s/.* //')
-if [[ $XRES -gt 2000 ]]; then
+XRES_H=$(xwininfo -root|sed '/Height/!d;s/.* //')
+XRES_W=$(xwininfo -root|sed '/Width/!d;s/.* //')
+MYHOSTNAME=$(hostname)
+if [[ $XRES_H -gt 1400 ]] && [[ $XRES_W -gt 2000 ]] || [[ $MYHOSTAME == "hidalgo" ]]; then
     # HiDPI
+    echo "HiDPI detected: xres=($XRES_W,$XRES_H), host=$MYHOSTNAME"
     do-symlink $DOTFILES_PATH/X/.Xresources-hidpi ~/.Xresources
     do-symlink $DOTFILES_PATH/X/.Xdefaults-hidpi ~/.Xdefaults
 else
     # Regular
+    echo "Normal DPI: xres=($XRES_W,$XRES_H), host=$MYHOSTNAME"
     do-symlink $DOTFILES_PATH/X/.Xdefaults ~/.Xdefaults
 fi
 # font-size urxvt plugin
@@ -219,10 +230,26 @@ do-symlink $DOTFILES_PATH/urxvt/font-size ~/.urxvt/ext/font-size
 echo-ok "Done"
 
 #
-# CLI-VISUALIZER
+# CAVA
 #
-echo-custom " ** " "==== cli-vis ==="
-do-symlink $DOTFILES_PATH/vis ~/.config/vis
+echo-custom " ** " " ==== CAVA ===="
+do-symlink $DOTFILES_PATH/cava ~/.config/cava
+echo-ok "Done"
+
+
+#
+# NCMPCPP
+#
+echo-custom " ** " " ==== NCMPCPP ===="
+do-symlink $DOTFILES_PATH/ncmpcpp ~/.config/ncmpcpp
+echo-ok "Done"
+
+#
+# MPD
+#
+echo-custom " ** " " ==== MPD ===="
+do-symlink $DOTFILES_PATH/mpd/config ~/.config/mpd
+do-symlink $DOTFILES_PATH/mpd/playlists ~/.local/share/mpd/playlists
 echo-ok "Done"
 
 #
@@ -249,6 +276,17 @@ do-symlink $DOTFILES_PATH/qutebrowser/data/greasemonkey $QB_DATA/greasemonkey
 
 echo-ok "Done"
 
+
+#
+# DUNST
+#
+echo-custom " ** " "==== DUNST ===="
+DIR_DUNST=~/.config/dunst
+if [ ! -d "$DIR_DUNST" ]; then
+    mkdir -p $DIR_DUNST
+fi
+do-symlink $DOTFILES_PATH/dunst/dunstrc $DIR_DUNST/dunstrc
+echo-ok "Done"
 
 #
 # PYWAL

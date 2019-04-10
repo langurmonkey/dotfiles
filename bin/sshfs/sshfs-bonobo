@@ -1,0 +1,3 @@
+#!/bin/bash
+mkdir -p ~/mnt/bonobo
+sshfs tsagrista@bonobo:/ ~/mnt/bonobo
