@@ -46,6 +46,9 @@ bindsym $mod+d exec dmenu_run -l 10 -nb "#000" -nf "#888" -sb "#01a252" -sf "#ff
 bindsym $mod+shift+d exec $HOME/.dotfiles/bin/fmenu -i $HOME -t +10
 bindsym XF86Search exec $HOME/.dotfiles/bin/fmenu -i $HOME -t +10
 
+# monitor off
+bindsym $mod+F8 exec ~/.dotfiles/bin/monitor_off
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
