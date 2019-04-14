@@ -187,7 +187,13 @@ def_key "}"
 def_key "page_up"
   page_up
 
+def_key "ctrl-u"
+  page_up
+
 def_key "page_down"
+  page_down
+
+def_key "ctr-d"
   page_down
 
 def_key "home"
