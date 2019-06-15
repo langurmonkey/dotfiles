@@ -1,2 +1,2 @@
 #!/bin/bash
-urxvt -e ranger --cmd="shell ~/.local/bin/wal -R" "$1"
+EDITOR=nvim urxvt -e ranger --cmd="shell ~/.local/bin/wal -R" "$1"

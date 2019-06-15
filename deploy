@@ -298,6 +298,16 @@ echo-info "Installing pywal"
 pip3 install --user "$DIR_GIT"/pywal
 echo-ok "Done"
 
+
+#
+# MPV
+#
+echo-custom " ** " "==== MPV ===="
+
+MPV_CONFIG=~/.config/mpv
+do-symlink $DOTFILES_PATH/mpv/scripts $MPV_CONFIG/scripts
+
+
 # Set keyboard repeat and delay - gnome or i3wm only
 echo-custom " ** " "==== REPEAT DELAY 250 ms ===="
 if [ "$XDG_CURRENT_DESKTOP" = "" ]
