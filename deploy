@@ -201,6 +201,8 @@ echo-custom " ** " "==== POLYBAR ===="
 
 # Scripts
 do-clone "$DIR_GIT"/polybar-scripts https://github.com/x70b1/polybar-scripts.git polybar-scripts
+# Config
+do-symlink $DOTFILES_PATH/polybar ~/.config/polybar
 
 echo-ok "Done"
 
