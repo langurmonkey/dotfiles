@@ -55,6 +55,10 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" open splits to right and bottom
+set splitbelow
+set splitright
+
 " map space to insert a single character and return to normal mode
 nnoremap <Space> i_<Esc>r
 
@@ -173,9 +177,6 @@ endfunction
 "
 " map ctrl-t to NetRW
 map <C-t> :Vexplore<CR>
-" open NetRW when opening vim or new tab
-autocmd VimEnter * :Vexplore
-autocmd TabNew * call feedkeys(":Vexplore\<CR>", 'n')
 
 " Width
 let g:netrw_winsize = 25
