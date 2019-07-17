@@ -2,6 +2,7 @@
 [user]
 	name = langurmonkey
 	email = me@tonisagrista.com
+	signingkey = 2FD2A59C1D734C1F
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
@@ -25,3 +26,5 @@
 [merge]
     tool = vimdiff
 
+[commit]
+	gpgsign = true
