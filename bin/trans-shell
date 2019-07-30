@@ -1,0 +1,12 @@
+#!/bin/bash
+
+while true
+do
+  # (1) prompt user, and read command line argument
+  echo
+  read -p "Translate: " answer
+
+  trans $answer
+
+done
+
