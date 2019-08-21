@@ -8,7 +8,7 @@ set $mod Mod4
 set $mod2 Mod1
 
 # Font for window titles.
-font pango:xos4 Terminus, Terminus, FontAwesome 11
+font pango:Terminus (TTF), Terminus, FontAwesome 11 
 
 # Gaps
 #for_window [class="^.*"] border pixel 0 
