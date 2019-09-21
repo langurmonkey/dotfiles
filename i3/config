@@ -360,8 +360,8 @@ exec --no-startup-id /home/tsagrista/.local/bin/wal -R
 # i3blocks
 
 #bar {
-#    font pango: Liberation Mono,FontAwesome 15
-#    status_command i3blocks
+#    font pango:Terminus (TTF), Terminus, FontAwesome 11 
+#    status_command i3blocks -c $HOME/.config/i3blocks/config
 #}
 
 # polybar

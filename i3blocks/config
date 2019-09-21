@@ -1,0 +1,104 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+# Change $SCRIPT_DIR to the location of your scripts!
+command=~/.config/i3blocks/$BLOCK_NAME/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+[aur-update]
+markup=pango
+interval=600
+UPDATE_COLOR=red
+QUIET=1
+IGNORE=root vidyodesktop
+
+[arch-update]
+#command=~/.config/i3blocks/arch-update/arch-update
+markup=pango
+interval= 600
+QUIET=true
+#WATCH=^linux.* ^pacman.*
+BASE_COLOR=#5fff5f
+UPDATE_COLOR=#FFFF85
+AUR=true
+LABEL= 
+
+[cpu_usage2]
+markup=pango
+interval=persist
+
+[memory]
+label=MEM
+interval=30
+
+[kbdd_layout]
+interval=persist
+
+[wifi]
+label=wifi:
+INTERFACE=wlp2s0
+interval=60
+
+[volume-pulseaudio]
+#label=♪
+#label=VOL
+signal=10
+interval=1
+#STEP=5%
+
+[battery2]
+markup=pango
+interval=10
+
+[time]
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=1
+
+
+# OpenVPN support
+#
+# Support multiple VPN, with colors.
+#[openvpn]
+#interval=20
+
+# Key indicators
+#
+# Add the following bindings to i3 config file:
+#
+# bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+# bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
+#[keyindicator]
+#KEY=CAPS
+#markup=pango
+#interval=once
+#signal=11
+
+#[keyindicator]
+#KEY=NUM
+#markup=pango
+#interval=once
+#signal=11

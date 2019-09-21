@@ -207,6 +207,17 @@ do-symlink $DOTFILES_PATH/polybar ~/.config/polybar
 echo-ok "Done"
 
 #
+# I3BLOCKS
+#
+echo-custom " ** " "==== I3BLOCKS ===="
+
+# Config
+do-symlink $DOTFILES_PATH/i3blocks ~/.config/i3blocks
+
+echo-ok "Done"
+
+
+#
 # X and URXVT
 #
 echo-custom " ** " "==== X and URXVT ===="
