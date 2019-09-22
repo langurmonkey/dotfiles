@@ -357,12 +357,14 @@ exec --no-startup-id /home/tsagrista/.local/bin/wal -R
 # BAR (polybar, bumblebee-status, i3status...)
 #
 
+# polybar
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
 # i3blocks
 
-#bar {
-#    font pango:Terminus (TTF), Terminus, FontAwesome 11 
-#    status_command i3blocks -c $HOME/.config/i3blocks/config
-#}
+bar {
+    font pango:Terminus (TTF), Terminus, FontAwesome 12 
+    status_command i3blocks -c $HOME/.config/i3blocks/config
+    position top
+}
 
-# polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh

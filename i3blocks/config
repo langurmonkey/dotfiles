@@ -29,6 +29,11 @@ command=~/.config/i3blocks/$BLOCK_NAME/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
+[window-title]
+command=xtitle -s
+interval=persist
+min_width=300
+
 [aur-update]
 markup=pango
 interval=600
@@ -47,58 +52,33 @@ UPDATE_COLOR=#FFFF85
 AUR=true
 LABEL= 
 
-[cpu_usage2]
-markup=pango
-interval=persist
+[cpu]
+command=~/.config/i3blocks/cpu/cpu; [[ -z "${BLOCK_BUTTON}" ]] || ~/.config/i3blocks/cpu/cpu --popup &
+interval=1
 
 [memory]
-label=MEM
-interval=30
+command=~/.config/i3blocks/memory/memory; [[ -z "${BLOCK_BUTTON}" ]] || ~/.config/i3blocks/memory/memory --popup &
+label= 
+interval=10
 
 [kbdd_layout]
 interval=persist
+label= 
 
 [wifi]
-label=wifi:
+label= 
 INTERFACE=wlp2s0
 interval=60
 
 [volume-pulseaudio]
-#label=♪
-#label=VOL
 signal=10
 interval=1
-#STEP=5%
 
 [battery2]
 markup=pango
 interval=10
 
-[time]
-command=date '+%Y-%m-%d %H:%M:%S'
+[calendar]
 interval=1
+LABEL= 
 
-
-# OpenVPN support
-#
-# Support multiple VPN, with colors.
-#[openvpn]
-#interval=20
-
-# Key indicators
-#
-# Add the following bindings to i3 config file:
-#
-# bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
-# bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
-#[keyindicator]
-#KEY=CAPS
-#markup=pango
-#interval=once
-#signal=11
-
-#[keyindicator]
-#KEY=NUM
-#markup=pango
-#interval=once
-#signal=11
