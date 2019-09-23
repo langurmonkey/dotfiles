@@ -105,10 +105,10 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPlay exec playerctl play-pause
 # pulse audio controls
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute `pacmd list-sinks | awk '/* index:/{print $3}'` toggle 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` +5%
-bindsym $mod+F12 exec --no-startup-id pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` -5%
-bindsym $mod+F11 exec --no-startup-id pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` -5%
+                                                                                           bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` +5%
+                                                                                           bindsym $mod+F12 exec --no-startup-id pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` +5%
+                                                                                           bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` -5%
+                                                                                           bindsym $mod+F11 exec --no-startup-id pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` -5%
 
 # backlight - edit /usr/local/lib/brightnessctl/configuration.sh for step size
 bindsym XF86MonBrightnessUp exec brightness+
@@ -126,16 +126,16 @@ bindsym $mod+Shift+t exec thunderbird
 bindsym $mod+Shift+f exec ~/.dotfiles/bin/ranger-urxvt "`$HOME/.dotfiles/bin/xcwd`"
 
 # WORKSPACES
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws0 "10"
+set $ws1 "1: Term"
+set $ws2 "2: Browser"
+set $ws3 "3: Mail"
+set $ws4 "4: Coffee"
+set $ws5 "5: Game"
+set $ws6 "6: Bug"
+set $ws7 "7: Film"
+set $ws8 "8: Lock"
+set $ws9 "9: Compass"
+set $ws0 "10: Text"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -224,35 +224,35 @@ set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
 bindsym $mod+Shift+g mode "$mode_gaps"
 
 mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym o      mode "$mode_gaps_outer"
+    bindsym i      mode "$mode_gaps_inner"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
+    bindsym plus  gaps inner current plus 5
+    bindsym minus gaps inner current minus 5
+    bindsym 0     gaps inner current set 0
 
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
+    bindsym Shift+plus  gaps inner all plus 5
+    bindsym Shift+minus gaps inner all minus 5
+    bindsym Shift+0     gaps inner all set 0
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
+    bindsym plus  gaps outer current plus 5
+    bindsym minus gaps outer current minus 5
+    bindsym 0     gaps outer current set 0
 
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
+    bindsym Shift+plus  gaps outer all plus 5
+    bindsym Shift+minus gaps outer all minus 5
+    bindsym Shift+0     gaps outer all set 0
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 # lock
@@ -263,26 +263,26 @@ bindsym $mod+shift+z exec --no-startup-id gnome-terminal -e slock
 # resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+    # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default" 
-        bindsym Escape mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default" 
+    bindsym Escape mode "default"
 }
 
 # window colors
@@ -357,14 +357,23 @@ exec --no-startup-id /home/tsagrista/.local/bin/wal -R
 # BAR (polybar, bumblebee-status, i3status...)
 #
 
-# polybar
-#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-# i3blocks
-
-bar {
-    font pango:Terminus (TTF), Terminus, FontAwesome 12 
-    status_command i3blocks -c $HOME/.config/i3blocks/config
-    position top
-}
-
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+#bar {
+#    font pango:Terminus (TTF), Terminus, FontAwesome 10 
+#    #status_command     i3status
+#    output              primary
+#    status_command      i3blocks -c $HOME/.config/i3blocks/config-hidalgo
+#    position            top
+#    workspace_buttons   yes
+#    tray_output         yes
+#    separator_symbol    "/"
+#    colors {
+#        separator $wal-bg
+#        background #000000
+#        statusline $wal-fg
+#        focused_workspace $wal-fg $wal-bg #fdf6e3
+#        active_workspace $wal-bg #353535 #fdf6e3
+#        inactive_workspace $inactive-bg-color #000000 #207030
+#        urgent_workspace #d33682 #d33682 #fdf6e3
+#    }
+#}

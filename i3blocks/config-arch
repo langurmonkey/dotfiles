@@ -53,7 +53,7 @@ interval=1
 markup=pango
 interval=10
 
-[time]
+[calendar]
 interval=1
 label= 
 

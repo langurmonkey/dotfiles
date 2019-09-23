@@ -7,23 +7,28 @@ command=~/.config/i3blocks/$BLOCK_NAME/xtitle -s
 interval=persist
 min_width=300
 
-[aur-update]
-markup=pango
-interval=600
-UPDATE_COLOR=red
-QUIET=1
-IGNORE=root vidyodesktop
+#[aur-update]
+#markup=pango
+#interval=600
+#UPDATE_COLOR=red
+#QUIET=1
+#IGNORE=root vidyodesktop
+#
+#[arch-update]
+##command=~/.config/i3blocks/arch-update/arch-update
+#markup=pango
+#interval= 600
+#QUIET=true
+##WATCH=^linux.* ^pacman.*
+#BASE_COLOR=#5fff5f
+#UPDATE_COLOR=#FFFF85
+#AUR=true
+#LABEL= 
 
-[arch-update]
-#command=~/.config/i3blocks/arch-update/arch-update
-markup=pango
-interval= 600
-QUIET=true
-#WATCH=^linux.* ^pacman.*
-BASE_COLOR=#5fff5f
-UPDATE_COLOR=#FFFF85
-AUR=true
-LABEL= 
+[apt-upgrades]
+label=upd
+signal=1
+interval=600
 
 [cpu]
 #command=~/.config/i3blocks/cpu/cpu; [[ -z "${BLOCK_BUTTON}" ]] || ~/.config/i3blocks/cpu/cpu --popup &
@@ -40,20 +45,12 @@ color=#FF6343
 interval=persist
 label= 
 
-[wifi]
-label=
-INERFACE=wlp2s0
-interval=30
 
 [volume-pulseaudio]
 signal=10
 interval=1
 
-[battery2]
-markup=pango
-interval=10
-
-[time]
+[calendar]
 interval=1
 label= 
 
