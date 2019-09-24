@@ -24,25 +24,28 @@ foreground = #dfdfdf
 foreground-alt = #dfdfdf
 primary = ${xrdb:color1:#ffb52a}
 secondary = ${xrdb:color2:#e60053}
+tertiary = ${xrdb:color3:#0a6cf5}
+quaternary = ${xrdb:color4:#0a6cf5}
 alert = ${xrdb:color3:#bd2c40}
 
 [bar/bar-fhd]
 monitor = ${env:MONITOR:}
 width = 100%
-height = 35
+height = 30
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
 fixed-center = false
 bottom = false
+separator=\
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 3
+line-size = 2
 line-color = #f00
 
-border-size = 4
+border-size = 0
 border-color = #00000000
 
 padding-left = 0
@@ -59,8 +62,8 @@ font-4 = "Font Awesome 5 Free:style=Solid:size=10;3"
 font-5 = "Font Awesome 5 Brands:style=Regular:size=10;4"
 
 modules-left = i3 
-modules-center = xwindow 
-modules-right =  xkeyboard updates-arch memory-info cpu-info wlan backlight battery pulseaudio popup-calendar
+modules-center = xwindow
+modules-right = xkeyboard updates-arch filesystem memory-info cpu temperature wlan backlight battery pulseaudio popup-calendar powermenu
 
 tray-position = right
 tray-padding = 0
@@ -84,9 +87,12 @@ cursor-scroll = ns-resize
 [bar/bar-hidpi]
 inherit = bar/bar-fhd
 monitor = ${env:MONITOR:}
-height = 65
-line-size = 8
-border-size = 8
+height = 55
+line-size = 4
+border-right=10
+border-left=10
+radius-bottom=40
+
 modules-center = xwindow-long
 
 font-0 = "Misc Fixed:size=20;0"
@@ -100,13 +106,13 @@ font-6 = "Font Awesome 5 Brands:style=Regular:size=16;6"
 ; same as bar-hidpi but it shows ubuntu updates instead of arch
 [bar/bar-hidpi-ubuntu]
 inherit = bar/bar-hidpi
-modules-right = xkeyboard updates-ubuntu memory-info cpu-info wlan backlight battery pulseaudio-tail popup-calendar
+modules-right = xkeyboard updates-ubuntu fs-hidalgo memory-info cpu temperature wlan backlight battery pulseaudio-tail popup-calendar powermenu
 
 ; same as other, but only show workspaces on slave bar
 [bar/bar-hidpi-slave]
 inherit = bar/bar-hidpi
 monitor = ${env:MONITOR:}
-modules-right = memory-info cpu-info pulseaudio-tail popup-calendar 
+modules-right = pulseaudio-tail popup-calendar 
 tray-position =
 
 [module/xwindow]
@@ -122,7 +128,7 @@ format-padding = 4
 ;   %title%
 ; Default: %title%
 label = %title%
-label-maxlen = 40
+label-maxlen = 30
 
 ; Used instead of label when there is no window title
 ; Available tokens:
@@ -144,6 +150,11 @@ scroll-up = ~/.config/polybar/scripts/pulseaudio-tail.sh --up
 scroll-down = ~/.config/polybar/scripts/pulseaudio-tail.sh --down
 format-underline = ${colors.primary}
 
+[module/system-fan-speed]
+type = custom/script
+exec = ~/.config/polybar/scripts/system-fan-speed.sh
+interval = 10
+
 [module/memory-info]
 type = custom/script
 exec = ~/.config/polybar/scripts/memory.sh
@@ -155,6 +166,35 @@ type = custom/script
 exec = ~/.config/polybar/scripts/cpu.sh
 click-left = ~/.config/polybar/scripts/cpu.sh --popup
 format-underline = ${colors.primary}
+interval=1.0
+
+[module/cpu]
+type = internal/cpu
+format =  <ramp-coreload>
+label = CPU %percentage-cores%%
+; Spacing between individual per-core ramps
+ramp-coreload-spacing = 1
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+format-underline = ${colors.secondary}
+
+[module/temperature]
+type = internal/temperature
+base-temperature=20
+warn-temperature=75
+format = <ramp> <label>
+label = %temperature-c%
+label-warn-foreground=#f00
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+format-underline = ${colors.tertiary}
 
 [module/updates-arch]
 type = custom/script
@@ -201,8 +241,8 @@ label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
-label-mounted-underline = ${colors.primary}
-label-unmounted-underline = ${colors.secondary}
+label-mounted-underline = ${colors.secondary}
+label-unmounted-underline = ${colors.primary}
 
 [module/fs-hidalgo]
 inherit = module/filesystem
@@ -250,15 +290,17 @@ ws-icon-7 = 8;
 ws-icon-8 = 9;
 ws-icon-9 = 10; 
 
+fuzzy-match = true
+
 label-mode = %mode%
-label-mode-padding = 2
+label-mode-padding = 3
 label-mode-foreground = #000
-label-mode-background = ${colors.primary}
+label-mode-background = ${colors.secondary}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index% %icon%
 label-focused-background = ${module/bspwm.label-focused-background}
-label-focused-underline = ${module/bspwm.label-focused-underline}
+label-focused-underline = ${colors.secondary}
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
 ; unfocused = Inactive workspace on any monitor
@@ -268,12 +310,12 @@ label-unfocused-padding = ${module/bspwm.label-occupied-padding}
 ; visible = Active workspace on unfocused monitor
 label-visible = %index% %icon%
 label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
+label-visible-underline = ${colors.primary}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %index% %icon%
-label-urgent-background = ${module/bspwm.label-urgent-background}
+label-urgent-background = ${colors.tertiary}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 ; Separator in between workspaces
@@ -378,7 +420,7 @@ time = %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
+format-underline = ${colors.tertiary}
 
 label =  %date%   %time%
 
@@ -518,7 +560,7 @@ type = custom/script
 exec = ~/.config/polybar/scripts/popup-calendar.sh
 interval = 1
 click-left = ~/.config/polybar/scripts/popup-calendar.sh --popup
-format-underline = #0a6cf5
+format-underline = ${colors.quaternary}
 
 [settings]
 screenchange-reload = true
