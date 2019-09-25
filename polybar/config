@@ -58,10 +58,10 @@ module-margin-right = 1
 
 font-0 = "xos4 Terminus:style=Bold:size=13;0"
 font-1 = "Liberation Mono:size=10;0"
-font-2 = "Font Awesome:style=Regular:size=10;1"
-font-3 = "Font Awesome 5 Free:style=Regular:size=10;2"
-font-4 = "Font Awesome 5 Free:style=Solid:size=10;3"
-font-5 = "Font Awesome 5 Brands:style=Regular:size=10;4"
+font-2 = "FontAwesome:style=Regular:size=10;1"
+font-3 = "FontAwesome5Free:style=Regular:size=10;2"
+font-4 = "FontAwesome5Free:style=Solid:size=10;3"
+font-5 = "FontAwesome5Brands:style=Regular:size=10;4"
 
 modules-left = i3 
 modules-center = xwindow
@@ -97,10 +97,10 @@ modules-center = xwindow-long
 font-0 = "Misc Fixed:size=20;0"
 font-1 = "xos4 Terminus:style=Bold:size=20;1"
 font-2 = "Liberation Mono:size=18;2"
-font-3 = "Font Awesome:style=Regular:size=16;3"
-font-4 = "Font Awesome 5 Free:style=Regular:size=16;4"
-font-5 = "Font Awesome 5 Free:style=Solid:size=16;5"
-font-6 = "Font Awesome 5 Brands:style=Regular:size=16;6"
+font-3 = "FontAwesome:style=Regular:size=16;3"
+font-4 = "FontAwesome5Free:style=Regular:size=16;4"
+font-5 = "FontAwesome5Free:style=Solid:size=16;5"
+font-6 = "FontAwesome5Brands:style=Regular:size=16;6"
 
 ; same as bar-hidpi but it shows ubuntu updates instead of arch
 [bar/bar-hidpi-ubuntu]
@@ -378,7 +378,7 @@ format-connected-underline = #9f78e1
 ;   %downspeed% [wireless+wired]
 ;   %linkspeed% [wired]
 ; Default: %ifname% %local_ip%
-label-connected =  %ifname% %downspeed:7%
+label-connected =   %ifname% %downspeed:7%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
