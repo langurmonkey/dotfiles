@@ -374,7 +374,7 @@ bar-empty = ─
 [module/nm-launcher]
 type = custom/text
 content = 
-content-foreground = ${colors.three}
+content-foreground = ${colors.two}
 click-left = urxvt -e nmtui-connect
 
 [module/wlan]
