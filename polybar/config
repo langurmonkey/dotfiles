@@ -63,7 +63,7 @@ font-5 = "Font Awesome 5 Brands:style=Regular:size=10;4"
 
 modules-left = i3 
 modules-center = xwindow
-modules-right = xkeyboard updates-arch filesystem memory-info cpu temperature wlan backlight battery pulseaudio popup-calendar powermenu
+modules-right = xkeyboard updates-arch filesystem memory-info cpu temperature wlan eth backlight battery pulseaudio popup-calendar powermenu
 
 tray-position = right
 tray-padding = 0
@@ -106,7 +106,7 @@ font-6 = "Font Awesome 5 Brands:style=Regular:size=16;6"
 ; same as bar-hidpi but it shows ubuntu updates instead of arch
 [bar/bar-hidpi-ubuntu]
 inherit = bar/bar-hidpi
-modules-right = xkeyboard updates-ubuntu fs-hidalgo memory-info cpu temperature wlan backlight battery pulseaudio-tail popup-calendar powermenu
+modules-right = xkeyboard updates-ubuntu fs-hidalgo memory-info cpu temperature wlan eth backlight battery pulseaudio-tail popup-calendar powermenu
 
 ; same as other, but only show workspaces on slave bar
 [bar/bar-hidpi-slave]
@@ -379,7 +379,7 @@ format-connected-underline = #9f78e1
 ;   %downspeed% [wireless+wired]
 ;   %linkspeed% [wired]
 ; Default: %ifname% %local_ip%
-label-connected =  %essid%
+label-connected =  %ifname% %downspeed:7%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -397,12 +397,11 @@ ramp-signal-foreground = ${colors.foreground-alt}
 [module/eth]
 type = internal/network
 interface = enp2s0
-interval = 3.0
+interval = 2.0
 
-format-connected-underline = #55aa55
-format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
+format-connected = <label-connected> 
+format-connected-underline = ${colors.secondary}
+label-connected =  %ifname% %downspeed:7%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
