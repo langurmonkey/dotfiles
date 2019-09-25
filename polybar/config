@@ -45,8 +45,10 @@ foreground = ${colors.foreground}
 line-size = 2
 line-color = #f00
 
-border-size = 0
+
 border-color = #00000000
+border-right=10
+border-left=10
 
 padding-left = 0
 padding-right = 2
@@ -89,9 +91,6 @@ inherit = bar/bar-fhd
 monitor = ${env:MONITOR:}
 height = 55
 line-size = 4
-border-right=10
-border-left=10
-radius-bottom=40
 
 modules-center = xwindow-long
 
