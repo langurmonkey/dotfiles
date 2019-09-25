@@ -337,7 +337,7 @@ exec --no-startup-id mons -a > /dev/null 2>&1
 # 
 # COMPOSITOR - window compositor
 #
-exec --no-startup-id compton --unredir-if-possible --config ~/.dotfiles/compton/compton.conf -b
+exec --no-startup-id compton --backend glx --vsync opengl --unredir-if-possible --config ~/.dotfiles/compton/compton.conf -b
 
 #
 # UDISKIE - automount

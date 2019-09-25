@@ -22,11 +22,12 @@ background = ${xrdb:color0:#c0222222}
 background-alt = #444
 foreground = #dfdfdf
 foreground-alt = #dfdfdf
-primary = ${xrdb:color1:#ffb52a}
-secondary = ${xrdb:color2:#e60053}
-tertiary = ${xrdb:color3:#0a6cf5}
-quaternary = ${xrdb:color4:#0a6cf5}
-alert = ${xrdb:color3:#bd2c40}
+one = ${xrdb:color1:#ffb52a}
+two = ${xrdb:color2:#e60053}
+three = ${xrdb:color3:#0a6cf5}
+four = ${xrdb:color4:#0a6cf5}
+five = ${xrdb:color5:#9f78e1}
+alert = ${xrdb:color1:#bd2c40}
 
 [bar/bar-fhd]
 monitor = ${env:MONITOR:}
@@ -105,7 +106,7 @@ font-6 = "FontAwesome5Brands:style=Regular:size=16;6"
 ; same as bar-hidpi but it shows ubuntu updates instead of arch
 [bar/bar-hidpi-ubuntu]
 inherit = bar/bar-hidpi
-modules-right = xkeyboard updates-ubuntu fs-hidalgo memory-info cpu temperature wlan eth backlight battery pulseaudio-tail popup-calendar powermenu
+modules-right = xkeyboard updates-ubuntu fs-hidalgo memory-info cpu temperature wlan-hidalgo eth backlight battery pulseaudio-tail popup-calendar nm-launcher powermenu
 
 ; same as other, but only show workspaces on slave bar
 [bar/bar-hidpi-slave]
@@ -147,7 +148,7 @@ click-right = exec pavucontrol &
 click-left = ~/.config/polybar/scripts/pulseaudio-tail.sh --mute
 scroll-up = ~/.config/polybar/scripts/pulseaudio-tail.sh --up
 scroll-down = ~/.config/polybar/scripts/pulseaudio-tail.sh --down
-format-underline = ${colors.primary}
+format-underline = ${colors.four}
 
 [module/system-fan-speed]
 type = custom/script
@@ -158,18 +159,22 @@ interval = 10
 type = custom/script
 exec = ~/.config/polybar/scripts/memory.sh
 click-left = ~/.config/polybar/scripts/memory.sh --popup
-format-underline = ${colors.primary}
+format-prefix = " "
+format-prefix-foreground = ${colors.one}
+format-underline = ${colors.one}
 
 [module/cpu-info]
 type = custom/script
 exec = ~/.config/polybar/scripts/cpu.sh
 click-left = ~/.config/polybar/scripts/cpu.sh --popup
-format-underline = ${colors.primary}
+format-underline = ${colors.one}
 interval=1.0
 
 [module/cpu]
 type = internal/cpu
-format =  <ramp-coreload>
+format = <ramp-coreload>
+format-prefix = " "
+format-prefix-foreground = ${colors.two}
 label = CPU %percentage-cores%%
 ; Spacing between individual per-core ramps
 ramp-coreload-spacing = 1
@@ -181,7 +186,7 @@ ramp-coreload-4 = ▅
 ramp-coreload-5 = ▆
 ramp-coreload-6 = ▇
 ramp-coreload-7 = █
-format-underline = ${colors.secondary}
+format-underline = ${colors.two}
 
 [module/temperature]
 type = internal/temperature
@@ -193,42 +198,47 @@ label-warn-foreground=#f00
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
-format-underline = ${colors.tertiary}
+format-underline = ${colors.three}
+ramp-foreground = ${colors.three}
 
 [module/updates-arch]
 type = custom/script
 
 exec = ~/.config/polybar/scripts/updates-arch.sh
 format = <label>
-format-padding = 1
+format-prefix = " "
+format-prefix-foreground = ${colors.one}
 label = %output%
 interval = 300
-format-underline = ${colors.primary}
+format-underline = ${colors.one}
+click-left = urxvt -e yay -Syu
 
 [module/updates-ubuntu]
 type = custom/script
 
 exec = ~/.config/polybar/scripts/updates-ubuntu.sh
 format = <label>
-format-padding = 1
+format-prefix = " "
+format-prefix-foreground = ${colors.one}
 label = %output%
 interval = 300
-format-underline = ${colors.primary}
+format-underline = ${colors.one}
+click-left = urxvt -e sudo apt upgrade
 
 [module/xkeyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
+format-prefix-foreground = ${colors.two}
+format-prefix-underline = ${colors.two}
 
 label-layout = %layout%
-label-layout-underline = ${colors.secondary}
+label-layout-underline = ${colors.two}
 
 label-indicator-padding = 2
 label-indicator-margin = 1
-;label-indicator-background = ${colors.secondary}
-;label-indicator-underline = ${colors.secondary}
+;label-indicator-background = ${colors.two}
+;label-indicator-underline = ${colors.two}
 
 [module/filesystem]
 type = internal/fs
@@ -240,8 +250,8 @@ label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
-label-mounted-underline = ${colors.secondary}
-label-unmounted-underline = ${colors.primary}
+label-mounted-underline = ${colors.two}
+label-unmounted-underline = ${colors.one}
 
 [module/fs-hidalgo]
 inherit = module/filesystem
@@ -252,7 +262,7 @@ type = internal/bspwm
 
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
+label-focused-underline= ${colors.one}
 label-focused-padding = 2
 
 label-occupied = %index%
@@ -294,12 +304,12 @@ fuzzy-match = true
 label-mode = %mode%
 label-mode-padding = 3
 label-mode-foreground = #000
-label-mode-background = ${colors.secondary}
+label-mode-background = ${colors.two}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index% %icon%
 label-focused-background = ${module/bspwm.label-focused-background}
-label-focused-underline = ${colors.secondary}
+label-focused-underline = ${colors.two}
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
 ; unfocused = Inactive workspace on any monitor
@@ -309,12 +319,12 @@ label-unfocused-padding = ${module/bspwm.label-occupied-padding}
 ; visible = Active workspace on unfocused monitor
 label-visible = %index% %icon%
 label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${colors.primary}
+label-visible-underline = ${colors.one}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %index% %icon%
-label-urgent-background = ${colors.tertiary}
+label-urgent-background = ${colors.three}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 ; Separator in between workspaces
@@ -358,8 +368,14 @@ bar-indicator = |
 bar-fill = ─
 bar-empty = ─
 
-;bar-fill-underline = ${colors.primary}
-;bar-empty-underline = ${colors.secondary}
+;bar-fill-underline = ${colors.one}
+;bar-empty-underline = ${colors.two}
+
+[module/nm-launcher]
+type = custom/text
+content = 
+content-foreground = ${colors.three}
+click-left = urxvt -e nmtui-connect
 
 [module/wlan]
 type = internal/network
@@ -367,7 +383,9 @@ interface = wlp2s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
+format-connected-underline = ${colors.five}
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.five}
 ; Available tokens:
 ;   %ifname%    [wireless+wired]
 ;   %local_ip%  [wireless+wired]
@@ -378,20 +396,28 @@ format-connected-underline = #9f78e1
 ;   %downspeed% [wireless+wired]
 ;   %linkspeed% [wired]
 ; Default: %ifname% %local_ip%
-label-connected =   %ifname% %downspeed:7%
+label-connected = %essid% %downspeed:7%
 
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
+format-disconnected = <label-disconnected>
+format-disconnected-underline = ${colors.alert}
+format-disconnected-prefix = " "
+format-disconnected-prefix-foreground = ${colors.alert}
+label-disconnected = %ifname% 
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
+ramp-signal-0 = ▁
+ramp-signal-1 = ▂
+ramp-signal-2 = ▃
+ramp-signal-3 = ▄
+ramp-signal-4 = ▅
+ramp-signal-5 = ▆
+ramp-signal-6 = ▇
+ramp-signal-7 = █
+
+[module/wlan-hidalgo]
+inherit = module/wlan
+interface = wlp3s0
+interval = 3.0
 
 [module/eth]
 type = internal/network
@@ -399,12 +425,16 @@ interface = enp2s0
 interval = 2.0
 
 format-connected = <label-connected> 
-format-connected-underline = ${colors.secondary}
-label-connected =  %ifname% %downspeed:7%
+format-connected-underline = ${colors.two}
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.two}
+label-connected = %ifname% %downspeed:7%
 
-format-disconnected =
+format-disconnected = eth
 ;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
+format-disconnected-underline = ${colors.alert}
+format-disconnected-prefix = " "
+format-disconnected-prefix-foreground = ${colors.alert}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
@@ -418,7 +448,7 @@ time = %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.tertiary}
+format-underline = ${colors.three}
 
 label =  %date%   %time%
 
@@ -427,33 +457,17 @@ type = internal/pulseaudio
 
 format-volume = <ramp-volume> <label-volume>
 label-volume = %percentage%%
-label-volume-foreground = ${root.foreground}
-format-volume-underline = ${colors.primary}
+format-volume-underline = ${colors.four}
 
-label-muted =  muted
-label-muted-foreground = #aaa
-format-muted-underline = ${colors.secondary}
+label-muted = x
+label-muted-foreground = ${colors.alert}
+format-muted-underline = ${colors.alert}
 
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
+ramp-volume-foreground = ${colors.four}
 
-bar-volume-width = 60
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/alsa]
 type = internal/alsa
@@ -490,7 +504,7 @@ adapter = ADP1
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = ${colors.primary}
+format-charging-underline = ${colors.one}
 
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
@@ -528,9 +542,9 @@ expand-right = true
 format-spacing = 1
 
 label-open = 
-label-open-foreground = ${colors.secondary}
+label-open-foreground = ${colors.two}
 label-close = 
-label-close-foreground = ${colors.secondary}
+label-close-foreground = ${colors.two}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 
@@ -558,7 +572,10 @@ type = custom/script
 exec = ~/.config/polybar/scripts/popup-calendar.sh
 interval = 1
 click-left = ~/.config/polybar/scripts/popup-calendar.sh --popup
-format-underline = ${colors.quaternary}
+
+format-underline = ${colors.four}
+format-prefix= " "
+format-prefix-foreground=${colors.four}
 
 [settings]
 screenchange-reload = true
