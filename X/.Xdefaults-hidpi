@@ -29,7 +29,7 @@ URxvt*depth: 32
 
 ! fonts
 ! run "fc-list" for a list of available fonts
-URxvt*font: xft:Terminus:bold:pixelsize=25
+URxvt*font: xft:Inconsolata:pixelsize=20
 
 ! extensions: font size and URL matcher
 URxvt.perl-ext-common: font-size,matcher
