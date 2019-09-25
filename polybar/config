@@ -38,7 +38,8 @@ height = 30
 radius = 0.0
 fixed-center = false
 bottom = false
-separator=\
+separator = " "
+format-separator-foreground = #f00
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -58,18 +59,17 @@ module-margin-left = 1
 module-margin-right = 1
 
 font-0 = "xos4 Terminus:style=Bold:size=13;0"
-font-1 = "Liberation Mono:size=10;0"
-font-2 = "FontAwesome:style=Regular:size=10;1"
-font-3 = "FontAwesome5Free:style=Regular:size=10;2"
-font-4 = "FontAwesome5Free:style=Solid:size=10;3"
-font-5 = "FontAwesome5Brands:style=Regular:size=10;4"
+font-1 = "Liberation Mono:size=10;1"
+font-2 = "Font Awesome 5 Free:style=Regular:size=10;2"
+font-3 = "Font Awesome 5 Free:style=Solid:size=10;3"
+font-4 = "Font Awesome 5 Brands:style=Regular:size=10;4"
 
 modules-left = i3 
 modules-center = xwindow
-modules-right = xkeyboard updates-arch filesystem memory-info cpu temperature wlan eth backlight battery pulseaudio popup-calendar powermenu
+modules-right = mpd xkeyboard updates-arch filesystem memory-info cpu temperature wlan eth backlight battery pulseaudio popup-calendar powermenu
 
 tray-position = right
-tray-padding = 0
+tray-padding = 1
 ;tray-transparent = true
 tray-background = ${colors.background}
 
@@ -93,20 +93,18 @@ monitor = ${env:MONITOR:}
 height = 55
 line-size = 4
 
-modules-center = xwindow-long
+modules-center = xwindow
 
-font-0 = "Misc Fixed:size=20;0"
-font-1 = "xos4 Terminus:style=Bold:size=20;1"
-font-2 = "Liberation Mono:size=18;2"
-font-3 = "FontAwesome:style=Regular:size=16;3"
-font-4 = "FontAwesome5Free:style=Regular:size=16;4"
-font-5 = "FontAwesome5Free:style=Solid:size=16;5"
-font-6 = "FontAwesome5Brands:style=Regular:size=16;6"
+font-0 = "MiscFixed:style=Bold:size=20;0"
+font-1 = "DejaVu Sans:size=20;1"
+font-2 = "Font Awesome 5 Free:style=Regular:size=14;2"
+font-3 = "Font Awesome 5 Free:style=Solid:size=14;3"
+font-4 = "Font Awesome 5 Brands:style=Regular:size=14;4"
 
 ; same as bar-hidpi but it shows ubuntu updates instead of arch
 [bar/bar-hidpi-ubuntu]
 inherit = bar/bar-hidpi
-modules-right = xkeyboard updates-ubuntu fs-hidalgo memory-info cpu temperature wlan-hidalgo eth backlight battery pulseaudio-tail popup-calendar nm-launcher powermenu
+modules-right = mpd xkeyboard updates-ubuntu fs-hidalgo memory-info cpu temperature wlan-hidalgo eth backlight battery pulseaudio-tail popup-calendar nm-launcher powermenu
 
 ; same as other, but only show workspaces on slave bar
 [bar/bar-hidpi-slave]
@@ -460,7 +458,7 @@ format-volume = <ramp-volume> <label-volume>
 label-volume = %percentage%%
 format-volume-underline = ${colors.four}
 
-label-muted = x
+label-muted = 
 label-muted-foreground = ${colors.alert}
 format-muted-underline = ${colors.alert}
 
@@ -627,7 +625,8 @@ format-stopped = ${self.format-online}
 ;   %date%
 ;   %title%
 ; Default: %artist% - %title%
-label-song = 𝄞 %artist% - %title%
+label-song = %artist% - %title%
+label-song-foreground = ${colors.three}
 
 ; Available tokens:
 ;   %elapsed%
@@ -639,21 +638,18 @@ label-time = %elapsed%/%total%
 ;   None
 format-offline = <label-offline>
 format-offline-foreground = ${colors.one}
-label-offline = 🎜 mpd is offline
+label-offline = mpd offline
 
 ; Only applies if <icon-X> is used
-icon-play = ⏵
-icon-pause = ⏸
-icon-stop = ⏹
-icon-prev = ⏮
-icon-next = ⏭
-icon-seekb = ⏪
-icon-seekf = ⏩
-icon-random = 🔀
-icon-repeat = 🔁
-icon-repeatone = 🔂
-icon-single = 🔂
-icon-consume = ✀
+icon-play = 
+icon-pause = 
+icon-stop = 
+icon-prev = 
+icon-next = 
+icon-seekb = 
+icon-seekf = 
+icon-random = 
+icon-repeat = 
 
 ; Used to display the state of random/repeat/repeatone/single
 ; Only applies if <icon-[random|repeat|repeatone|single]> is used
