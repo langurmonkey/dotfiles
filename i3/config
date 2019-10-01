@@ -105,10 +105,10 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPlay exec playerctl play-pause
 # pulse audio controls
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute `pacmd list-sinks | awk '/* index:/{print $3}'` toggle 
-                                                                                           bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` +5%
-                                                                                           bindsym $mod+F12 exec --no-startup-id pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` +5%
-                                                                                           bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` -5%
-                                                                                           bindsym $mod+F11 exec --no-startup-id pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` -5%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` +5%
+bindsym $mod+F12 exec --no-startup-id pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` -5%
+bindsym $mod+F11 exec --no-startup-id pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` -5%
 
 # backlight - edit /usr/local/lib/brightnessctl/configuration.sh for step size
 bindsym XF86MonBrightnessUp exec brightness+
@@ -260,7 +260,6 @@ mode "$mode_gaps_outer" {
 bindsym $mod+shift+x exec --no-startup-id i3lock-fancy
 bindsym $mod+shift+z exec --no-startup-id gnome-terminal -e slock
 
-
 # resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
 mode "resize" {
@@ -294,7 +293,6 @@ client.focused_inactive $inactive-bg-color $inactive-bg-color  $inactive-text-co
 client.urgent           $urgent-bg-color   $urgent-bg-color    $text-color          #01a252
 
 client.background       $wal-bg
-
 
 #
 # STARTUP APPLICATIONS
