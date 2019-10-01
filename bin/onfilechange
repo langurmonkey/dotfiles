@@ -4,7 +4,9 @@ SCRIPTNAME=`basename "$0"`
 
 print_help() {
 	cat << EOF
-Usage: $SCRIPTNAME FILE COMMAND
+Usage: $SCRIPTNAME FILE(s) COMMAND
+    FILE(s)  file to watch 
+    COMMAND  command to run
 Run the given command whenever the given file changes.
 EOF
 }
