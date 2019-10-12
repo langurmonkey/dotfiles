@@ -65,7 +65,7 @@ font-3 = "Font Awesome 5 Free:style=Solid:size=10;3"
 font-4 = "Font Awesome 5 Brands:style=Regular:size=10;4"
 
 modules-left = i3 
-modules-center = xwindow
+modules-center = xwindow-short
 modules-right = mpd xkeyboard updates-arch filesystem memory-info cpu temperature wlan eth backlight battery pulseaudio popup-calendar nm-launcher powermenu
 
 tray-position = right
@@ -133,6 +133,10 @@ label-maxlen = 30
 ;   None
 label-empty = Empty
 label-empty-foreground = ${colors.foreground}
+
+[module/xwindow-short]
+inherit = module/xwindow
+label-maxlen = 15
 
 [module/xwindow-long]
 inherit = module/xwindow
