@@ -27,6 +27,7 @@ two = ${xrdb:color2:#e60053}
 three = ${xrdb:color3:#0a6cf5}
 four = ${xrdb:color4:#0a6cf5}
 five = ${xrdb:color5:#9f78e1}
+gray = ${xrdb:color8:#6a6a6a}
 alert = ${xrdb:color1:#bd2c40}
 
 [bar/bar-fhd]
@@ -136,7 +137,7 @@ label-empty-foreground = ${colors.foreground}
 
 [module/xwindow-short]
 inherit = module/xwindow
-label-maxlen = 15
+label-maxlen = 20
 
 [module/xwindow-long]
 inherit = module/xwindow
@@ -611,7 +612,8 @@ interval = 2
 ;   <icon-next>
 ;   <icon-seekb>
 ;   <icon-seekf>
-format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time> <label-song>
+;format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time> <label-song>
+format-online = <icon-prev> <icon-stop> <toggle> <icon-next> <icon-repeat> <icon-random> <bar-progress> <label-time> <label-song>
 format-online-underline = ${colors.four}
 format-playing = ${self.format-online}
 format-paused = ${self.format-online}
@@ -629,8 +631,9 @@ format-stopped = ${self.format-online}
 ;   %date%
 ;   %title%
 ; Default: %artist% - %title%
-label-song = %artist% - %title%
+label-song = %title% - %artist%
 label-song-foreground = ${colors.three}
+label-song-maxlen = 30
 
 ; Available tokens:
 ;   %elapsed%
@@ -661,10 +664,13 @@ toggle-on-foreground = #ff
 toggle-off-foreground = #55
 
 ; Only applies if <bar-progress> is used
-bar-progress-width = 15
+bar-progress-width = 8
 bar-progress-indicator = |
 bar-progress-fill = ─
 bar-progress-empty = ─
+bar-progress-indicator-foreground = ${colors.four}
+bar-progress-fill-foreground = ${colors.two}
+bar-progress-empty-foreground = ${colors.gray}
 
 [settings]
 screenchange-reload = true
