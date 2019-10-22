@@ -20,8 +20,10 @@ c.aliases.update({'netflix': 'open -t netflix.com'})
 c.aliases.update({'gaia': 'open -t cosmos.esa.int/web/gaia'})
 c.aliases.update({'cosmos': 'open -t cosmos.esa.int/web/gaia'})
 c.aliases.update({'jira': 'open -t issues.cosmos.esa.int/gaia'})
-c.aliases.update({'tw': 'open -t twitter.com'})
 c.aliases.update({'twitter': 'open -t twitter.com'})
+c.aliases.update({'tw': 'open -t twitter.com'})
+c.aliases.update({'tweetdeck': 'open -t tweetdeck.twitter.com'})
+c.aliases.update({'td': 'open -t tweetdeck.twitter.com'})
 c.aliases.update({'yt': 'open -t youtube.com/results?search_query='})
 c.aliases.update({'reddit': 'open -t reddit.com'})
 c.aliases.update({'tr': 'open -t translate.google.com'})
@@ -1656,3 +1658,8 @@ config.bind('sd', 'spawn --userscript open_download')
 
 ## Source qutewal
 #config.source('qutewal.py')
+
+## Shortcuts
+config.bind('tw', 'open -t https://twitter.com')
+config.bind('td', 'open -t https://tweetdeck.twitter.com')
+config.bind('yo', 'open -t https://youtube.com')
