@@ -180,7 +180,7 @@ format-prefix = " "
 format-prefix-foreground = ${colors.two}
 label = CPU %percentage-cores%%
 ; Spacing between individual per-core ramps
-ramp-coreload-spacing = 1
+ramp-coreload-spacing = 0
 ramp-coreload-0 = ▁
 ramp-coreload-1 = ▂
 ramp-coreload-2 = ▃
@@ -400,6 +400,7 @@ format-connected-prefix-foreground = ${colors.five}
 ;   %linkspeed% [wired]
 ; Default: %ifname% %local_ip%
 label-connected = %essid% %downspeed:7%
+label-connected-maxlen = 20
 
 format-disconnected = <label-disconnected>
 format-disconnected-underline = ${colors.alert}
