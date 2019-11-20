@@ -1646,8 +1646,8 @@ config.bind('<Ctrl-e>', 'open-editor', mode='insert')
 
 ## Youtube special bindings
 config.bind('V', 'hint links spawn mpv {hint-url}')
-config.bind(';V', 'spawn urxvt -e youtube-dl --all-subs --output "~/Videos/YouTube/%(title)s.%(ext)s" {url}')
-config.bind(';A', 'spawn urxvt -e youtube-dl -x --audio-format mp3 --output "~/Music/YouTube/%(title)s.%(ext)s" {url}')
+config.bind(';V', 'spawn urxvt -e youtube-dl --all-subs --output "~/temp/vid/yt/%(title)s.%(ext)s" {url}')
+config.bind(';A', 'spawn urxvt -e youtube-dl -x --audio-format mp3 --output "~/temp/audio/yt/%(title)s.%(ext)s" {url}')
 
 ## Open google translate with selection
 config.bind('tR', 'spawn --userscript gtranslate-sel')
