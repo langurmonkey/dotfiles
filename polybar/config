@@ -50,8 +50,8 @@ line-color = #f00
 
 
 border-color = #00000000
-border-right=10
-border-left=10
+border-right-size=10
+border-left-size=10
 
 padding-left = 1
 padding-right = 1
