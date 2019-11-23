@@ -12,7 +12,7 @@ config.load_autoconfig()
 ## Type: Dict
 c.aliases = {'w': 'session-save', 'q': 'quit', 'wq': 'quit --save', 'home': 'open -t tonisagrista.com'}
 c.aliases.update({'gmail': 'open -t mail.google.com'})
-c.aliases.update({'mail': 'open -t mail.soverin.net'})
+c.aliases.update({'mail': 'open -t login.mailbox.org'})
 c.aliases.update({'arimail': 'open -t mail.ari.uni-heidelberg.de'})
 c.aliases.update({'github': 'open -t github.com'})
 c.aliases.update({'gitlab': 'open -t gitlab.com'})
