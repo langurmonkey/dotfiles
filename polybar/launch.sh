@@ -2,6 +2,7 @@
 
 # Terminate already running bar instances
 killall -q polybar
+sleep 1
 
 # Wait until the processes have been shut down
 # while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
@@ -22,10 +23,11 @@ elif [[ $HOSTNAME == "herschel" ]]; then
 
 # Others - same bar in all monitors
 else
-    for m in $(polybar --list-monitors | cut -d":" -f1); do
-        MONITOR=$m polybar --reload bar-fhd &
-    done
+    #for m in $(polybar --list-monitors | cut -d":" -f1); do
+    #    MONITOR=$m polybar bar-fhd &
+    #done
+    polybar -r bar-fhd &
 fi
 
 
-echo "Bar launched..."
+echo "Bar launched!"
