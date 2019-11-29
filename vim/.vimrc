@@ -49,7 +49,7 @@ set listchars=tab:▸\ ,eol:¬
 " GLSL syntax
 autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
 " EuroVis template has .inc latex files
-autocmd BufNewFile,BufRead *.inc set syntax=tex
+autocmd! BufNewFile,BufRead *.inc set syntax=tex
 
 " map ctr-movement to move across splits
 map <C-h> <C-w>h
@@ -93,9 +93,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.dll
 let g:ctrlp_user_command = 'find %s -type f'
 " Ignore files in .gitignore
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
-" glsl syntax
-autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
 
 " center view on the search result
 noremap n nzz
