@@ -48,6 +48,8 @@ set listchars=tab:▸\ ,eol:¬
 
 " GLSL syntax
 autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
+" EuroVis template has .inc latex files
+autocmd BufNewFile,BufRead *.inc set syntax=tex
 
 " map ctr-movement to move across splits
 map <C-h> <C-w>h
