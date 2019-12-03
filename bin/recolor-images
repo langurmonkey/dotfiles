@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for img in `ls *.png`
+do
+  convert $img +level-colors red ../red/$img
+done
