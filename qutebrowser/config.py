@@ -39,6 +39,8 @@ c.aliases.update({'osm': 'open -t www.openstreetmap.org'})
 c.aliases.update({'gmap': 'open -t maps.google.com'}) 
 c.aliases.update({'gmaps': 'open -t maps.google.com'}) 
 c.aliases.update({'sync': 'open -t localhost:8384'}) 
+c.aliases.update({'drive': 'open -t https://heibox.uni-heidelberg.de/accounts/login/?next=/'}) 
+c.aliases.update({'hb': 'open -t https://heibox.uni-heidelberg.de/accounts/login/?next=/'}) 
 
 ## Time interval (in milliseconds) between auto-saves of
 ## config/cookies/etc.
