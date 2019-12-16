@@ -13,7 +13,7 @@ HOSTNAME=$(hostname)
 
 # ARI hidalgo - 2 bars - ubuntu+hidpi
 if [[ $HOSTNAME == "hidalgo" ]]; then
-    MONITOR=DP-0 polybar bar-hidpi-ubuntu &
+    MONITOR=DP-2 polybar bar-hidpi-ubuntu &
     MONITOR=DVI-D-0 polybar bar-hidpi-slave &
 
 # IWR herschel - 2 bars - arch+hidpi

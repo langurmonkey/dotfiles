@@ -11,7 +11,7 @@
 var a = 0;
 setInterval(function () {
 	if (a === 0 && window.location.href.indexOf('watch?') > -1 && window.location.href.indexOf('list=WL') < 0) {
-		a = '//hooktube.com/watch?' + window.parent.location.href.split('?')[1];
+		a = '//invidiou.sh/watch?' + window.parent.location.href.split('?')[1];
 		window.location.replace(a);
 	}
 }, 10);
