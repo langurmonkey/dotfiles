@@ -125,6 +125,7 @@ bindsym $mod+Shift+w exec qutebrowser --backend webengine --qt-flag ignore-gpu-b
 bindsym $mod+Control+w exec firefox
 bindsym $mod+Shift+t exec thunderbird
 bindsym $mod+Shift+f exec ~/.dotfiles/bin/ranger-urxvt "`$HOME/.dotfiles/bin/xcwd`"
+bindsym $mod+equal exec ~/.dotfiles/bin/= --dmenu=dmenu
 
 # WORKSPACES
 set $ws1 "1"
