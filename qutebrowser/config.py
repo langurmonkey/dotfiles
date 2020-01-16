@@ -779,44 +779,45 @@ c.editor.command = ['vim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
 
 ## Font used in the completion categories.
 ## Type: Font
-# c.fonts.completion.category = 'bold 10pt monospace'
+# c.fonts.completion.category = 'bold 10pt default_family'
 
 ## Font used in the completion widget.
 ## Type: Font
-# c.fonts.completion.entry = '10pt monospace'
+# c.fonts.completion.entry = '10pt default_family'
 
 ## Font used for the debugging console.
 ## Type: QtFont
-# c.fonts.debug_console = '10pt monospace'
+# c.fonts.debug_console = '10pt default_family'
 
 ## Font used for the downloadbar.
 ## Type: Font
-# c.fonts.downloads = '10pt monospace'
+# c.fonts.downloads = '10pt default_family'
 
 ## Font used for the hints.
 ## Type: Font
-# c.fonts.hints = 'bold 10pt monospace'
+# c.fonts.hints = 'bold 10pt default_family'
 
 ## Font used in the keyhint widget.
 ## Type: Font
-# c.fonts.keyhint = '10pt monospace'
+# c.fonts.keyhint = '10pt default_family'
 
 ## Font used for error messages.
 ## Type: Font
-# c.fonts.messages.error = '10pt monospace'
+# c.fonts.messages.error = '10pt default_family'
 
 ## Font used for info messages.
 ## Type: Font
-# c.fonts.messages.info = '10pt monospace'
+# c.fonts.messages.info = '10pt default_family'
 
 ## Font used for warning messages.
 ## Type: Font
-# c.fonts.messages.warning = '10pt monospace'
+# c.fonts.messages.warning = '10pt default_family'
 
-## Default monospace fonts. Whenever "monospace" is used in a font
+## Default default_family fonts. Whenever "default_family" is used in a font
 ## setting, it's replaced with the fonts listed here.
 ## Type: Font
-c.fonts.monospace = '"xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", Monaco, "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace, Fixed, Consolas, Terminal'
+#c.fonts.default_family = '"xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", Monaco, "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace, Fixed, Consolas, Terminal'
+c.fonts.default_family = 'monospace'
 
 ## Font used for prompts.
 ## Type: Font
@@ -824,11 +825,11 @@ c.fonts.monospace = '"xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", M
 
 ## Font used in the statusbar.
 ## Type: Font
-# c.fonts.statusbar = '10pt monospace'
+# c.fonts.statusbar = '10pt default_family'
 
 ## Font used in the tab bar.
 ## Type: QtFont
-# c.fonts.tabs = '10pt monospace'
+# c.fonts.tabs = '10pt default_family'
 
 ## Font family for cursive fonts.
 ## Type: FontFamily
