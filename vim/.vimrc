@@ -64,6 +64,9 @@ set splitright
 " map space to insert a single character and return to normal mode
 nnoremap <Space> i_<Esc>r
 
+" double space saves buffer
+nnoremap <space><space> :w<cr>
+
 " csyntaxafter
 autocmd! FileType c,cpp,java,php call CSyntaxAfter() 
 
