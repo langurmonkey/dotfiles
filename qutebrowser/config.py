@@ -43,6 +43,8 @@ c.aliases.update({'gmaps': 'open -t maps.google.com'})
 c.aliases.update({'sync': 'open -t localhost:8384'}) 
 c.aliases.update({'drive': 'open -t https://heibox.uni-heidelberg.de/accounts/login/?next=/'}) 
 c.aliases.update({'hb': 'open -t https://heibox.uni-heidelberg.de/accounts/login/?next=/'}) 
+c.aliases.update({'nas': 'open -t https://192.168.0.26'}) 
+c.aliases.update({'nasout': 'open -t https://qlink.to/jumpinglangur'}) 
 
 ## Time interval (in milliseconds) between auto-saves of
 ## config/cookies/etc.
