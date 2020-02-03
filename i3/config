@@ -126,6 +126,7 @@ bindsym $mod+Control+w exec firefox
 bindsym $mod+Shift+t exec thunderbird
 bindsym $mod+Shift+f exec ~/.dotfiles/bin/ranger-urxvt "`$HOME/.dotfiles/bin/xcwd`"
 bindsym $mod+equal exec ~/.dotfiles/bin/= --dmenu=dmenu
+bindsym $mod+Shift+u exec ~/.dotfiles/bin/dmenuunicode
 
 # WORKSPACES
 set $ws1 "1"
