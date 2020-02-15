@@ -15,7 +15,7 @@ SRC_DIR=$HOME
 if [[ $# -eq 0 ]]; then
     echo "Backup $DATE : Missing arguments"
     echo "Usage:"
-    echo "  backup.sh [destination_folder]"
+    echo "  backup-home [destination_folder]"
     exit 1
 fi
 
