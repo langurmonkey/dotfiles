@@ -1658,7 +1658,7 @@ config.bind(';A', 'spawn urxvt -e youtube-dl -x --audio-format mp3 --output "~/t
 config.bind('tR', 'spawn --userscript gtranslate-sel')
 config.bind('tr', 'spawn --userscript gtranslate-url')
 config.bind('pw', 'spawn --userscript password_fill')
-config.bind('ard', 'spawn --userscript readability-js')
+config.bind('ard', 'spawn --userscript readability')
 config.bind('tg', 'open -t deepl.com')
 config.bind('sd', 'spawn --userscript open_download')
 
