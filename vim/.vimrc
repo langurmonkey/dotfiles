@@ -30,12 +30,16 @@ set relativenumber              " show line numbers
 set number
 set showcmd             " show command in bottom bar
 set cursorline          " highlight current line
+set cursorcolumn        " highlight current column
+hi CursorLine cterm=NONE
 filetype indent on      " load filetype-specific indent files
 set wildmenu            " visual autocomplete for command menu
 set lazyredraw          " redraw only when we need to
 set showmatch           " show parenthesis matching
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
+
+set spell spelllang=en_us
 
 " disable omnicompletion
 filetype plugin on
