@@ -3,10 +3,6 @@
 ##   qute://help/configuring.html
 ##   qute://help/settings.html
 
-## This is here so configs done via the GUI are still loaded.
-## Remove it to not load settings done via the GUI.
-config.load_autoconfig()
-
 ## Aliases for commands. The keys of the given dictionary are the
 ## aliases, while the values are the commands they map to.
 ## Type: Dict
@@ -1670,5 +1666,7 @@ config.bind('tw', 'open -t https://twitter.com')
 config.bind('td', 'open -t https://tweetdeck.twitter.com')
 config.bind('yo', 'open -t https://youtube.com')
 
-# User agent
-config.set('content.headers.user_agent', 'Mozilla/5.0 (X11; Linux x86_64; rv:57.0) Gecko/20100101 Firefox/77.0', 'https://accounts.google.com/*')
+## This is here so configs done via the GUI are still loaded.
+## Remove it to not load settings done via the GUI.
+config.load_autoconfig()
+
