@@ -1666,6 +1666,7 @@ config.bind('sd', 'spawn --userscript open_download')
 config.bind('tw', 'open -t https://twitter.com')
 config.bind('td', 'open -t https://tweetdeck.twitter.com')
 config.bind('yo', 'open -t https://youtube.com')
+config.bind('h', 'open')
 
 ## This is here so configs done via the GUI are still loaded.
 ## Remove it to not load settings done via the GUI.
