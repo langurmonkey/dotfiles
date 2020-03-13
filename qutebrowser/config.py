@@ -567,7 +567,7 @@ c.content.headers.accept_language = 'en-US,en,es,de'
 ## User agent to send. Unset to send the default.
 ## Type: String
 # c.content.headers.user_agent = None
-c.content.headers.user_agent = "Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0"
+#c.content.headers.user_agent = "Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0"
 
 ## Enable host blocking.
 ## Type: Bool
@@ -1670,4 +1670,4 @@ config.bind('h', 'open')
 
 ## This is here so configs done via the GUI are still loaded.
 ## Remove it to not load settings done via the GUI.
-config.load_autoconfig()
+# config.load_autoconfig()
