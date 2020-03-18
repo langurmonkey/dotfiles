@@ -159,6 +159,7 @@ echo-custom " ** " "==== SHELL ENVIRONMENT ===="
 
 # Symlink shell aliases file
 do-symlink $DOTFILES_PATH/env/.env_global ~/.env_global
+do-symlink $DOTFILES_PATH/env/.env_dpac ~/.env_dpac
 
 # Source in bash and zsh
 do-source "bash" ~/.env_global
