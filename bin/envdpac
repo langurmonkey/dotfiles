@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/zsh
 
-if [ -f ~/.env_dpac ]; then
-    source ~/.env_dpac
-    echo "~/.env_dpac sourced correctly"
+if [ -f $HOME/.env_dpac ]; then
+    source $HOME/.env_dpac
+    echo "$HOME/.env_dpac sourced correctly"
 else
-    echo "~/.env_dpac not found"
+    echo "$HOME/.env_dpac not found"
 fi
