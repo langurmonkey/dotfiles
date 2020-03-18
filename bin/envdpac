@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ -f ~/.env_dpac ]; then
+    source ~/.env_dpac
+    echo "~/.env_dpac sourced correctly"
+else
+    echo "~/.env_dpac not found"
+fi
