@@ -263,11 +263,11 @@ mode "$mode_gaps_outer" {
     bindsym Escape mode "default"
 }
 
-# lock
+# Screen lockers
 bindsym $mod+shift+x exec --no-startup-id i3lock-fancy
 bindsym $mod+shift+z exec --no-startup-id gnome-terminal -e slock
 
-# resize window (you can also use the mouse for that)
+# Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
 mode "resize" {
     # These bindings trigger as soon as you enter the resize mode
@@ -292,7 +292,7 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 
-# window colors
+# Window colors
 # type                  border              background         text                 indicator
 client.focused          $wal-bg            $wal-bg             $text-color          #01a252
 client.unfocused        $inactive-bg-color $inactive-bg-color  $inactive-text-color #01a252
@@ -306,10 +306,10 @@ client.background       $wal-bg
 #
 
 # Setup screens if needed
-exec_always /home/tsagrista/Scripts/current-randr.sh
+exec_always --no-startup-id "/home/tsagrista/Scripts/current-randr.sh"
 
 # Wallpaper
-exec_always "feh --bg-fill /home/tsagrista/Pictures/wallpaper.jpg"
+exec_always --no-startup-id "feh --bg-fill /home/tsagrista/Pictures/wallpaper.jpg"
 
 # Repeat interval and delay
 exec_always --no-startup-id xset r rate 200 35 # initial delay 300 ms, repeat 35 ms
@@ -318,9 +318,9 @@ exec_always --no-startup-id xset r rate 200 35 # initial delay 300 ms, repeat 35
 # TRACKPAD  - Dell XPS13 
 #
 # trackpad speed
-exec_always "xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Accel Speed' 0.6"
+exec_always --no-startup-id "xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Accel Speed' 0.6"
 # tapping enabled
-exec_always "xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Tapping Enabled' 1"
+exec_always --no-startup-id "xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Tapping Enabled' 1"
 
 
 #
@@ -332,8 +332,6 @@ exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 # volume
 exec --no-startup-id pasystray
-# Megasync client
-#exec --no-startup-id  (sleep 5 ; megasync)
 
 #
 # MONITORS AND XRANDR - autodetect plug-in monitors
@@ -353,15 +351,12 @@ exec --no-startup-id udiskie -f "/home/tsagrista/.dotfiles/bin/ranger-urxvt" --t
 # NO SCREENSAVER
 exec --no-startup-id /home/tsagrista/.dotfiles/bin/no-screenoff.sh
 
-# VPN
-#exec --no-startup-id mullvad-vpn
-
 #
 # BAR (polybar, bumblebee-status, i3status...)
 #
 
 # PYWAL
-exec /home/tsagrista/.local/bin/wal -R
+exec --no-startup-id wal -R
 
 exec_always --no-startup-id /home/tsagrista/.dotfiles/bin/polybar-launch
 #bar {
