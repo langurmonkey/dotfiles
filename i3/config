@@ -49,6 +49,9 @@ bindsym XF86Search exec $HOME/.dotfiles/bin/fmenu -i $HOME -t +10
 # monitor off
 bindsym $mod+F8 exec ~/.dotfiles/bin/monitor_off
 
+# reload wal
+bindsym $mod+Shift+y exec wal -R
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
