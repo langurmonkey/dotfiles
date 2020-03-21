@@ -38,7 +38,7 @@ html {
 }
 
 .lst {
-    /*padding: 5px;*/
+    padding-bottom: 1.5em;
 }
 
 a {
@@ -59,4 +59,5 @@ a:hover {
 
 .cat {
     font-weight: 400;
+    padding-bottom: 1.5em;
 }
