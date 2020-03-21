@@ -129,7 +129,7 @@ c.colors.completion.scrollbar.bg = 'black'
 
 ## Color of the scrollbar handle in the completion view.
 ## Type: QssColor
-c.colors.completion.scrollbar.fg = '#228333'
+c.colors.completion.scrollbar.fg = '#999999'
 
 ## Background color for the download bar.
 ## Type: QssColor
@@ -1070,13 +1070,13 @@ c.hints.border = '2px solid #000000'
 ##   - always: Always show the scrollbar.
 ##   - never: Never show the scrollbar.
 ##   - when-searching: Show the scrollbar when searching for text in the webpage. With the QtWebKit backend, this is equal to `never`.
-# c.scrolling.bar = 'when-searching'
+#c.scrolling.bar = 'when-searching'
 c.scrolling.bar = 'always'
 
 ## Enable smooth scrolling for web pages. Note smooth scrolling does not
 ## work with the `:scroll-px` command.
 ## Type: Bool
-# c.scrolling.smooth = False
+c.scrolling.smooth = True
 
 ## When to find text on a page case-insensitively.
 ## Type: String
@@ -1660,7 +1660,7 @@ config.bind('tg', 'open -t deepl.com')
 config.bind('sd', 'spawn --userscript open_download')
 
 ## Source qutewal
-#config.source('qutewal.py')
+config.source('qutewal.py')
 
 ## Shortcuts
 config.bind('tw', 'open -t https://twitter.com')

@@ -12,7 +12,7 @@ font pango:Terminus (TTF), Terminus, FontAwesome 11
 
 # Gaps
 #for_window [class="^.*"] border pixel 0 
-default_border pixel 1
+default_border pixel 2
 default_floating_border normal
 gaps inner 10
 gaps outer 0
@@ -21,7 +21,7 @@ gaps outer 0
 set_from_resource $wal-fg i3wm.color7 #f0f0f0
 set_from_resource $wal-bg i3wm.color2 #f0f0f0
 
-set $bg-color 	         #007ec0
+set $bg-color 	         i3wm.color2
 set $inactive-bg-color   #002b36
 set $text-color          #ffffff
 set $inactive-text-color #ffffff
@@ -50,7 +50,7 @@ bindsym XF86Search exec $HOME/.dotfiles/bin/fmenu -i $HOME -t +10
 bindsym $mod+F8 exec ~/.dotfiles/bin/monitor_off
 
 # reload wal
-bindsym $mod+Shift+y exec wal -a 95 --theme $HOME/.dotfiles/pywal/dark/vscode.json
+bindsym $mod+Shift+y exec wal -a 85 --theme $HOME/.dotfiles/pywal/dark/vscode.json
 
 # change focus
 bindsym $mod+h focus left
@@ -299,10 +299,10 @@ mode "resize" {
 
 # Window colors
 # type                  border              background         text                 indicator
-client.focused          $wal-bg            $wal-bg             $text-color          #01a252
-client.unfocused        $inactive-bg-color $inactive-bg-color  $inactive-text-color #01a252
-client.focused_inactive $inactive-bg-color $inactive-bg-color  $inactive-text-color #01a252
-client.urgent           $urgent-bg-color   $urgent-bg-color    $text-color          #01a252
+client.focused          $wal-bg            $wal-bg             $text-color          $wal-bg
+client.unfocused        $inactive-bg-color $inactive-bg-color  $inactive-text-color $inacive-bg-color
+client.focused_inactive $inactive-bg-color $inactive-bg-color  $inactive-text-color $inacive-bg-color
+client.urgent           $urgent-bg-color   $urgent-bg-color    $text-color          $urgent-bg-color
 
 client.background       $wal-bg
 
@@ -361,7 +361,7 @@ exec --no-startup-id /home/tsagrista/.dotfiles/bin/no-screenoff.sh
 #
 
 # PYWAL
-exec --no-startup-id wal -a 95 --theme $HOME/.dotfiles/pywal/dark/vscode.json
+exec --no-startup-id wal -a 85 --theme $HOME/.dotfiles/pywal/dark/vscode.json
 
 exec_always --no-startup-id /home/tsagrista/.dotfiles/bin/polybar-launch
 #bar {
