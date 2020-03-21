@@ -50,7 +50,7 @@ bindsym XF86Search exec $HOME/.dotfiles/bin/fmenu -i $HOME -t +10
 bindsym $mod+F8 exec ~/.dotfiles/bin/monitor_off
 
 # reload wal
-bindsym $mod+Shift+y exec wal -a 85 --theme $HOME/.dotfiles/pywal/dark/vscode.json
+bindsym $mod+y exec "wal -a 85 --theme $HOME/.dotfiles/pywal/themes/dark/vscode.json"
 
 # change focus
 bindsym $mod+h focus left
@@ -361,7 +361,7 @@ exec --no-startup-id /home/tsagrista/.dotfiles/bin/no-screenoff.sh
 #
 
 # PYWAL
-exec --no-startup-id wal -a 85 --theme $HOME/.dotfiles/pywal/dark/vscode.json
+exec --no-startup-id wal -a 85 --theme $HOME/.dotfiles/pywal/themes/dark/vscode.json
 
 exec_always --no-startup-id /home/tsagrista/.dotfiles/bin/polybar-launch
 #bar {

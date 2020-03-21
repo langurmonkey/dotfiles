@@ -76,23 +76,23 @@ c.aliases.update({'nasout': 'open -t qlink.to/jumpinglangur'})
 
 ## Background color of the completion widget category headers.
 ## Type: QssColor
-c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #228855, stop:1 #005511)'
+#c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #228855, stop:1 #005511)'
 
 ## Bottom border color of the completion widget category headers.
 ## Type: QssColor
-c.colors.completion.category.border.bottom = 'black'
+#c.colors.completion.category.border.bottom = 'black'
 
 ## Top border color of the completion widget category headers.
 ## Type: QssColor
-c.colors.completion.category.border.top = 'black'
+#c.colors.completion.category.border.top = 'black'
 
 ## Foreground color of completion widget category headers.
 ## Type: QtColor
-c.colors.completion.category.fg = 'white'
+#c.colors.completion.category.fg = 'white'
 
 ## Background color of the completion widget for even rows.
 ## Type: QssColor
-c.colors.completion.even.bg = '#001100'
+#c.colors.completion.even.bg = '#001100'
 
 ## Text color of the completion widget. May be a single color to use for
 ## all columns or a list of three colors, one for each column.
@@ -101,19 +101,19 @@ c.colors.completion.even.bg = '#001100'
 
 ## Background color of the selected completion item.
 ## Type: QssColor
-c.colors.completion.item.selected.bg = '#01a252'
+#c.colors.completion.item.selected.bg = '#01a252'
 
 ## Bottom border color of the selected completion item.
 ## Type: QssColor
-c.colors.completion.item.selected.border.bottom = '#006600'
+#c.colors.completion.item.selected.border.bottom = '#006600'
 
 ## Top border color of the completion widget category headers.
 ## Type: QssColor
-c.colors.completion.item.selected.border.top = '#006600'
+#c.colors.completion.item.selected.border.top = '#006600'
 
 ## Foreground color of the selected completion item.
 ## Type: QtColor
-c.colors.completion.item.selected.fg = 'black'
+#c.colors.completion.item.selected.fg = 'black'
 
 ## Foreground color of the matched text in the completion.
 ## Type: QssColor
@@ -121,15 +121,15 @@ c.colors.completion.item.selected.fg = 'black'
 
 ## Background color of the completion widget for odd rows.
 ## Type: QssColor
-c.colors.completion.odd.bg = '#002211'
+#c.colors.completion.odd.bg = '#002211'
 
 ## Color of the scrollbar in the completion view.
 ## Type: QssColor
-c.colors.completion.scrollbar.bg = 'black'
+#c.colors.completion.scrollbar.bg = 'black'
 
 ## Color of the scrollbar handle in the completion view.
 ## Type: QssColor
-c.colors.completion.scrollbar.fg = '#999999'
+#c.colors.completion.scrollbar.fg = '#999999'
 
 ## Background color for the download bar.
 ## Type: QssColor
@@ -180,15 +180,15 @@ c.colors.completion.scrollbar.fg = '#999999'
 ## Background color for hints. Note that you can use a `rgba(...)` value
 ## for transparency.
 ## Type: QssColor
-c.colors.hints.bg = '#307656'
+#c.colors.hints.bg = '#307656'
 
 ## Font color for hints.
 ## Type: QssColor
-c.colors.hints.fg = 'white'
+#c.colors.hints.fg = 'white'
 
 ## Font color for the matched part of hints.
 ## Type: QssColor
-c.colors.hints.match.fg = '#004626'
+#c.colors.hints.match.fg = '#004626'
 
 ## Background color of the keyhint widget.
 ## Type: QssColor
@@ -244,7 +244,7 @@ c.colors.hints.match.fg = '#004626'
 
 ## Border used around UI elements in prompts.
 ## Type: String
-c.colors.prompts.border = '2px solid gray'
+#c.colors.prompts.border = '2px solid gray'
 
 ## Foreground color for prompts.
 ## Type: QssColor
@@ -280,7 +280,7 @@ c.colors.prompts.border = '2px solid gray'
 
 ## Background color of the statusbar in private browsing + command mode.
 ## Type: QssColor
-c.colors.statusbar.command.private.bg = 'purple'
+#c.colors.statusbar.command.private.bg = 'purple'
 
 ## Foreground color of the statusbar in private browsing + command mode.
 ## Type: QssColor
@@ -288,7 +288,7 @@ c.colors.statusbar.command.private.bg = 'purple'
 
 ## Background color of the statusbar in insert mode.
 ## Type: QssColor
-c.colors.statusbar.insert.bg = '#1020cc'
+#c.colors.statusbar.insert.bg = '#1020cc'
 
 ## Foreground color of the statusbar in insert mode.
 ## Type: QssColor
@@ -312,7 +312,7 @@ c.colors.statusbar.insert.bg = '#1020cc'
 
 ## Background color of the statusbar in private browsing mode.
 ## Type: QssColor
-c.colors.statusbar.private.bg = 'purple'
+#c.colors.statusbar.private.bg = 'purple'
 
 ## Foreground color of the statusbar in private browsing mode.
 ## Type: QssColor
@@ -324,53 +324,53 @@ c.colors.statusbar.private.bg = 'purple'
 
 ## Foreground color of the URL in the statusbar on error.
 ## Type: QssColor
-c.colors.statusbar.url.error.fg = 'red'
+#c.colors.statusbar.url.error.fg = 'red'
 
 ## Default foreground color of the URL in the statusbar.
 ## Type: QssColor
-c.colors.statusbar.url.fg = 'white'
+#c.colors.statusbar.url.fg = 'white'
 
 ## Foreground color of the URL in the statusbar for hovered links.
 ## Type: QssColor
-c.colors.statusbar.url.hover.fg = '#0077bb'
+#c.colors.statusbar.url.hover.fg = '#0077bb'
 
 ## Foreground color of the URL in the statusbar on successful load
 ## (http).
 ## Type: QssColor
-c.colors.statusbar.url.success.http.fg = '#aaaaaa'
+#c.colors.statusbar.url.success.http.fg = '#aaaaaa'
 
 ## Foreground color of the URL in the statusbar on successful load
 ## (https).
 ## Type: QssColor
-c.colors.statusbar.url.success.https.fg = '#01f252'
+#c.colors.statusbar.url.success.https.fg = '#01f252'
 
 ## Foreground color of the URL in the statusbar when there's a warning.
 ## Type: QssColor
-c.colors.statusbar.url.warn.fg = 'yellow'
+#c.colors.statusbar.url.warn.fg = 'yellow'
 
 ## Background color of the tab bar.
 ## Type: QtColor
-c.colors.tabs.bar.bg = 'white'
+#c.colors.tabs.bar.bg = 'white'
 
 ## Background color of unselected even tabs.
 ## Type: QtColor
-c.colors.tabs.even.bg = '#004000'
+#c.colors.tabs.even.bg = '#004000'
 
 ## Foreground color of unselected even tabs.
 ## Type: QtColor
-c.colors.tabs.even.fg = 'white'
+#c.colors.tabs.even.fg = 'white'
 
 ## Color for the tab indicator on errors.
 ## Type: QtColor
-c.colors.tabs.indicator.error = '#ff0000'
+#c.colors.tabs.indicator.error = '#ff0000'
 
 ## Color gradient start for the tab indicator.
 ## Type: QtColor
-c.colors.tabs.indicator.start = '#ffffff'
+#c.colors.tabs.indicator.start = '#ffffff'
 
 ## Color gradient end for the tab indicator.
 ## Type: QtColor
-c.colors.tabs.indicator.stop = '#ffff00'
+#c.colors.tabs.indicator.stop = '#ffff00'
 
 ## Color gradient interpolation system for the tab indicator.
 ## Type: ColorSystem
@@ -383,27 +383,27 @@ c.colors.tabs.indicator.system = 'rgb'
 
 ## Background color of unselected odd tabs.
 ## Type: QtColor
-c.colors.tabs.odd.bg = '#003000'
+#c.colors.tabs.odd.bg = '#003000'
 
 ## Foreground color of unselected odd tabs.
 ## Type: QtColor
-c.colors.tabs.odd.fg = 'white'
+#c.colors.tabs.odd.fg = 'white'
 
 ## Background color of selected even tabs.
 ## Type: QtColor
-c.colors.tabs.selected.even.bg = '#01a252'
+c#.colors.tabs.selected.even.bg = '#01a252'
 
 ## Foreground color of selected even tabs.
 ## Type: QtColor
-c.colors.tabs.selected.even.fg = 'white'
+#c.colors.tabs.selected.even.fg = 'white'
 
 ## Background color of selected odd tabs.
 ## Type: QtColor
-c.colors.tabs.selected.odd.bg = '#01a252'
+#c.colors.tabs.selected.odd.bg = '#01a252'
 
 ## Foreground color of selected odd tabs.
 ## Type: QtColor
-c.colors.tabs.selected.odd.fg = 'white'
+#c.colors.tabs.selected.odd.fg = 'white'
 
 ## Background color for webpages if unset (or empty to use the theme's
 ## color).
@@ -1659,14 +1659,14 @@ config.bind('ard', 'spawn --userscript readability')
 config.bind('tg', 'open -t deepl.com')
 config.bind('sd', 'spawn --userscript open_download')
 
-## Source qutewal
-config.source('qutewal.py')
-
 ## Shortcuts
 config.bind('tw', 'open -t https://twitter.com')
 config.bind('td', 'open -t https://tweetdeck.twitter.com')
 config.bind('yo', 'open -t https://youtube.com')
 config.bind('h', 'open')
+
+## Source qutewal
+config.source('qutewal.py')
 
 ## This is here so configs done via the GUI are still loaded.
 ## Remove it to not load settings done via the GUI.
