@@ -19,9 +19,12 @@ OPTIONS:
 EOF
 }
 
+# Import the colors
+. "${HOME}/.cache/wal/colors.sh"
+
 FORCE=false
 INDEX="/tmp/fmenu_index"
-DMENU="-i -l 20 -nb #000 -nf #888 -sb #01a252 -sf #fff"
+DMENU="-i -l 20 -nb $color0 -nf $color15 -sb $color1 -sf $color15"
 TIME="+5"
 INPUT=$HOME
 EXCLUDE='.*/\..*'
