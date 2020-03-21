@@ -41,7 +41,7 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # start dmenu
-bindsym $mod+d exec $HOME/.dotfiles/bin/dmen
+bindsym $mod+d exec $HOME/.dotfiles/bin/dmenu-wal
 # start fmenu (search home)
 bindsym $mod+shift+d exec $HOME/.dotfiles/bin/fmenu -i $HOME -t +10
 bindsym XF86Search exec $HOME/.dotfiles/bin/fmenu -i $HOME -t +10
