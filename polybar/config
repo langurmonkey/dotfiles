@@ -401,7 +401,7 @@ format-connected-prefix-foreground = ${colors.five}
 ;   %linkspeed% [wired]
 ; Default: %ifname% %local_ip%
 label-connected = %essid% %downspeed:7%
-label-connected-maxlen = 20
+label-connected-maxlen = 25
 
 format-disconnected = <label-disconnected>
 format-disconnected-underline = ${colors.alert}
