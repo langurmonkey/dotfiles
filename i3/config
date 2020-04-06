@@ -179,6 +179,7 @@ assign [class="Eclipse"] $ws4
 assign [class="jetbrains-idea-ce"] $ws4
 assign [class="Skype"] $ws9
 assign [class="zoom"] $ws9
+assign [class="telegram-desktop"] $ws9
 assign [class="Steam"] $ws5
 
 # default floating
@@ -190,6 +191,7 @@ for_window [class="Blueman-manager"] floating enable
 for_window [class="GParted"] floating enable
 for_window [class="Skype"] floating enable
 for_window [class="zoom"] floating enable
+for_window [class="telegram-desktop"] floating enable
 for_window [class="Grub-customizer"] floating enable
 for_window [title="Volume Control"] floating enable
 for_window [class="Gsimplecal"] floating enable
