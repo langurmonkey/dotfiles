@@ -137,6 +137,9 @@ do-curl-fetchfile $DIR_VIMCONFIG/syntax/glsl.vim https://raw.githubusercontent.c
 # Create .vimrc symlink
 do-symlink $DOTFILES_PATH/vim/.vimrc $FILE_VIMRC
 
+# Create dictionary symlink
+do-symlink $DOTFILES_PATH/vim/en.utf-8.add $DIR_VIMCONFIG/spell/en.utf-8.add
+
 #
 # RANGER
 #
