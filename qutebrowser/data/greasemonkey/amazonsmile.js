@@ -2,8 +2,8 @@
 // @name        AmazonSmile Redirect
 // @namespace   http://jdel.us
 // @description Redirect Amazon to AmazonSmile
-// @include     http://*.amazon.*/*
-// @include     https://*.amazon.*/*
+// @include     http://*.amazon.de/*
+// @include     https://*.amazon.de/*
 // @exclude     http://*.amazon.es/*
 // @exclude     https://*.amazon.es/*
 // @version     0.4
