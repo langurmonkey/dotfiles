@@ -428,7 +428,7 @@ interval = 3.0
 
 [module/eth]
 type = internal/network
-interface = enp2s0
+interface = enp3s0
 interval = 2.0
 
 format-connected = <label-connected> 
