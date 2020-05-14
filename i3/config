@@ -14,7 +14,7 @@ font pango:Terminus (TTF), Terminus, FontAwesome 11
 #for_window [class="^.*"] border pixel 0 
 default_border pixel 2
 default_floating_border normal
-gaps inner 10
+gaps inner 6
 gaps outer 0
 
 # Colors
