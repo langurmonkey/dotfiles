@@ -209,7 +209,7 @@ ramp-foreground = ${colors.three}
 [module/updates-arch]
 type = custom/script
 
-exec = ~/.config/polybar/scripts/updates-arch.sh
+exec = ~/.config/polybar/scripts/updates-arch.sh &
 format = <label>
 format-prefix = " "
 format-prefix-foreground = ${colors.one}
@@ -221,7 +221,7 @@ click-left = urxvt -e yay -Syu
 [module/updates-ubuntu]
 type = custom/script
 
-exec = ~/.config/polybar/scripts/updates-ubuntu.sh
+exec = ~/.config/polybar/scripts/updates-ubuntu.sh &
 format = <label>
 format-prefix = " "
 format-prefix-foreground = ${colors.one}
@@ -380,7 +380,7 @@ bar-empty = ─
 type = custom/text
 content = ﯱ
 content-foreground = ${colors.two}
-click-left = urxvt -e nmtui-connect
+click-left = urxvt -e nmtui-connect &
 
 [module/wlan]
 type = internal/network
