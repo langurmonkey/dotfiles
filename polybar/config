@@ -466,13 +466,13 @@ format-volume = <ramp-volume> <label-volume>
 label-volume = %percentage%%
 format-volume-underline = ${colors.four}
 
-label-muted = 
+label-muted = 婢
 label-muted-foreground = ${colors.alert}
 format-muted-underline = ${colors.alert}
 
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
+ramp-volume-0 = 奄
+ramp-volume-1 = 奔
+ramp-volume-2 = 墳
 ramp-volume-foreground = ${colors.four}
 
 
