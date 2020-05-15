@@ -28,3 +28,6 @@
 
 [commit]
 	gpgsign = true
+
+[auto]
+    crlf = input
