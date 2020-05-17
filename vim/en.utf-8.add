@@ -43,3 +43,5 @@ PyCuda
 Qt5
 PyQt5
 GPU
+gradle
+octree

@@ -207,6 +207,7 @@ for_window [title="Blender User Preferences"] floating enable
 for_window [title="Blender Preferences"] floating enable
 for_window [class="uk-ac-starlink-topcat-Driver"] floating enable
 for_window [class="Audacity"] floating enable
+for_window [class="Terraria.bin.x86_64"] floating enable
 
 
 # reload the configuration file
