@@ -15,10 +15,10 @@ I use a fork of i3 called [i3-gaps](https://github.com/Airblader/i3). Basically,
 I use a little program called [xcwd](https://github.com/schischi/xcwd) to open new terminals in the same directory as the working directory of the currently focused window. I include the compiled program in my dotfiles repo:
 
 ```
-bindsym $mod+Return exec urxvt -cd "`$HOME/.dotfiles/bin/xcwd`"
+bindsym $mod+Return exec termite -cd "`$HOME/.dotfiles/bin/xcwd`"
 ```
 
-I also use this program in my [ranger](ranger.md) launch script in order to open a ranger instance within a urxvt terminal with the right working directory.
+I also use this program in my [ranger](ranger.md) launch script in order to open a ranger instance within a terminal with the right working directory.
 
 ### Media player and volume controls
 
@@ -54,8 +54,8 @@ I use the Alt key as `$mod` and the Super key as application launcher (I call it
 ```
 bindsym $sup+b exec qutebrowser
 bindsym $sup+t exec thunderbird
-bindsym $sup+f exec ~/.dotfiles/bin/ranger-urxvt "`$HOME/.config/i3/xcwd`"
-bindsym $sup+g exec urxvt -cd "$HOME/git/gaiasky"
+bindsym $sup+f exec ~/.dotfiles/bin/ranger-term "`$HOME/.config/i3/xcwd`"
+bindsym $sup+g exec termite -cd "$HOME/git/gaiasky"
 ```
 
 Interesting note: when I press `Super+g` a new terminal opens in the Gaia Sky folder. This I use a lot.
@@ -132,10 +132,10 @@ To manage and automount the plug-and-play USB drives, I use [`udiskie`](https://
 Additionally, I like to use `ranger` as a file manager, so I want to use it as well when using the 'Browse disk...' option from udiskie. To do so, I start it like this:
 
 ```
-exec --no-startup-id udiskie -f "/home/tsagrista/.dotfiles/bin/ranger-urxvt" --tray
+exec --no-startup-id udiskie -f "/home/tsagrista/.dotfiles/bin/ranger-term" --tray
 ```
 
-The `ranger-urxvt` script starts a new `urxvt` terminal and launches ranger in it, accepting the working directory as an argument.
+The `ranger-term` script starts a new terminal and launches ranger in it, accepting the working directory as an argument.
 
 ### Pywal
 

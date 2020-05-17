@@ -222,9 +222,9 @@ echo-ok "Done"
 
 
 #
-# X and URXVT
+# X, URXVT, Termite
 #
-echo-custom " ** " "==== X and URXVT ===="
+echo-custom " ** " "==== X, URXVT, Termite ===="
 
 mkdir -p ~/.urxvt/ext/
 # xdefaults
@@ -243,6 +243,8 @@ else
 fi
 # font-size urxvt plugin
 do-symlink $DOTFILES_PATH/urxvt/font-size ~/.urxvt/ext/font-size
+#Termite config
+do-symlink $DOTFILES_PATH/termite ~/.config/termite
 
 echo-ok "Done"
 

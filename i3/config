@@ -6,6 +6,8 @@
 set $mod Mod4
 # Mod2 key: Alt key
 set $mod2 Mod1
+# Default terminal
+set $myterm termite
 
 # Font for window titles.
 font pango:Terminus (TTF), Terminus, FontAwesome 11 
@@ -30,7 +32,7 @@ set $urgent-bg-color     #E42343
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod 
 # Start a terminal
-bindsym $mod+Return exec urxvt -cd "`$HOME/.dotfiles/bin/xcwd`"
+bindsym $mod+Return exec $myterm -d "`$HOME/.dotfiles/bin/xcwd`"
 
 # kill focused window
 bindsym $mod+q kill
@@ -131,7 +133,7 @@ bindsym $mod+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
 bindsym $mod+Shift+w exec qutebrowser --backend webengine --qt-flag ignore-gpu-blacklist --qt-flag enable-gpu-rasterization --qt-flag enable-native-gpu-memory-buffers --qt-flag num-raster-threads=4
 bindsym $mod+Control+w exec firefox
 bindsym $mod+Shift+t exec thunderbird
-bindsym $mod+Shift+f exec ~/.dotfiles/bin/ranger-urxvt "`$HOME/.dotfiles/bin/xcwd`"
+bindsym $mod+Shift+f exec ~/.dotfiles/bin/ranger-term "`$HOME/.dotfiles/bin/xcwd`"
 bindsym $mod+equal exec ~/.dotfiles/bin/= --dmenu=dmenu
 bindsym $mod+Shift+u exec ~/.dotfiles/bin/dmenuunicode
 
@@ -174,7 +176,6 @@ bindsym $mod+Shift+0 move container to workspace $ws0
 # default workspaces
 assign [class="qutebrowser"] $ws2
 assign [class="Thunderbird"] $ws3
-#assign [class="URxvt"] $ws1
 assign [class="Eclipse"] $ws4
 assign [class="jetbrains-idea-ce"] $ws4
 assign [class="Skype"] $ws9
@@ -276,7 +277,7 @@ mode "$mode_gaps_outer" {
 
 # Screen lockers
 bindsym $mod+shift+x exec --no-startup-id i3lock-fancy
-bindsym $mod+shift+z exec --no-startup-id gnome-terminal -e slock
+bindsym $mod+shift+z exec --no-startup-id $myterm -e slock
 
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
@@ -357,7 +358,7 @@ exec --no-startup-id compton --unredir-if-possible --config ~/.dotfiles/compton/
 #
 # UDISKIE - automount
 #
-exec --no-startup-id udiskie -f "/home/tsagrista/.dotfiles/bin/ranger-urxvt" --tray
+exec --no-startup-id udiskie -f "/home/tsagrista/.dotfiles/bin/ranger-term" --tray
 
 # NO SCREENSAVER
 exec --no-startup-id /home/tsagrista/.dotfiles/bin/no-screenoff.sh
