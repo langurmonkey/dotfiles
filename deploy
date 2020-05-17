@@ -336,11 +336,11 @@ else
     desktop=$XDG_CURRENT_DESKTOP
 fi
 desktop=${desktop,,}  # convert to lower case
-if [ $desktop = "gnome" ]; then
+if [ "$desktop" = "gnome" ]; then
     gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 20
     gsettings set org.gnome.desktop.peripherals.keyboard delay 250
     echo-ok "Repeat delay set for desktop: $desktop"
-elif [ $desktop = "i3" ]; then
+elif [ "$desktop" = "i3" ]; then
     echo-ok "Repeat interval and delay for $desktop set in ~/.config/i3/config"
 else
     echo-fail "Not setting repeat interval for desktop: $desktop"
