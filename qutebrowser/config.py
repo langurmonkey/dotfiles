@@ -1667,7 +1667,7 @@ config.bind('yo', 'open -t https://youtube.com')
 config.bind('h', 'open')
 
 # Enable chromium dark mode
-c.qt.args = [ "blink-settings=darkMode=4" ]
+#c.qt.args = [ "blink-settings=darkMode=4" ]
 
 ## Source qutewal
 config.source('qutewal.py')
