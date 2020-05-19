@@ -225,11 +225,10 @@ format-prefix-foreground = ${colors.one}
 label = %output%
 interval = 600
 format-underline = ${colors.one}
-click-left = termite -e yay -Syu
+click-left = termite -e "yay -Syu" &
 
 [module/updates-ubuntu]
 type = custom/script
-
 exec = ~/.config/polybar/scripts/updates-ubuntu.sh
 format = <label>
 format-prefix = " "
@@ -237,7 +236,7 @@ format-prefix-foreground = ${colors.one}
 label = %output%
 interval = 600
 format-underline = ${colors.one}
-click-left = termite -e sudo apt upgrade
+click-left = termite -e "sudo apt upgrade" &
 
 [module/xkeyboard]
 type = internal/xkeyboard
