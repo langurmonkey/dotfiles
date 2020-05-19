@@ -68,7 +68,7 @@ font-5 = "Font Awesome 5 Brands:style=Regular:size=10;4"
 
 modules-left = i3 
 modules-center = xwindow-short
-modules-right = mpd xkeyboard updates-arch filesystem memory-info cpu temperature wlan eth backlight battery pulseaudio popup-calendar nm-launcher powermenu
+modules-right = mpd xkeyboard updates-arch filesystem memory-info cpu temperature custom-bluetooth wlan eth backlight battery pulseaudio popup-calendar nm-launcher powermenu
 
 tray-position = right
 tray-padding = 1
@@ -107,7 +107,7 @@ font-5 = "Font Awesome 5 Brands:style=Regular:size=14;4"
 ; same as bar-hidpi but it shows ubuntu updates instead of arch
 [bar/bar-hidpi-ubuntu]
 inherit = bar/bar-hidpi
-modules-right = mpd xkeyboard updates-ubuntu fs-hidalgo memory-info cpu temperature wlan-hidalgo eth backlight battery pulseaudio-tail popup-calendar nm-launcher powermenu
+modules-right = mpd xkeyboard updates-ubuntu fs-hidalgo memory-info cpu temperature custom-bluetooth wlan-hidalgo eth backlight battery pulseaudio-tail popup-calendar nm-launcher powermenu
 
 ; same as other, but only show workspaces on slave bar
 [bar/bar-hidpi-slave]
@@ -206,10 +206,19 @@ ramp-2 = 
 format-underline = ${colors.three}
 ramp-foreground = ${colors.three}
 
+[module/custom-bluetooth]
+type = custom/script
+exec = ~/.config/polybar/scripts/system-bluetooth-bluetoothctl.sh
+format = <label>
+format-underline = ${colors.four}
+format-prefix = " "
+format-prefix-foreground = ${colors.four}
+tail = true
+click-left = ~/.config/polybar/scripts/system-bluetooth-bluetoothctl.sh --toggle &
+
 [module/updates-arch]
 type = custom/script
-
-exec = ~/.config/polybar/scripts/updates-arch.sh &
+exec = ~/.config/polybar/scripts/updates-arch.sh
 format = <label>
 format-prefix = " "
 format-prefix-foreground = ${colors.one}
@@ -221,7 +230,7 @@ click-left = termite -e yay -Syu
 [module/updates-ubuntu]
 type = custom/script
 
-exec = ~/.config/polybar/scripts/updates-ubuntu.sh &
+exec = ~/.config/polybar/scripts/updates-ubuntu.sh
 format = <label>
 format-prefix = " "
 format-prefix-foreground = ${colors.one}
