@@ -223,7 +223,7 @@ format = <label>
 format-prefix = " "
 format-prefix-foreground = ${colors.one}
 label = %output%
-interval = 300
+interval = 600
 format-underline = ${colors.one}
 click-left = termite -e yay -Syu
 
@@ -235,7 +235,7 @@ format = <label>
 format-prefix = " "
 format-prefix-foreground = ${colors.one}
 label = %output%
-interval = 300
+interval = 600
 format-underline = ${colors.one}
 click-left = termite -e sudo apt upgrade
 
