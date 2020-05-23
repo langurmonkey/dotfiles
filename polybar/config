@@ -574,9 +574,9 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = 
+label-open = ⏼
 label-open-foreground = ${colors.two}
-label-close = 
+label-close = 
 label-close-foreground = ${colors.two}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
