@@ -182,6 +182,7 @@ assign [class="Skype"] $ws9
 assign [class="zoom"] $ws9
 assign [class="telegram-desktop"] $ws9
 assign [class="discord"] $ws9
+assign [class="Signal"] $ws9
 assign [class="Steam"] $ws5
 
 # default floating
