@@ -9,7 +9,7 @@ i3wm, polybar, vim, ranger, and some other programs.
 The following line checks out the repository into `~/.dotfiles` and installs the essential tools for arch or ubuntu:
 
 ```
- $  bash <(curl -s https://gitlab.com/langurmonkey/dotfiles/raw/master/bootstrap[-arch|-ubuntu].sh)
+ $  bash <(curl -s https://gitlab.com/langurmonkey/dotfiles/raw/master/bootstrap.sh)
 ```
 
 ## Create environment
