@@ -21,7 +21,7 @@ gaps outer 0
 
 # Colors
 set_from_resource $wal-fg i3wm.color7 #f0f0f0
-set_from_resource $wal-bg i3wm.color2 #108010
+set_from_resource $wal-bg i3wm.color2 #f0f0f0
 
 set $bg-color 	         i3wm.color2
 set $inactive-bg-color   #002b36
