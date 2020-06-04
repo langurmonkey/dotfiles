@@ -562,7 +562,7 @@ c.content.headers.accept_language = 'en-US,en,es,de'
 ##   - always: Always send the Referer.
 ##   - never: Never send the Referer. This is not recommended, as some sites may break.
 ##   - same-domain: Only send the Referer for the same domain. This will still protect your privacy, but shouldn't break any sites.
-# c.content.headers.referer = 'same-domain'
+c.content.headers.referer = 'never'
 
 ## User agent to send. Unset to send the default.
 ## Type: String
@@ -690,7 +690,8 @@ c.content.pdfjs = True
 ## Valid values:
 ##   - system: Use the system wide proxy.
 ##   - none: Don't use any proxy
-c.content.proxy = 'socks://localhost:9050/'
+#c.content.proxy = 'socks://localhost:9050/'
+c.content.proxy = 'system'
 
 ## Send DNS requests over the configured proxy.
 ## Type: Bool
@@ -1349,8 +1350,8 @@ c.url.default_page = 'file://' + home + '/.dotfiles/startpage/index.html'
 ## used by prepending the search engine name to the search term, e.g.
 ## `:open google qutebrowser`.
 ## Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://3g2upl4pq6kufc4m.onion/?q={}'} 
-#c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
+#c.url.searchengines = {'DEFAULT': 'https://3g2upl4pq6kufc4m.onion/?q={}'} 
+c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
 c.url.searchengines.update({'sp': 'https://www.startpage.com/do/search?query={}'})
 c.url.searchengines.update({'yt': 'https://youtube.com/results?search_query={}'})
 c.url.searchengines.update({'tw': 'https://twitter.com/{}'})
