@@ -642,7 +642,8 @@ interval = 2
 ;   <icon-seekb>
 ;   <icon-seekf>
 ;format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time> <label-song>
-format-online = <icon-prev> <icon-stop> <toggle> <icon-next> <icon-repeat> <icon-random> <bar-progress> <label-time> <label-song>
+;format-online = <icon-prev> <icon-stop> <toggle> <icon-next> <icon-repeat> <icon-random> <bar-progress> <label-time> <label-song>
+format-online = <icon-prev> <icon-stop> <toggle> <icon-next> <icon-random> <label-time> <label-song>
 format-online-underline = ${colors.four}
 format-playing = ${self.format-online}
 format-paused = ${self.format-online}
@@ -660,9 +661,10 @@ format-stopped = ${self.format-online}
 ;   %date%
 ;   %title%
 ; Default: %artist% - %title%
-label-song = %title% - %artist%
+;label-song = %title% - %artist%
+label-song = %title%
 label-song-foreground = ${colors.three}
-label-song-maxlen = 30
+label-song-maxlen = 20
 
 ; Available tokens:
 ;   %elapsed%
