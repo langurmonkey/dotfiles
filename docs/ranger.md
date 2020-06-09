@@ -15,7 +15,7 @@ map bw shell cp %f ~/Pictures/wallpaper.jpg && ~/.local/bin/wal -c && ~/.local/b
 
 Additionally, I use a script to launch a new instance of `ranger` inside a `termite` terminal with a specific working directory:
 
-```
+```console
 #!/bin/bash
 # ranger-term
 EDITOR=nvim && termite -e ranger "$1"

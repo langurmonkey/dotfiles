@@ -4,8 +4,8 @@ Two scripts help bootstrap the repository and deploy the configuration.
 
 The [`bootstrap.sh`](../bootstrap.sh) script installs the needed programs and checks out the repository. It can be run with this one-liner:
 
-```
-$   bash <(curl -s https://gitlab.com/langurmonkey/dotfiles/raw/master/bootstrap.sh)
+```console
+bash <(curl -s https://gitlab.com/langurmonkey/dotfiles/raw/master/bootstrap.sh)
 ```
 
 The script works with arch-based (pacman) and debian-based (apt) distributions. The required programs are, amongst others, `vim`, `zsh`, `ranger`, `slock`, `qutebrowser`, `rofi`, `keychain`, `udiskie`. It is assumed that `i3-gaps` is already installed, as the installation process is kind of tricky in Ubuntu.
