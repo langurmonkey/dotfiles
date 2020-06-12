@@ -211,6 +211,8 @@ for_window [title="Blender Preferences"] floating enable
 for_window [class="uk-ac-starlink-topcat-Driver"] floating enable
 for_window [class="Audacity"] floating enable
 for_window [class="Terraria.bin.x86_64"] floating enable
+for_window [class="gaia-cu3-fl-flse-test-FlseTestClient"] floating enable
+
 
 
 # reload the configuration file
