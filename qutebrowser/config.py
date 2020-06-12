@@ -539,7 +539,7 @@ c.content.default_encoding = 'utf-8'
 ##   - true
 ##   - false
 ##   - ask
-# c.content.geolocation = 'ask'
+c.content.geolocation = 'ask'
 
 ## Value to send in the `Accept-Language` header.
 ## Type: String
@@ -553,7 +553,7 @@ c.content.headers.accept_language = 'en-US,en,es,de'
 ## qutebrowser asks websites to not track your identity. If set to null,
 ## the DNT header is not sent at all.
 ## Type: Bool
-# c.content.headers.do_not_track = True
+c.content.headers.do_not_track = True
 
 ## When to send the Referer header. The Referer header tells websites
 ## from which website you were coming from when visting them.
