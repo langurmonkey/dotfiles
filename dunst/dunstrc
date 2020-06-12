@@ -64,7 +64,7 @@
     frame_width = 2
 
     # Defines color of the frame around the notification window.
-    frame_color = "#000"
+    frame_color = "#777700"
 
     # Define a color for the separator.
     # possible values are:
@@ -129,7 +129,7 @@
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
-    alignment = right
+    alignment = left
 
     # Show age of message if message is older than show_age_threshold
     # seconds.
