@@ -335,7 +335,9 @@ exec "setxkbmap -model pc104"
 exec "setxkbmap -layout us,es"
 exec "setxkbmap -option 'grp:alt_space_toggle'"
 # Switch escape and capslock
-exec "setx_kbmap -option 'caps:swapescape'"
+exec "setxkbmap -option 'caps:swapescape'"
+# Euro sign with r-alt+e
+exec "setxkbmap -option 'eurosign:e'"
 
 #
 # TRACKPAD  - Dell XPS13 
