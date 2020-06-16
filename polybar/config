@@ -33,7 +33,7 @@ alert = ${xrdb:color1:#bd2c40}
 [bar/bar-fhd]
 monitor = ${env:MONITOR:}
 width = 100%
-height = 30
+height = 25
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
@@ -45,7 +45,7 @@ format-separator-foreground = #f00
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 2
+line-size = 1
 line-color = #f00
 
 
@@ -92,8 +92,8 @@ cursor-scroll = ns-resize
 [bar/bar-hidpi]
 inherit = bar/bar-fhd
 monitor = ${env:MONITOR:}
-height = 55
-line-size = 4
+height = 40
+line-size = 1
 
 modules-center = xwindow
 

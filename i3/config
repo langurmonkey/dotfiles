@@ -48,6 +48,9 @@ bindsym $mod+d exec $HOME/.dotfiles/bin/dmenu-wal
 bindsym $mod+shift+d exec $HOME/.dotfiles/bin/fmenu -i $HOME -t +10
 bindsym XF86Search exec $HOME/.dotfiles/bin/fmenu -i $HOME -t +10
 
+# dmenu shortcuts
+bindsym $mod+ctrl+s exec "$(cat $HOME/.dotfiles/i3/config $HOME/.dotfiles/qutebrowser/config.py $HOME/.dotfiles/vim/.vimrc | dmenu -p 'shortcuts' -l 10)"
+
 # monitor off
 bindsym $mod+F8 exec ~/.dotfiles/bin/monitor_off
 
