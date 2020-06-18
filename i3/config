@@ -55,7 +55,7 @@ bindsym $mod+ctrl+s exec "$(cat $HOME/.dotfiles/i3/config $HOME/.dotfiles/qutebr
 bindsym $mod+F8 exec ~/.dotfiles/bin/monitor_off
 
 # reload wal
-bindsym $mod+y exec "wal -a 85 --theme $HOME/.dotfiles/pywal/themes/dark/vscode.json"
+bindsym $mod+y exec wal -a 85 --theme $HOME/.dotfiles/pywal/themes/dark/vscode.json
 
 # change focus
 bindsym $mod+h focus left
@@ -325,28 +325,28 @@ client.background       $wal-bg
 #
 
 # Setup screens if needed
-exec_always --no-startup-id "/home/tsagrista/Scripts/current-randr.sh"
+exec_always --no-startup-id /home/tsagrista/Scripts/current-randr.sh
 
 # Wallpaper
-exec_always --no-startup-id "feh --bg-fill /home/tsagrista/Pictures/wallpaper.jpg"
+exec_always --no-startup-id feh --bg-fill /home/tsagrista/Pictures/wallpaper.jpg
 
 # Repeat interval and delay
 exec_always --no-startup-id xset r rate 200 35 # initial delay 300 ms, repeat 35 ms
 
 # Keyboard layouts
-exec "setxkbmap -model pc104"
-exec "setxkbmap -layout us,es"
-exec "setxkbmap -option 'grp:alt_space_toggle'"
+exec --no-startup-id setxkbmap -model pc104
+exec --no-startup-id setxkbmap -layout us,es
+exec --no-startup-id setxkbmap -option 'grp:alt_space_toggle'
 # Switch escape and capslock
-exec "setx_kbmap -option 'caps:swapescape'"
+exec --no-startup-id setxkbmap -option 'caps:swapescape'
 
 #
 # TRACKPAD  - Dell XPS13 
 #
 # trackpad speed
-exec_always --no-startup-id "xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Accel Speed' 0.6"
+exec_always --no-startup-id xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Accel Speed' 0.6
 # tapping enabled
-exec_always --no-startup-id "xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Tapping Enabled' 1"
+exec_always --no-startup-id xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Tapping Enabled' 1
 
 
 #
