@@ -334,11 +334,11 @@ exec_always --no-startup-id feh --bg-fill /home/tsagrista/Pictures/wallpaper.jpg
 exec_always --no-startup-id xset r rate 200 35 # initial delay 300 ms, repeat 35 ms
 
 # Keyboard layouts
-exec setxkbmap -model pc104
-exec setxkbmap -layout us,es
-exec setxkbmap -option 'grp:alt_space_toggle'
+exec --no-startup-id setxkbmap -model pc104
+exec --no-startup-id setxkbmap -layout us,es
+exec --no-startup-id setxkbmap -option 'grp:alt_space_toggle'
 # Switch escape and capslock
-exec setxkbmap -option 'caps:swapescape'
+exec --no-startup-id setxkbmap -option 'caps:swapescape'
 
 #
 # TRACKPAD  - Dell XPS13 
