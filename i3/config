@@ -52,10 +52,10 @@ bindsym XF86Search exec $HOME/.dotfiles/bin/fmenu -i $HOME -t +10
 bindsym $mod+ctrl+s exec "$(cat $HOME/.dotfiles/i3/config $HOME/.dotfiles/qutebrowser/config.py $HOME/.dotfiles/vim/.vimrc | dmenu -p 'shortcuts' -l 10)"
 
 # monitor off
-bindsym $mod+F8 exec ~/.dotfiles/bin/monitor_off
+bindsym $mod+F8 exec $HOME/.dotfiles/bin/monitor_off
 
 # reload wal
-bindsym $mod+y exec "wal -a 85 --theme $HOME/.dotfiles/pywal/themes/dark/vscode.json"
+bindsym $mod+y exec wal -a 85 --theme $HOME/.dotfiles/pywal/themes/dark/vscode.json
 
 # change focus
 bindsym $mod+h focus left
@@ -136,9 +136,9 @@ bindsym $mod+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
 bindsym $mod+Shift+w exec qutebrowser --backend webengine --qt-flag ignore-gpu-blacklist --qt-flag enable-gpu-rasterization --qt-flag enable-native-gpu-memory-buffers --qt-flag num-raster-threads=4
 bindsym $mod+Control+w exec firefox
 bindsym $mod+Shift+t exec thunderbird
-bindsym $mod+Shift+f exec ~/.dotfiles/bin/ranger-term "`$HOME/.dotfiles/bin/xcwd`"
-bindsym $mod+equal exec ~/.dotfiles/bin/= --dmenu=dmenu
-bindsym $mod+Shift+u exec ~/.dotfiles/bin/dmenuunicode
+bindsym $mod+Shift+f exec $HOME/.dotfiles/bin/ranger-term "`$HOME/.dotfiles/bin/xcwd`"
+bindsym $mod+equal exec $HOME/.dotfiles/bin/= --dmenu=dmenu
+bindsym $mod+Shift+u exec $HOME/.dotfiles/bin/dmenuunicode
 
 # WORKSPACES
 set $ws1 "1"
@@ -325,30 +325,24 @@ client.background       $wal-bg
 #
 
 # Setup screens if needed
-exec_always --no-startup-id "/home/tsagrista/Scripts/current-randr.sh"
+exec_always --no-startup-id $HOME/Scripts/current-randr.sh
 
 # Wallpaper
-exec_always --no-startup-id "feh --bg-fill /home/tsagrista/Pictures/wallpaper.jpg"
+exec_always --no-startup-id feh --bg-fill $HOME/Pictures/wallpaper.jpg
 
 # Repeat interval and delay
 exec_always --no-startup-id xset r rate 200 35 # initial delay 300 ms, repeat 35 ms
 
-# Keyboard layouts
-exec "setxkbmap -model pc104"
-exec "setxkbmap -layout us,es"
-exec "setxkbmap -option 'grp:alt_space_toggle'"
-# Switch escape and capslock
-exec "setxkbmap -option 'caps:swapescape'"
-# Euro sign with r-alt+e
-exec "setxkbmap -option 'eurosign:e'"
+# Keyboard layout definition. Switch escape and caps lock key
+exec --no-startup-id setxkbmap -model pc104 -layout us,es -option 'grp:alt_space_toggle,caps:swapescape,eurosign:e'
 
 #
 # TRACKPAD  - Dell XPS13 
 #
 # trackpad speed
-exec_always --no-startup-id "xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Accel Speed' 0.6"
+exec_always --no-startup-id xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Accel Speed' 0.6
 # tapping enabled
-exec_always --no-startup-id "xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Tapping Enabled' 1"
+exec_always --no-startup-id xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Tapping Enabled' 1
 
 
 #
@@ -369,24 +363,24 @@ exec --no-startup-id mons -a > /dev/null 2>&1
 # 
 # COMPOSITOR - window compositor
 #
-exec --no-startup-id compton --unredir-if-possible --config ~/.dotfiles/compton/compton.conf -b
+exec --no-startup-id compton --unredir-if-possible --config "$HOME/.dotfiles/compton/compton.conf" -b
 
 #
 # UDISKIE - automount
 #
-exec --no-startup-id udiskie -f "/home/tsagrista/.dotfiles/bin/ranger-term" --tray
+exec --no-startup-id udiskie -f "$HOME/.dotfiles/bin/ranger-term" --tray
 
 # NO SCREENSAVER
-exec --no-startup-id /home/tsagrista/.dotfiles/bin/no-screenoff.sh
+exec --no-startup-id $HOME/.dotfiles/bin/no-screenoff.sh
 
 #
 # BAR (polybar, bumblebee-status, i3status...)
 #
 
 # PYWAL
-exec --no-startup-id wal -a 85 --theme $HOME/.dotfiles/pywal/themes/dark/vscode.json
+exec --no-startup-id wal -a 85 --theme "$HOME/.dotfiles/pywal/themes/dark/vscode.json"
 
-exec_always --no-startup-id /home/tsagrista/.dotfiles/bin/polybar-launch
+exec_always --no-startup-id $HOME/.dotfiles/bin/polybar-launch
 #bar {
 #    font pango:Terminus (TTF), Terminus, FontAwesome 10 
 #    #status_command     i3status

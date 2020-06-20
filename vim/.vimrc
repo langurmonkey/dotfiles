@@ -71,6 +71,9 @@ nnoremap <Space> i_<Esc>r
 " double space saves buffer
 nnoremap <space><space> :w<cr>
 
+" search for selected text
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+
 " csyntaxafter
 autocmd! FileType c,cpp,java,php call CSyntaxAfter() 
 
