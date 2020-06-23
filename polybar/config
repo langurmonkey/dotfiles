@@ -92,13 +92,13 @@ cursor-scroll = ns-resize
 [bar/bar-hidpi]
 inherit = bar/bar-fhd
 monitor = ${env:MONITOR:}
-height = 40
+height = 36
 line-size = 1
 
 modules-center = xwindow
 
-font-0 = "MiscFixed:style=Bold:size=20;0"
-font-1 = "DejaVu Sans:size=20;1"
+font-0 = "Terminus (TTF):style=Bold:size=16;0"
+font-1 = "DejaVu Sans:size=18;1"
 font-2 = "Symbols Nerd Font:style=Regular:size=10;2"
 font-3 = "Font Awesome 5 Free:style=Regular:size=14;2"
 font-4 = "Font Awesome 5 Free:style=Solid:size=14;3"
