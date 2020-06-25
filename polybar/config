@@ -129,7 +129,7 @@ format-padding = 4
 ;   %title%
 ; Default: %title%
 label = %title%
-label-maxlen = 30
+label-maxlen = 60
 
 ; Used instead of label when there is no window title
 ; Available tokens:
@@ -139,11 +139,11 @@ label-empty-foreground = ${colors.foreground}
 
 [module/xwindow-short]
 inherit = module/xwindow
-label-maxlen = 20
+label-maxlen = 50
 
 [module/xwindow-long]
 inherit = module/xwindow
-label-maxlen = 55
+label-maxlen = 75
 
 [module/pulseaudio-tail]
 type = custom/script
