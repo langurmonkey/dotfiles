@@ -6,8 +6,8 @@
 #cell_width_scale = 1.0
 #clickable_url = true
 #dynamic_title = true
-font = Monospace 10
-font = Terminus (TTF) 10
+font = Monospace 12
+font = Terminus (TTF) 12
 font = Terminus 12
 #fullscreen = true
 #icon_name = terminal
