@@ -321,13 +321,13 @@ label-mode-foreground = #000
 label-mode-background = ${colors.two}
 
 ; focused = Active workspace on focused monitor
-label-focused = %index%: %icon%
+label-focused = %index% %icon%
 label-focused-background = ${module/bspwm.label-focused-background}
 label-focused-underline = ${colors.two}
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%: %icon%
+label-unfocused = %index% %icon%
 label-unfocused-padding = ${module/bspwm.label-occupied-padding}
 
 ; visible = Active workspace on unfocused monitor
