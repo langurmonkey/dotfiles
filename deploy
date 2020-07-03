@@ -3,7 +3,7 @@
 # VARIABLES ======================================
 
 DOTFILES_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
-DIR_GIT=~/git
+DIR_PROJ=~/Projects
 DIR_VIMCONFIG=~/.config/nvim
 FILE_VIMRC=~/.config/nvim/init.vim
 DIR_VIMPLUGINS=$DIR_VIMCONFIG/bundle
@@ -204,7 +204,7 @@ echo-ok "Done"
 echo-custom " ** " "==== POLYBAR ===="
 
 # Scripts
-do-clone "$DIR_GIT"/polybar-scripts https://github.com/x70b1/polybar-scripts.git polybar-scripts
+do-clone "$DIR_PROJ"/polybar-scripts https://github.com/x70b1/polybar-scripts.git polybar-scripts
 # Config
 do-symlink $DOTFILES_PATH/polybar ~/.config/polybar
 
@@ -311,10 +311,10 @@ echo-ok "Done"
 # PYWAL
 #
 echo-custom " ** " "==== WAL ===="
-do-clone "$DIR_GIT"/pywal https://github.com/dylanaraps/pywal.git pywal
+do-clone "$DIR_PROJ"/pywal https://github.com/dylanaraps/pywal.git pywal
 # Install pywal
 echo-info "Installing pywal"
-pip3 install --user "$DIR_GIT"/pywal
+pip3 install --user "$DIR_PROJ"/pywal
 echo-ok "Done"
 
 
