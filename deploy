@@ -8,6 +8,7 @@ DIR_VIMCONFIG=~/.config/nvim
 FILE_VIMRC=~/.config/nvim/init.vim
 DIR_VIMPLUGINS=$DIR_VIMCONFIG/bundle
 DIR_RANGER=~/.config/ranger
+DIR_NNN=~/.config/nnn
 
 
 # HELPERS ========================================
@@ -154,6 +155,17 @@ do-symlink $DOTFILES_PATH/ranger/scope.sh $DIR_RANGER/scope.sh
 do-symlink $DOTFILES_PATH/ranger/rc.conf $DIR_RANGER/rc.conf
 do-symlink $DOTFILES_PATH/ranger/rifle.conf $DIR_RANGER/rifle.conf
 
+#
+# NNN
+#
+echo-custom " ** " "==== NNN ===="
+
+if [ ! -d "$DIR_NNN" ]; then
+    mkdir -p $DIR_NNN
+fi
+
+# Create nnn config symlink
+do-symlink $DOTFILES_PATH/nnn $DIR_NNN
 
 #
 # SHELL ENVIRONMENT
