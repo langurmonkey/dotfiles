@@ -818,7 +818,7 @@ c.editor.command = ['vim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
 ## setting, it's replaced with the fonts listed here.
 ## Type: Font
 c.fonts.default_size = '12pt'
-c.fonts.default_family = ["scientifica", "xos4 Terminus", "Terminus (TTF)", "Terminus", "Monospace", "DejaVu Sans Mono", "Monaco", "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", "Courier", "Liberation Mono", "monospace", "Fixed", "Consolas", "Terminal"]
+c.fonts.default_family = ["scientifica", "xos4 Terminus", "Terminus (TTF)"]
 
 ## Font used for prompts.
 ## Type: Font
@@ -854,7 +854,7 @@ c.fonts.default_family = ["scientifica", "xos4 Terminus", "Terminus (TTF)", "Ter
 
 ## Font family for standard fonts.
 ## Type: FontFamily
-# c.fonts.web.family.standard = ''
+#c.fonts.web.family.standard = ''
 
 ## Default font size (in pixels) for regular text.
 ## Type: Int
