@@ -284,13 +284,6 @@ do-symlink $DOTFILES_PATH/mpd/playlists ~/.local/share/mpd/playlists
 echo-ok "Done"
 
 #
-# FONTS
-#
-echo-custom " ** " "==== FONTS ===="
-do-symlink $DOTFILES_PATH/fonts ~/.fonts
-echo-ok "Done"
-
-#
 # QUTEBROWSER
 #
 echo-custom " ** " "==== QUTEBROWSER ===="
@@ -357,6 +350,14 @@ elif [ "$desktop" = "i3" ]; then
 else
     echo-fail "Not setting repeat interval for desktop: $desktop"
 fi
+
+#
+# FONTS
+#
+echo-custom " ** " "==== FONTS ===="
+do-symlink $DOTFILES_PATH/fonts/ttf ~/.local/share/fonts/ttf
+fc-cache
+echo-ok "Done"
 
 # Done
 echo ""
