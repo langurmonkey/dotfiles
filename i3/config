@@ -10,7 +10,7 @@ set $mod2 Mod1
 set $myterm termite
 
 # Font for window titles.
-font pango:Terminus (TTF), Terminus, FontAwesome 11 
+font pango:TerminessTTF Nerd Font Mono 11 
 
 # Gaps
 #for_window [class="^.*"] border pixel 0 
