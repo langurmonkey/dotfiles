@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if [[ $# -ne 2 ]] ; then
+    echo "No arguments supplied:"
+    echo "Usage: $0 FPS FILE"
+    exit 1
+fi
+
+FPS=$1
+FILE=$2
+
+if [[ -f $FILE ]] ; then
+    filename=$(basename -- "$FILE")
+    extension="${filename##*.}"
+    filename="${filename%.*}"
+
+    COMMAND="ffmpeg -i $FILE -filter:v fps=fps=$FPS ${filename}_fps.${extension}"
+    echo $COMMAND
+    eval $COMMAND
+    exit 0
+else
+    echo "File '$FILE' not found"
+    exit 1
+fi
