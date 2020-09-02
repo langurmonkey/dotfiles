@@ -331,6 +331,14 @@ echo-custom " ** " "==== MPV ===="
 MPV_CONFIG=~/.config/mpv
 do-symlink $DOTFILES_PATH/mpv/scripts $MPV_CONFIG/scripts
 
+#
+# MUTT
+#
+echo-custom " ** " "==== MUTT ===="
+mkdir -p $DOTFILES_PATH/.mutt/ari.uni-heidelberg.de/cache
+mkdir -p $DOTFILES_PATH/.mutt/tonisagrista.com/cache
+do-symlink $DOTFILES_PATH/.mutt $HOME/.mutt
+
 
 # Set keyboard repeat and delay - gnome or i3wm only
 echo-custom " ** " "==== REPEAT DELAY 250 ms ===="
