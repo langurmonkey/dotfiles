@@ -2,5 +2,6 @@
 
 for img in `ls *.jpg`
 do
-  convert $img -filter bessel -resize 20% processed-$img
+  echo "Resizing (20%) $img to processed-$img"
+  convert $img  -resize 20% processed-$img
 done
