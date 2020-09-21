@@ -1354,8 +1354,8 @@ c.url.default_page = 'file://' + home + '/.dotfiles/startpage/index.html'
 ## `:open google qutebrowser`.
 ## Type: Dict
 #c.url.searchengines = {'DEFAULT': 'https://search.privacytools.io/?q={}'}
-c.url.searchengines = {'DEFAULT': 'https://suche.uferwerk.org/?q={}'}
-c.url.searchengines.update({'ddg': 'https://duckduckgo.com/?q={}'})
+c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
+c.url.searchengines.update({'searx': 'https://suche.uferwerk.org/?q={}'})
 c.url.searchengines.update({'ddgo': 'https://3g2upl4pq6kufc4m.onion/?q={}'})
 c.url.searchengines.update({'sp': 'https://www.startpage.com/do/search?query={}'})
 c.url.searchengines.update({'yt': 'https://youtube.com/results?search_query={}'})
