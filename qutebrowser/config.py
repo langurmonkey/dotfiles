@@ -90,7 +90,7 @@ c.aliases.update({"clean" : "spawn --userscript readability"})
 
 ## Foreground color of completion widget category headers.
 ## Type: QtColor
-#c.colors.completion.category.fg = 'white'
+c.colors.completion.category.fg = '#148414'
 
 ## Background color of the completion widget for even rows.
 ## Type: QssColor
@@ -99,7 +99,7 @@ c.aliases.update({"clean" : "spawn --userscript readability"})
 ## Text color of the completion widget. May be a single color to use for
 ## all columns or a list of three colors, one for each column.
 ## Type: List of QtColor, or QtColor
-# c.colors.completion.fg = ['white', 'white', 'white']
+c.colors.completion.fg = ['white', '#abffab', 'white']
 
 ## Background color of the selected completion item.
 ## Type: QssColor
@@ -818,8 +818,8 @@ c.editor.command = ['vim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
 ## Default default_family fonts. Whenever "default_family" is used in a font
 ## setting, it's replaced with the fonts listed here.
 ## Type: Font
-c.fonts.default_size = '12pt'
-c.fonts.default_family = ["scientifica", "xos4 Terminus", "Terminus (TTF)"]
+c.fonts.default_size = '10pt'
+c.fonts.default_family = ["FiraCode Nerd Font Mono"]
 
 ## Font used for prompts.
 ## Type: Font
