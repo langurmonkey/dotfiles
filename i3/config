@@ -7,10 +7,10 @@ set $mod Mod4
 # Mod2 key: Alt key
 set $mod2 Mod1
 # Default terminal
-set $myterm termite
+set $myterm kitty
 
 # Font for window titles.
-font pango:FiraCode Nerd Font Mono 10 
+font pango:FiraCode Nerd Font 10 
 
 # Gaps
 #for_window [class="^.*"] border pixel 0 

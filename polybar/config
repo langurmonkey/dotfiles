@@ -59,7 +59,7 @@ padding-right = 1
 module-margin-left = 0
 module-margin-right = 1
 
-font-0 = "FiraCode Nerd Font Mono:size=10;0"
+font-0 = "FiraCode Nerd Font:size=10;0"
 
 modules-left = i3 
 modules-center = xwindow-short

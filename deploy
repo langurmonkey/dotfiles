@@ -222,19 +222,9 @@ do-symlink $DOTFILES_PATH/polybar ~/.config/polybar
 
 echo-ok "Done"
 
-#
-# I3BLOCKS
-#
-echo-custom " ** " "==== I3BLOCKS ===="
-
-# Config
-do-symlink $DOTFILES_PATH/i3blocks ~/.config/i3blocks
-
-echo-ok "Done"
-
 
 #
-# X, URXVT, Termite
+# X, URXVT, Termite, Kitty
 #
 echo-custom " ** " "==== X, URXVT, Termite ===="
 
@@ -257,6 +247,8 @@ fi
 do-symlink $DOTFILES_PATH/urxvt/font-size ~/.urxvt/ext/font-size
 #Termite config
 do-symlink $DOTFILES_PATH/termite ~/.config/termite
+#Kitty config
+do-symlink $DOTFILES_PATH/kitty ~/.config/kitty
 
 echo-ok "Done"
 

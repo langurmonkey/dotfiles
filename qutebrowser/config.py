@@ -819,7 +819,7 @@ c.editor.command = ['vim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
 ## setting, it's replaced with the fonts listed here.
 ## Type: Font
 c.fonts.default_size = '10pt'
-c.fonts.default_family = ["FiraCode Nerd Font Mono"]
+c.fonts.default_family = ["FiraCode Nerd Font"]
 
 ## Font used for prompts.
 ## Type: Font
