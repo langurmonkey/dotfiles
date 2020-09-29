@@ -36,7 +36,7 @@ bindsym $mod+Return exec $myterm -d "`$HOME/.dotfiles/bin/xcwd`"
 
 # kill focused window
 bindsym $mod+q kill
-bindsym $mod+Shift+q kill
+bindsym $mod+grave kill
 
 # Scratchpad
 bindsym $mod+Shift+minus move scratchpad
