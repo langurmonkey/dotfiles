@@ -2,6 +2,9 @@
 import os
 home = os.environ['HOME']
 
+import qutebrowser
+qutebrowser_version = qutebrowser.__version_info__
+
 ## Aliases for commands. The keys of the given dictionary are the
 ## aliases, while the values are the commands they map to.
 ## Type: Dict
@@ -1677,11 +1680,12 @@ config.bind('h', 'open')
 #c.qt.args = [ "blink-settings=darkMode=4" ]
 
 ## Source qutewal
-config.source('qutewal.py')
+#config.source('qutewal.py')
 
 ## This is here so configs done via the GUI are still loaded.
 ## Remove it to not load settings done via the GUI.
-# config.load_autoconfig()
+config.load_autoconfig()
+
 # base16-qutebrowser (https://github.com/theova/base16-qutebrowser)
 # Base16 qutebrowser template by theova
 # Brewer scheme by Timothée Poisot (http://github.com/tpoisot)
@@ -1702,6 +1706,8 @@ base0C = "#80b1d3"
 base0D = "#3182bd"
 base0E = "#756bb1"
 base0F = "#b15928"
+base10 = "#31a354"
+base11 = "#fafafa"
 
 # set qutebrowser colors
 
@@ -1751,11 +1757,12 @@ c.colors.completion.scrollbar.fg = base05
 # Color of the scrollbar in the completion view.
 c.colors.completion.scrollbar.bg = base00
 
-# Background color of disabled items in the context menu.
-c.colors.contextmenu.disabled.bg = base01
+if qutebrowser_version >= (1, 13, 0):
+    # Background color of disabled items in the context menu.
+    c.colors.contextmenu.disabled.bg = base01
 
-# Foreground color of disabled items in the context menu.
-c.colors.contextmenu.disabled.fg = base04
+    # Foreground color of disabled items in the context menu.
+    c.colors.contextmenu.disabled.fg = base04
 
 # Background color of the context menu. If set to null, the Qt default is used.
 c.colors.contextmenu.menu.bg = base00
@@ -1953,28 +1960,28 @@ c.colors.tabs.pinned.odd.bg = base0B
 c.colors.tabs.pinned.odd.fg = base07
 
 # Background color of pinned selected even tabs.
-c.colors.tabs.pinned.selected.even.bg = base02
+c.colors.tabs.pinned.selected.even.bg = base10
 
 # Foreground color of pinned selected even tabs.
-c.colors.tabs.pinned.selected.even.fg = base05
+c.colors.tabs.pinned.selected.even.fg = base11
 
 # Background color of pinned selected odd tabs.
-c.colors.tabs.pinned.selected.odd.bg = base02
+c.colors.tabs.pinned.selected.odd.bg = base10
 
 # Foreground color of pinned selected odd tabs.
-c.colors.tabs.pinned.selected.odd.fg = base05
+c.colors.tabs.pinned.selected.odd.fg = base11
 
 # Foreground color of selected odd tabs.
-c.colors.tabs.selected.odd.fg = base05
+c.colors.tabs.selected.odd.fg = base11
 
 # Background color of selected odd tabs.
-c.colors.tabs.selected.odd.bg = base02
+c.colors.tabs.selected.odd.bg = base10
 
 # Foreground color of selected even tabs.
-c.colors.tabs.selected.even.fg = base05
+c.colors.tabs.selected.even.fg = base11
 
 # Background color of selected even tabs.
-c.colors.tabs.selected.even.bg = base02
+c.colors.tabs.selected.even.bg = base10
 
 # Background color for webpages if unset (or empty to use the theme's
 # color).

@@ -55,7 +55,7 @@ bindsym $mod+ctrl+s exec "$(cat $HOME/.dotfiles/i3/config $HOME/.dotfiles/qutebr
 bindsym $mod+F8 exec $HOME/.dotfiles/bin/monitor_off
 
 # reload wal
-bindsym $mod+y exec wal -a 85 --theme $HOME/.dotfiles/pywal/themes/dark/vscode.json
+bindsym $mod+y exec wal -a 85 --theme $HOME/.dotfiles/pywal/themes/dark/base16-brewer.json
 
 # change focus
 bindsym $mod+h focus left
