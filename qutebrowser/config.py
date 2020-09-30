@@ -1706,6 +1706,8 @@ base0C = "#80b1d3"
 base0D = "#3182bd"
 base0E = "#756bb1"
 base0F = "#b15928"
+base10 = "#31a354"
+base11 = "#fafafa"
 
 # set qutebrowser colors
 
@@ -1958,28 +1960,28 @@ c.colors.tabs.pinned.odd.bg = base0B
 c.colors.tabs.pinned.odd.fg = base07
 
 # Background color of pinned selected even tabs.
-c.colors.tabs.pinned.selected.even.bg = base02
+c.colors.tabs.pinned.selected.even.bg = base10
 
 # Foreground color of pinned selected even tabs.
-c.colors.tabs.pinned.selected.even.fg = base05
+c.colors.tabs.pinned.selected.even.fg = base11
 
 # Background color of pinned selected odd tabs.
-c.colors.tabs.pinned.selected.odd.bg = base02
+c.colors.tabs.pinned.selected.odd.bg = base10
 
 # Foreground color of pinned selected odd tabs.
-c.colors.tabs.pinned.selected.odd.fg = base05
+c.colors.tabs.pinned.selected.odd.fg = base11
 
 # Foreground color of selected odd tabs.
-c.colors.tabs.selected.odd.fg = base05
+c.colors.tabs.selected.odd.fg = base11
 
 # Background color of selected odd tabs.
-c.colors.tabs.selected.odd.bg = base02
+c.colors.tabs.selected.odd.bg = base10
 
 # Foreground color of selected even tabs.
-c.colors.tabs.selected.even.fg = base05
+c.colors.tabs.selected.even.fg = base11
 
 # Background color of selected even tabs.
-c.colors.tabs.selected.even.bg = base02
+c.colors.tabs.selected.even.bg = base10
 
 # Background color for webpages if unset (or empty to use the theme's
 # color).
