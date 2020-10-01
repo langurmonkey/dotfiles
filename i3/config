@@ -384,7 +384,7 @@ exec --no-startup-id udiskie -f "$HOME/.dotfiles/bin/ranger-term" --tray
 exec --no-startup-id $HOME/.dotfiles/bin/no-screenoff.sh
 
 # PYWAL
-exec --no-startup-id wal -a 85 --theme "$HOME/.dotfiles/pywal/themes/dark/vscode.json"
+exec --no-startup-id wal -a 80 --theme "$HOME/.dotfiles/pywal/themes/dark/base16-brewer.json"
 
 #
 # BAR (polybar, bumblebee-status, i3status...)
