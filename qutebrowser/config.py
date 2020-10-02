@@ -1051,7 +1051,7 @@ c.hints.border = '2px solid #000000'
 ## https://peter.sh/experiments/chromium-command-line-switches/ for a
 ## list) will work.
 ## Type: List of String
-# c.qt.args = []
+# c.qt.args = [ 'force-dark-mode' ]
 
 ## Force a Qt platform to use. This sets the `QT_QPA_PLATFORM`
 ## environment variable and is useful to force using the XCB plugin when
@@ -1982,6 +1982,9 @@ c.colors.tabs.selected.even.fg = base11
 
 # Background color of selected even tabs.
 c.colors.tabs.selected.even.bg = base10
+
+# Prefer dark scheme
+c.colors.webpage.prefers_color_scheme_dark = True
 
 # Background color for webpages if unset (or empty to use the theme's
 # color).
