@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if which xdpyinfo >/dev/null; then
+    SCREEN_WIDTH=$(xdpyinfo | awk '/dimensions/{print $2}' | awk -F "x" '{print $1}')
+    SCREEN_HEIGHT=$(xdpyinfo | awk '/dimensions/{print $2}' | awk -F "x" '{print $2}')
+    if [ "$SCREEN_WIDTH" -gt "1920" ]; then
+        echo ~/.config/kitty/kitty-hidpi.conf
+    else
+        echo ~/.config/kitty/kitty.conf
+    fi
+else
+    echo ~/.config/kitty/kitty.conf
+fi
