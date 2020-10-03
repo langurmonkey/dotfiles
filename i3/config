@@ -7,10 +7,10 @@ set $mod Mod4
 # Mod2 key: Alt key
 set $mod2 Mod1
 # Default terminal
-set $myterm termite
+set $myterm kitty
 
 # Font for window titles.
-font pango:TerminessTTF Nerd Font Mono 11 
+font pango:FiraCode Nerd Font 10 
 
 # Gaps
 #for_window [class="^.*"] border pixel 0 
@@ -32,11 +32,11 @@ set $urgent-bg-color     #E42343
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod 
 # Start a terminal
-bindsym $mod+Return exec $myterm -d "`$HOME/.dotfiles/bin/xcwd`"
+bindsym $mod+Return exec $myterm -c=$(~/.dotfiles/bin/kitty-config) -d "`$HOME/.dotfiles/bin/xcwd`"
 
 # kill focused window
 bindsym $mod+q kill
-bindsym $mod+Shift+q kill
+bindsym $mod+grave kill
 
 # Scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -55,7 +55,7 @@ bindsym $mod+ctrl+s exec "$(cat $HOME/.dotfiles/i3/config $HOME/.dotfiles/qutebr
 bindsym $mod+F8 exec $HOME/.dotfiles/bin/monitor_off
 
 # reload wal
-bindsym $mod+y exec wal -a 85 --theme $HOME/.dotfiles/pywal/themes/dark/vscode.json
+bindsym $mod+y exec wal -a 85 --theme $HOME/.dotfiles/pywal/themes/dark/base16-brewer.json
 
 # change focus
 bindsym $mod+h focus left
@@ -384,7 +384,7 @@ exec --no-startup-id udiskie -f "$HOME/.dotfiles/bin/ranger-term" --tray
 exec --no-startup-id $HOME/.dotfiles/bin/no-screenoff.sh
 
 # PYWAL
-exec --no-startup-id wal -a 85 --theme "$HOME/.dotfiles/pywal/themes/dark/vscode.json"
+exec --no-startup-id wal -a 80 --theme "$HOME/.dotfiles/pywal/themes/dark/base16-brewer.json"
 
 #
 # BAR (polybar, bumblebee-status, i3status...)

@@ -1,2 +1,2 @@
 #!/bin/bash
-EDITOR=nvim && termite -e ranger "$1"
+EDITOR=nvim && kitty ranger "$1"
