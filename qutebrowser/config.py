@@ -175,24 +175,17 @@ c.completion.scrollbar.width = 16
 ##   - no-3rdparty: Accept cookies from the same origin only.
 ##   - no-unknown-3rdparty: Accept cookies from the same origin only, unless a cookie is already set for the domain.
 ##   - never: Don't accept cookies at all.
-# c.content.cookies.accept = 'no-3rdparty'
+c.content.cookies.accept = 'no-3rdparty'
 
 ## Store cookies. Note this option needs a restart with QtWebEngine on Qt
 ## < 5.9.
 ## Type: Bool
-# c.content.cookies.store = True
+c.content.cookies.store = True
 
 ## Default encoding to use for websites. The encoding must be a string
 ## describing an encoding such as _utf-8_, _iso-8859-1_, etc.
 ## Type: String
 c.content.default_encoding = 'utf-8'
-
-## Enable extra tools for Web developers. This needs to be enabled for
-## `:inspector` to work and also adds an _Inspect_ entry to the context
-## menu. For QtWebEngine, see `--enable-webengine-inspector` in
-## `qutebrowser --help` instead.
-## Type: Bool
-# c.content.developer_extras = False
 
 ## Try to pre-fetch DNS entries to speed up browsing.
 ## Type: Bool
@@ -232,7 +225,7 @@ c.content.headers.do_not_track = True
 ##   - always: Always send the Referer.
 ##   - never: Never send the Referer. This is not recommended, as some sites may break.
 ##   - same-domain: Only send the Referer for the same domain. This will still protect your privacy, but shouldn't break any sites.
-c.content.headers.referer = 'never'
+c.content.headers.referer = 'same-domain'
 
 ## User agent to send. Unset to send the default.
 ## Type: String
