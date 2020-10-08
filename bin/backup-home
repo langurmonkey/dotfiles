@@ -38,7 +38,7 @@ else
 	rm -rf "${BACKUP_FOLDER}"
 fi
 
-tar --exclude="/home/tsagrista/Sync" --exclude="/home/tsagrista/.cache" --exclude="/home/tsagrista/.steam" --exclude="/home/tsagrista/.gradle" --exclude="/home/tsagrista/Music" -cvpzf "$BACKUP_FOLDER"/backup.tar.gz "$SRC_DIR"
+tar --exclude="/home/tsagrista/.cache" --exclude="/home/tsagrista/Music" -cvpzf "$BACKUP_FOLDER"/backup.tar.gz "$SRC_DIR"
 
 logger -t "backup" "Backup $DATE : Executed successfully: $BACKUP_FOLDER"
 #

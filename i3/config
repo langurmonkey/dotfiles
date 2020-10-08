@@ -335,7 +335,7 @@ client.background       $wal-bg
 #
 
 # Setup screens if needed
-exec_always --no-startup-id $HOME/Scripts/current-randr.sh
+exec_always --no-startup-id $HOME/.local/bin/current-randr.sh
 
 # Wallpaper
 exec_always --no-startup-id feh --bg-fill $HOME/Pictures/wallpaper.jpg
