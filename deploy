@@ -284,7 +284,7 @@ QB_CONFIG=~/.config/qutebrowser
 QB_DATA=~/.local/share/qutebrowser
 
 # Symlink qutebrowser config
-do-symlink $DOTFILES_PATH/qutebrowser $QB_CONFIG
+do-symlink $DOTFILES_PATH/qutebrowser/config $QB_CONFIG
 # Symlink userscripts
 do-symlink $DOTFILES_PATH/qutebrowser/data/userscripts $QB_DATA/userscripts
 # Symlink greasemonkey js
