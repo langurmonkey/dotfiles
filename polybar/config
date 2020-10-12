@@ -95,7 +95,7 @@ modules-center = xwindow
 ; same as bar-hidpi but it shows ubuntu updates instead of arch
 [bar/bar-hidpi-ubuntu]
 inherit = bar/bar-hidpi
-modules-right = mpd xkeyboard updates-ubuntu fs-hidalgo memory-info cpu temperature custom-bluetooth wlan-hidalgo eth backlight battery pulseaudio-tail popup-calendar nm-launcher powermenu
+modules-right = mpd xkeyboard updates-arch fs-hidalgo memory-info cpu temperature custom-bluetooth wlan-hidalgo eth backlight battery pulseaudio-tail popup-calendar nm-launcher powermenu
 
 ; same as other, but only show workspaces on slave bar
 [bar/bar-hidpi-slave]
