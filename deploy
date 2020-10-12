@@ -5,7 +5,7 @@
 DOTFILES_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
 DIR_PROJ=~/Projects
 DIR_VIMCONFIG=~/.config/nvim
-FILE_VIMRC=~/.config/nvim/init.vim
+FILE_VIMRC=$DIR_VIMCONFIG/init.vim
 DIR_VIMPLUGINS=$DIR_VIMCONFIG/bundle
 DIR_RANGER=~/.config/ranger
 DIR_NNN=~/.config/nnn
