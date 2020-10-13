@@ -14,7 +14,7 @@ HOSTNAME=$(cat /etc/hostname)
 # ARI hidalgo - 2 bars - ubuntu+hidpi
 if [[ $HOSTNAME == "hidalgo" ]]; then
     echo "HIDALGO"
-    MONITOR=DP-2 polybar bar-hidpi-ubuntu &
+    MONITOR=DP-2 polybar bar-hidpi &
     MONITOR=DVI-D-0 polybar bar-hidpi-slave &
 
 # IWR herschel - 2 bars - arch+hidpi
