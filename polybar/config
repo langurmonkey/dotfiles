@@ -99,6 +99,13 @@ monitor = ${env:MONITOR:}
 modules-right = pulseaudio popup-calendar 
 tray-position =
 
+; same as other, but only show workspaces on slave bar
+[bar/bar-fhd-slave]
+inherit = bar/bar-fhd
+monitor = ${env:MONITOR:}
+modules-right = pulseaudio popup-calendar 
+tray-position =
+
 [module/xwindow]
 type = internal/xwindow
 ; Available tags:
