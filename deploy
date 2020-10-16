@@ -9,6 +9,7 @@ FILE_VIMRC=$DIR_VIMCONFIG/init.vim
 DIR_VIMPLUGINS=$DIR_VIMCONFIG/bundle
 DIR_RANGER=~/.config/ranger
 DIR_NNN=~/.config/nnn
+DIR_ZSHPLUGINS=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins
 
 
 # HELPERS ========================================
@@ -166,6 +167,12 @@ fi
 
 # Create nnn config symlink
 do-symlink $DOTFILES_PATH/nnn $DIR_NNN
+
+#
+# zsh-autosuggestions
+#
+echo-custom " ** " "==== ZSH-AUTOSUGGESTIONS ===="
+do-clone "$DIR_ZSHPLUGINS"/zsh-autosuggestions https://github.com/zsh-users/zsh-autosuggestions zsh-autosuggestions
 
 #
 # SHELL ENVIRONMENT
