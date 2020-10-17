@@ -272,7 +272,8 @@ config.bind('yo', 'open -t https://youtube.com')
 config.bind('h', 'open')
 
 # Enable chromium dark mode
-#c.qt.args = [ "blink-settings=darkMode=4" ]
+config.set("colors.webpage.darkmode.enabled", True)
+config.set("colors.webpage.prefers_color_scheme_dark", True)
 
 ## This is here so configs done via the GUI are still loaded.
 ## Remove it to not load settings done via the GUI.
