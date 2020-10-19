@@ -1,7 +1,7 @@
 !--------------------------------------------
 ! Custom DPI
 !--------------------------------------------
-Xft.dpi: 180
+Xft.dpi: 190
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintslight
