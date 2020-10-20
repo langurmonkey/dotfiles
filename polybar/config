@@ -96,7 +96,7 @@ modules-center = xwindow
 [bar/bar-hidpi-slave]
 inherit = bar/bar-hidpi
 monitor = ${env:MONITOR:}
-modules-right = pulseaudio popup-calendar 
+modules-right = mpd pulseaudio popup-calendar 
 tray-position =
 
 ; same as other, but only show workspaces on slave bar
