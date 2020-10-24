@@ -10,6 +10,7 @@ DIR_VIMPLUGINS=$DIR_VIMCONFIG/bundle
 DIR_RANGER=~/.config/ranger
 DIR_NNN=~/.config/nnn
 DIR_ZSHPLUGINS=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins
+DIR_VISCONFIG=~/.config/vis
 
 
 # HELPERS ========================================
@@ -260,14 +261,6 @@ do-symlink $DOTFILES_PATH/kitty ~/.config/kitty
 echo-ok "Done"
 
 #
-# CAVA
-#
-echo-custom " ** " " ==== CAVA ===="
-do-symlink $DOTFILES_PATH/cava ~/.config/cava
-echo-ok "Done"
-
-
-#
 # NCMPCPP
 #
 echo-custom " ** " " ==== NCMPCPP ===="
@@ -329,6 +322,7 @@ echo-custom " ** " "==== MPV ===="
 
 MPV_CONFIG=~/.config/mpv
 do-symlink $DOTFILES_PATH/mpv/scripts $MPV_CONFIG/scripts
+echo-ok "Done"
 
 #
 # MUTT
@@ -337,6 +331,14 @@ echo-custom " ** " "==== MUTT ===="
 mkdir -p $DOTFILES_PATH/.mutt/ari.uni-heidelberg.de/cache
 mkdir -p $DOTFILES_PATH/.mutt/tonisagrista.com/cache
 do-symlink $DOTFILES_PATH/.mutt $HOME/.mutt
+echo-ok "Done"
+
+#
+# CLI-VISUALIZER
+#
+echo-custom " ** " "==== CLI-VISUALIZER ===="
+do-symlink $DOTFILES_PATH/vis $DIR_VISCONFIG
+echo-ok "Done"
 
 
 # Set keyboard repeat and delay - gnome or i3wm only
