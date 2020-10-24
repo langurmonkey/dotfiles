@@ -115,6 +115,9 @@ bindsym $mod+a focus parent
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPlay exec playerctl play-pause
+# mpd controls
+bindsym $mod+period exec mpc next
+bindsym $mod+comma exec mpc prev
 # pulse audio controls
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute `pacmd list-sinks | awk '/* index:/{print $3}'` toggle 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` +1%
