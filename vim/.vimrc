@@ -11,7 +11,10 @@ set path+=**
 execute pathogen#infect()
 
 " use system clipboard as default
-set clipboard=unnamedplus
+set clipboard=unnamed
+if has('unnamedplus')
+    set clipboard=unnamed,unnamedplus
+endif
 
 " enable syntax
 syntax on

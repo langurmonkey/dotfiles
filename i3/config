@@ -108,6 +108,9 @@ bindsym $mod+t floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
+# New workspace
+bindsym $mod+n exec --no-startup-id $HOME/.dotfiles/bin/i3-new-workspace
+
 # focus the parent container
 bindsym $mod+a focus parent
 
