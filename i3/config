@@ -379,7 +379,7 @@ exec --no-startup-id mons -a > /dev/null 2>&1
 # 
 # COMPOSITOR - window compositor
 #
-exec --no-startup-id compton --unredir-if-possible --config "$HOME/.dotfiles/compton/compton.conf" -b
+exec --no-startup-id picom --unredir-if-possible --config "$HOME/.dotfiles/picom/picom.conf" -b
 
 #
 # UDISKIE - automount
