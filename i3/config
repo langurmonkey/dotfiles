@@ -379,7 +379,7 @@ exec --no-startup-id mons -a > /dev/null 2>&1
 # 
 # COMPOSITOR - window compositor
 #
-exec --no-startup-id picom -b --config "$HOME/.dotfiles/picom/picom.conf"
+exec --no-startup-id picom -b --experimental-backends --backend glx --config "~/.dotfiles/picom/picom.conf"
 
 #
 # UDISKIE - automount
