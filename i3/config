@@ -51,8 +51,11 @@ bindsym XF86Search exec $HOME/.dotfiles/bin/fmenu -i $HOME -t +10
 # dmenu shortcuts
 bindsym $mod+ctrl+s exec "$(cat $HOME/.dotfiles/i3/config $HOME/.dotfiles/qutebrowser/config.py $HOME/.dotfiles/vim/.vimrc | dmenu -p 'shortcuts' -l 10)"
 
+# toggle compositor
+bindsym $mod+c exec $HOME/.dotfiles/bin/togglepicom
+
 # monitor off
-bindsym $mod+F8 exec $HOME/.dotfiles/bin/monitor_off
+bindsym $mod+F8 exec $HOME/.dotfiles/bin/monitoroff
 
 # reload wal
 bindsym $mod+y exec wal -a 85 --theme $HOME/.dotfiles/pywal/themes/dark/base16-brewer.json
@@ -86,7 +89,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # fast focus with wmfocus
-bindsym $mod+c exec --no-startup-id wmfocus
+bindsym $mod+x exec --no-startup-id wmfocus
 
 # split in horizontal orientation
 bindsym $mod+b split h

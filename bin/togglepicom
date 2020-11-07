@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if pgrep -x picom &> /dev/null; then
+    notify-send "Turning picom off"
+    pkill picom &
+else
+    notify-send "Turning picom on"
+    picom -b --config "$HOME/.dotfiles/picom/picom.conf" &
+fi
