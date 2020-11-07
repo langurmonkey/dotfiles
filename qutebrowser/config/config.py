@@ -301,6 +301,7 @@ base0E = "#756bb1"
 base0F = "#b15928"
 base10 = "#31a354"
 base11 = "#fafafa"
+base12 = "#9740b7"
 
 # set qutebrowser colors
 
@@ -467,7 +468,7 @@ c.colors.statusbar.passthrough.bg = base0C
 c.colors.statusbar.private.fg = base00
 
 # Background color of the statusbar in private browsing mode.
-c.colors.statusbar.private.bg = base01
+c.colors.statusbar.private.bg = base12
 
 # Foreground color of the statusbar in command mode.
 c.colors.statusbar.command.fg = base05
