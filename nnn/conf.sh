@@ -4,8 +4,9 @@ export NNN_OPENER=$HOME/.config/nnn/plugins/nuke
 export NNN_BMS='D:~/Documents;P:~/Projects'
 export NNN_COLORS='12345678'
 export NNN_ARCHIVE='\\.(7z|bz2|gz|tar|tgz|zip)$'
-export NNN_PLUG='f:finder;o:fzopen;p:preview-tui;d:diffs;v:imgview;m:mediainf'
+export NNN_PLUG='f:fzopen;t:preview-tabbed;p:preview-tui;d:diffs;v:imgview;m:mediainf'
 export NNN_FIFO='/tmp/nnn.fifo'
+export NNN_FCOLORS="a5a0d677fb2121f7c6d6abc4"
 
 n ()
 {
