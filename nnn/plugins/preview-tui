@@ -40,7 +40,7 @@
 #   Then in `nnn`, launch the `preview-tui` plugin.
 #
 #   If you provide the same NNN_FIFO to all nnn instances, there will be a
-#   single common preview window. I you provide different FIFO path (e.g.
+#   single common preview window. If you provide different FIFO path (e.g.
 #   with -a), they will be independent.
 #
 #   The previews will be shown in a tmux split. If that isn't possible, it
@@ -64,6 +64,7 @@ TERMINAL="$TERMINAL"  # same goes for the terminal
 USE_SCOPE="${USE_SCOPE:-0}"
 USE_PISTOL="${USE_PISTOL:-0}"
 PAGER="${PAGER:-less -R}"
+[ "$PAGER" = "most" ] && PAGER="less -R"
 
 if [ -e "${TMUX%%,*}" ] && tmux -V | grep -q '[ -][3456789]\.'; then
     TERMINAL=tmux
@@ -80,7 +81,7 @@ elif [ "$SPLIT" != 'h' ]; then
 fi
 
 exists() {
-    command -v "$1" >/dev/null 2>&1
+    which "$1" >/dev/null 2>&1
 }
 
 fifo_pager() {
