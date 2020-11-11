@@ -30,7 +30,7 @@ URxvt*saveLines: 100000
 
 ! fonts
 ! run "fc-list" for a list of available fonts
-URxvt*font: xft:xos4 Terminus:pixelsize=16
+URxvt*font: xft:FiraCode NerdFont:size=11
 
 ! extensions: font size and URL matcher
 URxvt.perl-ext-common: font-size,matcher

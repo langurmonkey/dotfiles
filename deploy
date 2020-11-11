@@ -11,6 +11,7 @@ DIR_RANGER=~/.config/ranger
 DIR_NNN=~/.config/nnn
 DIR_ZSHPLUGINS=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins
 DIR_VISCONFIG=~/.config/vis
+DIR_NEWSBOAT=~/.config/newsboat
 
 
 # HELPERS ========================================
@@ -56,8 +57,7 @@ function do-curl-fetchfile {
         LOCATION=$(dirname "${1}")
         mkdir -p "$LOCATION" 
         curl -LSso $1 $2
-        echo-ok "Done"
-    else
+        echo-ok "Done" else
         echo-skip "$3"
     fi
 }
@@ -338,6 +338,13 @@ echo-ok "Done"
 #
 echo-custom " ** " "==== CLI-VISUALIZER ===="
 do-symlink $DOTFILES_PATH/vis $DIR_VISCONFIG
+echo-ok "Done"
+
+#
+# NEWSBOAT
+#
+echo-custom " ** " "==== NEWSBOAT ===="
+do-symlink $DOTFILES_PATH/newsboat $DIR_NEWSBOAT
 echo-ok "Done"
 
 
