@@ -18,6 +18,9 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'raimondi/delimitmate'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    Plug 'ervandew/supertab'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
 call plug#end()
         
 " use mouse to resize, scroll, etc. even within tmux
@@ -229,3 +232,6 @@ aug i3config_ft_detection
   au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
   au BufNewFile,BufRead ~/.dotfiles/i3/config set filetype=i3config
 aug end
+
+let g:airline_theme = 'base16'
+let g:airline_powerline_fonts = 1
