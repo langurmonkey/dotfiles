@@ -1,14 +1,30 @@
 " not compatible with ancient versions
 set nocompatible
 
+" PLUGINS
+"
+" Plugin manager
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall
+endif
+
+" Plugins
+call plug#begin('~/.config/nvim/plugged')
+    Plug 'alvan/vim-closetag'
+    Plug 'mcchrish/nnn.vim'
+    Plug 'sheerun/vim-polyglot'
+    Plug 'raimondi/delimitmate'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+call plug#end()
+        
 " use mouse to resize, scroll, etc. even within tmux
 set mouse+=a
 
 " recursive within current directory
 set path+=**
-
-" enable pathogen
-execute pathogen#infect()
 
 " use system clipboard as default
 set clipboard=unnamed
@@ -17,7 +33,8 @@ if has('unnamedplus')
 endif
 
 " enable syntax
-syntax on
+syntax enable
+filetype plugin indent on
 colorscheme OceanicNext
 
 " enable auto indent
@@ -44,8 +61,52 @@ set hlsearch            " highlight matches
 
 set spell spelllang=en_us
 
+
+
 " disable omnicompletion
 filetype plugin on
+
+" NNN
+" Disable default mappings
+let g:nnn#set_default_mappings = 0
+" Floating window (neovim latest and vim with patch 8.2.191)
+let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
+" leader+n starts in current dir
+nnoremap <leader>n :NnnPicker %:p:h<CR>
+" actions
+let g:nnn#action = {
+      \ '<c-t>': 'tab split',
+      \ '<c-x>': 'split',
+      \ '<c-v>': 'vsplit' }
+let g:nnn#command = 'nnn -d'
+
+" Buffers
+map <C-c> :bd<CR>
+
+" Tabs
+map <A-Up> :tabprevious<CR>
+map <A-Down> :tabnext<CR>
+map <A-n> <Esc>:tabnew<CR>
+map <A-c> :tabclose<CR>
+
+" Splits
+map <C-s> :vsplit<CR>
+map <A-s> :split<CR>
+" map ctr-movement to move across splits
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+" resize
+noremap <A-h> :vertical resize -5<CR>
+noremap <A-l> :vertical resize +5<CR>
+noremap <A-j> :resize -5<CR>
+noremap <A-k> :resize +5<CR>
+
+" FZF
+map <C-p> :Files<CR>
+map <C-a> :Ag<CR>
+map gb :Buffers<CR>
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
@@ -53,16 +114,6 @@ nmap <leader>l :set list!<CR>
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
 
-" GLSL syntax
-autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
-" EuroVis template has .inc latex files
-autocmd! BufNewFile,BufRead *.inc set syntax=tex
-
-" map ctr-movement to move across splits
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
 
 " open splits to right and bottom
 set splitbelow
@@ -77,35 +128,8 @@ nnoremap <space><space> :w<cr>
 " search for selected text
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
-" csyntaxafter
-autocmd! FileType c,cpp,java,php call CSyntaxAfter() 
-
 " prompt for reload when file changes
 :au WinEnter * checktime
-
-" Ctrl-P config
-set wildignore+=*.class,*.a,*.o
-set wildignore+=*.out,*.dvi
-set wildignore+=.DS_Store,.git,.hg,.svn
-set wildignore+=*~,*.swp,*.tmp
-set wildignore+=*/releases/**
-" Ctrl-P open in new tab by default, <C-t> opens in current tab
-let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<c-t>'],
-    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
-    \ }
-let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
-" Ctrl-P working directory
-let g:ctrlp_working_path_mode = 'rc'
-" Ignore files
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.dll
-" Custom file listing command
-let g:ctrlp_user_command = 'find %s -type f'
-" Ignore files in .gitignore
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " center view on the search result
 noremap n nzz
@@ -183,10 +207,8 @@ function MyTabLine()
         return s
 endfunction
 
-
 "
 " NetRW configuration
-"
 " map ctrl-t to NetRW
 map <C-t> :Vexplore<CR>
 
@@ -201,3 +223,9 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 " remap control-enter to open files in new tab
 nmap <silent> <C-CR> t :rightbelow 20vs<CR>:e .<CR>:wincmd h<CR>
+
+aug i3config_ft_detection
+  au!
+  au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
+  au BufNewFile,BufRead ~/.dotfiles/i3/config set filetype=i3config
+aug end
