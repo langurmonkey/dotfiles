@@ -5,6 +5,7 @@ home = os.environ['HOME']
 import qutebrowser
 qutebrowser_version = qutebrowser.__version_info__
 
+
 ## Aliases for commands. The keys of the given dictionary are the
 ## aliases, while the values are the commands they map to.
 ## Type: Dict
@@ -274,6 +275,24 @@ config.bind('h', 'open')
 # Enable chromium dark mode
 config.set("colors.webpage.darkmode.enabled", False)
 config.set("colors.webpage.prefers_color_scheme_dark", True)
+
+#
+# =============== Youtube ad blocking ================
+#
+from qutebrowser.api import interceptor
+
+def filter_yt(info: interceptor.Request):
+    """Block the given request if necessary."""
+    url = info.request_url
+    if (
+        url.host() == "www.youtube.com"
+        and url.path() == "/get_video_info"
+        and "&adformat=" in url.query()
+    ):
+        info.block()
+
+interceptor.register(filter_yt)
+# ============== Done ad-blocking ===================
 
 ## This is here so configs done via the GUI are still loaded.
 ## Remove it to not load settings done via the GUI.
