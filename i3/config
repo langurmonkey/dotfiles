@@ -226,6 +226,7 @@ for_window [class="Gsimplecal"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="Nemo"] floating enable
 for_window [class="Gaia Sky"] floating enable
+for_window [class="RTS Engine"] floating enable
 for_window [class="obs"] floating enable
 for_window [title="deusex.exe"] floating enable
 for_window [title="megasync"] floating enable
