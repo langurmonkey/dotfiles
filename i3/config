@@ -347,11 +347,7 @@ client.background       $wal-bg
 # STARTUP APPLICATIONS
 #
 
-# Setup screens if needed
-exec_always --no-startup-id $HOME/.local/bin/current-randr.sh
 
-# Wallpaper
-exec_always --no-startup-id feh --bg-fill $HOME/Pictures/wallpaper.jpg
 
 # Repeat interval and delay
 exec_always --no-startup-id xset r rate 200 35 # initial delay 300 ms, repeat 35 ms
@@ -383,10 +379,6 @@ exec --no-startup-id pasystray
 #
 exec --no-startup-id mons -a > /dev/null 2>&1
 
-# 
-# COMPOSITOR - window compositor
-#
-exec --no-startup-id picom --experimental-backends -b --config "$HOME/.dotfiles/picom/picom.conf"
 
 #
 # UDISKIE - automount
@@ -398,6 +390,21 @@ exec --no-startup-id $HOME/.dotfiles/bin/no-screenoff.sh
 
 # PYWAL
 exec --no-startup-id wal -a 80 --theme "$HOME/.dotfiles/pywal/themes/dark/base16-brewer.json"
+
+# 
+# COMPOSITOR - window compositor
+#
+exec --no-startup-id picom --experimental-backends -b --config "$HOME/.dotfiles/picom/picom.conf"
+
+#
+# RANDR - monitor setup
+#
+exec_always --no-startup-id $HOME/.local/bin/current-randr.sh
+
+#
+# WALLPAPER - after screens have been setup
+#
+exec_always --no-startup-id feh --bg-fill $HOME/Pictures/wallpaper.jpg
 
 #
 # BAR (polybar, bumblebee-status, i3status...)
