@@ -51,6 +51,9 @@ bindsym XF86Search exec $HOME/.dotfiles/bin/fmenu -i $HOME -t +10
 # dmenu shortcuts
 bindsym $mod+ctrl+s exec "$(cat $HOME/.dotfiles/i3/config $HOME/.dotfiles/qutebrowser/config.py $HOME/.dotfiles/vim/.vimrc | dmenu -p 'shortcuts' -l 10)"
 
+# clipmenu
+bindsym $mod+i exec $HOME/.dotfiles/bin/clipmenu-wal
+
 # toggle compositor
 bindsym $mod+c exec $HOME/.dotfiles/bin/togglepicom
 
@@ -223,6 +226,7 @@ for_window [class="Gsimplecal"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="Nemo"] floating enable
 for_window [class="Gaia Sky"] floating enable
+for_window [class="RTS Engine"] floating enable
 for_window [class="obs"] floating enable
 for_window [title="deusex.exe"] floating enable
 for_window [title="megasync"] floating enable
@@ -343,11 +347,7 @@ client.background       $wal-bg
 # STARTUP APPLICATIONS
 #
 
-# Setup screens if needed
-exec_always --no-startup-id $HOME/.local/bin/current-randr.sh
 
-# Wallpaper
-exec_always --no-startup-id feh --bg-fill $HOME/Pictures/wallpaper.jpg
 
 # Repeat interval and delay
 exec_always --no-startup-id xset r rate 200 35 # initial delay 300 ms, repeat 35 ms
@@ -379,10 +379,6 @@ exec --no-startup-id pasystray
 #
 exec --no-startup-id mons -a > /dev/null 2>&1
 
-# 
-# COMPOSITOR - window compositor
-#
-exec --no-startup-id picom --experimental-backends -b --config "$HOME/.dotfiles/picom/picom.conf"
 
 #
 # UDISKIE - automount
@@ -394,6 +390,21 @@ exec --no-startup-id $HOME/.dotfiles/bin/no-screenoff.sh
 
 # PYWAL
 exec --no-startup-id wal -a 80 --theme "$HOME/.dotfiles/pywal/themes/dark/base16-brewer.json"
+
+# 
+# COMPOSITOR - window compositor
+#
+exec --no-startup-id picom --experimental-backends -b --config "$HOME/.dotfiles/picom/picom.conf"
+
+#
+# RANDR - monitor setup
+#
+exec_always --no-startup-id $HOME/.local/bin/current-randr.sh
+
+#
+# WALLPAPER - after screens have been setup
+#
+exec_always --no-startup-id feh --bg-fill $HOME/Pictures/wallpaper.jpg
 
 #
 # BAR (polybar, bumblebee-status, i3status...)
