@@ -276,6 +276,10 @@ config.bind('h', 'open')
 config.set("colors.webpage.darkmode.enabled", False)
 config.set("colors.webpage.prefers_color_scheme_dark", True)
 
+# Expand in old reddit
+config.set('hints.selectors', {'preview': ['.expando-button']},pattern='*://*.reddit.com/*')
+config.bind(';p', 'hint preview')
+
 #
 # =============== Youtube ad blocking ================
 #
