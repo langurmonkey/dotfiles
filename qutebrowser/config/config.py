@@ -280,6 +280,9 @@ config.set("colors.webpage.prefers_color_scheme_dark", True)
 config.set('hints.selectors', {'preview': ['.expando-button']},pattern='*://*.reddit.com/*')
 config.bind(';p', 'hint preview')
 
+# Clean mode
+config.bind('cl', 'spawn --userscript readability-js')
+
 #
 # =============== Youtube ad blocking ================
 #
