@@ -12,7 +12,7 @@ DIR_NNN=~/.config/nnn
 DIR_ZSHPLUGINS=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins
 DIR_VISCONFIG=~/.config/vis
 DIR_NEWSBOAT=~/.config/newsboat
-
+DIR_STARSHIP=~/.config
 
 # HELPERS ========================================
 
@@ -323,6 +323,12 @@ echo-ok "Done"
 echo-custom " ** " "==== NEWSBOAT ===="
 do-symlink $DOTFILES_PATH/newsboat $DIR_NEWSBOAT
 echo-ok "Done"
+
+# STARSHIP SHELL
+echo-custom " ** " "==== STARSHIP ===="
+do-symlink $DOTFILES_PATH/starship/starship.toml $DIR_STARSHIP/starship.toml
+echo-ok "Done"
+
 
 
 # Set keyboard repeat and delay - gnome or i3wm only
