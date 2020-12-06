@@ -145,7 +145,7 @@ bindsym Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
 bindsym $mod+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
 
 # Start Applications
-bindsym $mod+Shift+w exec qutebrowser --backend webengine --qt-flag ignore-gpu-blacklist --qt-flag enable-gpu-rasterization --qt-flag enable-native-gpu-memory-buffers --qt-flag num-raster-threads=4
+bindsym $mod+Shift+w exec NODE_PATH=$(npm root -g) qutebrowser --backend webengine --qt-flag ignore-gpu-blacklist --qt-flag enable-gpu-rasterization --qt-flag enable-native-gpu-memory-buffers --qt-flag num-raster-threads=4
 bindsym $mod+Control+w exec firefox
 bindsym $mod+Shift+t exec thunderbird
 bindsym $mod+Shift+f exec $HOME/.dotfiles/bin/ranger-term "`$HOME/.dotfiles/bin/xcwd`"

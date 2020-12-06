@@ -46,7 +46,7 @@ c.aliases.update({'drive': 'open -t https://heibox.uni-heidelberg.de/accounts/lo
 c.aliases.update({'hb': 'open -t https://heibox.uni-heidelberg.de/accounts/login/?next=/'}) 
 c.aliases.update({'nas': 'open -t http://192.168.0.26:8080'}) 
 c.aliases.update({'nasout': 'open -t qlink.to/jumpinglangur'}) 
-c.aliases.update({"clean" : "spawn --userscript readability"})
+c.aliases.update({"clean" : "spawn --userscript readability-js"})
 
 
 ## Width (in pixels) of the scrollbar in the completion window.
@@ -275,6 +275,13 @@ config.bind('h', 'open')
 # Enable chromium dark mode
 config.set("colors.webpage.darkmode.enabled", False)
 config.set("colors.webpage.prefers_color_scheme_dark", True)
+
+# Expand in old reddit
+config.set('hints.selectors', {'preview': ['.expando-button']},pattern='*://*.reddit.com/*')
+config.bind(';p', 'hint preview')
+
+# Clean mode
+config.bind('cl', 'spawn --userscript readability-js')
 
 #
 # =============== Youtube ad blocking ================

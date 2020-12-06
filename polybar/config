@@ -23,12 +23,13 @@ background-alt = #444
 foreground = #dfdfdf
 foreground-alt = #dfdfdf
 one = ${xrdb:color1:#ffb52a}
-two = ${xrdb:color2:#e60053}
+two = ${xrdb:color2:#46cc63}
 three = ${xrdb:color3:#0a6cf5}
 four = ${xrdb:color4:#0a6cf5}
 five = ${xrdb:color5:#9f78e1}
 gray = ${xrdb:color8:#6a6a6a}
 alert = ${xrdb:color1:#bd2c40}
+ok = ${xrdb:color2:#46cc63}
 
 [bar/bar-fhd]
 monitor = ${env:MONITOR:}
@@ -509,18 +510,24 @@ adapter = ADP1
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = ${colors.one}
+format-charging-underline = ${colors.ok}
 
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+format-discharging-underline = ${colors.alert}
 
 format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
+format-full-prefix-foreground = ${colors.ok}
+format-full-underline = ${colors.ok}
+
+format-low = <format-low-prefix> <label-low>
+format-low-prefix = " "
+format-low-prefix-foreground = ${colors.alert}
+format-low-underline = ${colors.alert}
 
 label-charging = %percentage%
 label-discharging = %percentage%
 label-full = %percentage%
+label-low = %percentage%
 
 ramp-capacity-9 = 
 ramp-capacity-8 = 
@@ -541,8 +548,8 @@ animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-5 = 
 animation-charging-6 = 
-animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-framerate = 750
+animation-charging-foreground = ${colors.ok}
+animation-charging-framerate = 1000
 
 animation-discharging-0 = 
 animation-discharging-1 = 
@@ -554,8 +561,8 @@ animation-discharging-6 = 
 animation-discharging-7 = 
 animation-discharging-8 = 
 animation-discharging-9 = 
-animation-discharging-foreground = ${colors.foreground-alt}
-animation-discharging-framerate = 750
+animation-discharging-foreground = ${colors.alert}
+animation-discharging-framerate = 1000
 
 [module/powermenu]
 type = custom/menu
