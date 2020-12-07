@@ -1,10 +1,63 @@
 # Don't print a new line at the start of the prompt
 add_newline = false
 
+[prompt]
+format = "$all"
+
+[username]
+style_user = "green bold"
+style_root = "black bold"
+format = "[$user]($style)"
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format =  "@[$hostname:](blue)"
+trim_at = ".companyname.com"
+disabled = false
+
+[directory]
+truncation_length = 8
+truncate_to_repo = true
+truncation_symbol = "…/"
+
 # Replace the "❯" symbol in the prompt with "➜"
 [character]                            # The name of the module we are configuring is "character"
 success_symbol = "[➜](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+error_symbol = "[➜](bold red)"
 
-# Disable the package module, hiding it from the prompt completely
-#[package]
-#disabled = true
+
+# DISABLED MODULES
+[aws]
+disabled = true
+
+[conda]
+disabled = true
+
+[crystal]
+disabled = true
+
+[dart]
+disabled = true
+
+[dotnet]
+disabled = true
+
+[elixir]
+disabled = true
+
+[elm]
+disabled = true
+
+[golang]
+disabled = true
+
+[julia]
+disabled = true
+
+[swift]
+disabled = true
+
+[terraform]
+disabled = true
