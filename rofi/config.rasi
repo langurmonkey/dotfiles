@@ -1,0 +1,15 @@
+configuration {
+	modi: "run,drun,window,ssh";
+	lines: 20;
+	font: ""FiraCode Nerd Font" 16";
+	show-icons: true;
+	terminal: "kitty";
+	icon-theme: "Numix";
+	sidebar-mode: true;
+	eh: 1;
+	theme: "/home/tsagrista/.dotfiles/rofi/themes/sidetab.rasi";
+	display-window: "Tasks";
+	display-run: "Run";
+	display-ssh: "SSH";
+	display-drun: "Launch";
+}
