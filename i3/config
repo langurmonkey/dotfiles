@@ -42,10 +42,15 @@ bindsym $mod+grave kill
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
+# start rofi
+# RUN
+bindsym $mod+d exec rofi -show run
+# WINDOW
+bindsym $mod+g exec rofi -show window
 # start dmenu
-bindsym $mod+d exec $HOME/.dotfiles/bin/dmenu-wal
+#bindsym $mod+d exec $HOME/.dotfiles/bin/dmenu-wal
 # start fmenu (search home)
-bindsym $mod+shift+d exec $HOME/.dotfiles/bin/fmenu -i $HOME -t +10
+#bindsym $mod+shift+d exec $HOME/.dotfiles/bin/fmenu -i $HOME -t +10
 bindsym XF86Search exec $HOME/.dotfiles/bin/fmenu -i $HOME -t +10
 
 # dmenu shortcuts
@@ -149,8 +154,6 @@ bindsym $mod+Shift+w exec NODE_PATH=$(npm root -g) qutebrowser --backend webengi
 bindsym $mod+Control+w exec firefox
 bindsym $mod+Shift+t exec thunderbird
 bindsym $mod+Shift+f exec $HOME/.dotfiles/bin/ranger-term "`$HOME/.dotfiles/bin/xcwd`"
-bindsym $mod+equal exec $HOME/.dotfiles/bin/= --dmenu=dmenu
-bindsym $mod+Shift+u exec $HOME/.dotfiles/bin/dmenuunicode
 
 # WORKSPACES
 #set $ws1 "1 "

@@ -1,0 +1,9 @@
+# Default
+rofi.theme: /home/tsagrista/.dotfiles/rofi/themes/sidetab.rasi
+rofi.font:                           "FiraCode Nerd Font" 16
+rofi.lines:                          20
+rofi.show-icons:                     true
+rofi.terminal:                       kitty
+! "Row height (in chars)" Set from: Default
+rofi.eh:                             1.2
+
