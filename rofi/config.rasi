@@ -1,7 +1,7 @@
 configuration {
-	modi: "run,drun,window,ssh";
+	modi: "run,drun,window,calc,ssh";
 	lines: 20;
-	font: ""FiraCode Nerd Font" 16";
+	font: ""FiraCode Nerd Font" 12";
 	show-icons: true;
 	terminal: "kitty";
 	icon-theme: "Numix";
@@ -12,4 +12,5 @@ configuration {
 	display-run: "Run";
 	display-ssh: "SSH";
 	display-drun: "Launch";
+    display-calc: "Calc";
 }
