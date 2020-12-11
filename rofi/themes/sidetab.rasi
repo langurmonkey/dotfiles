@@ -4,10 +4,12 @@
  */
 
 configuration {
-	display-drun:    "Activate";
-	display-run:     "Execute";
-	display-window:  "Window";
+	display-drun:    "Launch";
+	display-run:     "Run";
+	display-window:  "Tasks";
+	display-ssh:     "SSH";
 	show-icons:      true;
+    icon-theme:      "Numix";
 	sidebar-mode:    true;
 }
 

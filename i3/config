@@ -45,7 +45,9 @@ bindsym $mod+minus scratchpad show
 # start rofi
 # RUN
 bindsym $mod+d exec rofi -show run
-# WINDOW
+# LAUNCH
+bindsym $mod+z exec rofi -show drun
+# TASKS
 bindsym $mod+g exec rofi -show window
 # start dmenu
 #bindsym $mod+d exec $HOME/.dotfiles/bin/dmenu-wal
