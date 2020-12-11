@@ -399,7 +399,7 @@ exec --no-startup-id wal -a 80 --theme "$HOME/.dotfiles/pywal/themes/dark/base16
 # 
 # COMPOSITOR - window compositor
 #
-exec --no-startup-id picom --experimental-backends -b --config "$HOME/.dotfiles/picom/picom.conf"
+exec --no-startup-id $HOME/.dotfiles/bin/togglepicom
 
 #
 # RANDR - monitor setup
@@ -409,7 +409,7 @@ exec_always --no-startup-id $HOME/.local/bin/current-randr.sh
 #
 # WALLPAPER - after screens have been setup
 #
-exec_always --no-startup-id feh --bg-fill $HOME/Pictures/wallpaper.jpg
+exec_always --no-startup-id $HOME/.dotfiles/bin/wallpaper-apply
 
 #
 # BAR (polybar, bumblebee-status, i3status...)
