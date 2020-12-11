@@ -50,7 +50,9 @@ bindsym $mod+z exec rofi -show drun
 # TASKS
 bindsym $mod+g exec rofi -show window
 # CALC
-bindsym $mod+equal exec rofi -show calc
+bindsym $mod+equal exec rofi -show calc -no-show-match -no-sort
+# PASS
+bindsym $mod+i exec rofi-pass
 # start dmenu
 #bindsym $mod+d exec $HOME/.dotfiles/bin/dmenu-wal
 # start fmenu (search home)
