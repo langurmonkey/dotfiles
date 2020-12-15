@@ -1,20 +1,46 @@
 #!/bin/bash
 
-if [ $# -ne 2 ]
-  then
+help () {
+    echo "Resizes images using a specific filter"
+    echo
     echo "Usage:"
-    echo "$0 DIR SIZE"
+    echo "  $(basename $0) DIR SIZE FILTER"
     echo "        DIR: directory with input files"
     echo "        SIZE: target size, something like 30% or 640x640"
-    exit 0
+    echo "        FILTER: nearest|linear|gaussian"
+}
+
+if [ $# -ne 3 ]
+    then
+        help
+        exit 1
 fi
 
 INPUT_DIR=$1
 TARGET_SIZE=$2
+FILTER=$3
+
+case $FILTER in
+    nearest)
+        OPTS="-filter point"
+        ;;
+    linear)
+        OPTS=""
+        ;;
+    gaussian)
+        OPTS="-filter Gaussian"
+        ;;
+    *)
+        echo "Error: filter value not recognized: $FILTER"
+        exit 1
+        ;;
+esac
 
 for IMG in `ls $INPUT_DIR/*.png $INPUT_DIR/*.jpg`
 do
   IMG_FILE=$(basename $IMG)
-  echo "Resizing $INPUT_DIR/$IMG_FILE to $TARGET_SIZE, saving to $INPUT_DIR/processed-$IMG_FILE"
-  convert $INPUT_DIR/$IMG_FILE -resize $TARGET_SIZE $INPUT_DIR/processed-$IMG_FILE
+  echo "Resizing $INPUT_DIR/$IMG_FILE to $TARGET_SIZE using $FILTER, saving to $INPUT_DIR/processed-$IMG_FILE"
+
+  # RESIZE
+  convert $INPUT_DIR/$IMG_FILE $OPTS -resize $TARGET_SIZE $INPUT_DIR/processed-$IMG_FILE
 done
