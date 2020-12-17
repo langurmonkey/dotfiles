@@ -44,15 +44,15 @@ bindsym $mod+minus scratchpad show
 
 # start rofi
 # RUN
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec rofi -show run -config $($HOME/.dotfiles/bin/rofi-config)
 # LAUNCH
-bindsym $mod+z exec rofi -show drun
+bindsym $mod+z exec rofi -show drun -config $($HOME/.dotfiles/bin/rofi-config)
 # TASKS
-bindsym $mod+g exec rofi -show window
+bindsym $mod+g exec rofi -show window -config $($HOME/.dotfiles/bin/rofi-config)
 # CALC
-bindsym $mod+equal exec rofi -show calc -no-show-match -no-sort
+bindsym $mod+equal exec rofi -show calc -no-show-match -no-sort -config $($HOME/.dotfiles/bin/rofi-config)
 # PASS
-bindsym $mod+i exec rofi-pass
+bindsym $mod+i exec rofi-pass -config $($HOME/.dotfiles/bin/rofi-config)
 # start dmenu
 #bindsym $mod+d exec $HOME/.dotfiles/bin/dmenu-wal
 # start fmenu (search home)
