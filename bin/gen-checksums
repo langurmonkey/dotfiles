@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# This script generates the sha256 and md5 checksums of the first
+# .tar.gz file found in this folder
+
+tarballs=( ./*.tar.gz )
+
+rm sha256 md5
+
+for FILE in "${tarballs[@]}"
+do
+	echo "Generating checksums of file $FILE"
+
+	echo "sha256..."
+	sha256sum $FILE >> sha256
+	echo "md5..."
+	md5sum $FILE >> md5
+done
+
+
+cat sha256 md5
