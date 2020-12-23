@@ -13,12 +13,23 @@
 [alias]
     lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
     lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+    lgb = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches
     lg = log --stat --pretty=short --graph
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    l = log --oneline
+    
     co = checkout
     br = branch
     st = status
-    lgb = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches
+    ci = commit
+    cm = commit -m
     pushall = !"git remote | xargs -L1 git push --all"
+
+    unstage = reset HEAD --
+    undo = reset --soft HEAD^
+    bm = branch --merged
+    discard = !git stash save --keep-index --include-untracked && git stash drop
+    dd = diff --dirstat --find-copies --find-renames --histogram --color
 [core]
     autocrlf = input
     eol = lf
