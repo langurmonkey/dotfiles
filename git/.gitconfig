@@ -24,6 +24,7 @@
     ci = commit
     cm = commit -m
     pushall = !"git remote | xargs -L1 git push --all"
+    pa = !"git remote | xargs -L1 git push --all"
 
     unstage = reset HEAD --
     undo = reset --soft HEAD^
