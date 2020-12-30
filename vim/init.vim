@@ -40,6 +40,10 @@ syntax enable
 filetype plugin indent on
 colorscheme OceanicNext
 
+" default to UTF-8
+set fileencodings=utf-8
+set encoding=utf-8
+
 " enable auto indent
 set autoindent
 

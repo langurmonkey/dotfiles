@@ -217,6 +217,7 @@ assign [class="Signal"] $ws9
 assign [class="Steam"] $ws5
 
 # default floating
+for_window [class="gimp"] floating enable sticky enable
 for_window [class="Lxappearance"] floating enable sticky enable
 for_window [class="qt5ct"] floating enable sticky enable
 for_window [class="Qtconfig-qt4"] floating enable sticky enable
