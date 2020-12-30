@@ -9,6 +9,7 @@ FILE_VIMINIT=$DIR_VIMCONFIG/init.vim
 DIR_VIMPLUGINS=$DIR_VIMCONFIG/plugged
 DIR_RANGER=~/.config/ranger
 DIR_NNN=~/.config/nnn
+DIR_LF=~/.config/lf
 DIR_ZSHPLUGINS=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins
 DIR_VISCONFIG=~/.config/vis
 DIR_NEWSBOAT=~/.config/newsboat
@@ -145,6 +146,14 @@ fi
 
 # Create nnn config symlink
 do-symlink $DOTFILES_PATH/nnn $DIR_NNN
+
+#
+# LF
+#
+echo-custom " ** " "==== LF ===="
+
+# Create nnn config symlink
+do-symlink $DOTFILES_PATH/lf $DIR_LF
 
 #
 # zsh-autosuggestions
