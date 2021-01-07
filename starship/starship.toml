@@ -9,10 +9,10 @@ style_user = "green bold"
 style_root = "black bold"
 format = "[$user]($style)"
 disabled = false
-show_always = true
+show_always = false
 
 [hostname]
-ssh_only = false
+ssh_only = true
 format =  "@[$hostname:](blue)"
 trim_at = ".companyname.com"
 disabled = false
