@@ -242,6 +242,7 @@ for_window [class="gaia-cu3-fl-flse-test-FlseTestClient"] floating enable
 for_window [class="gaia-cu1-maindb-dbexplorer-progs-ExplorerApplication"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class=".*jprofiler.*"] floating enable
+for_window [class="FreeTube"] floating enable
 for_window [title="Blender User Preferences"] floating enable
 for_window [title="Blender Preferences"] floating enable
 for_window [title="alsamixer"] floating enable
