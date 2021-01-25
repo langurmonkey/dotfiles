@@ -174,6 +174,9 @@ c.tabs.favicons.scale = 1.5
 ## Type: Padding
 c.tabs.indicator.padding = {'top': 10, 'bottom': 10, 'left': 5, 'right': 10}
 
+## Open tabs in background
+c.tabs.background = True
+
 ## Width (in pixels) of the progress indicator (0 to disable).
 ## Type: Int
 c.tabs.indicator.width = 10
