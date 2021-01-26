@@ -10,7 +10,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall
 endif
 
-" Plugins
+" Plugins with vim-plug
 call plug#begin('~/.config/nvim/plugged')
     Plug 'alvan/vim-closetag'
     Plug 'mcchrish/nnn.vim'
@@ -21,6 +21,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ervandew/supertab'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'rust-lang/rust.vim'
 call plug#end()
         
 " use mouse to resize, scroll, etc. even within tmux
@@ -228,6 +229,10 @@ let g:netrw_banner = 0
 " Open files in new vertical split
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
+
+" Format rust files on save with rustfmt
+let g:rustfmt_autosave = 1
+
 " remap control-enter to open files in new tab
 nmap <silent> <C-CR> t :rightbelow 20vs<CR>:e .<CR>:wincmd h<CR>
 
