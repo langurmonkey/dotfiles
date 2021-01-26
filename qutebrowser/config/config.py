@@ -249,7 +249,9 @@ c.url.start_pages = ['file://' + home + '/.dotfiles/startpage/index.html']
 c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%', '150%', '175%', '200%', '250%', '300%', '400%', '500%']
 
 
+
 ## Bindings
+config.bind('<Ctrl-0>', 'zoom 100')
 config.bind('K', 'tab-next')
 config.bind('J', 'tab-prev')
 config.bind('e', 'set-cmd-text :open {url:pretty}')
