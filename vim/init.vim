@@ -22,6 +22,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'rust-lang/rust.vim'
+    Plug 'neoclide/coc.nvim', { 'branch': 'release'}
 call plug#end()
         
 " use mouse to resize, scroll, etc. even within tmux
