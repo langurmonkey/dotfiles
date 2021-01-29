@@ -252,12 +252,18 @@ c.url.start_pages = ['file://' + home + '/.dotfiles/startpage/index.html']
 c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%', '150%', '175%', '200%', '250%', '300%', '400%', '500%']
 
 
-# Dark mode
-# 
+## Dark mode
+## 
 c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
 c.colors.webpage.darkmode.threshold.text = 150
 c.colors.webpage.darkmode.threshold.background = 205
+
+## External file picker: ranger
+##
+c.fileselect.handler = 'external'
+c.fileselect.multiple_files.command = ["kitty", "ranger", "--choosefiles={}"]
+c.fileselect.single_file.command = ["kitty", "ranger", "--choosefile={}"]
 
 ## Bindings
 config.bind('<Ctrl-0>', 'zoom 100')
