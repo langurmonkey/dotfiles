@@ -131,6 +131,12 @@ c.content.ssl_strict = True
 ## Type: List of File, or File
 c.content.user_stylesheets = [ "scrollbar.css" ]
 
+## Adblocking
+##
+##
+c.content.blocking.enabled = True
+c.content.blocking.method = 'both'
+
 ## Editor (and arguments) to use for the `open-editor` command. The
 ## following placeholders are defined: * `{file}`: Filename of the file
 ## to be edited. * `{line}`: Line in which the caret is found in the
@@ -249,6 +255,12 @@ c.url.start_pages = ['file://' + home + '/.dotfiles/startpage/index.html']
 c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%', '150%', '175%', '200%', '250%', '300%', '400%', '500%']
 
 
+# Dark mode
+# 
+c.colors.webpage.darkmode.enabled = True
+c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
+c.colors.webpage.darkmode.threshold.text = 150
+c.colors.webpage.darkmode.threshold.background = 205
 
 ## Bindings
 config.bind('<Ctrl-0>', 'zoom 100')
@@ -278,9 +290,6 @@ config.bind('td', 'open -t https://tweetdeck.twitter.com')
 config.bind('yo', 'open -t https://youtube.com')
 config.bind('h', 'open')
 
-# Enable chromium dark mode
-config.set("colors.webpage.darkmode.enabled", False)
-config.set("colors.webpage.prefers_color_scheme_dark", True)
 
 # Expand in old reddit
 config.set('hints.selectors', {'preview': ['.expando-button']},pattern='*://*.reddit.com/*')
