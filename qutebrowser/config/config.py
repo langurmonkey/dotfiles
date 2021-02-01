@@ -255,7 +255,7 @@ c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%
 
 ## Dark mode
 ## 
-c.colors.webpage.darkmode.enabled = True
+c.colors.webpage.darkmode.enabled = False
 c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
 c.colors.webpage.darkmode.threshold.text = 150
 c.colors.webpage.darkmode.threshold.background = 205
