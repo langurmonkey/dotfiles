@@ -1,5 +1,7 @@
 " not compatible with ancient versions
 set nocompatible
+" Leader key is comma
+let mapleader=" "
 
 " PLUGINS
 "
@@ -23,6 +25,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'vim-airline/vim-airline-themes'
     Plug 'rust-lang/rust.vim'
     Plug 'neoclide/coc.nvim', { 'branch': 'release'}
+    Plug 'ojroques/vim-scrollstatus'
 call plug#end()
         
 " use mouse to resize, scroll, etc. even within tmux
@@ -36,6 +39,7 @@ set clipboard=unnamed
 if has('unnamedplus')
     set clipboard=unnamed,unnamedplus
 endif
+
 
 " enable syntax
 syntax enable
@@ -99,6 +103,10 @@ map <A-Right> :tabnext<CR>
 map <C-i> :tabnext<CR>
 map <A-n> <Esc>:tabnew<CR>
 map <A-c> :tabclose<CR>
+" new tab from current buffer
+map <leader>tt :tabedit %<CR>
+" exit to space+q
+map <leader>q :q<CR>
 
 " Splits
 map <C-s> :vsplit<CR>
@@ -145,6 +153,8 @@ vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 " center view on the search result
 noremap n nzz
 noremap N Nzz
+
+
 
 " show tab numbers
 set tabline=%!MyTabLine()  " custom tab pages line
@@ -218,6 +228,9 @@ function MyTabLine()
         return s
 endfunction
 
+" Minimap
+"
+
 "
 " NetRW configuration
 " map ctrl-t to NetRW
@@ -245,5 +258,11 @@ aug i3config_ft_detection
   au BufNewFile,BufRead ~/.dotfiles/i3/config set filetype=i3config
 aug end
 
+"
+" Airline
+"
 let g:airline_theme = 'base16'
 let g:airline_powerline_fonts = 1
+" scrollbar in airline
+let g:airline_section_x = '%{ScrollStatus()}'
+let g:scrollstatus_size = 30
