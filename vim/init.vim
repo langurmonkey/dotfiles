@@ -40,7 +40,7 @@ endif
 " enable syntax
 syntax enable
 filetype plugin indent on
-colorscheme OceanicNext
+colorscheme gruvbox
 
 " default to UTF-8
 set fileencodings=utf-8
@@ -55,7 +55,7 @@ set tabstop=4
 " when using << or >> commands, shift lines by 4 spaces
 set shiftwidth=4
 
-set relativenumber              " show line numbers
+"set relativenumber              " show line numbers
 set number
 set showcmd             " show command in bottom bar
 set cursorline          " highlight current line
@@ -93,8 +93,10 @@ let g:nnn#command = 'nnn -d'
 map <C-c> :bd<CR>
 
 " Tabs
-map <A-Up> :tabprevious<CR>
-map <A-Down> :tabnext<CR>
+map <A-Left> :tabprevious<CR>
+map <C-u> :tabprevious<CR>
+map <A-Right> :tabnext<CR>
+map <C-i> :tabnext<CR>
 map <A-n> <Esc>:tabnew<CR>
 map <A-c> :tabclose<CR>
 
