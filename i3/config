@@ -16,7 +16,7 @@ font pango:FiraCode Nerd Font 10
 #for_window [class="^.*"] border pixel 0 
 default_border pixel 2
 default_floating_border normal
-gaps inner 6
+gaps inner 4
 gaps outer 0
 
 # Colors
