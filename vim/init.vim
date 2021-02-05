@@ -228,8 +228,9 @@ function MyTabLine()
         return s
 endfunction
 
-" Minimap
+" Coc explorer
 "
+nmap <space>e :CocCommand explorer<CR>
 
 "
 " NetRW configuration
