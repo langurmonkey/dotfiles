@@ -25,7 +25,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'vim-airline/vim-airline-themes'
     Plug 'rust-lang/rust.vim'
     Plug 'neoclide/coc.nvim', { 'branch': 'release'}
-    Plug 'ojroques/vim-scrollstatus'
+    "Plug 'ojroques/vim-scrollstatus'
+    Plug 'wfxr/minimap.vim'
 call plug#end()
         
 " use mouse to resize, scroll, etc. even within tmux
@@ -73,8 +74,6 @@ set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
 
 set spell spelllang=en_us
-
-
 
 " disable omnicompletion
 filetype plugin on
@@ -265,5 +264,13 @@ aug end
 let g:airline_theme = 'base16'
 let g:airline_powerline_fonts = 1
 " scrollbar in airline
-let g:airline_section_x = '%{ScrollStatus()}'
-let g:scrollstatus_size = 30
+"let g:airline_section_x = '%{ScrollStatus()}'
+"let g:scrollstatus_size = 20
+"let g:scrollstatus_symbol_track = '◻︎'
+"let g:scrollstatus_symbol_bar = '◼︎'
+
+
+"
+" Minimap
+"
+let g:minimap_auto_start = 1
