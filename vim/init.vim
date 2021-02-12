@@ -27,7 +27,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'neoclide/coc.nvim', { 'branch': 'release'}
     Plug 'ojroques/vim-scrollstatus'
     Plug 'lervag/vimtex'
-    Plug 'preservim/nerdcommenter'
+    Plug 'tpope/vim-commentary'
 call plug#end()
         
 " use mouse to resize, scroll, etc. even within tmux
@@ -258,9 +258,3 @@ let g:airline_section_x = '%{ScrollStatus()}'
 let g:scrollstatus_size = 20
 let g:scrollstatus_symbol_track = '─'
 let g:scrollstatus_symbol_bar = '█'
-
-"
-" NerdCommenter
-"
-" Create default mappings
-let g:NERDCreateDefaultMappings = 1
