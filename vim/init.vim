@@ -137,14 +137,8 @@ set listchars=tab:▸\ ,eol:¬
 set splitbelow
 set splitright
 
-" map space to insert a single character and return to normal mode
-nnoremap <Space> i_<Esc>r
-
 " double space saves buffer
-nnoremap <space><space> :w<cr>
-
-" search for selected text
-vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+nnoremap <leader><leader> :w<cr>
 
 " prompt for reload when file changes
 :au WinEnter * checktime
@@ -226,10 +220,6 @@ function MyTabLine()
         endif
         return s
 endfunction
-
-" Coc explorer
-"
-nmap <space>e :CocCommand explorer<CR>
 
 "
 " NetRW configuration
