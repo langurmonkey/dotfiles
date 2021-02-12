@@ -124,7 +124,6 @@ noremap <A-k> :resize +5<CR>
 
 " FZF
 map <C-p> :Files<CR>
-map <C-a> :Ag<CR>
 map gb :Buffers<CR>
 
 " Shortcut to rapidly toggle `set list`
