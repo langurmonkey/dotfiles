@@ -26,6 +26,18 @@ set hidden
 # leave some space at the top and the bottom of the screen
 set scrolloff 10
 
+# image preview
+set previewer ~/.config/lf/pv
+set cleaner ~/.config/lf/cls
+# define a custom 'open' command
+cmd open $$OPENER $fx
+cmd open-choose $OPENER_CHOOSE="true" $OPENER $fx
+# dedicated keys for file opener actions
+map o open
+map O open-choose
+#map o &mimeopen $f
+#map O $mimeopen --ask $f
+
 # use enter for shell commands
 map S shell
 
@@ -35,10 +47,6 @@ map X !$f
 
 # go home
 map ~ :cd ~
-
-# dedicated keys for file opener actions
-map o &mimeopen $f
-map O $mimeopen --ask $f
 
 # image/video previews
 
