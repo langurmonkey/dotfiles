@@ -46,7 +46,10 @@ endif
 " enable syntax
 syntax enable
 filetype plugin indent on
+
+" color scheme
 colorscheme gruvbox
+set background=dark
 
 " default to UTF-8
 set fileencodings=utf-8
