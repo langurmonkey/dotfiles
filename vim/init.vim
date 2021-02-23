@@ -125,7 +125,7 @@ noremap <A-l> :vertical resize +5<CR>
 noremap <A-j> :resize -5<CR>
 noremap <A-k> :resize +5<CR>
 
-" FZF
+" fzf
 map <C-p> :Files<CR>
 map gb :Buffers<CR>
 
