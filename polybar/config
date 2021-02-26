@@ -64,7 +64,7 @@ font-0 = "FiraCode Nerd Font:size=10;0"
 
 modules-left = i3 
 modules-center = xwindow-short
-modules-right = mpd xkeyboard updates-arch filesystem memory-info cpu temperature custom-bluetooth wlan eth backlight battery pulseaudio popup-calendar nm-launcher powermenu
+modules-right = mpd xkeyboard updates-arch filesystem memory-info cpu temperature custom-bluetooth wlan eth backlight battery pulseaudio popup-calendar 
 
 tray-position = right
 tray-padding = 1
