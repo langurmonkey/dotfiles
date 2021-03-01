@@ -165,7 +165,8 @@ cmd bulkrename ${{
 }}
 map R bulkrename
 
-# with lfcd, use Q to return to original directory
+# use q to exit to current directory
+# use Q to return to original directory
 push mw
-map q push 'w:quit<enter>
-map Q push :quit<enter>
+map Q push 'w:quit<enter>
+map q push :quit<enter>

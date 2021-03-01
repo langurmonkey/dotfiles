@@ -14,9 +14,17 @@
 #     bindkey -s '^o' 'lfcd\n'  # zsh
 #
 
-lfcd () {
+lf () {
     tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
+
+    # use lfi if found
+    if ! command -v lfi &> /dev/null
+    then
+        lf -last-dir-path="$tmp" "$@"
+    else
+        lfi -last-dir-path="$tmp" "$@"
+    fi
+
     if [ -f "$tmp" ]; then
         dir="$(cat "$tmp")"
         rm -f "$tmp"
