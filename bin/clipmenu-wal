@@ -3,4 +3,4 @@
 # Import the colors
 . "${HOME}/.cache/wal/colors.sh"
 
-clipmenu -fn "FiraCode Nerd Font-9" -l 10 -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"
+clipmenu -fn "CaskaydiaCove Nerd Font-9" -l 10 -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"

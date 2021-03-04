@@ -10,7 +10,7 @@ set $mod2 Mod1
 set $myterm kitty
 
 # Font for window titles.
-font pango:FiraCode Nerd Font 10 
+font pango:CaskaydiaCove Nerd Font 10 
 
 # Gaps
 #for_window [class="^.*"] border pixel 0 
