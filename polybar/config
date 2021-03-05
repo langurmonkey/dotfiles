@@ -91,6 +91,8 @@ monitor = ${env:MONITOR:}
 height = 36
 line-size = 1
 
+font-0 = "FiraCode Nerd Font Mono:size=16;0"
+
 modules-center = xwindow
 
 ; same as other, but only show workspaces on slave bar
