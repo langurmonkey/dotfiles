@@ -268,6 +268,7 @@ c.fileselect.multiple_files.command = ["kitty", "ranger", "--choosefiles={}"]
 c.fileselect.single_file.command = ["kitty", "ranger", "--choosefile={}"]
 
 ## Bindings
+config.bind('wi', 'devtools bottom')
 config.bind('<Ctrl-0>', 'zoom 100')
 config.bind('K', 'tab-next')
 config.bind('J', 'tab-prev')
