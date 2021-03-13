@@ -624,9 +624,6 @@ c.colors.tabs.selected.even.fg = base11
 # Background color of selected even tabs.
 c.colors.tabs.selected.even.bg = base10
 
-# Prefer dark scheme
-c.colors.webpage.prefers_color_scheme_dark = True
-
 # Background color for webpages if unset (or empty to use the theme's
 # color).
 # c.colors.webpage.bg = base00
