@@ -24,12 +24,13 @@ URxvt.color7  : #D3D3D7D7CFCF
 URxvt.color15 : #EEEEEEEEECEC
 
 URxvt*foreground : White
-URxvt*background : [93]Black
+URxvt*background : [95]Black
 URxvt*depth: 32
+URxvt*saveLines: 100000
 
 ! fonts
 ! run "fc-list" for a list of available fonts
-URxvt*font: xft:Inconsolata:pixelsize=20
+URxvt*font: xft:FiraCode NerdFont:size=20
 
 ! extensions: font size and URL matcher
 URxvt.perl-ext-common: font-size,matcher
@@ -39,8 +40,9 @@ URxvt.matcher.button: 1
 ! save lines
 URxvt.saveLines: 50000
 
-! no scrollbar
+! no scrollbars
 URxvt*scrollBar: False
+URxvt*scrollWithBuffer: False
 
 ! k and j to scroll up and down
 URxvt.keysym.Meta-k: command:\033]720;1\007

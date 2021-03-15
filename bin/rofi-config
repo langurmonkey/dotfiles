@@ -3,7 +3,7 @@
 if which xdpyinfo >/dev/null; then
     SCREEN_WIDTH=$(xdpyinfo | awk '/dimensions/{print $2}' | awk -F "x" '{print $1}')
     SCREEN_HEIGHT=$(xdpyinfo | awk '/dimensions/{print $2}' | awk -F "x" '{print $2}')
-    if [ "$SCREEN_WIDTH" -gt "1920" ]; then
+    if [ "$SCREEN_HEIGHT" -gt "2000" ]; then
         # HiDPI
         echo ~/.config/rofi/config-hidpi.rasi
         exit 0

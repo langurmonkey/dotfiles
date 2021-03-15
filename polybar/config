@@ -106,7 +106,7 @@ tray-position =
 [bar/bar-fhd-slave]
 inherit = bar/bar-fhd
 monitor = ${env:MONITOR:}
-modules-right = pulseaudio popup-calendar 
+modules-right = mpd pulseaudio popup-calendar 
 tray-position =
 
 [module/xwindow]

@@ -31,4 +31,4 @@ Deploy the environment anytime using the `deploy` script:
 - [ranger](docs/ranger.md)
 - [vim](docs/vim.md)
 - [pass](docs/pass.md)
-
+- [HOWTO HiDPI](docs/hidpi.md)
