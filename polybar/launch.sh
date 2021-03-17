@@ -10,27 +10,22 @@ sleep 1
 # We will run a configuration depending on the host name
 HOSTNAME=$(cat /etc/hostname)
 
-
 # ARI hidalgo - 2 bars - ubuntu+hidpi
 if [[ $HOSTNAME == "hidalgo" ]]; then
-    echo "HIDALGO"
-    MONITOR=DP-2 polybar bar-hidpi &
-    MONITOR=DVI-D-0 polybar bar-hidpi-slave &
+    BAR_NAME=bar-fhd
+    #BAR_NAME=bar-hidpi
 
 # IWR herschel - 2 bars - arch+hidpi
 elif [[ $HOSTNAME == "herschel" ]]; then
-    echo "HERSCHEL"
-    MONITOR=DP-0 polybar bar-hidpi &
-    MONITOR=DP-4 polybar bar-hidpi-slave &
+    BAR_NAME=bar-hidpi
 
 # Others - same bar in all monitors
 else
-    echo "NOTHING"
-    #for m in $(polybar --list-monitors | cut -d":" -f1); do
-    #    MONITOR=$m polybar bar-fhd &
-    #done
-    polybar -r bar-fhd &
+    BAR_NAME=bar-fhd
 fi
+
+# Launch bar in each monitor
+for i in $(polybar -m | awk -F: '{print $1}'); do MONITOR=$i polybar $BAR_NAME & done
 
 
 echo "Bar launched!"
