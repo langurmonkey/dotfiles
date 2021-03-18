@@ -226,7 +226,9 @@ echo-ok "Done"
 echo-custom " ** " "==== X, URXVT, Termite ===="
 
 mkdir -p ~/.urxvt/ext/
-# xdefaults
+# .xinitrc
+do-symlink $DOTFILES_PATH/X/.xinitrc ~/.xinitrc
+# .Xdefaults and .Xresources
 XRES_H=$(xwininfo -root|sed '/Height/!d;s/.* //')
 XRES_W=$(xwininfo -root|sed '/Width/!d;s/.* //')
 MYHOSTNAME=$(hostname)
