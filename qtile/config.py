@@ -90,6 +90,7 @@ keys = [
     Key([mod], "z", lazy.spawn("rofi -show drun"), desc="Rofi drun menu"),
     Key([mod], "g", lazy.spawn("rofi -show window"), desc="Rofi window menu"),
     Key([mod], "equal", lazy.spawn("rofi -show calc -no-show-math -no-sort"), desc="Rofi calc menu"),
+    Key([mod], "escape", lazy.spawn("rofi -show p -modi 'p:rofi-power-menu --confirm=reboot/shutdown/logout' -font 'FiraCode Nerd Font 15'"), desc="Rofi power menu"),
     Key([mod], "i", lazy.spawn("rofi-pass"), desc="Rofi calc menu"),
 
     # Browser
@@ -114,6 +115,7 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(),
         desc="Spawn a command using a prompt widget"),
+
 ]
 
 groups = [
@@ -144,26 +146,32 @@ for i in groups:
         #     desc="move focused window to group {}".format(i.name)),
     ])
 
+layout_theme = {"border_width": 2,
+                "margin": 8,
+                "border_focus": colors[7][0]
+                }
+
 layouts = [
-    layout.Columns(border_focus=colors[7][0]),
-    layout.Max(),
-    # Try more layouts by unleashing below layouts.
-     layout.Stack(num_stacks=2),
-     layout.Bsp(),
-     layout.Matrix(),
-     layout.MonadTall(),
-     layout.MonadWide(),
-     layout.RatioTile(),
-     layout.Tile(),
-     layout.TreeTab(),
-     layout.VerticalTile(),
-     layout.Zoomy(),
+    layout.Columns(**layout_theme),
+    layout.MonadTall(**layout_theme),
+    layout.Max(**layout_theme),
+    layout.Matrix(**layout_theme),
+    layout.RatioTile(**layout_theme),
+    layout.Tile(**layout_theme),
+    layout.TreeTab(**layout_theme),
+    layout.Floating(**layout_theme),
+    #layout.Stack(num_stacks=2),
+    #layout.MonadWide(**layout_theme),
+    #layout.Bsp(**layout_theme),
+    #layout.VerticalTile(**layout_theme),
+    #layout.Zoomy(**layout_theme),
 ]
 
 widget_defaults = dict(
     font='FiraCode Nerd Font',
     fontsize=12,
-    padding=3,
+    padding=6,
+    background=colors[0]
 )
 extension_defaults = widget_defaults.copy()
 
@@ -172,27 +180,74 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayoutIcon(padding=6),
+                widget.CurrentLayoutIcon(),
+
                 widget.GroupBox(),
-                widget.WindowName(padding=6),
+
+                widget.WindowName(),
+
                 widget.Chord(
                     chords_colors={
                         'launch': (colors[9], colors[1]),
                     },
-                    name_transform=lambda name: name.upper(),
+                    name_transform=lambda name: name.upper()
                 ),
+
                 widget.Spacer(),
-                widget.KeyboardLayout(fmt=' {}', layout_groups=['us','es'], padding=6),
-                widget.CheckUpdates(fmt=' {}', display_format='{updates}', colour_have_updates=colors[7], colour_no_updates=colors[1], distro='Arch', padding=6),
-                widget.Mpd2(foreground=colors[11], padding=6),
-                widget.Wlan(padding=6),
-                widget.CPU(foreground=colors[5], padding=6),
-                widget.Memory(foreground=colors[8], measure_mem='G', padding=6),
-                widget.Battery(format='{char} {percent:2.0%}', full_char='', charge_char='', discharge_char='', empty_char='', foreground=colors[7], low_foreground=colors[9], padding=6),
-                widget.Volume(foreground=colors[10], fmt='墳 {}', padding=6),
-                widget.Clock(format='%Y/%m/%d %H:%M', padding=6),
-                widget.Systray(padding=6),
-                widget.QuickExit(default_text='', countdown_format='{}', padding=16),
+
+                widget.KeyboardLayout(
+                    fmt=' {}',
+                    layout_groups=['us','es']
+                ),
+
+                widget.CheckUpdates(
+                    fmt=' {}',
+                    display_format='{updates}',
+                    colour_have_updates=colors[7],
+                    colour_no_updates=colors[1],
+                    distro='Arch'),
+
+                widget.Mpd2(
+                    foreground=colors[11]
+                ),
+
+                widget.Wlan(),
+
+                widget.CPU(
+                    foreground=colors[5]
+                ),
+
+                widget.Memory(
+                    foreground=colors[8],
+                    measure_mem='G'
+                ),
+
+                widget.Battery(
+                    format='{char} {percent:2.0%}',
+                    full_char='',
+                    charge_char='',
+                    discharge_char='',
+                    empty_char='',
+                    foreground=colors[7],
+                    low_foreground=colors[9]
+                ),
+
+                widget.Volume(
+                    foreground=colors[10],
+                    fmt='墳 {}'
+                ),
+
+                widget.Clock(
+                    format='%Y/%m/%d %H:%M'
+                ),
+
+                widget.Systray(),
+
+                widget.QuickExit(
+                    default_text='',
+                    countdown_format='{}',
+                    padding=14
+                ),
             ],
             24,
         ),
@@ -210,22 +265,59 @@ mouse = [
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
-main = None  # WARNING: this is deprecated and will be removed soon
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(float_rules=[
     # Run the utility of `xprop` to see the wm class and name of an X client.
     *layout.Floating.default_float_rules,
-    Match(wm_class='confirmreset'),  # gitk
-    Match(wm_class='makebranch'),  # gitk
-    Match(wm_class='maketag'),  # gitk
-    Match(wm_class='ssh-askpass'),  # ssh-askpass
-    Match(title='branchdialog'),  # gitk
-    Match(title='pinentry'),  # GPG key password entry
+    Match(wm_class='gimp'),
+    Match(wm_class='Lxapperance'),
+    Match(wm_class='maketag'),
+    Match(wm_class='ssh-askpass'),
+    Match(wm_class='qt5ct'),
+    Match(wm_class='Qtconfig-qt4'),
+    Match(wm_class='Blueman-manager'),
+    Match(wm_class='GParted'),
+    Match(wm_class='Skype'),
+    Match(wm_class='zoom'),
+    Match(wm_class='telegra-desktop'),
+    Match(wm_class='Grub-customizer'),
+    Match(wm_class='Gsimplecal'),
+    Match(wm_class='arandr'),
+    Match(wm_class='Nemo'),
+    Match(wm_class='Gaia Sky'),
+    Match(wm_class='RTS Engine'),
+    Match(wm_class='obs'),
+    Match(wm_class='.*starlink-topcat.*'),
+    Match(wm_class='Audacity'),
+    Match(wm_class='mpv'),
+    Match(wm_class='FreeTube'),
+    Match(wm_class='install4j-com-install4j-Install4JGUI'),
+    Match(title='branchdialog'),
+    Match(title='pinentry'),
+    Match(title='Blender User Preferences'),
+    Match(title='Blender Preferences'),
+    Match(title='alsamixer'),
+    Match(title='Volume Control'),
+    Match(title='SteamVR Status'),
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
+
+# Automatic floating dialogs
+@hook.subscribe.client_new
+def floating_dialogs(window):
+    dialog = window.window.get_wm_type() == 'dialog'
+    transient = window.window.get_wm_transient_for()
+    if dialog or transient:
+        window.floating = True
+
+# Autostart tray, applets, picom, etc.
+@hook.subscribe.startup_once
+def autostart():
+    home = os.path.expanduser('~')
+    subprocess.call([home + '/.dotfiles/X/autostart.sh'])
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
@@ -236,14 +328,3 @@ focus_on_window_activation = "smart"
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
-
-# Autostart tray, applets, picom, etc.
-@hook.subscribe.startup_once
-def autostart():
-    home = os.path.expanduser('~')
-    processes = [
-        [home + '/.dotfiles/X/autostart.sh']
-    ]
-
-    for p in processes:
-        subprocess.Popen(p)
