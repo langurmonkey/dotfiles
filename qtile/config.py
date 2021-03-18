@@ -38,18 +38,20 @@ terminal = "kitty"
 browser = "qutebrowser"
 
 colors = [
-          ["#000", "#000"], # 0 background
-          ["#ffffff", "#ffffff"], # 1 white
-          ["#ff5555", "#ff5555"], # 2 white alt
-          ["#797FD4", "#797FD4"], # 3 violet
-          ["#89aaff", "#89aaff"], # 4 blue
-          ["#89ddff", "#89ddff"], # 5 ice
-          ["#E05F27", "#E05F27"], # 6 orange
-          ["#218933", "#218933"], # 7 green
-          ["#ffab6b", "#ffab6b"], # 8 orange
-          ["#883212", "#883212"], # 9 red
-          ["#a8a212", "#a8a212"], # 10 yellow
-          ["#3254dd", "#3254dd"], # 11 electric blue
+          ["000000", "000000"], # 0 background
+          ["ffffff", "ffffff"], # 1 white
+          ["ff5555", "ff5555"], # 2 white alt
+          ["797FD4", "797FD4"], # 3 violet
+          ["89aaff", "89aaff"], # 4 blue
+          ["89ddff", "89ddff"], # 5 ice
+          ["E05F27", "E05F27"], # 6 orange
+          ["218933", "218933"], # 7 green
+          ["ffab6b", "ffab6b"], # 8 orange
+          ["883212", "883212"], # 9 red
+          ["a8a212", "a8a212"], # 10 yellow
+          ["3254dd", "3254dd"], # 11 electric blue
+          ["333333", "333333"], # 12 dark gray
+          ["191919", "191919"], # 13 darker gray
           ]
 
 keys = [
@@ -90,13 +92,31 @@ keys = [
     Key([mod], "z", lazy.spawn("rofi -show drun"), desc="Rofi drun menu"),
     Key([mod], "g", lazy.spawn("rofi -show window"), desc="Rofi window menu"),
     Key([mod], "equal", lazy.spawn("rofi -show calc -no-show-math -no-sort"), desc="Rofi calc menu"),
-    Key([mod], "escape", lazy.spawn("rofi -show p -modi 'p:rofi-power-menu --confirm=reboot/shutdown/logout' -font 'FiraCode Nerd Font 15'"), desc="Rofi power menu"),
+    Key([mod], "Escape", lazy.spawn("rofi -show p -modi 'p:rofi-power-menu --confirm=reboot/shutdown/logout' -font 'FiraCode Nerd Font 15'"), desc="Rofi power menu"),
     Key([mod], "i", lazy.spawn("rofi-pass"), desc="Rofi calc menu"),
 
-    # Browser
+    # Applications
     Key([mod, "shift"], "w", lazy.spawn(browser), desc="Qutebrowser"),
     Key([mod, "control"], "w", lazy.spawn("firefox"), desc="Firefox"),
     Key([mod, "shift"], "t", lazy.spawn("thunderbird"), desc="Thunderbird"),
+
+    # Media player
+    Key([], "XF86AudioPrev", lazy.spawn("playerctl previous"), desc="Previous song"),
+    Key([], "XF86AudioNext", lazy.spawn("playerctl next"), desc="Next song"),
+    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause"), desc="Play/pause media player"),
+    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute `pacmd list-sinks | awk '/* index:/{print $3}'` toggle"), desc="Mute"),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` +1%"), desc="Volume up"),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` -1%"), desc="Volume down"),
+    Key([mod], "comma", lazy.spawn("mpc prev"), desc="Previous song"),
+    Key([mod], "period", lazy.spawn("mpc next"), desc="Next song"),
+
+    # Screenshots
+    Key([], "Print", lazy.spawn("scrot -e 'mv $f /tmp/ && gimp /tmp/$f'"), desc="Next song"),
+    Key([mod], "Print", lazy.spawn("scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'"), desc="Next song"),
+
+    # Brightness
+    Key([], "XF86MonBrightnessUp", lazy.spawn("brightness+"), desc="Increase brightness"),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("brightness-"), desc="Decrease brightness"),
 
 
     # Toggle between split and unsplit sides of stack.
@@ -147,7 +167,7 @@ for i in groups:
     ])
 
 layout_theme = {"border_width": 2,
-                "margin": 8,
+                "margin": 4,
                 "border_focus": colors[7][0]
                 }
 
@@ -170,57 +190,67 @@ layouts = [
 widget_defaults = dict(
     font='FiraCode Nerd Font',
     fontsize=12,
-    padding=6,
-    background=colors[0]
+    padding=10
 )
+
 extension_defaults = widget_defaults.copy()
+sep_padding=4
 
 
 screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayoutIcon(),
+                widget.CurrentLayoutIcon(**widget_defaults),
 
-                widget.GroupBox(),
-
-                widget.WindowName(),
-
-                widget.Chord(
-                    chords_colors={
-                        'launch': (colors[9], colors[1]),
-                    },
-                    name_transform=lambda name: name.upper()
+                widget.GroupBox(
+                    highlight_color=colors[12],
+                    this_current_screen_border=colors[6],
+                    highlight_method="line",
+                    **widget_defaults
                 ),
 
-                widget.Spacer(),
+                widget.WindowName(**widget_defaults),
 
                 widget.KeyboardLayout(
                     fmt=' {}',
-                    layout_groups=['us','es']
+                    layout_groups=['us','es'],
+                    **widget_defaults
                 ),
+
+                widget.Sep(padding=sep_padding),
 
                 widget.CheckUpdates(
                     fmt=' {}',
                     display_format='{updates}',
                     colour_have_updates=colors[7],
                     colour_no_updates=colors[1],
-                    distro='Arch'),
+                    distro='Arch',
+                    **widget_defaults
+                ),
+
+                widget.Sep(padding=sep_padding),
 
                 widget.Mpd2(
-                    foreground=colors[11]
+                    foreground=colors[11],
+                    **widget_defaults
                 ),
 
-                widget.Wlan(),
+                widget.Sep(padding=sep_padding),
 
                 widget.CPU(
-                    foreground=colors[5]
+                    **widget_defaults
                 ),
+
+                widget.Sep(padding=sep_padding),
 
                 widget.Memory(
                     foreground=colors[8],
-                    measure_mem='G'
+                    measure_mem='G',
+                    **widget_defaults
                 ),
+
+                widget.Sep(padding=sep_padding),
 
                 widget.Battery(
                     format='{char} {percent:2.0%}',
@@ -229,24 +259,37 @@ screens = [
                     discharge_char='',
                     empty_char='',
                     foreground=colors[7],
-                    low_foreground=colors[9]
+                    low_foreground=colors[9],
+                    **widget_defaults
                 ),
+
+                widget.Sep(padding=sep_padding),
 
                 widget.Volume(
                     foreground=colors[10],
-                    fmt='墳 {}'
+                    fmt='墳 {}',
+                    **widget_defaults
                 ),
+
+                widget.Sep(padding=sep_padding),
 
                 widget.Clock(
-                    format='%Y/%m/%d %H:%M'
+                    format='%Y/%m/%d %H:%M',
+                    **widget_defaults
                 ),
 
-                widget.Systray(),
+                widget.Sep(padding=sep_padding),
+
+                widget.Systray(
+                    **widget_defaults
+                ),
+
+                widget.Sep(padding=sep_padding),
 
                 widget.QuickExit(
                     default_text='',
                     countdown_format='{}',
-                    padding=14
+                    **widget_defaults
                 ),
             ],
             24,
