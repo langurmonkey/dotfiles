@@ -53,6 +53,8 @@ bindsym $mod+g exec rofi -show window -config $($HOME/.dotfiles/bin/rofi-config)
 bindsym $mod+equal exec rofi -show calc -no-show-match -no-sort -config $($HOME/.dotfiles/bin/rofi-config)
 # PASS
 bindsym $mod+i exec rofi-pass -config $($HOME/.dotfiles/bin/rofi-config)
+# POWER
+bindsym $mod+Shift+Escape exec ~/.dotfiles/bin/rofi-powermenu
 # start dmenu
 #bindsym $mod+d exec $HOME/.dotfiles/bin/dmenu-wal
 # start fmenu (search home)
@@ -147,10 +149,10 @@ bindsym XF86MonBrightnessUp exec brightness+
 bindsym XF86MonBrightnessDown exec brightness-
 
 # screenshots
-# scrot & gimp - root
-bindsym Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
-# scrot & gimp - select window or rectangle
-bindsym $mod+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
+# scrot
+bindsym Print exec scrot $HOME/Pictures/Screenshots/screenshot_%Y_%m_%d_%H_%M_%S.png
+# scrot & gimp
+bindsym $mod+Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
 
 # Start Applications
 bindsym $mod+Shift+w exec qutebrowser

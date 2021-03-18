@@ -36,6 +36,7 @@ import os, subprocess
 mod = "mod4"
 terminal = "kitty"
 browser = "qutebrowser"
+home = os.path.expanduser('~')
 
 colors = [
           ["000000", "000000"], # 0 background
@@ -87,32 +88,40 @@ keys = [
     # Fullscreen
     Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Full screen current window"),
 
+    # Lock
+    Key([mod, "shift"], "z", lazy.spawn(terminal + " -e slock")),
+    Key([mod, "shift"], "x", lazy.spawn("i3lock-fancy")),
+
     # Rofi
-    Key([mod], "d", lazy.spawn("rofi -show run"), desc="Rofi run menu"),
-    Key([mod], "z", lazy.spawn("rofi -show drun"), desc="Rofi drun menu"),
-    Key([mod], "g", lazy.spawn("rofi -show window"), desc="Rofi window menu"),
-    Key([mod], "equal", lazy.spawn("rofi -show calc -no-show-math -no-sort"), desc="Rofi calc menu"),
-    Key([mod], "Escape", lazy.spawn("rofi -show p -modi 'p:rofi-power-menu --confirm=reboot/shutdown/logout' -font 'FiraCode Nerd Font 15'"), desc="Rofi power menu"),
-    Key([mod], "i", lazy.spawn("rofi-pass"), desc="Rofi calc menu"),
+    Key([mod], "d", lazy.spawn("rofi -show run")),
+    Key([mod], "z", lazy.spawn("rofi -show drun")),
+    Key([mod], "g", lazy.spawn("rofi -show window")),
+    Key([mod], "equal", lazy.spawn("rofi -show calc -no-show-math -no-sort")),
+    Key([mod], "Escape", lazy.spawn("rofi -show p -modi 'p:rofi-power-menu --choices=reboot/shutdown/logout/suspend/hibernate --confirm=reboot/shutdown/logout' -font 'FiraCode Nerd Font 15'")),
+    Key([mod], "i", lazy.spawn("rofi-pass")),
 
     # Applications
-    Key([mod, "shift"], "w", lazy.spawn(browser), desc="Qutebrowser"),
-    Key([mod, "control"], "w", lazy.spawn("firefox"), desc="Firefox"),
-    Key([mod, "shift"], "t", lazy.spawn("thunderbird"), desc="Thunderbird"),
+    Key([mod, "shift"], "w", lazy.spawn(browser)),
+    Key([mod, "control"], "w", lazy.spawn("firefox")),
+    Key([mod, "shift"], "t", lazy.spawn("thunderbird")),
 
-    # Media player
-    Key([], "XF86AudioPrev", lazy.spawn("playerctl previous"), desc="Previous song"),
-    Key([], "XF86AudioNext", lazy.spawn("playerctl next"), desc="Next song"),
-    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause"), desc="Play/pause media player"),
-    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute `pacmd list-sinks | awk '/* index:/{print $3}'` toggle"), desc="Mute"),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` +1%"), desc="Volume up"),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` -1%"), desc="Volume down"),
+    # Media player controls
+    Key([], "XF86AudioPlay", lazy.spawn("/usr/bin/playerctl play")),
+    Key([], "XF86AudioPause", lazy.spawn("/usr/bin/playerctl pause")),
+    Key([], "XF86AudioNext", lazy.spawn("/usr/bin/playerctl next")),
+    Key([], "XF86AudioPrev", lazy.spawn("/usr/bin/playerctl previous")),
     Key([mod], "comma", lazy.spawn("mpc prev"), desc="Previous song"),
     Key([mod], "period", lazy.spawn("mpc next"), desc="Next song"),
 
+    # Audio controls
+    Key([], 'XF86AudioLowerVolume', lazy.spawn('amixer -q set Master 5%-')),
+    Key([], 'XF86AudioRaiseVolume', lazy.spawn('amixer -q set Master 5%+')),
+    Key([], 'XF86AudioMute', lazy.spawn('amixer -q set Master toggle')),
+
     # Screenshots
-    Key([], "Print", lazy.spawn("scrot -e 'mv $f /tmp/ && gimp /tmp/$f'"), desc="Next song"),
-    Key([mod], "Print", lazy.spawn("scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'"), desc="Next song"),
+    Key([], "Print", lazy.spawn("/usr/bin/scrot " + home + "/Pictures/Screenshots/screenshot_%Y_%m_%d_%H_%M_%S.png")),
+    Key([mod], "Print", lazy.spawn("scrot -e 'mv $f /tmp/ && gimp /tmp/$f'")),
+    #Key([mod], "Print", lazy.spawn("scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'")),
 
     # Brightness
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightness+"), desc="Increase brightness"),
@@ -166,7 +175,9 @@ for i in groups:
         #     desc="move focused window to group {}".format(i.name)),
     ])
 
-layout_theme = {"border_width": 2,
+layout_theme = {
+                "font": "Fira Code NerdFont",
+                "border_width": 2,
                 "margin": 4,
                 "border_focus": colors[7][0]
                 }
@@ -207,6 +218,7 @@ screens = [
                     highlight_color=colors[12],
                     this_current_screen_border=colors[6],
                     highlight_method="line",
+                    margin_x=0,
                     **widget_defaults
                 ),
 
@@ -232,7 +244,7 @@ screens = [
                 widget.Sep(padding=sep_padding),
 
                 widget.Mpd2(
-                    foreground=colors[11],
+                    foreground=colors[5],
                     **widget_defaults
                 ),
 
@@ -283,8 +295,6 @@ screens = [
                 widget.Systray(
                     **widget_defaults
                 ),
-
-                widget.Sep(padding=sep_padding),
 
                 widget.QuickExit(
                     default_text='',
