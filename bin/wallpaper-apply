@@ -1,2 +1,2 @@
-#/usr/sh
-feh --bg-fil $HOME/Pictures/wallpaper.jpg
+#!/bin/sh
+feh --bg-fill $HOME/Pictures/wallpaper.jpg

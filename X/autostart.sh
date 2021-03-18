@@ -1,4 +1,4 @@
-
+#!/bin/sh
 # Repeat interval and delay
 xset r rate 200 35 # initial delay 300 ms, repeat 35 ms
 

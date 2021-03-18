@@ -198,14 +198,25 @@ echo-custom " ** " "==== i3 CONFIG ===="
 # Symlink i3 configuration
 do-symlink $DOTFILES_PATH/i3 ~/.config/i3
 
+echo-ok "Done"
+
+#
+# Qtile
+#
+echo-custom " ** " "==== Qtile CONFIG ===="
+
+# Symlink Qtile configuration
+do-symlink $DOTFILES_PATH/qtile ~/.config/qtile
+
+echo-ok "Done"
+
+
 # Symlink rofi config
 do-symlink $DOTFILES_PATH/rofi ~/.config/rofi
 
 # xkblayout
 mkdir -p ~/.local/bin/
 cp $DOTFILES_PATH/bin/xkblayout-state ~/.local/bin/
-
-echo-ok "Done"
 
 #
 # POLYBAR
@@ -227,7 +238,7 @@ echo-custom " ** " "==== X, URXVT, Termite ===="
 
 mkdir -p ~/.urxvt/ext/
 # .xinitrc
-do-symlink $DOTFILES_PATH/X/.xinitrc ~/.xinitrc
+#do-symlink $DOTFILES_PATH/X/.xinitrc ~/.xinitrc
 # .Xdefaults and .Xresources
 XRES_H=$(xwininfo -root|sed '/Height/!d;s/.* //')
 XRES_W=$(xwininfo -root|sed '/Width/!d;s/.* //')
