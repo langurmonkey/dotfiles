@@ -6,3 +6,4 @@
 .mutt/ari.uni-heidelberg.de/*
 **/.uuid
 **/*.log
+**/__pycache__/

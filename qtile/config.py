@@ -35,6 +35,22 @@ import os, subprocess
 
 mod = "mod4"
 terminal = "kitty"
+browser = "qutebrowser"
+
+colors = [
+          ["#000", "#000"], # 0 background
+          ["#ffffff", "#ffffff"], # 1 white
+          ["#ff5555", "#ff5555"], # 2 white alt
+          ["#797FD4", "#797FD4"], # 3 violet
+          ["#89aaff", "#89aaff"], # 4 blue
+          ["#89ddff", "#89ddff"], # 5 ice
+          ["#E05F27", "#E05F27"], # 6 orange
+          ["#218933", "#218933"], # 7 green
+          ["#ffab6b", "#ffab6b"], # 8 orange
+          ["#883212", "#883212"], # 9 red
+          ["#a8a212", "#a8a212"], # 10 yellow
+          ["#3254dd", "#3254dd"], # 11 electric blue
+          ]
 
 keys = [
     # Switch between windows
@@ -75,6 +91,11 @@ keys = [
     Key([mod], "g", lazy.spawn("rofi -show window"), desc="Rofi window menu"),
     Key([mod], "equal", lazy.spawn("rofi -show calc -no-show-math -no-sort"), desc="Rofi calc menu"),
     Key([mod], "i", lazy.spawn("rofi-pass"), desc="Rofi calc menu"),
+
+    # Browser
+    Key([mod, "shift"], "w", lazy.spawn(browser), desc="Qutebrowser"),
+    Key([mod, "control"], "w", lazy.spawn("firefox"), desc="Firefox"),
+    Key([mod, "shift"], "t", lazy.spawn("thunderbird"), desc="Thunderbird"),
 
 
     # Toggle between split and unsplit sides of stack.
@@ -124,7 +145,7 @@ for i in groups:
     ])
 
 layouts = [
-    layout.Columns(border_focus='#3f973f'),
+    layout.Columns(border_focus=colors[7][0]),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
      layout.Stack(num_stacks=2),
@@ -146,27 +167,29 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+
 screens = [
     Screen(
         top=bar.Bar(
             [
                 widget.CurrentLayoutIcon(padding=6),
                 widget.GroupBox(),
-                widget.Prompt(),
                 widget.WindowName(padding=6),
                 widget.Chord(
                     chords_colors={
-                        'launch': ("#ff0000", "#ffffff"),
+                        'launch': (colors[9], colors[1]),
                     },
                     name_transform=lambda name: name.upper(),
                 ),
+                widget.Spacer(),
                 widget.KeyboardLayout(fmt=' {}', layout_groups=['us','es'], padding=6),
-                widget.Mpd2(foreground='#3254dd', padding=6),
+                widget.CheckUpdates(fmt=' {}', display_format='{updates}', colour_have_updates=colors[7], colour_no_updates=colors[1], distro='Arch', padding=6),
+                widget.Mpd2(foreground=colors[11], padding=6),
                 widget.Wlan(padding=6),
-                widget.CPU(foreground='#998302', padding=6),
-                widget.Memory(foreground='#008399', measure_mem='G', padding=6),
-                widget.Battery(format='{char} {percent:2.0%}', full_char='', charge_char='', discharge_char='', empty_char='', foreground='#218933', low_foreground='#883212', padding=6),
-                widget.Volume(foreground='#bb9955', fmt='墳 {}', padding=6),
+                widget.CPU(foreground=colors[5], padding=6),
+                widget.Memory(foreground=colors[8], measure_mem='G', padding=6),
+                widget.Battery(format='{char} {percent:2.0%}', full_char='', charge_char='', discharge_char='', empty_char='', foreground=colors[7], low_foreground=colors[9], padding=6),
+                widget.Volume(foreground=colors[10], fmt='墳 {}', padding=6),
                 widget.Clock(format='%Y/%m/%d %H:%M', padding=6),
                 widget.Systray(padding=6),
                 widget.QuickExit(default_text='', countdown_format='{}', padding=16),
