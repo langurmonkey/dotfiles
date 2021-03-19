@@ -21,9 +21,10 @@ Symlink `~/.Xdefaults` to either `~/.dotfiles/X/.Xdefaults-hidpi` or `~/.dotfile
 ### Firefox and Thunderbird
 
 Go to `about:config` and set `layout.css.devPixelsPerPx` to whatever value (`1.8`, `2.0`, etc).
+In Thunderbird, it is also recommended to increase the font size.
 
 ### IntelliJ IDEA
 
 1. Set the VM property `-Dsun.java2d.uiScale=2`
-2. Set the gnome setting `$  gsettings org.gnome.desktop.interface scaling factor 2`
+2. Set the gnome setting `$  gsettings set org.gnome.desktop.interface scaling-factor 2`
 

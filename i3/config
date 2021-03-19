@@ -16,7 +16,7 @@ font pango:FiraCode Nerd Font Mono 10
 #for_window [class="^.*"] border pixel 0 
 default_border pixel 2
 default_floating_border normal
-gaps inner 4
+gaps inner 0
 gaps outer 0
 
 # Colors
@@ -53,6 +53,10 @@ bindsym $mod+g exec rofi -show window -config $($HOME/.dotfiles/bin/rofi-config)
 bindsym $mod+equal exec rofi -show calc -no-show-match -no-sort -config $($HOME/.dotfiles/bin/rofi-config)
 # PASS
 bindsym $mod+i exec rofi-pass -config $($HOME/.dotfiles/bin/rofi-config)
+# POWER
+bindsym $mod+Escape exec rofi -show p -modi 'p:rofi-power-menu --confirm=reboot/shutdown/logout' -font 'FiraCode Nerd Font 15' -config $($HOME/.dotfiles/bin/rofi-config)
+
+
 # start dmenu
 #bindsym $mod+d exec $HOME/.dotfiles/bin/dmenu-wal
 # start fmenu (search home)
@@ -257,24 +261,6 @@ for_window [title="SteamVR Status"] floating enable
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-
-# Shut down, restart and locking
-bindsym $mod+Escape mode "$mode_system"
-set $mode_system (l)ock, sloc(k), (e)xit, l(o)gout, (s)uspend, (r)eboot, Shut(d)own
-mode "$mode_system" {
-    bindsym l exec --no-startup-id $HOME/.dotfiles/bin/i3exit lock, mode "default"
-    bindsym k exec --no-startup-id $HOME/.dotfiles/bin/i3exit slock, mode "default"
-    bindsym s exec --no-startup-id $HOME/.dotfiles/bin/i3exit suspend, mode "default"
-    bindsym o exec --no-startup-id $HOME/.dotfiles/bin/i3exit logout, mode "default"
-    bindsym e exec --no-startup-id $HOME/.dotfiles/bin/i3exit logout, mode "default"
-    bindsym r exec --no-startup-id $HOME/.dotfiles/bin/i3exit reboot, mode "default"
-    bindsym d exec --no-startup-id $HOME/.dotfiles/bin/i3exit shutdown, mode "default"
-
-    # exit system mode: "Enter" or "Escape"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
 
 #
 # GAPS

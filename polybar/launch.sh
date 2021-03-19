@@ -12,7 +12,7 @@ HOSTNAME=$(cat /etc/hostname)
 
 # ARI hidalgo - 2 bars - ubuntu+hidpi
 if [[ $HOSTNAME == "hidalgo" ]]; then
-    BAR_NAME=bar-fhd
+    BAR_NAME=bar-hidpi
     #BAR_NAME=bar-hidpi
 
 # IWR herschel - 2 bars - arch+hidpi
