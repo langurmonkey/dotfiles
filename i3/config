@@ -16,7 +16,7 @@ font pango:FiraCode Nerd Font Mono 10
 #for_window [class="^.*"] border pixel 0 
 default_border pixel 2
 default_floating_border normal
-gaps inner 0
+gaps inner 4
 gaps outer 0
 
 # Colors
@@ -54,9 +54,7 @@ bindsym $mod+equal exec rofi -show calc -no-show-match -no-sort -config $($HOME/
 # PASS
 bindsym $mod+i exec rofi-pass -config $($HOME/.dotfiles/bin/rofi-config)
 # POWER
-bindsym $mod+Escape exec rofi -show p -modi 'p:rofi-power-menu --confirm=reboot/shutdown/logout' -font 'FiraCode Nerd Font 15' -config $($HOME/.dotfiles/bin/rofi-config)
-
-
+bindsym $mod+Shift+Escape exec ~/.dotfiles/bin/rofi-powermenu
 # start dmenu
 #bindsym $mod+d exec $HOME/.dotfiles/bin/dmenu-wal
 # start fmenu (search home)
@@ -151,13 +149,13 @@ bindsym XF86MonBrightnessUp exec brightness+
 bindsym XF86MonBrightnessDown exec brightness-
 
 # screenshots
-# scrot & gimp - root
-bindsym Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
-# scrot & gimp - select window or rectangle
-bindsym $mod+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
+# scrot
+bindsym Print exec scrot $HOME/Pictures/Screenshots/screenshot_%Y_%m_%d_%H_%M_%S.png
+# scrot & gimp
+bindsym $mod+Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
 
 # Start Applications
-bindsym $mod+Shift+w exec NODE_PATH=$(npm root -g) qutebrowser --backend webengine --qt-flag ignore-gpu-blacklist --qt-flag enable-gpu-rasterization --qt-flag enable-native-gpu-memory-buffers --qt-flag num-raster-threads=4
+bindsym $mod+Shift+w exec qutebrowser
 bindsym $mod+Control+w exec firefox
 bindsym $mod+Shift+t exec thunderbird
 bindsym $mod+Shift+f exec $HOME/.dotfiles/bin/ranger-term "`$HOME/.dotfiles/bin/xcwd`"
@@ -255,12 +253,28 @@ for_window [title="Volume Control"] floating enable
 for_window [title="deusex.exe"] floating enable
 for_window [title="SteamVR Status"] floating enable
 
-
-
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
+# Shut down, restart and locking
+bindsym $mod+Escape mode "$mode_system"
+set $mode_system (l)ock, sloc(k), (e)xit, l(o)gout, (s)uspend, (r)eboot, Shut(d)own
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $HOME/.dotfiles/bin/i3exit lock, mode "default"
+    bindsym k exec --no-startup-id $HOME/.dotfiles/bin/i3exit slock, mode "default"
+    bindsym s exec --no-startup-id $HOME/.dotfiles/bin/i3exit suspend, mode "default"
+    bindsym o exec --no-startup-id $HOME/.dotfiles/bin/i3exit logout, mode "default"
+    bindsym e exec --no-startup-id $HOME/.dotfiles/bin/i3exit logout, mode "default"
+    bindsym r exec --no-startup-id $HOME/.dotfiles/bin/i3exit reboot, mode "default"
+    bindsym d exec --no-startup-id $HOME/.dotfiles/bin/i3exit shutdown, mode "default"
+
+    # exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
 
 #
 # GAPS
