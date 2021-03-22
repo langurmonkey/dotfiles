@@ -133,21 +133,21 @@ bindsym $mod+n exec --no-startup-id $HOME/.dotfiles/bin/i3-new-workspace
 # focus the parent container
 bindsym $mod+a focus parent
 
-# media player controls
-bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPlay exec playerctl play-pause
-# mpd controls via mpc with $mod+Control
+# media player controls XF86Audio and $mod+Control
+bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPlay exec mpd toggle
 bindsym $mod+Control+period exec mpc next
 bindsym $mod+Control+comma exec mpc prev
 bindsym $mod+Control+p exec mpc toggle
 bindsym $mod+Control+s exec mpc stop
+bindsym $mod+Control+z exec mpc random
 # pulse audio controls
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute `pacmd list-sinks | awk '/* index:/{print $3}'` toggle 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` +1%
-bindsym $mod+F12 exec --no-startup-id pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` +1%
+bindsym $mod+Control+0 exec --no-startup-id pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` +1%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` -1%
-bindsym $mod+F11 exec --no-startup-id pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` -1%
+bindsym $mod+Control+9 exec --no-startup-id pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` -1%
 
 # backlight - edit /usr/local/lib/brightnessctl/configuration.sh for step size
 bindsym XF86MonBrightnessUp exec brightness+
