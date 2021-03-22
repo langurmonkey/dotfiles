@@ -134,11 +134,14 @@ bindsym $mod+n exec --no-startup-id $HOME/.dotfiles/bin/i3-new-workspace
 bindsym $mod+a focus parent
 
 # media player controls XF86Audio and $mod+Control
+bindsym $mod+Control+m exec $myterm --class wm-floating ncmpcpp
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym $mod+Control+period exec playerctl next
 bindsym $mod+Control+comma exec playerctl previous
+bindsym $mod+Shift+period exec playerctl position 5+
+bindsym $mod+Shift+comma exec playerctl position 5-
 bindsym $mod+Control+p exec playerctl play-pause
 bindsym $mod+Control+s exec playerctl stop
 bindsym $mod+Control+z exec mpc random
