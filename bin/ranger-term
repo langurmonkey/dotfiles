@@ -1,2 +1,0 @@
-#!/bin/bash
-EDITOR=nvim && kitty ranger "$1"
