@@ -1,0 +1,150 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+# Change $SCRIPT_DIR to the location of your scripts!
+SCRIPT_DIR=/usr/lib/i3blocks
+command=$SCRIPT_DIR/$BLOCK_NAME/$BLOCK_NAME
+separator_block_width=15
+# Define the custom separator in global properties for boilerplate
+full_text=  
+align=center
+color=#666666
+separator=false
+separator_block_width=0
+
+[window title]
+command=xdotool getactivewindow getwindowname
+interval=3
+color=#ffffff
+min_width=400
+align=center
+
+[separator]
+
+[mediaplayer]
+label= 
+command=mpc current
+interval=5
+signal=10
+color=#ff8a8a
+border=#ff8a8a
+border_top=0
+border_right=0
+border_left=0
+border_bottom=2
+
+[separator]
+
+[kbdd_layout]
+interval=persist
+label=  
+color=#ffffff
+border=#1990B7
+border_top=0
+border_right=0
+border_left=0
+border_bottom=2
+
+[separator]
+
+[disk]
+label= /home 
+instance=/home
+interval=30
+color=#000000
+background=#ffbb33
+border=#ffbb33
+border_right=5
+border_left=5
+
+[separator]
+
+[cpu_usage]
+label= 
+interval=10
+color=#000000
+background=#33aa7a
+border=#33aa7a
+border_right=5
+border_left=5
+
+[memory]
+label= 
+interval=5
+color=#000000
+background=#ff8833
+border=#ff8833
+border_right=5
+border_left=5
+
+[temperature]
+label= 
+interval=10
+color=#000000
+background=#ff5858
+border=#ff5858
+border_right=5
+border_left=5
+
+[separator]
+
+[wifi]
+label= 
+instance=wlp2s0
+interval=60
+color=#000000
+background=#444411
+border=#444411
+border_right=5
+border_left=5
+
+[separator]
+
+[volume]
+label= 
+instance=Master
+interval=1
+color=#558899
+signal=10
+
+[separator]
+
+[batterybar]
+interval=30
+markup=pango
+
+[separator]
+
+[time]
+command=echo "<span font='FiraCode Nerd Font Bold'>$(date '+%Y-%m-%d %H:%M:%S')</span>"
+markup=pango
+interval=5
+color=#000000
+background=#44aaff
+border=#44aaff
+border_right=5
+border_left=5
+

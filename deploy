@@ -199,6 +199,7 @@ echo-custom " ** " "==== i3 CONFIG ===="
 
 # Symlink i3 configuration
 do-symlink $DOTFILES_PATH/i3 ~/.config/i3
+do-symlink $DOTFILES_PATH/i3blocks ~/.config/i3blocks
 
 echo-ok "Done"
 

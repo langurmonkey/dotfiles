@@ -174,26 +174,26 @@ floating_minimum_size 450x150
 floating_maximum_size -1x-1
 
 # WORKSPACES
-#set $ws1 "1 "
-#set $ws2 "2 "
-#set $ws3 "3 﫯"
-#set $ws4 "4 "
-#set $ws5 "5 "
-#set $ws6 "6 "
-#set $ws7 "7 "
-#set $ws8 "8 "
-#set $ws9 "9 "
-#set $ws0 "10 卵"
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3 "
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws0 "10"
+set $ws1 "1 "
+set $ws2 "2 "
+set $ws3 "3 﫯"
+set $ws4 "4 "
+set $ws5 "5 "
+set $ws6 "6 "
+set $ws7 "7 "
+set $ws8 "8 "
+set $ws9 "9 "
+set $ws0 "10 卵"
+# set $ws1 "1"
+# set $ws2 "2"
+# set $ws3 "3 "
+# set $ws4 "4"
+# set $ws5 "5"
+# set $ws6 "6"
+# set $ws7 "7"
+# set $ws8 "8"
+# set $ws9 "9"
+# set $ws0 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -436,12 +436,22 @@ exec_always --no-startup-id $HOME/.dotfiles/bin/wallpaper-apply
 #
 # BAR (polybar, bumblebee-status, i3status...)
 #
-exec_always --no-startup-id $HOME/.dotfiles/bin/polybar-launch
-#bar {
-#  status_command exec $HOME/.dotfiles/i3/status/mybar.sh
-#
-#  position top
-#  tray_output primary
-#  font pango:Terminus 12
-#  font pango:Symbols Nerd Font 10
-#}
+# exec_always --no-startup-id $HOME/.dotfiles/bin/polybar-launch
+bar {
+  colors{
+        background #000000
+        statusline #ffffff
+ 
+        #class             border  backgr  text
+        focused_workspace  #000000 #ffbb33 #000000
+        inactive_workspace #000000 #000000 #ffffff
+        active_workspace   #000000 #000000 #ffffff
+        urgent_workspace   #000000 #000000 #ffffff
+  }
+  i3bar_command i3bar
+  status_command i3blocks -c $HOME/.config/i3blocks/config
+
+  position top
+  tray_output primary
+  font pango:FiraCode Nerd Font 10
+}
