@@ -2,9 +2,8 @@
 set realname            = "Toni Sagrista Selles"
 set from                = "tsagrista@ari.uni-heidelberg.de"
 set use_from            = yes
-set editor              = nvim
 
-set ssl_use_tlsv1 = yes
+set ssl_use_tlsv1       = yes
 
 set ssl_force_tls       = yes
 set ssl_starttls        = yes
@@ -18,13 +17,16 @@ set imap_user           = $my_ariuser
 set imap_pass           = $my_aripass
 
 # Folders
-set folder              = "imaps://mail.ari.uni-heidelberg.de"
+set folder              = "imaps://mail.ari.uni-heidelberg.de/"
 set spoolfile           = +INBOX
 set record              = "+Sent"
-mailboxes               = +INBOX
+mailboxes               = +INBOX +Gaia +Travel +VCG
 
 
 # Where to put the stuff
-set header_cache = "~/.config/mutt/ari.uni-heidelberg.de/cache/headers"
-set message_cachedir = "~/.config/mutt/ari.uni-heidelberg.de/cache/bodies"
-set certificate_file = "~/.config/mutt/ari.uni-heidelberg.de/certificates"
+set header_cache        = "~/.config/mutt/ari.uni-heidelberg.de/cache/headers"
+set message_cachedir    = "~/.config/mutt/ari.uni-heidelberg.de/cache/bodies"
+set certificate_file    = "~/.config/mutt/ari.uni-heidelberg.de/certificates"
+
+# Account hook
+account-hook $folder "set imap_user=$my_ariuser imap_pass=$my_aripass"

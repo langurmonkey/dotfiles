@@ -1,5 +1,3 @@
-# vi ~/.muttrc
-
 # Source encrypted passwords
 source "gpg -dq ~/.config/mutt/mutt-pass.gpg |"
 
@@ -7,30 +5,39 @@ source "gpg -dq ~/.config/mutt/mutt-pass.gpg |"
 source ~/.config/mutt/gpg.rc
 set pgp_default_key = "448C2B189756743013D5F7C22FD2A59C1D734C1F"
 
-# Folder hooks
-folder-hook 'account.ari.uni-heidelberg.de' 'source ~/.mutt/account.ari.uni-heidelberg.de'
-folder-hook 'account.tonisagrista.com' 'source ~/.mutt/account.tonisagrista.com'
-
-# Default account
-source ~/.config/mutt/account.ari.uni-heidelberg.de
-
-# Macros for switching accounts
-macro index <f2> '<sync-mailbox><enter-command>source ~/.config/mutt/account.ari.uni-heidelberg.de<enter><change-folder>!<enter>'
-macro index <f3> '<sync-mailbox><enter-command>source ~/.config/mutt/account.tonisagrista.com<enter><change-folder>!<enter>'
+# Colors
+source ~/.config/mutt/dracula.muttrc
+# Sidebar
+source ~/.config/mutt/sidebar.muttrc
 
 # Etc
 set mail_check = 30
 set move = no
 set imap_keepalive = 900
 set sort = threads
-set editor = "vim"
+set editor = nvim
 # Allow Mutt to open a new IMAP connection automatically.
 unset imap_passive
 # Keep the IMAP connection alive by polling intermittently (time in seconds).
 set imap_keepalive = 300
 # How often to check for new mail (time in seconds).
 set mail_check = 120
+# Check for subscribed folders
+set imap_check_subscribed
 
 # Fetch mail shortcut
 bind index G imap-fetch-mail
 
+# Folder hooks
+folder-hook 'account.ari.uni-heidelberg.de' 'source ~/.config/mutt/account.ari.uni-heidelberg.de'
+folder-hook 'account.tonisagrista.com' 'source ~/.config/mutt/account.tonisagrista.com'
+
+# Default account
+#source ~/.config/mutt/account.ari.uni-heidelberg.de
+source ~/.config/mutt/account.tonisagrista.com
+
+# Macros for switching accounts
+macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.config/mutt/account.ari.uni-heidelberg.de<enter><change-folder>!<enter>'
+macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.config/mutt/account.tonisagrista.com<enter><change-folder>!<enter>'
+
+#macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
