@@ -170,7 +170,7 @@ bindsym $mod+Shift+f exec $myterm --class wm-floating ranger "`$HOME/.dotfiles/b
 bindsym $mod+Shift+b exec $myterm --class wm-floating lf "`$HOME/.dotfiles/bin/xcwd`"
 
 # Min and max sizes for floating windows
-floating_minimum_size 450x450
+floating_minimum_size 450x150
 floating_maximum_size -1x-1
 
 # WORKSPACES
