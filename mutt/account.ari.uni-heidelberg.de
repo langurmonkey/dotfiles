@@ -25,6 +25,6 @@ mailboxes               = +INBOX
 
 
 # Where to put the stuff
-set header_cache = "~/.mutt/ari.uni-heidelberg.de/cache/headers"
-set message_cachedir = "~/.mutt/ari.uni-heidelberg.de/cache/bodies"
-set certificate_file = "~/.mutt/ari.uni-heidelberg.de/certificates"
+set header_cache = "~/.config/mutt/ari.uni-heidelberg.de/cache/headers"
+set message_cachedir = "~/.config/mutt/ari.uni-heidelberg.de/cache/bodies"
+set certificate_file = "~/.config/mutt/ari.uni-heidelberg.de/certificates"

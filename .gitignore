@@ -1,9 +1,9 @@
 *.swp
 *.db
 **/nohup.out
-.mutt/mutt-pass.gpg
-.mutt/tonisagrista.com/*
-.mutt/ari.uni-heidelberg.de/*
+mutt/mutt-pass.gpg
+mutt/tonisagrista.com/*
+mutt/ari.uni-heidelberg.de/*
 **/.uuid
 **/*.log
 **/__pycache__/

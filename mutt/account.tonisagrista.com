@@ -23,6 +23,6 @@ mailboxes               = +INBOX
 
 
 # Where to put the stuff
-set header_cache = "~/.mutt/tonisagrista.com/cache/headers"
-set message_cachedir = "~/.mutt/tonisagrista.com/cache/bodies"
-set certificate_file = "~/.mutt/tonisagrista.com/certificates"
+set header_cache = "~/.config/mutt/tonisagrista.com/cache/headers"
+set message_cachedir = "~/.config/mutt/tonisagrista.com/cache/bodies"
+set certificate_file = "~/.config/mutt/tonisagrista.com/certificates"

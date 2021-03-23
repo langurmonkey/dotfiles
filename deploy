@@ -14,6 +14,7 @@ DIR_ZSHPLUGINS=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins
 DIR_VISCONFIG=~/.config/vis
 DIR_NEWSBOAT=~/.config/newsboat
 DIR_STARSHIP=~/.config
+DIR_MUTT=~/.config/mutt
 
 # HELPERS ========================================
 
@@ -331,9 +332,9 @@ echo-ok "Done"
 # MUTT
 #
 echo-custom " ** " "==== MUTT ===="
-mkdir -p $DOTFILES_PATH/.mutt/ari.uni-heidelberg.de/cache
-mkdir -p $DOTFILES_PATH/.mutt/tonisagrista.com/cache
-do-symlink $DOTFILES_PATH/.mutt $HOME/.mutt
+mkdir -p $DOTFILES_PATH/mutt/ari.uni-heidelberg.de/cache
+mkdir -p $DOTFILES_PATH/mutt/tonisagrista.com/cache
+do-symlink $DOTFILES_PATH/mutt $DIR_MUTT
 echo-ok "Done"
 
 #
