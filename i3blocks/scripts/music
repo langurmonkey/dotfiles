@@ -40,8 +40,11 @@ fi
 #Display output
 if [[ "${playerStatus^}" = "Paused" ]]; then
 	echo "$songInfo$songDuration$pauseIcon";
+	echo "$songTitle$songDuration";
 elif [[ "${playerStatus^}" = "Playing" ]]; then
 	echo "$songInfo$songDuration$playIcon";
+	echo "$songTitle$songDuration";
 elif [[ "${playerStatus^}" = "Stopped" ]]; then
+	echo "Stopped$stopIcon";
 	echo "Stopped$stopIcon";
 fi
