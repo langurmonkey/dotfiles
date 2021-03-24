@@ -1,0 +1,22 @@
+#!/bin/bash
+#----------------------------------------------------------------------------------------------------
+#Directory whose available space is to be displayed
+dir="${BLOCK_INSTANCE:-$HOME}";
+
+case $BLOCK_BUTTON in
+	1) kitty --class wm-floating ncdu $dir ;;
+esac
+
+#Color text red when less than 5% space is available
+lowAlert=5; 
+
+#Fetch directory space info
+total=$(df -h -P -l "$dir" | tail -1 | awk '{print $2}' | tr -dc '0-9');
+avail=$(df -h -P -l "$dir" | tail -1 | awk '{print $4}' | tr -dc '0-9');
+
+#Display output
+if (( $(( $avail*100/$total )) < $lowAlert )); then
+	echo "<span foreground='red'>${avail}G</span>";
+else
+	echo "${avail}G";
+fi

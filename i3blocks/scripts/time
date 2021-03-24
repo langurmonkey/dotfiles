@@ -1,0 +1,6 @@
+#!/bin/sh
+
+DATE=$(date '+%Y-%m-%d')
+TIME=$(date '+%H:%M:%S')
+
+echo " $DATE  <span font='FiraCode Nerd Font Bold'>$TIME</span>"

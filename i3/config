@@ -174,16 +174,16 @@ floating_minimum_size 450x150
 floating_maximum_size -1x-1
 
 # WORKSPACES
-set $ws1 "1 "
-set $ws2 "2 "
-set $ws3 "3 﫯"
-set $ws4 "4 "
-set $ws5 "5 "
-set $ws6 "6 "
-set $ws7 "7 "
-set $ws8 "8 "
-set $ws9 "9 "
-set $ws0 "10 卵"
+set $ws1 "1  "
+set $ws2 "2  "
+set $ws3 "3 﫯 "
+set $ws4 "4  "
+set $ws5 "5  "
+set $ws6 "6  "
+set $ws7 "7  "
+set $ws8 "8  "
+set $ws9 "9  "
+set $ws0 "10 卵 "
 # set $ws1 "1"
 # set $ws2 "2"
 # set $ws3 "3 "
@@ -450,8 +450,11 @@ bar {
   }
   i3bar_command i3bar
   status_command i3blocks -c $HOME/.config/i3blocks/config
+  workspace_buttons yes
+  workspace_min_width 50
+  strip_workspace_numbers no
 
   position top
   tray_output primary
-  font pango:FiraCode Nerd Font 10
+  font pango:FiraCode Nerd Font 9
 }
