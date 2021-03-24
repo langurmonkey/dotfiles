@@ -3,4 +3,9 @@
 DATE=$(date '+%Y-%m-%d')
 TIME=$(date '+%H:%M:%S')
 
-echo " $DATE  <span font='FiraCode Nerd Font Bold'>$TIME</span>"
+echo " $DATE <span font='FiraCode Nerd Font Bold' color='white'> $TIME</span>"
+
+DATE=$(date '+%d/%m/%y')
+TIME=$(date '+%H:%M')
+
+echo "$DATE <span font='FiraCode Nerd Font Bold' color='white'>$TIME</span>"
