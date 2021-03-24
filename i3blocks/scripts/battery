@@ -17,10 +17,10 @@ esac
 battery=/sys/class/power_supply/${1:-BAT0}
 
 # Exit if no battery is found (desktop PCs)
-[ ! -f $battery ] && exit -1
+[ ! -d $battery ] && exit -1
 
 read -r capacity <"$battery/capacity"
-read -r status   <"$battery/status"
+read -r bat_status   <"$battery/status"
 
 # Set the color based on capacity
 if [ "$capacity" -ge 85 ]; then
@@ -39,21 +39,21 @@ else
 fi
 
 # If battery below 10 but is now charging remove warning 
-[ "$status" = "Charging" ] && warn=""
+[ "$bat_status" = "Charging" ] && warn=""
 
 # If discharging and capacity below 10 then remove status  and replace with warning 
-[ "$status" = "Discharging" ] && [ -n "$warn" ] && status=""
+[ "$bat_status" = "Discharging" ] && [ -n "$warn" ] && bat_status=""
 
 # if capacity is 0 and battery is not charging then change icon to empty battery and turn off warning
-[ "$capacity" = 0 ] && [ "$status" = "Unknown" ] && status="" && warn=""
+[ "$capacity" = 0 ] && [ "$bat_status" = "Unknown" ] && bat_status="" && warn=""
 
-#status="${status//,/}"
-status="${status/#Discharging/}"
-status="${status/#Not Charging/}"
-status="${status/#Charging/}"
-status="${status/#Unknown/}"
-status="${status/#Full/}"
-status="${status} "
+#bat_status="${bat_status//,/}"
+bat_status="${bat_status/#Discharging/}"
+bat_status="${bat_status/#Not Charging/}"
+bat_status="${bat_status/#Charging/}"
+bat_status="${bat_status/#Unknown/}"
+bat_status="${bat_status/#Full/}"
+bat_status="${bat_status} "
 
 # Put it all together
-printf "<span color='%s'>%s%s%s</span>\n" "$color" "$status" "$warn" "$capacity%"
+printf "<span color='%s'>%s%s%s</span>\n" "$color" "$bat_status" "$warn" "$capacity%"

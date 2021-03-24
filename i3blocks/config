@@ -26,7 +26,6 @@
 # Each block command defaults to the script name to avoid boilerplate.
 # Change $SCRIPT_DIR to the location of your scripts!
 
-BORDER_W=2
 LOCAL_DIR=/home/tsagrista/.dotfiles/i3blocks/scripts
 SCRIPT_DIR=/usr/lib/i3blocks
 
@@ -53,7 +52,7 @@ border=#8f4ce0
 border_top=0
 border_right=0
 border_left=0
-border_bottom=$BORDER_W
+border_bottom=2
 
 [separator]
 
@@ -66,7 +65,7 @@ border=#1990b7
 border_top=0
 border_right=0
 border_left=0
-border_bottom=$BORDER_W
+border_bottom=2
 
 [separator]
 
@@ -80,7 +79,7 @@ border=#ff3393
 border_right=0
 border_left=0
 border_top=0
-border_bottom=$BORDER_W
+border_bottom=2
 markup=pango
 
 [separator]
@@ -95,7 +94,7 @@ markup=pango
 # border_right=0
 # border_left=0
 # border_top=0
-# border_bottom=$BORDER_W
+# border_bottom=2
 # markup=pango
 
 # [separator]
@@ -108,7 +107,7 @@ border=#33aa7a
 border_right=0
 border_left=0
 border_top=0
-border_bottom=$BORDER_W
+border_bottom=2
 
 [separator]
 
@@ -121,24 +120,41 @@ border=#ff7060
 border_right=0
 border_left=0
 border_top=0
-border_bottom=$BORDER_W
+border_bottom=2
+
+[separator]
+
+[brightness]
+command=$LOCAL_DIR/brightness
+label= 
+interval=1
+color=#999900
+border=#999900
+border_top=0
+border_right=0
+border_left=0
+border_bottom=2
 
 [separator]
 
 [pavol]
-command=$LOCAL_DIR/volume
-interval=repeat
+command=$LOCAL_DIR/volume &
+interval=1
 color=#66ffff
 border=#00aaaa
 border_top=0
 border_right=0
 border_left=0
-border_bottom=$BORDER_W
+border_bottom=2
+
+[separator]
 
 [battery]
 command=$LOCAL_DIR/battery
 interval=30
 markup=pango
+
+[separator]
 
 [time]
 command=$LOCAL_DIR/time
@@ -149,7 +165,7 @@ border=#92d928
 border_top=0
 border_right=0
 border_left=0
-border_bottom=$BORDER_W
+border_bottom=2
 
 [separator]
 

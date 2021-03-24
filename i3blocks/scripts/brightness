@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#Mouse actions for the block
+case $BLOCK_BUTTON in
+    4) brightnessctl s $(echo "$(brightnessctl g) + 300" | bc) ;;
+    5) brightnessctl s $(echo "$(brightnessctl g) - 300" | bc) ;;
+esac
+
+brightness=$(echo "100.0 * $(brightnessctl g) / $(brightnessctl m)" | bc)
+brightess=${brightness%.*}
+
+echo "${brightness}%"
+echo "${brightness}%"
