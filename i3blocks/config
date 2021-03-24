@@ -85,20 +85,20 @@ markup=pango
 
 [separator]
 
-[disk]
-command=$LOCAL_DIR/disk
-label= /h:
-instance=/home
-interval=30
-color=#ffdd88
-border=#ffbb33
-border_right=0
-border_left=0
-border_top=0
-border_bottom=$BORDER_W
-markup=pango
+# [disk]
+# command=$LOCAL_DIR/disk
+# label= /h:
+# instance=/home
+# interval=30
+# color=#ffdd88
+# border=#ffbb33
+# border_right=0
+# border_left=0
+# border_top=0
+# border_bottom=$BORDER_W
+# markup=pango
 
-[separator]
+# [separator]
 
 [cpu]
 command=$LOCAL_DIR/cpu

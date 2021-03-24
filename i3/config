@@ -443,7 +443,7 @@ bar {
         statusline #ffffff
  
         #class             border  backgr  text
-        focused_workspace  #000000 #ffbb33 #000000
+        focused_workspace  #ffbb33 #000000 #ffbb33
         inactive_workspace #000000 #000000 #ffffff
         active_workspace   #000000 #000000 #ffffff
         urgent_workspace   #000000 #000000 #ffffff
