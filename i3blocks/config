@@ -135,7 +135,6 @@ border_right=0
 border_left=0
 border_bottom=$BORDER_W
 
-
 [battery]
 command=$LOCAL_DIR/battery
 interval=30
@@ -152,3 +151,7 @@ border_right=0
 border_left=0
 border_bottom=$BORDER_W
 
+[separator]
+
+[separator]
+full_text=
