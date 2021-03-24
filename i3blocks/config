@@ -33,11 +33,10 @@ SCRIPT_DIR=/usr/lib/i3blocks
 command=$SCRIPT_DIR/$BLOCK_NAME/$BLOCK_NAME
 # Define the custom separator in global properties for boilerplate
 align=center
-color=#ffffff
-full_text= 
+color=#444444
+full_text=◀▶
 separator=false
-separator_block_width=7
-min_width=12
+separator_block_width=18
 
 # [window title]
 # command=xdotool getactivewindow getwindowname

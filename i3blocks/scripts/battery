@@ -1,101 +1,59 @@
-#!/usr/bin/env python3
-#
-# Copyright (C) 2016 James Murphy
-# Licensed under the GPL version 2 only
-#
-# A battery indicator blocklet script for i3blocks
+#!/bin/bash
 
-import re
-from subprocess import check_output
+# Script adapted from https://github.com/tallguyjenks/.dotfiles/blob/master/scripts/.local/bin/statusbar/battery
 
-status = check_output(['acpi'], universal_newlines=True)
+# Right click for more info
+case $BLOCK_BUTTON in
+    3) pgrep -x dunst >/dev/null && notify-send " Battery module" " : discharging
+: not charging
+: stagnant charge
+: charging
+: charged
+: battery very low!
+- Text color reflects charge left" ;;
+esac
 
-if not status:
-    # stands for no battery found
-    exit(1)
-else:
-    # if there is more than one battery in one laptop, the percentage left is 
-    # available for each battery separately, although state and remaining 
-    # time for overall block is shown in the status of the first battery 
-    batteries = status.split("\n")
-    state_batteries=[]
-    commasplitstatus_batteries=[]
-    percentleft_batteries=[]
-    time = ""
-    for battery in batteries:
-        if battery!='':
-            state_batteries.append(battery.split(": ")[1].split(", ")[0])
-            commasplitstatus = battery.split(", ")
-            if not time:
-                time = commasplitstatus[-1].strip()
-                # check if it matches a time
-                time = re.match(r"(\d+):(\d+)", time)
-                if time:
-                    time = ":".join(time.groups())
-                    timeleft = " ({})".format(time)
-                else:
-                    timeleft = ""
+# Get current battery capacity/status from stdin or default BAT0
+battery=/sys/class/power_supply/${1:-BAT0}
 
-            p = int(commasplitstatus[1].rstrip("%\n"))
-            if p>0:
-                percentleft_batteries.append(p)
-            commasplitstatus_batteries.append(commasplitstatus)
-    state = state_batteries[0]
-    commasplitstatus = commasplitstatus_batteries[0]
-    if percentleft_batteries:
-        percentleft = int(sum(percentleft_batteries)/len(percentleft_batteries))
-    else:
-        percentleft = 0
+# Exit if no battery is found (desktop PCs)
+[ ! -f $battery ] && exit -1
 
-    # stands for charging
-    FA_LIGHTNING = "<span color='yellow'></span>"
+read -r capacity <"$battery/capacity"
+read -r status   <"$battery/status"
 
-    # stands for plugged in
-    FA_PLUG = "🔌"
+# Set the color based on capacity
+if [ "$capacity" -ge 85 ]; then
+    color="#689d6a"
+elif [ "$capacity" -ge 65 ]; then
+    color="#fabd2f"
+elif [ "$capacity" -ge 50 ]; then
+    color="#d79921"
+elif [ "$capacity" -ge 25 ]; then
+    color="#d65d0e"
+elif [ "$capacity" -ge 10 ]; then
+    color="#cc241d"
+else
+    color="#fb4934"
+    warn=" "
+fi
 
-    # stands for using battery
-    FA_BATTERY = ""
+# If battery below 10 but is now charging remove warning 
+[ "$status" = "Charging" ] && warn=""
 
-    # stands for unknown status of battery
-    FA_QUESTION = "?"
+# If discharging and capacity below 10 then remove status  and replace with warning 
+[ "$status" = "Discharging" ] && [ -n "$warn" ] && status=""
 
+# if capacity is 0 and battery is not charging then change icon to empty battery and turn off warning
+[ "$capacity" = 0 ] && [ "$status" = "Unknown" ] && status="" && warn=""
 
-    if state == "Discharging":
-        fulltext = FA_BATTERY + " "
-    elif state == "Full":
-        fulltext = FA_PLUG + " "
-        timeleft = ""
-    elif state == "Unknown":
-        fulltext = FA_QUESTION + " " + FA_BATTERY + " "
-        timeleft = ""
-    else:
-        fulltext = FA_LIGHTNING + " " + FA_PLUG + " "
+#status="${status//,/}"
+status="${status/#Discharging/}"
+status="${status/#Not Charging/}"
+status="${status/#Charging/}"
+status="${status/#Unknown/}"
+status="${status/#Full/}"
+status="${status} "
 
-    def color(percent):
-        if percent < 10:
-            # exit code 33 will turn background red
-            return "#FFFFFF"
-        if percent < 20:
-            return "#FF3300"
-        if percent < 30:
-            return "#FF6600"
-        if percent < 40:
-            return "#FF9900"
-        if percent < 50:
-            return "#FFCC00"
-        if percent < 60:
-            return "#FFFF00"
-        if percent < 70:
-            return "#FFFF33"
-        if percent < 80:
-            return "#FFFF66"
-        return "#FFFFFF"
-
-    form =  '<span color="{}">{}%</span>'
-    fulltext += form.format(color(percentleft), percentleft)
-    fulltext += timeleft
-
-print(fulltext)
-print(fulltext)
-if percentleft < 10:
-    exit(33)
+# Put it all together
+printf "<span color='%s'>%s%s%s</span>\n" "$color" "$status" "$warn" "$capacity%"
