@@ -127,7 +127,7 @@ border_bottom=$BORDER_W
 
 [pavol]
 command=$LOCAL_DIR/volume
-interval=1
+interval=repeat
 color=#66ffff
 border=#00aaaa
 border_top=0
