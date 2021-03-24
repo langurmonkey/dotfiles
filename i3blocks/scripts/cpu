@@ -3,7 +3,7 @@
 #Mouse actions for the block
 case $BLOCK_BUTTON in
 	1 | 2 | 3)
-        notify-send "CPU time (%)" "$(ps axch -o cmd:10,pcpu k -pcpu | head | awk '$0=$0"%"' )"
+        notify-send " CPU hogs (%)" "$(ps axch -o cmd:10,pcpu k -pcpu | head | awk '$0=$0' )"
         ;;
 esac
 

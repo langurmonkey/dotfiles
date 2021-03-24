@@ -2,7 +2,7 @@
 
 case $BLOCK_BUTTON in
 	1 | 2 | 3)
-        notify-send "Memory (%)" "$(ps axch -o cmd:10,pmem k -pmem | head | awk '$0=$0"%"' )"
+        notify-send " Memory hogs (%)" "$(ps axch -o cmd:10,pmem k -pmem | head | awk '$0=$0' )"
         ;;
 esac
 

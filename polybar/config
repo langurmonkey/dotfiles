@@ -217,7 +217,7 @@ format-prefix-foreground = ${colors.one}
 label = %output%
 interval = 600
 format-underline = ${colors.one}
-click-left = termite -e "yay -Syu" &
+click-left = kitty --class wm-floating paru -Syu &:
 
 [module/updates-ubuntu]
 type = custom/script
