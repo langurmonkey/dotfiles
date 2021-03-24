@@ -23,6 +23,7 @@ alias grep='grep --color=auto'
 alias wifi='nmtui'
 alias ag='rg'
 alias ps='procs'
+alias v='nvim'
 cl () {
     cd $1
     ls
