@@ -101,7 +101,7 @@ markup=pango
 
 [cpu]
 command=$LOCAL_DIR/cpu
-interval=10
+interval=5
 color=#ffffff
 border=#33aa7a
 border_right=0
