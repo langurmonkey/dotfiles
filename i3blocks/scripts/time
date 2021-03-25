@@ -4,8 +4,4 @@ DATE=$(date '+%Y-%m-%d')
 TIME=$(date '+%H:%M:%S')
 
 echo "<span color='#92d928'></span> $DATE <span color='#92d928'></span> <span font='FiraCode Nerd Font Bold'>$TIME</span>"
-
-DATE=$(date '+%d/%m/%y')
-TIME=$(date '+%H:%M')
-
-echo "$DATE <span font='FiraCode Nerd Font Bold' color='white'>$TIME</span>"
+echo "<span color='#92d928'></span> $DATE <span color='#92d928'></span> <span font='FiraCode Nerd Font Bold'>$TIME</span>"
