@@ -8,5 +8,5 @@ case $BLOCK_BUTTON in
 esac
 full_path=$(realpath $0)
 dir_path=$(dirname $full_path)
-$dir_path/xkblayout-state print %s
+echo "<span color='#1990b7'></span> $($dir_path/xkblayout-state print %s)"
 echo

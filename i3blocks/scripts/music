@@ -37,14 +37,16 @@ if [[ $(playerctl -l) != "spotify" ]]; then
 	songDuration=" ($elapsedTime/$songLength)";
 fi
 
+label="<span color='#8f4ce0'></span> "
+
 #Display output
 if [[ "${playerStatus^}" = "Paused" ]]; then
-	echo "$songInfo$songDuration$pauseIcon";
-	echo "$songTitle$songDuration";
+	echo "$label$songInfo$songDuration$pauseIcon";
+	echo "$label$songTitle$songDuration";
 elif [[ "${playerStatus^}" = "Playing" ]]; then
-	echo "$songInfo$songDuration$playIcon";
-	echo "$songTitle$songDuration";
+	echo "$label$songInfo$songDuration$playIcon";
+	echo "$label$songTitle$songDuration";
 elif [[ "${playerStatus^}" = "Stopped" ]]; then
-	echo "Stopped$stopIcon";
-	echo "Stopped$stopIcon";
+	echo "${label}Stopped${stopIcon}";
+	echo "${label}Stopped${stopIcon}";
 fi

@@ -8,8 +8,9 @@ case $BLOCK_BUTTON in
 	4) pamixer -i 3 ;;
 	5) pamixer -d 3 ;;
 esac
+label="<span color='#00aaaa'>墳</span>"
 
 #Toggle mute
-[[ $(pamixer --get-mute) = "true" ]] && echo '婢  0%' && exit
+[[ $(pamixer --get-mute) = "true" ]] && echo "<span color='#00aaaa'>婢</span>  0%" && exit
 #Display volume
-echo 墳 $(pamixer --get-volume)%;
+echo "$label $(pamixer --get-volume)%";

@@ -6,4 +6,4 @@ case $BLOCK_BUTTON in
         ;;
 esac
 
-echo "$(free -h --si | awk '/^Mem:/ {print $3 "/" $2}')"
+echo "<span color='#ff7060'></span> $(free -h --si | awk '/^Mem:/ {print $3 "/" $2}')"
