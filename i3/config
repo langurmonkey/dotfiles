@@ -456,5 +456,5 @@ bar {
 
   position top
   tray_output primary
-  font pango:FiraCode Nerd Font 9
+  font pango:FiraCode Nerd Font 10
 }
