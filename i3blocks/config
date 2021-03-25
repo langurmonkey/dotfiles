@@ -36,7 +36,7 @@ color=#333333
 background=#000000
 full_text= 
 separator=false
-separator_block_width=18
+separator_block_width=6
 
 # [window title]
 # command=xdotool getactivewindow getwindowname

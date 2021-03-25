@@ -18,7 +18,7 @@ esac
 battery=/sys/class/power_supply/${1:-BAT0}
 
 # Exit if no battery is found (desktop PCs)
-[ ! -d $battery ] && echo "🔌" && exit -1
+[ ! -d $battery ] && echo "" && exit -1
 
 read -r capacity <"$battery/capacity"
 read -r bat_status   <"$battery/status"
