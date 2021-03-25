@@ -4,6 +4,7 @@
 
 # Right click for more info
 case $BLOCK_BUTTON in
+    1) notify-send "Battery" "$(acpi)" --icon= ;;
     3) pgrep -x dunst >/dev/null && notify-send " Battery module" " : discharging
 : not charging
 : stagnant charge
