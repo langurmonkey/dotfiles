@@ -8,7 +8,7 @@ esac
 
 brightness=$(echo "100.0 * $(brightnessctl -q g) / $(brightnessctl -q m)" | bc)
 brightess=${brightness%.*}
-label="<span color='#aaaa00'></span>"
+label="<span color='#ccff00'></span>"
 
 echo "$label ${brightness}%"
 echo "$label ${brightness}%"

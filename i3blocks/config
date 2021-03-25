@@ -34,9 +34,9 @@ command=$SCRIPT_DIR/$BLOCK_NAME/$BLOCK_NAME
 align=center
 color=#333333
 background=#000000
-full_text=:|:
+full_text= 
 separator=false
-separator_block_width=28
+separator_block_width=18
 
 # [window title]
 # command=xdotool getactivewindow getwindowname
@@ -129,7 +129,7 @@ markup=pango
 command=$LOCAL_DIR/brightness
 interval=1
 color=#ffffff
-border=#aaaa00
+border=#ccff00
 border_top=0
 border_right=0
 border_left=0
@@ -155,6 +155,11 @@ markup=pango
 command=$LOCAL_DIR/battery
 color=#ffffff
 interval=15
+border=#ff55aa
+border_top=0
+border_right=0
+border_left=0
+border_bottom=1
 markup=pango
 
 [separator]
