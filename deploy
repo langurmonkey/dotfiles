@@ -324,7 +324,7 @@ echo-ok "Done"
 echo-custom " ** " "==== MPV ===="
 
 MPV_CONFIG=~/.config/mpv
-do-symlink $DOTFILES_PATH/mpv/scripts $MPV_CONFIG/scripts
+do-symlink $DOTFILES_PATH/mpv $MPV_CONFIG
 echo-ok "Done"
 
 #
