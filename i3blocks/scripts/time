@@ -2,6 +2,7 @@
 
 DATE=$(date '+%Y-%m-%d')
 TIME=$(date '+%H:%M:%S')
+COL="#668cff"
 
-echo "<span color='#92d928'></span> $DATE <span color='#92d928'></span> <span font='FiraCode Nerd Font Bold'>$TIME</span>"
-echo "<span color='#92d928'></span> $DATE <span color='#92d928'></span> <span font='FiraCode Nerd Font Bold'>$TIME</span>"
+echo "<span color='$COL'></span> $DATE <span color='$COL'></span> <span font='FiraCode Nerd Font Bold'>$TIME</span>"
+echo "<span color='$COL'></span> $DATE <span color='$COL'></span> <span font='FiraCode Nerd Font Bold'>$TIME</span>"
