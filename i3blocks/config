@@ -32,10 +32,12 @@ SCRIPT_DIR=/usr/lib/i3blocks
 command=$SCRIPT_DIR/$BLOCK_NAME/$BLOCK_NAME
 # Define the custom separator in global properties for boilerplate
 align=center
-color=#333333
+color=#3c4e84
 background=#000000
+# full_text=❮
 full_text= 
 separator=false
+# separator_block_width=15
 separator_block_width=6
 
 # [window title]
