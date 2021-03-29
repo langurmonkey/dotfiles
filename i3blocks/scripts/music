@@ -27,26 +27,19 @@ playerStatus=$(playerctl $ARGUMENTS status);
 songArtist="$(playerctl $ARGUMENTS metadata artist)";
 songArtist="${songArtist:-(Unknown Artist)}";
 songTitle=$(playerctl $ARGUMENTS metadata title);
-songInfo="$songArtist - $songTitle";
-songDuration="";
+# Escape ampersand
+songInfo=$(echo "$songArtist - $songTitle" | sed -r 's/&+/&amp;/g');
 elapsedTime=$(playerctl metadata --format "{{ duration(position) }}");
 songLength=$(playerctl metadata --format "{{ duration(mpris:length) }}");
-
-#`playerctl position` doesn't work for "Spotify"
-if [[ $(playerctl -l) != "spotify" ]]; then
-	songDuration=" ($elapsedTime/$songLength)";
-fi
+songDuration=" ($elapsedTime/$songLength)";
 
 label="<span color='#8f4ce0'></span> "
 
 #Display output
 if [[ "${playerStatus^}" = "Paused" ]]; then
 	echo "$label$songInfo$songDuration$pauseIcon";
-	echo "$label$songTitle$songDuration";
 elif [[ "${playerStatus^}" = "Playing" ]]; then
 	echo "$label$songInfo$songDuration$playIcon";
-	echo "$label$songTitle$songDuration";
 elif [[ "${playerStatus^}" = "Stopped" ]]; then
-	echo "${label}Stopped${stopIcon}";
 	echo "${label}Stopped${stopIcon}";
 fi
