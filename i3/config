@@ -166,8 +166,7 @@ bindsym $mod+Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
 bindsym $mod+Shift+w exec qutebrowser
 bindsym $mod+Control+w exec firefox
 bindsym $mod+Shift+t exec thunderbird
-bindsym $mod+Shift+f exec $myterm --class wm-floating ranger "`$HOME/.dotfiles/bin/xcwd`"
-bindsym $mod+Shift+b exec $myterm --class wm-floating lf "`$HOME/.dotfiles/bin/xcwd`"
+bindsym $mod+Shift+f exec $myterm --class wm-floating lf "`$HOME/.dotfiles/bin/xcwd`"
 
 # Min and max sizes for floating windows
 floating_minimum_size 450x150
