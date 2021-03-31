@@ -24,9 +24,9 @@ esac
 
 #Define song info variables
 playerStatus=$(playerctl $ARGUMENTS status);
-songArtist="$(playerctl $ARGUMENTS metadata artist)";
+songArtist="$(playerctl $ARGUMENTS metadata --format "{{ markup_escape(artist) }}")";
 songArtist="${songArtist:-(Unknown Artist)}";
-songTitle=$(playerctl $ARGUMENTS metadata title);
+songTitle=$(playerctl $ARGUMENTS metadata --format "{{ markup_escape(title) }}");
 # Escape ampersand
 songInfo=$(echo "$songArtist - $songTitle" | sed -r 's/&+/&amp;/g');
 elapsedTime=$(playerctl metadata --format "{{ duration(position) }}");
