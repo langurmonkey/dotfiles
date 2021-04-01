@@ -1,0 +1,75 @@
+#!/bin/sh
+
+VERSION="0.1 (1 April 2021)"
+
+eval $(date +"YEAR=%Y MONTH=%m DAY=%d")
+
+# Set default configuration
+WEB_LOC="${WEB:-$HOME/website}"
+POSTS_LOC=$WEB_LOC/content/blog
+POST_DIR="$POSTS_LOC/$YEAR"
+
+create_post() {
+    POST_FNAME=$1
+    if [ ! -f "$POST_DIR/$POST_FNAME" ]; then
+        printf "Creating new post: %s/%s\n" "$POST_DIR" "$POST_FNAME"
+        mkdir -p "$POST_DIR"
+        touch "$POST_DIR/$POST_FNAME"
+
+        read -p "Post title: " TITLE
+        read -p "Post description: " DESC
+
+        printf "+++\nauthor = \"Toni Sagrista Selles\"\n" >> $POST_DIR/$POST_FNAME
+        printf "categories = []\n" >> $POST_DIR/$POST_FNAME
+        printf "tags = []\n" >> $POST_DIR/$POST_FNAME
+        printf "date = %s-%s-%s\n" "$YEAR" "$MONTH" "$DAY" >> $POST_DIR/$POST_FNAME
+        printf "linktitle = \"\"\n" >> $POST_DIR/$POST_FNAME
+        printf "title = \"%s\"\n" "$TITLE" >> $POST_DIR/$POST_FNAME
+        printf "description = \"%s\"\n" "$DESC" >> $POST_DIR/$POST_FNAME
+        printf "featuredpath = \"date\"\n" >> $POST_DIR/$POST_FNAME
+        printf "type = \"post\"\n+++\n\n" >> $POST_DIR/$POST_FNAME
+        printf "Here the introduction\n\n" >> $POST_DIR/$POST_FNAME
+        printf "<!--more-->\n\n" >> $POST_DIR/$POST_FNAME
+        printf "Here the body\n" >> $POST_DIR/$POST_FNAME
+
+        # Opening
+        vim $POST_DIR/$POST_FNAME
+        
+    else
+        printf "The file name already exists: %s\n" "$POST_DIR/$POST_FNAME"
+    fi
+}
+
+print_help() {
+    printf "Usage: $0 <file_name>
+Arguments:
+  -h | --help                         Display usage guide.
+\n"
+}
+print_version() {
+    echo "hugo-post $VERSION"
+}
+
+if [ $# -eq 0 ]; then
+    printf "Wrong number of arguments.\n\n"
+    print_help
+    exit 0
+elif [ $# -eq 1 ]; then
+    key="$1"
+    case $key in
+    -h | --help)
+        print_help
+        exit 0
+        ;;
+    -v | --version)
+        print_version
+        exit 0
+        ;;
+    esac
+else
+    printf "Wrong number of arguments.\n\n"
+    print_help
+    exit 0
+fi
+
+create_post $1
