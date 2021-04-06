@@ -264,8 +264,8 @@ entries_per_page = 20
 # Available keys to set:
 
 bg = "#181818" 
-tab_num = "#888888"
-tab_divider = "#555555"
+tab_num = "#668cff"
+tab_divider = "#668cff"
 bottombar_label = "#98be65"
 bottombar_text = "#7d7d7d"
 bottombar_bg = "#202328"
