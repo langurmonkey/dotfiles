@@ -341,13 +341,13 @@ base06 = "#dadbdc"
 base07 = "#fcfdfe"
 base08 = "#e31a1c"
 base09 = "#e6550d"
-base0A = "#dca060"
-base0B = "#31a354"
-base0C = "#80b1d3"
-base0D = "#3182bd"
+base0A = "#f35888"
+base0B = "#668cff"
+base0C = "#668cff"
+base0D = "#668cff"
 base0E = "#756bb1"
 base0F = "#b15928"
-base10 = "#31a354"
+base10 = "#668cff"
 base11 = "#fafafa"
 base12 = "#9740b7"
 
@@ -437,7 +437,7 @@ c.colors.downloads.stop.bg = base0C
 c.colors.downloads.error.fg = base08
 
 # Font color for hints.
-c.colors.hints.fg = base00
+c.colors.hints.fg = base11
 
 # Background color for hints. Note that you can use a `rgba(...)` value
 # for transparency.
