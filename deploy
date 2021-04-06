@@ -13,6 +13,7 @@ DIR_LF=~/.config/lf
 DIR_ZSHPLUGINS=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins
 DIR_VISCONFIG=~/.config/vis
 DIR_NEWSBOAT=~/.config/newsboat
+DIR_AMFORA=~/.config/amfora
 DIR_STARSHIP=~/.config
 DIR_MUTT=~/.config/mutt
 
@@ -348,6 +349,13 @@ echo-ok "Done"
 #
 echo-custom " ** " "==== NEWSBOAT ===="
 do-symlink $DOTFILES_PATH/newsboat $DIR_NEWSBOAT
+echo-ok "Done"
+
+#
+# AMFORA
+#
+echo-custom " ** " "==== AMFORA ===="
+do-symlink $DOTFILES_PATH/amfora $DIR_AMFORA
 echo-ok "Done"
 
 # STARSHIP SHELL
