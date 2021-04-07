@@ -41,9 +41,11 @@ create_post() {
 }
 
 print_help() {
-    printf "Usage: $0 <file_name>
-Arguments:
-  -h | --help                         Display usage guide.
+    SCRIPT_FILE=$(basename $0)
+    printf "Usage: $SCRIPT_FILE [FILENAME]\n"
+    printf "Create a new blog post in a Hugo website in \$WEB/content/blog, using the current date.\n\n" 
+    printf "Arguments:
+  -h, --help                         Display usage guide.
 \n"
 }
 print_version() {
