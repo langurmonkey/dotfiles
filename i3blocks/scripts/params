@@ -1,0 +1,7 @@
+#!/bin/sh
+# Sets up the $ICON and $COL variables
+# with either the ones coming in $1 and $2
+# respectively, or in the contents of $DEF_ICON
+# and $DEF_COL
+icon=${1:-$def_icon}
+col=${2:-$def_col}

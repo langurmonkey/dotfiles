@@ -1,4 +1,13 @@
 #!/bin/bash
+# Arguments:
+# 1: icon volume
+# 2: icon mute
+# 3: color
+
+icon_vol=${1:-墳}
+icon_mute=${2:-婢}
+col=${3:-#fff}
+
 #----------------------------------------------------------------------------------------------------
 #Mouse actions for the block
 case $BLOCK_BUTTON in
@@ -8,9 +17,9 @@ case $BLOCK_BUTTON in
 	4) pamixer -i 3 ;;
 	5) pamixer -d 3 ;;
 esac
-label="<span color='#00aaaa'>墳</span>"
+label="<span color='$col'>$icon_vol</span>"
 
 #Toggle mute
-[[ $(pamixer --get-mute) = "true" ]] && echo "<span color='#00aaaa'>婢</span>  0%" && exit
+[[ $(pamixer --get-mute) = "true" ]] && echo "<span color='$col'>$icon_mute</span>  0%" && exit
 #Display volume
-echo "$label $(pamixer --get-volume)%";
+echo "$label $(pamixer --get-volume-human)";

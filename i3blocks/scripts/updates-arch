@@ -1,4 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/sh
+# Arguments:
+# 1: icon
+# 2: color
 
 #Mouse actions for the block
 case $BLOCK_BUTTON in
@@ -7,9 +10,13 @@ case $BLOCK_BUTTON in
         ;;
 esac
 
+def_icon=
+def_col=#fff
+source $(dirname $0)/params
+
 # Arch updates includes ruby gem updates as well (little did you know, huh?)
 arch_updates=$(checkupdates 2>&1)
 aur_updates=$(yay --aur -Qu 2>/dev/null | wc -l)
 arch_updates=$(echo "$arch_updates" | wc -l)
 updates=$((arch_updates + aur_updates))
-echo "<span color='#ff3393'></span> $updates"
+echo "<span color='$col'>$icon</span> $updates"

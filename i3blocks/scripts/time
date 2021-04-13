@@ -1,8 +1,17 @@
 #!/bin/sh
+# Arguments:
+# 1: CALENDAR icon
+# 2: CLOCK icon
+# 3: color
+def_icon1=
+def_icon2=
+def_col=#fff
+icon1=${1:-$def_icon1}
+icon2=${2:-$def_icon2}
+col=${3:-$def_col}
 
 DATE=$(date '+%Y-%m-%d')
 TIME=$(date '+%H:%M:%S')
-COL="#668cff"
 
-echo "<span color='$COL'></span> $DATE <span color='$COL'></span> <span font='FiraCode Nerd Font Bold'>$TIME</span>"
-echo "<span color='$COL'></span> $DATE <span color='$COL'></span> <span font='FiraCode Nerd Font Bold'>$TIME</span>"
+echo "<span color='$col'>$icon1</span> $DATE <span color='$col'>$icon2</span> <span font='FiraCode Nerd Font Bold'>$TIME</span>"
+echo "<span color='$col'>$icon1</span> $DATE <span color='$col'>$icon2</span> <span font='FiraCode Nerd Font Bold'>$TIME</span>"

@@ -1,4 +1,8 @@
 #!/bin/sh
+# Arguments:
+# 1: CPU icon
+# 2: TEMP icon
+# 3: color
 
 #Mouse actions for the block
 case $BLOCK_BUTTON in
@@ -7,4 +11,14 @@ case $BLOCK_BUTTON in
         ;;
 esac
 
-echo "<span color='#33aa7a'></span> $(grep 'cpu ' /proc/stat | awk '{cpu_usage=($2+$4)*100/($2+$4+$5)} END {printf "%0.2f%", cpu_usage}') <span color='#33aa7a'></span>$(sensors | grep temp1 | head -1 | awk '{print $2}')"
+def_icon1=
+def_icon2=
+def_col=#fff
+icon1=${1:-$def_icon1}
+icon2=${2:-$def_icon2}
+col=${3:-$def_col}
+
+cpu_perc=$(cat <(grep 'cpu ' /proc/stat) <(sleep 1 && grep 'cpu ' /proc/stat) | awk -v RS="" '{printf "%.2f%\n", ($13-$2+$15-$4)*100/($13-$2+$15-$4+$16-$5)}')
+cpu_temp=$(sensors | grep temp1 | head -1 | awk '{print $2}')
+
+echo "<span color='$col'>$icon1</span> $cpu_perc <span color='$col'>$icon2</span>$cpu_temp"
