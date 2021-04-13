@@ -166,7 +166,7 @@ markup=pango
 
 [pavol]
 command=$LOCAL_DIR/volume 墳 婢 "#00aaaa" &
-interval=repeat
+interval=1
 color=#ffffff
 border=#00aaaa
 border_top=0

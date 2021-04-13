@@ -22,4 +22,4 @@ label="<span color='$col'>$icon_vol</span>"
 #Toggle mute
 [[ $(pamixer --get-mute) = "true" ]] && echo "<span color='$col'>$icon_mute</span>  0%" && exit
 #Display volume
-echo "$label $(pamixer --get-volume)%";
+echo "$label $(pamixer --get-volume-human)";
