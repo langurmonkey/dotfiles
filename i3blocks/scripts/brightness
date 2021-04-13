@@ -1,4 +1,11 @@
 #!/bin/bash
+# Arguments:
+# 1: icon
+# 2: color
+
+def_icon=
+def_col=#fff
+source $(dirname $0)/params
 
 #Mouse actions for the block
 case $BLOCK_BUTTON in
@@ -8,7 +15,6 @@ esac
 
 brightness=$(echo "100.0 * $(brightnessctl -q g) / $(brightnessctl -q m)" | bc)
 brightess=${brightness%.*}
-label="<span color='#ccff00'></span>"
+label="<span color='$col'>$icon</span>"
 
-echo "$label ${brightness}%"
 echo "$label ${brightness}%"

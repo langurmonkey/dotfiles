@@ -47,33 +47,33 @@ separator_block_width=6
 # align=center
 
 [music]
-command=$LOCAL_DIR/music
+command=$LOCAL_DIR/music  "#8f4ce0"
 interval=2
 color=#dfacff
 border=#8f4ce0
 border_top=0
 border_right=0
 border_left=0
-border_bottom=1
+border_bottom=2
 markup=pango
 
 [separator]
 
 [keyboard]
-command=$LOCAL_DIR/keyboard
+command=$LOCAL_DIR/keyboard  "#1990b7"
 interval=2
 color=#ffffff
 border=#1990b7
 border_top=0
 border_right=0
 border_left=0
-border_bottom=1
+border_bottom=2
 markup=pango
 
 [separator]
 
 [updates-arch]
-command=$LOCAL_DIR/updates-arch
+command=$LOCAL_DIR/updates-arch  "#ff3393"
 interval=1800
 markup=pango
 color=#ffffff
@@ -81,7 +81,7 @@ border=#ff3393
 border_right=0
 border_left=0
 border_top=0
-border_bottom=1
+border_bottom=2
 markup=pango
 
 [separator]
@@ -96,70 +96,83 @@ markup=pango
 # border_right=0
 # border_left=0
 # border_top=0
-# border_bottom=1
+# border_bottom=2
 # markup=pango
 
 # [separator]
 
 [cpu]
-command=$LOCAL_DIR/cpu
+command=$LOCAL_DIR/cpu   "#33aa7a"
 interval=2
 color=#ffffff
 border=#62ef3b
 border_right=0
 border_left=0
 border_top=0
-border_bottom=1
+border_bottom=2
 markup=pango
 
 [cpulevels]
-command=$LOCAL_DIR/cpu-levels
+command=$LOCAL_DIR/cpu-levels "#33aa7a"
 interval=repeat
 color=#ffffff
 border=#62ef3b
 border_right=0
 border_left=0
 border_top=0
-border_bottom=1
+border_bottom=2
 markup=pango
 
 [separator]
 
 [memory]
-command=$LOCAL_DIR/memory
+command=$LOCAL_DIR/memory  "#ff7060"
 interval=5
 color=#ffffff
 border=#ff7060
 border_right=0
 border_left=0
 border_top=0
-border_bottom=1
+border_bottom=2
+markup=pango
+
+[separator]
+
+[usb]
+command=$LOCAL_DIR/usb  "#fc92f3"
+interval=5
+color=#ffffff
+border=#fc92f3
+border_right=0
+border_left=0
+border_top=0
+border_bottom=2
 markup=pango
 
 [separator]
 
 [brightness]
-command=$LOCAL_DIR/brightness
+command=$LOCAL_DIR/brightness  "#ccff00"
 interval=repeat
 color=#ffffff
 border=#ccff00
 border_top=0
 border_right=0
 border_left=0
-border_bottom=1
+border_bottom=2
 markup=pango
 
 [separator]
 
 [pavol]
-command=$LOCAL_DIR/volume &
+command=$LOCAL_DIR/volume 墳 婢 "#00aaaa" &
 interval=repeat
 color=#ffffff
 border=#00aaaa
 border_top=0
 border_right=0
 border_left=0
-border_bottom=1
+border_bottom=2
 markup=pango
 
 [separator]
@@ -172,13 +185,13 @@ border=#ff55aa
 border_top=0
 border_right=0
 border_left=0
-border_bottom=1
+border_bottom=2
 markup=pango
 
 [separator]
 
 [time]
-command=$LOCAL_DIR/time
+command=$LOCAL_DIR/time   "#668cff"
 markup=pango
 interval=1
 color=#ffffff
@@ -186,7 +199,7 @@ border=#668cff
 border_top=0
 border_right=0
 border_left=0
-border_bottom=1
+border_bottom=2
 
 [separator]
 full_text=

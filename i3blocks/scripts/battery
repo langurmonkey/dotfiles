@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Script adapted from https://github.com/tallguyjenks/.dotfiles/blob/master/scripts/.local/bin/statusbar/battery
 
 # Right click for more info

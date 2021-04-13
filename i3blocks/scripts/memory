@@ -1,9 +1,16 @@
 #!/bin/sh
+# Arguments:
+# 1: icon
+# 2: color
+
+def_icon=
+def_col=#fff
+source $(dirname $0)/params
 
 case $BLOCK_BUTTON in
 	1 | 2 | 3)
-        notify-send " Memory hogs (%)" "$(ps axch -o cmd:10,pmem k -pmem | head | awk '$0=$0' )"
+        notify-send "$icon Memory hogs (%)" "$(ps axch -o cmd:10,pmem k -pmem | head | awk '$0=$0' )"
         ;;
 esac
 
-echo "<span color='#ff7060'></span> $(free -h --si | awk '/^Mem:/ {print $3 "/" $2}')"
+echo "<span color='$col'>$icon</span> $(free -h --si | awk '/^Mem:/ {print $3 "/" $2}')"

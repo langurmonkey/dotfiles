@@ -1,9 +1,17 @@
 #!/bin/bash
+# Arguments:
+# 1: icon
+# 2: color
+
 #----------------------------------------------------------------------------------------------------
 # Requires playerctl - https://github.com/acrisci/playerctl
 #----------------------------------------------------------------------------------------------------
 #Exit the script if no music players running
 [[ "$(playerctl status 2>&1)" = "No players found" ]] && exit 33;
+
+def_icon=
+def_col=#fff
+source $(dirname $0)/params
 
 # Define cursor icons
 playIcon="  ";
@@ -33,7 +41,7 @@ elapsedTime=$(playerctl metadata --format "{{ duration(position) }}");
 songLength=$(playerctl metadata --format "{{ duration(mpris:length) }}");
 songDuration=" ($elapsedTime/$songLength)";
 
-label="<span color='#8f4ce0'></span> "
+label="<span color='$col'>$icon</span> "
 
 #Display output
 if [[ "${playerStatus^}" = "Paused" ]]; then
