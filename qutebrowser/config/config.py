@@ -123,10 +123,11 @@ c.content.proxy = 'system'
 ## Validate SSL handshakes.
 ## Type: BoolAsk
 ## Valid values:
-##   - true
-##   - false
+##   - True
+##   - False
 ##   - ask
-c.content.ssl_strict = True
+##   - ask-block-thirdparty
+c.content.tls.certificate_errors = 'ask-block-thirdparty'
 
 ## List of user stylesheet filenames to use.
 ## Type: List of File, or File
