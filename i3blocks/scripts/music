@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # Arguments:
 # 1: icon
 # 2: color
@@ -7,19 +7,19 @@
 # Requires playerctl - https://github.com/acrisci/playerctl
 #----------------------------------------------------------------------------------------------------
 #Exit the script if no music players running
-[[ "$(playerctl status 2>&1)" = "No players found" ]] && exit 33;
+[[ "$(playerctl status 2>&1)" = "No players found" ]] && exit 33
 
 def_icon=
 def_col=#fff
 source $(dirname $0)/params
 
 # Define cursor icons
-playIcon="  ";
-pauseIcon="  ";
-stopIcon="  ";
+playIcon="  "
+pauseIcon="  "
+stopIcon="  "
 
 #User provided args for playerctl
-ARGUMENTS="$INSTANCE";
+ARGUMENTS="$INSTANCE"
 
 #Mouse actions for the block
 case $BLOCK_BUTTON in
@@ -31,23 +31,23 @@ case $BLOCK_BUTTON in
 esac
 
 #Define song info variables
-playerStatus=$(playerctl $ARGUMENTS status);
-songArtist="$(playerctl $ARGUMENTS metadata --format "{{ markup_escape(artist) }}")";
-songArtist="${songArtist:-(Unknown Artist)}";
-songTitle=$(playerctl $ARGUMENTS metadata --format "{{ markup_escape(title) }}");
+playerStatus=$(playerctl $ARGUMENTS status)
+songArtist="$(playerctl $ARGUMENTS metadata --format "{{ markup_escape(artist) }}")"
+songArtist="${songArtist:-(Unknown Artist)}"
+songTitle=$(playerctl $ARGUMENTS metadata --format "{{ markup_escape(title) }}")
 # Escape ampersand
-songInfo=$(echo "$songArtist - $songTitle" | sed -r 's/&+/&amp;/g');
-elapsedTime=$(playerctl metadata --format "{{ duration(position) }}");
-songLength=$(playerctl metadata --format "{{ duration(mpris:length) }}");
-songDuration=" ($elapsedTime/$songLength)";
+songInfo="$songArtist - $songTitle"
+elapsedTime=$(playerctl metadata --format "{{ duration(position) }}")
+songLength=$(playerctl metadata --format "{{ duration(mpris:length) }}")
+songDuration=" ($elapsedTime/$songLength)"
 
 label="<span color='$col'>$icon</span> "
 
 #Display output
 if [[ "${playerStatus^}" = "Paused" ]]; then
-	echo "$label$songInfo$songDuration$pauseIcon";
+	echo "$label$songInfo$songDuration$pauseIcon"
 elif [[ "${playerStatus^}" = "Playing" ]]; then
-	echo "$label$songInfo$songDuration$playIcon";
+	echo "$label$songInfo$songDuration$playIcon"
 elif [[ "${playerStatus^}" = "Stopped" ]]; then
-	echo "${label}Stopped${stopIcon}";
+	echo "${label}Stopped${stopIcon}"
 fi
