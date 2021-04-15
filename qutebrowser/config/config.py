@@ -129,6 +129,16 @@ c.content.proxy = 'system'
 ##   - ask-block-thirdparty
 c.content.tls.certificate_errors = 'ask-block-thirdparty'
 
+## Notifications provider.
+## Valid values:
+##   - auto
+##   - qt
+##   - libnotify
+##   - systray
+##   - messages
+##   - herbe
+c.content.notifications.presenter = 'auto'
+
 ## List of user stylesheet filenames to use.
 ## Type: List of File, or File
 c.content.user_stylesheets = [ "scrollbar.css" ]
