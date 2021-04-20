@@ -21,4 +21,7 @@ col=${3:-$def_col}
 cpu_perc=$(cat <(grep 'cpu ' /proc/stat) <(sleep 1 && grep 'cpu ' /proc/stat) | awk -v RS="" '{printf "%.2f%\n", ($13-$2+$15-$4)*100/($13-$2+$15-$4+$16-$5)}')
 cpu_temp=$(sensors | grep temp1 | head -1 | awk '{print $2}')
 
+# Full length
 echo "<span color='$col'>$icon1</span> $cpu_perc <span color='$col'>$icon2</span>$cpu_temp"
+# Short length
+echo "<span color='$col'>$icon1</span> $cpu_perc"
