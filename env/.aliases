@@ -57,6 +57,11 @@ alias mus="ncmpcpp"
 # Movement random
 alias up="cd .."
 alias back="cd -"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias ..2="cd ../.."
+alias ..3="cd ../../.."
 
 # Best calculator
 alias bc='bc -l'
