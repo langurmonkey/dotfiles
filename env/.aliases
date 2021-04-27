@@ -3,10 +3,10 @@
 # 
 
 # Format for listings and directory usages
-alias ll='exa -alFh --color=auto'
-alias la='exa -alFhS --color=auto'
-alias l='exa -lChFrS --color=auto'
-alias ls='exa -aF --color=auto'
+alias ll='exa -alFh --color=auto --icons --group-directories-first'
+alias la='exa -alFhS --color=auto --icons --group-directories-first'
+alias l='exa -lChFrS --color=auto --icons --group-directories-first'
+alias ls='exa -aF --color=auto --icons --group-directories-first'
 alias df='df -Th'
 alias du='du -h'
 alias cp='cp -fv'
@@ -24,10 +24,6 @@ alias wifi='nmtui'
 alias ag='rg'
 alias ps='procs'
 alias v='nvim'
-cl () {
-    cd $1
-    ls
-}
 
 # VPN
 alias vpnheidelberguni='sudo openconnect -u st0@ix.urz.uni-heidelberg.de vpn-ac.urz.uni-heidelberg.de'
@@ -94,6 +90,28 @@ alias btc='curl rate.sx/btc'
 alias eth='curl rate.sx/eth'
 alias ltc='curl rate.sx/ltc'
 
+#
+# FUNCTIONS
+#
+
+# cd+ls
+cl () {
+    cd $1
+    ls
+}
+# cheat.sh
+cht() {
+  curl cht.sh/$1
+}
+# Weather
+weather(){
+    curl https://wttr.in/$1\?1Fn
+}
+wfull(){ curl https://wttr.in/$1
+}
+wimg(){
+    kitty icat https://v3.wttr.in/$1.png
+}
 
 # thefuck aliases
 if cmd-exists thefuck; then
