@@ -22,9 +22,9 @@ do
         isTxt=$(file -0 "$current" | cut -d $'\0' -f2)
         case "$isTxt" in
         (*text*)
-            if [[ $(grep -c $'\r' $current) -gt 0 ]]; then
+            if [[ $(grep -c $'\r' "$current") -gt 0 ]]; then
                 echo -e "${FCOL}dos${NC}\t<- $current"
-            elif [[ $(grep -c $'\n' $current) -gt 0 ]]; then
+            elif [[ $(grep -c $'\n' "$current") -gt 0 ]]; then
                 echo -e "${FCOL}unix${NC}\t<- $current"
             else
                 echo -e "${FCOL}mac${NC}\t<- $current"

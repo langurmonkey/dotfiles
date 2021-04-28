@@ -8,7 +8,7 @@
 #
 # START
 #
-DATE=`date +%Y%m%d_%H%M%S`
+DATE=$(date "+%Y%m%d_%H%M%S")
 # Backup home directory
 SRC_DIR=$HOME
 

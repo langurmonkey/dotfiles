@@ -1,7 +1,9 @@
 #!/bin/bash
+# Change FPS of video files
 
 if [[ $# -ne 2 ]] ; then
     echo "No arguments supplied:"
+    echo "$(basename "$0"): change frame rate of video files"
     echo "Usage: $0 FPS FILE"
     exit 1
 fi
@@ -15,8 +17,8 @@ if [[ -f $FILE ]] ; then
     filename="${filename%.*}"
 
     COMMAND="ffmpeg -i $FILE -filter:v fps=fps=$FPS ${filename}_fps.${extension}"
-    echo $COMMAND
-    eval $COMMAND
+    echo "$COMMAND"
+    eval "$COMMAND"
     exit 0
 else
     echo "File '$FILE' not found"
