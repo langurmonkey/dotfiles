@@ -55,6 +55,10 @@ bindsym $mod+equal exec rofi -show calc -no-show-match -no-sort -config $($HOME/
 bindsym $mod+i exec rofi-pass -config $($HOME/.dotfiles/bin/rofi-config)
 # POWER
 bindsym $mod+Shift+Escape exec ~/.dotfiles/bin/rofi-powermenu
+# AMBIENT SOUNDS
+bindsym $mod+Shift+s exec $HOME/.dotfiles/bin/ambientsound
+
+
 # start dmenu
 #bindsym $mod+d exec $HOME/.dotfiles/bin/dmenu-wal
 # start fmenu (search home)
