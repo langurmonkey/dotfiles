@@ -15,7 +15,7 @@ I use a fork of i3 called [i3-gaps](https://github.com/Airblader/i3). Basically,
 I use a little program called [xcwd](https://github.com/schischi/xcwd) to open new terminals in the same directory as the working directory of the currently focused window. I include the compiled program in my dotfiles repo:
 
 ```
-bindsym $mod+Return exec termite -cd "`$HOME/.dotfiles/bin/xcwd`"
+bindsym $mod+Return exec $myterm -c=$(~/.dotfiles/bin/kitty-config) -d "`$HOME/.dotfiles/bin/xcwd`"
 ```
 
 I also use this program in my [ranger](ranger.md) launch script in order to open a ranger instance within a terminal with the right working directory.
@@ -49,13 +49,13 @@ bindsym XF86MonBrightnessDown exec brightness-
 
 ### Application bindings
 
-I use the Alt key as `$mod` and the Super key as application launcher (I call it `$sup`). I have very few direct application bindings.
+I use the Alt key as `$mod` and the Super key as application launcher (I call it `$sup`). I have just a couple of application bindings.
 
 ```
-bindsym $sup+b exec qutebrowser
-bindsym $sup+t exec thunderbird
-bindsym $sup+f exec ~/.dotfiles/bin/ranger-term "`$HOME/.config/i3/xcwd`"
-bindsym $sup+g exec termite -cd "$HOME/git/gaiasky"
+bindsym $mod+Shift+w exec qutebrowser
+bindsym $mod+Control+w exec firefox
+bindsym $mod+Shift+t exec thunderbird
+bindsym $mod+Shift+f exec $myterm --class wm-floating lf "`$HOME/.dotfiles/bin/xcwd`"
 ```
 
 Interesting note: when I press `Super+g` a new terminal opens in the Gaia Sky folder. This I use a lot.

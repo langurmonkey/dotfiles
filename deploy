@@ -257,8 +257,6 @@ else
 fi
 # font-size urxvt plugin
 do-symlink $DOTFILES_PATH/urxvt/font-size ~/.urxvt/ext/font-size
-#Termite config
-do-symlink $DOTFILES_PATH/termite ~/.config/termite
 #Kitty config
 do-symlink $DOTFILES_PATH/kitty ~/.config/kitty
 

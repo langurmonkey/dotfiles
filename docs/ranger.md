@@ -13,15 +13,15 @@ map bg shell cp %f ~/Pictures/wallpaper.jpg && feh --bg-fil ~/Pictures/wallpaper
 map bw shell cp %f ~/Pictures/wallpaper.jpg && ~/.local/bin/wal -c && ~/.local/bin/wal -a 85 -i ~/Pictures/wallpaper.jpg
 ```
 
-Additionally, I use a script to launch a new instance of `ranger` inside a `termite` terminal with a specific working directory:
+Additionally, I use a script to launch a new instance of `ranger` inside a `kitty` terminal with a specific working directory:
 
 ```console
 #!/bin/bash
 # ranger-term
-EDITOR=nvim && termite -e ranger "$1"
+EDITOR=nvim && kitty ranger "$1"
 ```
 
-Whenever I need a new instance of `ranger`, I use the script. For example, I bind `$sup+f` to a new ranger-in-termite starting at the working directory of the currently focused window in my `i3` configuration:
+Whenever I need a new instance of `ranger`, I use the script. For example, I bind `$sup+f` to a new ranger-in-kitty starting at the working directory of the currently focused window in my `i3` configuration:
 
 ```
 bindsym $sup+f exec ~/.dotfiles/bin/ranger-term "`$HOME/.dotfiles/bin/xcwd`"

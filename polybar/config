@@ -228,7 +228,7 @@ format-prefix-foreground = ${colors.one}
 label = %output%
 interval = 600
 format-underline = ${colors.one}
-click-left = termite -e "sudo apt upgrade" &
+click-left = kitty "sudo apt upgrade" &
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -380,7 +380,7 @@ bar-empty = ─
 type = custom/text
 content = ﯱ
 content-foreground = ${colors.two}
-click-left = termite -e nmtui-connect &
+click-left = kitty nmtui-connect &
 
 [module/wlan]
 type = internal/network

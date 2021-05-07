@@ -18,6 +18,6 @@ do
 
   # DATE click
   if [[ $line == *"name"*"id_time"* ]]; then
-    termite -e $HOME/.dotfiles/i3/status/click_time.sh &
+    kitty $HOME/.dotfiles/i3/status/click_time.sh &
   fi  
 done
