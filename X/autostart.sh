@@ -44,7 +44,7 @@ $HOME/.dotfiles/bin/no-screenoff.sh &
 echo "SCREENOFF DONE"
 
 # PYWAL
-wal -a 80 --theme "$HOME/.dotfiles/pywal/themes/dark/base16-brewer.json"
+wal -a 80 --theme "$HOME/.dotfiles/pywal/themes/dark/base16-spacemacs.json"
 echo "PYWAL DONE"
 
 # 

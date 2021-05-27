@@ -71,7 +71,7 @@ bindsym $mod+c exec $HOME/.dotfiles/bin/togglepicom
 bindsym $mod+F8 exec $HOME/.dotfiles/bin/monitoroff
 
 # reload wal
-bindsym $mod+y exec wal -a 85 --theme $HOME/.dotfiles/pywal/themes/dark/base16-brewer.json
+bindsym $mod+y exec wal -a 85 --theme $HOME/.dotfiles/pywal/themes/dark/base16-spacemacs.json
 
 # change focus
 bindsym $mod+h focus left
@@ -412,7 +412,7 @@ exec --no-startup-id udiskie -f "$HOME/.dotfiles/bin/ranger-term" --tray
 exec --no-startup-id $HOME/.dotfiles/bin/no-screenoff.sh
 
 # PYWAL
-exec --no-startup-id wal -a 80 --theme "$HOME/.dotfiles/pywal/themes/dark/base16-brewer.json"
+exec --no-startup-id wal -a 85 --theme "$HOME/.dotfiles/pywal/themes/dark/base16-spacemacs.json"
 
 # 
 # COMPOSITOR - window compositor
