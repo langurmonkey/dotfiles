@@ -10,7 +10,7 @@ set $mod2 Mod1
 set $myterm kitty
 
 # Font for window titles.
-font pango:FiraCode Nerd Font Mono 10 
+font pango:JetBrainsMono Nerd Font 10 
 
 # Gaps
 #for_window [class="^.*"] border pixel 0 
@@ -59,17 +59,10 @@ bindsym $mod+Shift+Escape exec ~/.dotfiles/bin/rofi-powermenu
 bindsym $mod+Shift+s exec $HOME/.dotfiles/bin/ambientsound
 
 
-# start dmenu
-#bindsym $mod+d exec $HOME/.dotfiles/bin/dmenu-wal
-# start fmenu (search home)
-#bindsym $mod+shift+d exec $HOME/.dotfiles/bin/fmenu -i $HOME -t +10
 bindsym XF86Search exec $HOME/.dotfiles/bin/fmenu -i $HOME -t +10
 
 # pulsemixer
 bindsym $mod+Shift+p exec $myterm --class wm-floating pulsemixer
-
-# dmenu shortcuts
-#bindsym $mod+ctrl+s exec "$(cat $HOME/.dotfiles/i3/config $HOME/.dotfiles/qutebrowser/config.py $HOME/.dotfiles/vim/.vimrc | dmenu -p 'shortcuts' -l 10)"
 
 # toggle compositor
 bindsym $mod+c exec $HOME/.dotfiles/bin/togglepicom
@@ -464,5 +457,5 @@ bar {
 
   position top
   tray_output primary
-  font pango:FiraCode Nerd Font 10
+  font pango:JetBrainsMono Nerd Font 10
 }
