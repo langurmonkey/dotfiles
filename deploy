@@ -158,6 +158,15 @@ echo-custom " ** " "==== LF ===="
 do-symlink $DOTFILES_PATH/lf $DIR_LF
 
 #
+# SCREEN
+#
+echo-custom " ** " "==== GNU SCREEN ===="
+
+# Create .screenrc symlink
+do-symlink $DOTFILES_PATH/screen/.screenrc ~/.screenrc
+
+
+#
 # zsh-autosuggestions and zsh-syntax-highlighting
 #
 echo-custom " ** " "==== ZSH-AUTOSUGGESTIONS ===="
