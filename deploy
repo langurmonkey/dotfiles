@@ -181,10 +181,13 @@ echo-custom " ** " "==== SHELL ENVIRONMENT ===="
 # Symlink shell aliases file
 do-symlink $DOTFILES_PATH/env/.env_global ~/.env_global
 do-symlink $DOTFILES_PATH/env/.env_dpac ~/.env_dpac
+do-symlink $DOTFILES_PATH/env/.env_fun ~/.env_fun
 
 # Source in bash and zsh
 do-source "bash" ~/.env_global
 do-source "zsh"  ~/.env_global
+do-source "bash" ~/.env_fun
+do-source "zsh"  ~/.env_fun
 
 
 if [[ -f /etc/arch-release ]]; then
