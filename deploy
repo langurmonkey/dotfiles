@@ -10,6 +10,8 @@ DIR_VIMPLUGINS=$DIR_VIMCONFIG/plugged
 DIR_RANGER=~/.config/ranger
 DIR_NNN=~/.config/nnn
 DIR_LF=~/.config/lf
+DIR_KITTY=~/.config/kitty
+DIR_ALACRITTY=~/.config/alacritty
 DIR_ZSHPLUGINS=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins
 DIR_VISCONFIG=~/.config/vis
 DIR_NEWSBOAT=~/.config/newsboat
@@ -248,7 +250,7 @@ echo-ok "Done"
 
 
 #
-# X, URXVT, Termite, Kitty
+# X, URXVT, Alacritty, Kitty
 #
 echo-custom " ** " "==== X, URXVT, Termite ===="
 
@@ -270,7 +272,9 @@ fi
 # font-size urxvt plugin
 do-symlink $DOTFILES_PATH/urxvt/font-size ~/.urxvt/ext/font-size
 #Kitty config
-do-symlink $DOTFILES_PATH/kitty ~/.config/kitty
+do-symlink $DOTFILES_PATH/kitty $DIR_KITTY
+# Alacritty config
+do-symlink $DOTFILES_PATH/alacritty $DIR_ALACRITTY
 
 echo-ok "Done"
 

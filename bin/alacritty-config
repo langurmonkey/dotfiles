@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#if which xdpyinfo >/dev/null; then
+#    SCREEN_WIDTH=$(xdpyinfo | awk '/dimensions/{print $2}' | awk -F "x" '{print $1}')
+#    SCREEN_HEIGHT=$(xdpyinfo | awk '/dimensions/{print $2}' | awk -F "x" '{print $2}')
+#    if [ "$SCREEN_WIDTH" -gt "1920" ]; then
+#        # HiDPI
+#        echo ~/.config/alacritty/alacritty-hidpi.yaml
+#        exit 0
+#    else
+#        # Regular DPI
+#        echo ~/.config/alacritty/alacritty.yaml
+#        exit 0
+#    fi
+#fi
+    
+# Default - normal DPI
+echo ~/.config/alacritty/alacritty.yaml
+exit 0
+

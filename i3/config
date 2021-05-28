@@ -7,7 +7,7 @@ set $mod Mod4
 # Mod2 key: Alt key
 set $mod2 Mod1
 # Default terminal
-set $myterm kitty
+set $myterm alacritty
 
 # Font for window titles.
 font pango:JetBrainsMonoMedium Nerd Font 12
@@ -32,7 +32,7 @@ set $urgent-bg-color     #E42343
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod 
 # Start a terminal
-bindsym $mod+Return exec $myterm -c=$(~/.dotfiles/bin/kitty-config) -d "`$HOME/.dotfiles/bin/xcwd`"
+bindsym $mod+Return exec $myterm --working-directory "`$HOME/.dotfiles/bin/xcwd`"
 
 # kill focused window
 bindsym $mod+q kill
@@ -62,7 +62,7 @@ bindsym $mod+Shift+s exec $HOME/.dotfiles/bin/ambientsound
 bindsym XF86Search exec $HOME/.dotfiles/bin/fmenu -i $HOME -t +10
 
 # pulsemixer
-bindsym $mod+Shift+p exec $myterm --class wm-floating pulsemixer
+bindsym $mod+Shift+p exec "$myterm --class wm-floating,wm-floating --command pulsemixer"
 
 # toggle compositor
 bindsym $mod+c exec $HOME/.dotfiles/bin/togglepicom
@@ -131,7 +131,7 @@ bindsym $mod+n exec --no-startup-id $HOME/.dotfiles/bin/i3-new-workspace
 bindsym $mod+a focus parent
 
 # media player controls XF86Audio and $mod+Control
-bindsym $mod+Control+m exec $myterm --class wm-floating ncmpcpp
+bindsym $mod+Control+m exec "$myterm --class wm-floating,wm-floating --command ncmpcpp"
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -163,7 +163,7 @@ bindsym $mod+Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
 bindsym $mod+Shift+w exec qutebrowser
 bindsym $mod+Control+w exec firefox
 bindsym $mod+Shift+t exec thunderbird
-bindsym $mod+Shift+f exec $myterm --class wm-floating lf "`$HOME/.dotfiles/bin/xcwd`"
+bindsym $mod+Shift+f exec "$myterm --class wm-floating,wm-floating --command lf `$HOME/.dotfiles/bin/xcwd`"
 
 # Min and max sizes for floating windows
 floating_minimum_size 450x150
@@ -327,7 +327,7 @@ mode "$mode_gaps_outer" {
 
 # Screen lockers
 bindsym $mod+shift+x exec --no-startup-id i3lock-fancy
-bindsym $mod+shift+z exec --no-startup-id $myterm --class wm-floating -e slock
+bindsym $mod+shift+z exec --no-startup-id "$myterm --class wm-floating,wm-floating --command slock"
 
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
