@@ -457,5 +457,5 @@ bar {
 
   position top
   tray_output primary
-  font pango:JetBrainsMonoMedium Nerd Font 12
+  font pango:JetBrainsMonoMedium Nerd Font 11
 }
