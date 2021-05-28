@@ -11,7 +11,7 @@ option5="Scheduled suspend (10min)"
 # options passed into variable
 options="\uf023 $option0\n\u21bb $option1\n\uf011 $option2\n\uf842 $option3\n\uf9b1 $option4\n\uf9b1 $option5"
 
-chosen="$(echo -e "$options" | rofi -lines 8 -dmenu -p "power" -font 'JetBrainsMono Nerd Font 15')"
+chosen="$(echo -e "$options" | rofi -lines 8 -dmenu -p "power" -font 'JetBrainsMonoMedium Nerd Font 15')"
 chosen=${chosen:2}
 echo $chosen
 case $chosen in

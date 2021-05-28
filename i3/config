@@ -10,7 +10,7 @@ set $mod2 Mod1
 set $myterm kitty
 
 # Font for window titles.
-font pango:JetBrainsMono Nerd Font 10 
+font pango:JetBrainsMonoMedium Nerd Font 12
 
 # Gaps
 #for_window [class="^.*"] border pixel 0 
@@ -457,5 +457,5 @@ bar {
 
   position top
   tray_output primary
-  font pango:JetBrainsMono Nerd Font 12
+  font pango:JetBrainsMonoMedium Nerd Font 12
 }
