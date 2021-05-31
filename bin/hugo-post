@@ -47,6 +47,8 @@ print_help() {
     printf "Arguments:
   -h, --help                         Display usage guide.
 \n"
+    printf "Example:
+  $SCRIPT_FILE new-blog-post.md\n"
 }
 print_version() {
     echo "hugo-post $VERSION"
