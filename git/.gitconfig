@@ -43,3 +43,12 @@
 	gpgsign = true
 [pull]
 	rebase = false
+[git-bug "auth.d8e9c545f8d3da553e0af24306edbcb8065eaeb03bb6eceaa02cb3353d769e5b"]
+	kind = token
+	target = gitlab
+	createtime = 1622534669
+	salt = 0fjt7f82pEzssyaSMHDJbA==
+	value = KN923x1gWt5kc4dLpY91
+[git-bug "auth.d8e9c545f8d3da553e0af24306edbcb8065eaeb03bb6eceaa02cb3353d769e5b.meta"]
+	base-url = https://gitlab.com/
+	login = langurmonkey
