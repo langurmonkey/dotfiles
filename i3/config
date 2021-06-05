@@ -71,7 +71,7 @@ bindsym $mod+c exec $HOME/.dotfiles/bin/togglepicom
 bindsym $mod+F8 exec $HOME/.dotfiles/bin/monitoroff
 
 # reload wal
-bindsym $mod+y exec wal -a 85 --theme $HOME/.dotfiles/pywal/themes/dark/base16-3024.json
+bindsym $mod+y exec wal -a 85 --theme $HOME/.dotfiles/pywal/themes/dark/base16-google.json
 
 # change focus
 bindsym $mod+h focus left
