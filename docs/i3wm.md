@@ -140,8 +140,14 @@ The `ranger-term` script starts a new terminal and launches ranger in it, accept
 ### Pywal
 
 All my i3 theming needs are covered by [`pywal`](https://github.com/dylanaraps/pywal), which is an amazing utility to generate color palettes from wallpapers and apply themes to several programs in an integrated fashion. It is just outstanding. Try it.
-At startup, I can restore the last configuration (including wallpaper plus color schemes for i3, ranger, polybar, vim, etc.) using:
+At startup, I either restore the last configuration (including wallpaper plus color schemes for i3, ranger, polybar, vim, etc.) using
 
 ```
 exec --no-startup-id wal -R
+```
+
+or I set the desired theme directly,
+
+```
+exec --no-startup-id wal -a 80 --theme path/to/theme.json
 ```
