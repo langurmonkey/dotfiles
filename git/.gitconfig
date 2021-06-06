@@ -43,3 +43,5 @@
 	gpgsign = true
 [pull]
 	rebase = false
+[log]
+	mailmap = true
