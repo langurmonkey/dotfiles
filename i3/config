@@ -7,7 +7,7 @@ set $mod Mod4
 # Mod2 key: Alt key
 set $mod2 Mod1
 # Default terminal
-set $myterm "alacritty --config-file $($HOME/.dotfiles/bin/alacritty-config)"
+set $myterm alacritty --config-file $($HOME/.dotfiles/bin/alacritty-config)
 
 # Font for window titles.
 font pango:JetBrainsMonoMedium Nerd Font 12
