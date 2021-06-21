@@ -60,6 +60,8 @@ set encoding=utf-8
 
 " enable auto indent
 set autoindent
+set backspace=indent,eol,start
+set complete-=i
 
 " expand tabs to 4 spaces
 set expandtab
@@ -79,6 +81,15 @@ set lazyredraw          " redraw only when we need to
 set showmatch           " show parenthesis matching
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
+set autoread            " autoread file changes
+
+if !&scrolloff
+  set scrolloff=1
+endif
+if !&sidescrolloff
+  set sidescrolloff=5
+endif
+set display+=lastline
 
 set spell spelllang=en_us
 
@@ -135,7 +146,6 @@ map gb :Buffers<CR>
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
 set list
-
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
 
