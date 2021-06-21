@@ -47,6 +47,9 @@ endif
 syntax enable
 filetype plugin indent on
 
+" shader extensions
+autocmd BufNewFile,BufRead *.fragment,*.vertex set syntax=glsl
+
 " color scheme
 colorscheme gruvbox
 set background=dark

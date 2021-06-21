@@ -45,3 +45,5 @@
 	rebase = false
 [log]
 	mailmap = true
+[init]
+	defaultBranch = master
