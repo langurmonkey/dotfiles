@@ -121,6 +121,10 @@ mv $DIR_VIMCONFIG/colors/scripts $DIR_VIMCONFIG/
 
 # Create vim.init symlink
 do-symlink $DOTFILES_PATH/vim/init.vim $FILE_VIMINIT
+# Create coc-settings.json symlink
+do-symlink $DOTFILES_PATH/vim/coc-settings.json $DIR_VIMCONFIG/coc-settings.json
+# Create coc.vim symlink
+do-symlink $DOTFILES_PATH/vim/after $DIR_VIMCONFIG/after
 
 # Create dictionary symlink
 do-symlink $DOTFILES_PATH/vim/en.utf-8.add $DIR_VIMCONFIG/spell/en.utf-8.add
