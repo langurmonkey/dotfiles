@@ -7,10 +7,14 @@ alias ll='exa -alFh --color=auto --icons --group-directories-first'
 alias la='exa -alFhS --color=auto --icons --group-directories-first'
 alias l='exa -lhFrS --color=auto --icons --group-directories-first'
 alias ls='exa -aF --color=auto --icons --group-directories-first'
+alias lsd='exa -d --color=auto --icons */'
 alias df='df -Th'
 alias du='du -h'
 alias cp='cp -fv'
 alias rsync='rsync --progress'
+
+# Suspend
+alias zzz='systemctl suspend'
 
 # Wireguard connect and disconnect
 alias wgc='sudo wg-quick up'
@@ -82,6 +86,11 @@ alias srestart='sudo systemctl restart'
 alias sstop='sudo systemctl stop'
 alias senable='sudo systemctl enable'
 alias sdisable='sudo systemctl disable'
+
+# Archives
+alias ltar="tar -ztvf"
+alias untar="tar -zxvf"
+alias ctar="tar -cvzf"
 
 # Radio, etc.
 alias catradio='mpv "http://opml.radiotime.com/Tune.ashx?id=s45275&partnerId=MOUvqYjy&serial=zwB2kAx4u3*v"'
