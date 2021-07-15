@@ -28,6 +28,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ojroques/vim-scrollstatus'
     Plug 'lervag/vimtex'
     Plug 'tpope/vim-commentary'
+    Plug 'tomasiser/vim-code-dark'
 call plug#end()
         
 " use mouse to resize, scroll, etc. even within tmux
@@ -51,7 +52,7 @@ filetype plugin indent on
 autocmd BufNewFile,BufRead *.fragment,*.vertex set syntax=glsl
 
 " color scheme
-colorscheme gruvbox
+colorscheme codedark
 set background=dark
 
 " default to UTF-8
@@ -268,7 +269,7 @@ aug end
 "
 " Airline
 "
-let g:airline_theme = 'base16'
+let g:airline_theme = 'codedark'
 let g:airline_powerline_fonts = 1
 " scrollbar in airline
 let g:airline_section_x = '%{ScrollStatus()}'
