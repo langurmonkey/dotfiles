@@ -12,5 +12,12 @@
     "javascriptreact",
     "typescript",
     "typescriptreact"
+  ],
+
+  "java.imports.gradle.wrapper.checksums": [
+    {
+        "sha256": "5e246810bd9917de3a9ca5da61927f0f06119faedce651e95fb8f636b8ed4234",
+        "allowed": true
+    }
   ]
 }

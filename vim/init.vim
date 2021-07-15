@@ -276,3 +276,5 @@ let g:airline_section_x = '%{ScrollStatus()}'
 let g:scrollstatus_size = 20
 let g:scrollstatus_symbol_track = '─'
 let g:scrollstatus_symbol_bar = '█'
+
+source $HOME/.config/nvim/plug-config/coc.vim

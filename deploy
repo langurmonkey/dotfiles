@@ -123,6 +123,7 @@ mv $DIR_VIMCONFIG/colors/scripts $DIR_VIMCONFIG/
 do-symlink $DOTFILES_PATH/vim/init.vim $FILE_VIMINIT
 # Create coc-settings.json symlink
 do-symlink $DOTFILES_PATH/vim/coc-settings.json $DIR_VIMCONFIG/coc-settings.json
+do-symlink $DOTFILES_PATH/vim/plug-config $DIR_VIMCONFIG/plug-config
 # Create coc.vim symlink
 do-symlink $DOTFILES_PATH/vim/after $DIR_VIMCONFIG/after
 
