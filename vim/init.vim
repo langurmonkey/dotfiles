@@ -52,8 +52,8 @@ filetype plugin indent on
 autocmd BufNewFile,BufRead *.fragment,*.vertex set syntax=glsl
 
 " color scheme
-colorscheme codedark
 set background=dark
+colorscheme codedark
 
 " default to UTF-8
 set fileencodings=utf-8
@@ -277,4 +277,6 @@ let g:scrollstatus_size = 20
 let g:scrollstatus_symbol_track = '─'
 let g:scrollstatus_symbol_bar = '█'
 
-source $HOME/.config/nvim/plug-config/coc.vim
+
+source $HOME/.dotfiles/vim/syntax/java.vim
+source $HOME/.dotfiles/vim/plug-config/coc.vim
