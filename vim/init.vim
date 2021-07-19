@@ -28,7 +28,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ojroques/vim-scrollstatus'
     Plug 'lervag/vimtex'
     Plug 'tpope/vim-commentary'
-    Plug 'tomasiser/vim-code-dark'
+    Plug 'sainnhe/sonokai'
 call plug#end()
         
 " use mouse to resize, scroll, etc. even within tmux
@@ -52,8 +52,14 @@ filetype plugin indent on
 autocmd BufNewFile,BufRead *.fragment,*.vertex set syntax=glsl
 
 " color scheme
+if has('termguicolors')
+    set termguicolors
+endif
 set background=dark
-colorscheme codedark
+let g:sonokai_style = 'maia'
+let g:sonokai_enable_italic = 0
+let g:sonokai_disable_italic_comment = 0
+colorscheme sonokai
 
 " default to UTF-8
 set fileencodings=utf-8
