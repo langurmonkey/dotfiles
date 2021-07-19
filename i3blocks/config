@@ -53,7 +53,7 @@ c5=#05658E
 # align=center
 
 [music]
-command=$LOCAL_DIR/music  "$ffffff"
+command=$LOCAL_DIR/music  "#F08238"
 interval=2
 color=#ffffff
 background=#000000

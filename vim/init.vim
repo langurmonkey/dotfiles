@@ -29,6 +29,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'lervag/vimtex'
     Plug 'tpope/vim-commentary'
     Plug 'sainnhe/sonokai'
+    Plug 'uiiaoo/java-syntax.vim'
 call plug#end()
         
 " use mouse to resize, scroll, etc. even within tmux
@@ -284,5 +285,4 @@ let g:scrollstatus_symbol_track = '─'
 let g:scrollstatus_symbol_bar = '█'
 
 
-source $HOME/.dotfiles/vim/syntax/java.vim
 source $HOME/.dotfiles/vim/plug-config/coc.vim
