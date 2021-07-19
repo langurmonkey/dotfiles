@@ -35,10 +35,10 @@ align=center
 color=#ffffff
 background=#000000
 # full_text=❮
-full_text= 
+full_text=
 separator=false
 # separator_block_width=15
-separator_block_width=0
+separator_block_width=5
 
 # [window title]
 # command=xdotool getactivewindow getwindowname
@@ -47,14 +47,14 @@ separator_block_width=0
 # align=center
 
 [music]
-command=$LOCAL_DIR/music  "#F08238"
+command=$LOCAL_DIR/music  "#888888"
 interval=2
-color=#ffffff
+color=#888888
 background=#000000
 border=#000000
 border_top=0
 border_right=0
-border_left=4
+border_left=8
 border_bottom=2
 markup=pango
 
@@ -80,8 +80,8 @@ interval=5
 color=#ffffff
 background=#0E8C4F
 border=#0E8C4F
-border_right=4
-border_left=4
+border_right=8
+border_left=8
 border_top=0
 border_bottom=2
 markup=pango
@@ -95,8 +95,8 @@ color=#ffffff
 background=#05658E
 border=#05658E
 border_top=0
-border_right=4
-border_left=4
+border_right=8
+border_left=8
 border_bottom=2
 markup=pango
 
@@ -109,8 +109,8 @@ markup=pango
 color=#ffffff
 background=#DF4A3D
 border=#DF4A3D
-border_right=4
-border_left=4
+border_right=8
+border_left=8
 border_top=0
 border_bottom=2
 markup=pango
@@ -124,8 +124,8 @@ color=#ffffff
 background=#F4B400
 border=#F4B400
 border_top=0
-border_right=4
-border_left=4
+border_right=8
+border_left=8
 border_bottom=2
 markup=pango
 
@@ -138,8 +138,8 @@ color=#ffffff
 background=#FF7228
 border=#FF7228
 border_top=0
-border_right=4
-border_left=4
+border_right=8
+border_left=8
 border_bottom=2
 markup=pango
 
@@ -167,8 +167,8 @@ color=#ffffff
 background=#05658E
 border=#05658E
 border_top=0
-border_right=4
-border_left=4
+border_right=8
+border_left=8
 border_bottom=2
 
 [separator]
