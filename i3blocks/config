@@ -92,8 +92,8 @@ markup=pango
 command=$LOCAL_DIR/keyboard  "#ffffff"
 interval=2
 color=#ffffff
-background=#05658E
-border=#05658E
+background=#295499
+border=#295499
 border_top=0
 border_right=8
 border_left=8
@@ -118,9 +118,9 @@ markup=pango
 [separator]
 
 [brightness]
-command=$LOCAL_DIR/brightness  "#ffffff"
+command=$LOCAL_DIR/brightness  "#111111"
 interval=1
-color=#ffffff
+color=#111111
 background=#F4B400
 border=#F4B400
 border_top=0
@@ -164,8 +164,8 @@ command=$LOCAL_DIR/time   "#ffffff"
 markup=pango
 interval=1
 color=#ffffff
-background=#05658E
-border=#05658E
+background=#295499
+border=#295499
 border_top=0
 border_right=8
 border_left=8
