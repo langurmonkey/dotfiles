@@ -14,6 +14,7 @@ font pango:JetBrainsMonoMedium Nerd Font 12
 
 # Gaps
 #for_window [class="^.*"] border pixel 0 
+title_align center
 default_border pixel 2
 default_floating_border normal
 gaps inner 4
@@ -21,10 +22,10 @@ gaps outer 0
 
 # Colors
 set_from_resource $wal-fg i3wm.color7 #f0f0f0
-set_from_resource $wal-bg i3wm.color19 #668cff
+set_from_resource $wal-bg i3wm.color19 #05658E
 
 set $bg-color 	         i3wm.color2
-set $inactive-bg-color   #002b36
+set $inactive-bg-color   #666666
 set $text-color          #ffffff
 set $inactive-text-color #ffffff
 set $urgent-bg-color     #E42343
@@ -433,7 +434,8 @@ exec_always --no-startup-id mpDris2
 #
 # WALLPAPER - after screens have been setup
 #
-exec_always --no-startup-id $HOME/.dotfiles/bin/wallpaper-apply
+#exec_always --no-startup-id $HOME/.dotfiles/bin/wallpaper-apply
+exec --no-startup-id hsetroot -solid "#000000"
 
 #
 # BAR (polybar, bumblebee-status, i3status...)
