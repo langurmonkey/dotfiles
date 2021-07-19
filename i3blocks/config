@@ -30,15 +30,21 @@ LOCAL_DIR=/home/tsagrista/.dotfiles/i3blocks/scripts
 SCRIPT_DIR=/usr/lib/i3blocks
 
 command=$SCRIPT_DIR/$BLOCK_NAME/$BLOCK_NAME
-# Define the custom separator in global properties for boilerplate
+# define the custom separator in global properties for boilerplate
 align=center
-color=#3c4e84
+color=#ffffff
 background=#000000
 # full_text=❮
 full_text= 
 separator=false
 # separator_block_width=15
-separator_block_width=6
+separator_block_width=0
+# color palette
+c1=#DF4A3D
+c2=#F08238
+c3=#E9CC32
+c4=#33B777
+c5=#05658E
 
 # [window title]
 # command=xdotool getactivewindow getwindowname
@@ -47,76 +53,25 @@ separator_block_width=6
 # align=center
 
 [music]
-command=$LOCAL_DIR/music  "#8f4ce0"
+command=$LOCAL_DIR/music  "$ffffff"
 interval=2
-color=#dfacff
-border=#8f4ce0
+color=#ffffff
+background=#F08238
+border=#F08238
 border_top=0
 border_right=0
-border_left=0
+border_left=4
 border_bottom=2
 markup=pango
 
 [separator]
-
-[keyboard]
-command=$LOCAL_DIR/keyboard  "#1990b7"
-interval=2
-color=#ffffff
-border=#1990b7
-border_top=0
-border_right=0
-border_left=0
-border_bottom=2
-markup=pango
-
-[separator]
-
-[updates-arch]
-command=$LOCAL_DIR/updates-arch  "#ff3393"
-interval=1800
-markup=pango
-color=#ffffff
-border=#ff3393
-border_right=0
-border_left=0
-border_top=0
-border_bottom=2
-markup=pango
-
-[separator]
-
-# [disk]
-# command=$LOCAL_DIR/disk
-# label= /h:
-# instance=/home
-# interval=30
-# color=#ffdd88
-# border=#ffbb33
-# border_right=0
-# border_left=0
-# border_top=0
-# border_bottom=2
-# markup=pango
-
-# [separator]
-
-[cpu]
-command=$LOCAL_DIR/cpu   "#33aa7a"
-interval=2
-color=#ffffff
-border=#62ef3b
-border_right=0
-border_left=0
-border_top=0
-border_bottom=2
-markup=pango
 
 [cpulevels]
 command=$LOCAL_DIR/cpu-levels "#33aa7a"
 interval=1
 color=#ffffff
-border=#62ef3b
+backgound=#33aa7a
+border=#33aa7a
 border_right=0
 border_left=0
 border_top=0
@@ -126,25 +81,42 @@ markup=pango
 [separator]
 
 [memory]
-command=$LOCAL_DIR/memory  "#ff7060"
+command=$LOCAL_DIR/memory  "#ffffff"
 interval=5
 color=#ffffff
-border=#ff7060
-border_right=0
-border_left=0
+background=#33B777
+border=#33B777
+border_right=4
+border_left=4
 border_top=0
 border_bottom=2
 markup=pango
 
 [separator]
 
-[usb]
-command=$LOCAL_DIR/usb  "#fc92f3"
-interval=5
+[keyboard]
+command=$LOCAL_DIR/keyboard  "#ffffff"
+interval=2
 color=#ffffff
-border=#fc92f3
-border_right=0
-border_left=0
+background=#05658E
+border=#05658E
+border_top=0
+border_right=4
+border_left=4
+border_bottom=2
+markup=pango
+
+[separator]
+
+[updates-arch]
+command=$LOCAL_DIR/updates-arch  "#ffffff"
+interval=1800
+markup=pango
+color=#ffffff
+background=#DF4A3D
+border=#DF4A3D
+border_right=4
+border_left=4
 border_top=0
 border_bottom=2
 markup=pango
@@ -152,26 +124,28 @@ markup=pango
 [separator]
 
 [brightness]
-command=$LOCAL_DIR/brightness  "#ccff00"
+command=$LOCAL_DIR/brightness  "#ffffff"
 interval=1
 color=#ffffff
-border=#ccff00
+background=#E9CC32
+border=#E9CC32
 border_top=0
-border_right=0
-border_left=0
+border_right=4
+border_left=4
 border_bottom=2
 markup=pango
 
 [separator]
 
 [pavol]
-command=$LOCAL_DIR/volume 墳 婢 "#00aaaa" &
+command=$LOCAL_DIR/volume 墳 婢 "#ffffff" &
 interval=1
 color=#ffffff
-border=#00aaaa
+background=#F08238
+border=#F08238
 border_top=0
-border_right=0
-border_left=0
+border_right=4
+border_left=4
 border_bottom=2
 markup=pango
 
@@ -181,24 +155,26 @@ markup=pango
 command=$LOCAL_DIR/battery
 color=#ffffff
 interval=15
-border=#ff55aa
+background=#DF4A3D
+border=#DF4A3D
 border_top=0
-border_right=0
-border_left=0
+border_right=2
+border_left=2
 border_bottom=2
 markup=pango
 
 [separator]
 
 [time]
-command=$LOCAL_DIR/time   "#668cff"
+command=$LOCAL_DIR/time   "#ffffff"
 markup=pango
 interval=1
 color=#ffffff
-border=#668cff
+background=#05658E
+border=#05658E
 border_top=0
-border_right=0
-border_left=0
+border_right=4
+border_left=4
 border_bottom=2
 
 [separator]
