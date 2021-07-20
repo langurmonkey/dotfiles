@@ -359,7 +359,7 @@ base0C = "#668cff"
 base0D = "#668cff"
 base0E = "#756bb1"
 base0F = "#b15928"
-base10 = "#668cff"
+base10 = "#295499"
 base11 = "#fafafa"
 base12 = "#9740b7"
 

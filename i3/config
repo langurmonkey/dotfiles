@@ -22,7 +22,7 @@ gaps outer 0
 
 # Colors
 set_from_resource $wal-fg i3wm.color7 #f0f0f0
-set_from_resource $wal-bg i3wm.color19 #05658E
+set_from_resource $wal-bg i3wm.color19 #295499
 
 set $bg-color 	         i3wm.color2
 set $inactive-bg-color   #666666
@@ -447,7 +447,7 @@ bar {
         statusline #ffffff
  
         #class             border  backgr  text   
-        focused_workspace  #000000 #05658E #ffffff
+        focused_workspace  #000000 #295499 #ffffff
         inactive_workspace #000000 #000000 #aaaaaa
         active_workspace   #000000 #000000 #ffffff
         urgent_workspace   #f35888 #a31838 #ffffff
