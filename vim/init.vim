@@ -276,7 +276,7 @@ aug end
 "
 " Airline
 "
-let g:airline_theme = 'codedark'
+let g:airline_theme = 'molokai'
 let g:airline_powerline_fonts = 1
 " scrollbar in airline
 let g:airline_section_x = '%{ScrollStatus()}'
