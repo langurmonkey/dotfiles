@@ -152,8 +152,8 @@ interval=15
 background=#555555
 border=#555555
 border_top=0
-border_right=2
-border_left=2
+border_right=8
+border_left=8
 border_bottom=2
 markup=pango
 
