@@ -434,8 +434,8 @@ exec_always --no-startup-id mpDris2
 #
 # WALLPAPER - after screens have been setup
 #
-#exec_always --no-startup-id $HOME/.dotfiles/bin/wallpaper-apply
-exec --no-startup-id hsetroot -solid "#000000"
+#exec --no-startup-id hsetroot -solid "#000000"
+exec_always --no-startup-id $HOME/.dotfiles/bin/wallpaper-apply
 
 #
 # BAR (polybar, bumblebee-status, i3status...)
