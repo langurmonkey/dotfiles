@@ -224,9 +224,10 @@ assign [class="telegram-desktop"] $ws9
 assign [class="discord"] $ws9
 assign [class="Signal"] $ws9
 assign [class="Steam"] $ws5
+assign [class="FreeTube"] $ws6
 
 # default floating
-for_window [class="gimp"] floating enable sticky enable
+for_window [class="gimp"] floating enable
 for_window [class="Lxappearance"] floating enable sticky enable
 for_window [class="qt5ct"] floating enable sticky enable
 for_window [class="Qtconfig-qt4"] floating enable sticky enable
@@ -251,7 +252,6 @@ for_window [class="gaia-cu3-fl-flse-test-FlseTestClient"] floating enable
 for_window [class="gaia-cu1-maindb-dbexplorer-progs-ExplorerApplication"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class=".*jprofiler.*"] floating enable
-for_window [class="FreeTube"] floating enable
 for_window [class="install4j-com-install4j-Install4JGUI"] floating enable
 for_window [class="wm-floating"] floating enable
 for_window [class="wm-floating-big"] floating enable resize set 1680 920
