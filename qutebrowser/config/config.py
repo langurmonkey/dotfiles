@@ -50,6 +50,12 @@ c.aliases.update({'nas': 'open -t http://192.168.0.26:8080'})
 c.aliases.update({'nasout': 'open -t qlink.to/jumpinglangur'})
 c.aliases.update({'ipfs': 'open -t localhost:5001/webui'})
 c.aliases.update({"clean" : "spawn --userscript readability-js"})
+# Toggle javascript
+c.aliases.update({"tjs" : "config-cycle content.javascript.enabled"})
+# Disable javascript
+c.aliases.update({"djs" : "set content.javascript.enabled false"})
+# Enable javascript
+c.aliases.update({"ejs" : "set content.javascript.enabled true"})
 
 
 ## Width (in pixels) of the scrollbar in the completion window.
