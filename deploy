@@ -273,6 +273,9 @@ else
     echo "Normal DPI: xres=($XRES_W,$XRES_H), host=$MYHOSTNAME"
     do-symlink $DOTFILES_PATH/X/.Xdefaults ~/.Xdefaults
 fi
+# .xinitrc
+do-symlink $DOTFILES_PATH/X/.xinitrc ~/.xinitrc
+
 # font-size urxvt plugin
 do-symlink $DOTFILES_PATH/urxvt/font-size ~/.urxvt/ext/font-size
 #Kitty config

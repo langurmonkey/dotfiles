@@ -5,6 +5,9 @@ xset r rate 200 35 # initial delay 300 ms, repeat 35 ms
 # Keyboard layout definition. Switch escape and caps lock key
 setxkbmap -model pc104 -layout us,es -option 'grp:alt_space_toggle,caps:swapescape,eurosign:e'
 
+# Activate numlock
+numlockx &
+
 #
 # TRACKPAD  - Dell XPS13 
 #
@@ -58,6 +61,11 @@ echo "PICOM DONE"
 #
 $HOME/.local/bin/current-randr.sh
 echo "RANDR DONE"
+
+#
+# mpDris2 - MPRIS2 support for mpd
+# 
+mpDris2 &
 
 #
 # WALLPAPER - after screens have been setup
