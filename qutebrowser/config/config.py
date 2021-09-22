@@ -280,11 +280,9 @@ c.colors.webpage.darkmode.threshold.text = 150
 c.colors.webpage.darkmode.threshold.background = 205
 c.colors.webpage.preferred_color_scheme = 'dark'
 
-## External file picker: ranger
+## Default file picker
 ##
-c.fileselect.handler = 'external'
-c.fileselect.multiple_files.command = ["kitty", "ranger", "--choosefiles={}"]
-c.fileselect.single_file.command = ["kitty", "ranger", "--choosefile={}"]
+c.fileselect.handler = 'default'
 
 ## Bindings
 config.bind('wi', 'devtools bottom')
