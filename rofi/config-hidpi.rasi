@@ -1,16 +1,19 @@
 configuration {
 	modi: "run,drun,window,calc,ssh";
-	lines: 20;
-	font: "JetBrainsMono Nerd Font" 22";
-	show-icons: true;
+	font: "JetBrainsMono Nerd Font 22";
 	terminal: "alacritty";
-	icon-theme: "Numix";
-	sidebar-mode: true;
-	eh: 1;
-	theme: "/home/tsagrista/.dotfiles/rofi/themes/sidetab.rasi";
+	theme: "~/.dotfiles/rofi/themes/sidetab.rasi";
 	display-window: "Tasks";
 	display-run: "Run";
 	display-ssh: "SSH";
 	display-drun: "Launch";
     display-calc: "Calc";
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
 }
