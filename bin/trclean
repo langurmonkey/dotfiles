@@ -1,0 +1,12 @@
+#!/bin/bash
+TORRENTLIST=$(transmission-remote -l | grep 'Finished' 2>&1)
+ 
+while read -r line; do
+ TORRENTID=${line:0:5}
+ TORRENTID=${TORRENTID//\*}
+ TORRENTID=${TORRENTID//[[:blank:]]/}
+ transmission-remote localhost -t $TORRENTID -r
+ echo "Removing $TORRENTID from list $OUTPUT"
+done <<< "$TORRENTLIST"
+ 
+echo "Operations completed."
