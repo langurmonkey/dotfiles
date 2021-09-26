@@ -1,5 +1,5 @@
 #!/bin/bash
-TORRENTLIST=$(transmission-remote -l | grep 'Finished' 2>&1)
+TORRENTLIST=$(transmission-remote -l | grep '100%' 2>&1)
  
 while read -r line; do
  TORRENTID=${line:0:5}
