@@ -68,6 +68,11 @@ echo "RANDR DONE"
 mpDris2 &
 
 #
+# playerctld
+#
+playerctld
+
+#
 # WALLPAPER - after screens have been setup
 #
 $HOME/.dotfiles/bin/wallpaper-apply
