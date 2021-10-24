@@ -30,6 +30,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-commentary'
     Plug 'sainnhe/sonokai'
     Plug 'uiiaoo/java-syntax.vim'
+    Plug 'EdenEast/nightfox.nvim'
 call plug#end()
         
 " use mouse to resize, scroll, etc. even within tmux
@@ -60,7 +61,7 @@ set background=dark
 let g:sonokai_style = 'maia'
 let g:sonokai_enable_italic = 0
 let g:sonokai_disable_italic_comment = 0
-colorscheme sonokai
+colorscheme nordfox
 
 " default to UTF-8
 set fileencodings=utf-8
@@ -276,8 +277,8 @@ aug end
 "
 " Airline
 "
-let g:airline_theme = 'molokai'
-let g:airline_powerline_fonts = 1
+let g:airline_theme = 'wombat'
+let g:airline_powerline_fonts = 0
 " scrollbar in airline
 let g:airline_section_x = '%{ScrollStatus()}'
 let g:scrollstatus_size = 20
