@@ -15,7 +15,7 @@ _uncallable() { ! command -v "$1" >/dev/null; }
 
 
 if _uncallable zsh || _uncallable git; then
-    _msg "Installing git, zsh, vim, ranger, etc."
+    _msg "Installing git, zsh, neovim, lf, etc."
     if [[ -f /etc/arch-release ]]; then
         $DOTFILES/bootstrap-arch.sh
     elif [[ -f /etc/debian_version ]]; then
@@ -31,15 +31,6 @@ if [[ ! -d ~/.dotfiles ]]; then
         dfrepo=https://gitlab.com/langurmonkey/dotfiles.git
     fi
     git clone --recursive "$dfrepo" "$DOTFILES"
-fi
-
-read -p "Install oh-my-zsh (Y/n)? " -n 1 -r
-REPLY=${REPLY,,} # lower case
-echo    # (optional) move to a new line
-if [[ $REPLY =~ ^(y| )$ ]] || [[ -z $REPLY ]];
-then
-    _msg "Installing oh-my-zshrc..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"    
 fi
 
 #
