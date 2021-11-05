@@ -257,7 +257,7 @@ c.url.default_page = 'file://' + home + '/.dotfiles/startpage/index.html'
 ## `:open google qutebrowser`.
 ## Type: Dict
 #c.url.searchengines = {'DEFAULT': 'https://search.privacytools.io/?q={}'}
-c.url.searchengines = {'DEFAULT': 'https://searx.be?q={}'}
+c.url.searchengines = {'DEFAULT': 'http://localhost:8888?q={}'}
 c.url.searchengines.update({'searx': 'https://searx.be?q={}'})
 c.url.searchengines.update({'ddgo': 'https://3g2upl4pq6kufc4m.onion/?q={}'})
 c.url.searchengines.update({'sp': 'https://www.startpage.com/do/search?query={}'})
