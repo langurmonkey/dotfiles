@@ -285,5 +285,7 @@ let g:scrollstatus_size = 20
 let g:scrollstatus_symbol_track = '─'
 let g:scrollstatus_symbol_bar = '█'
 
-
+"
+" COC config
+"
 source $HOME/.dotfiles/vim/plug-config/coc.vim
