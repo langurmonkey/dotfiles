@@ -48,17 +48,6 @@ map X !$f
 # go home
 map ~ :cd ~
 
-# image/video previews
-
-cmd video_preview ${{
-    cache="$(mktemp "${TMPDIR:-/tmp}/thumb_cache.XXXXX")"
-    ffmpegthumbnailer -i "$f" -o "$cache" -s 0
-    ~/.config/lf/draw_img.sh "$cache"
-}}
-
-map - $~/.config/lf/draw_img.sh "$f"
-map + :video_preview
-
 # define a custom 'open' command
 # This command is called when current file is not a directory. You may want to
 # use either file extensions and/or mime types here. Below uses an editor for
