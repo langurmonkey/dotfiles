@@ -52,6 +52,7 @@ c.aliases.update({'nas': 'open -t http://192.168.0.26:8080'})
 c.aliases.update({'nasout': 'open -t qlink.to/jumpinglangur'})
 c.aliases.update({'ipfs': 'open -t localhost:5001/webui'})
 c.aliases.update({"clean" : "spawn --userscript readability-js"})
+c.aliases.update({"json" : "spawn --userscript format_json"})
 # Toggle javascript
 c.aliases.update({"tjs" : "config-cycle content.javascript.enabled"})
 # Disable javascript
