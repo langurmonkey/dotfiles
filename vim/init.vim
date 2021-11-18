@@ -31,6 +31,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'sainnhe/sonokai'
     Plug 'uiiaoo/java-syntax.vim'
     Plug 'EdenEast/nightfox.nvim'
+    Plug 'lervag/vimtex'
 call plug#end()
         
 " use mouse to resize, scroll, etc. even within tmux
