@@ -228,6 +228,7 @@ assign [class="FreeTube"] $ws6
 
 # default floating
 for_window [class="gimp"] floating enable
+for_window [class="pdfpc"] floating enable
 for_window [class="Lxappearance"] floating enable sticky enable
 for_window [class="qt5ct"] floating enable sticky enable
 for_window [class="Qtconfig-qt4"] floating enable sticky enable
