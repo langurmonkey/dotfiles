@@ -32,6 +32,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'uiiaoo/java-syntax.vim'
     Plug 'EdenEast/nightfox.nvim'
     Plug 'lervag/vimtex'
+    Plug 'wfxr/minimap.vim'
 call plug#end()
         
 " use mouse to resize, scroll, etc. even within tmux
@@ -280,11 +281,14 @@ aug end
 "
 let g:airline_theme = 'wombat'
 let g:airline_powerline_fonts = 0
-" scrollbar in airline
-let g:airline_section_x = '%{ScrollStatus()}'
-let g:scrollstatus_size = 20
-let g:scrollstatus_symbol_track = '─'
-let g:scrollstatus_symbol_bar = '█'
+
+"
+" Minimap
+"
+let g:minimap_width = 10
+let g:minimap_auto_start = 1
+let g:minimap_auto_start_win_enter = 1
+
 
 "
 " COC config
