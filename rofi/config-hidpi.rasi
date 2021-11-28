@@ -2,12 +2,13 @@ configuration {
 	modi: "run,drun,window,calc,ssh";
 	font: "JetBrainsMono Nerd Font 22";
 	terminal: "alacritty";
-	theme: "~/.dotfiles/rofi/themes/sidetab.rasi";
 	display-window: "Tasks";
 	display-run: "Run";
 	display-ssh: "SSH";
 	display-drun: "Launch";
     display-calc: "Calc";
+	show-icons:      true;
+	sidebar-mode:    true;
   timeout {
       action: "kb-cancel";
       delay:  0;
@@ -17,3 +18,4 @@ configuration {
       sorting-method:    "name";
   }
 }
+@theme "sidetab"
