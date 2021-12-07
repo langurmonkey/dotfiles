@@ -73,9 +73,6 @@ alias bc='bc -l'
 # Image viewer
 alias img='sxiv'
 
-# yay and paru
-alias yay='paru'
-
 # Screen off script using vbetool
 alias off='~/.dotfiles/bin/monitor_off'
 
