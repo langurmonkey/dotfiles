@@ -15,7 +15,6 @@ endif
 " Plugins with vim-plug
 call plug#begin('~/.config/nvim/plugged')
     Plug 'alvan/vim-closetag'
-    Plug 'mcchrish/nnn.vim'
     Plug 'sheerun/vim-polyglot'
     Plug 'raimondi/delimitmate'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
