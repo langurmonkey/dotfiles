@@ -90,7 +90,7 @@ alias untar="tar -zxvf"
 alias ctar="tar -cvzf"
 
 # Radio, etc.
-alias catradio='mpv "http://opml.radiotime.com/Tune.ashx?id=s45275&partnerId=MOUvqYjy&serial=zwB2kAx4u3*v"'
+alias catradio='mpv "https://directes-radio-int.ccma.cat/int/mp4:catradio/chunklist.m3u8"'
 alias rac1='mpv https://streaming.rac1.cat'
 
 # Corona info
