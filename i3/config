@@ -162,6 +162,7 @@ bindsym $mod+Shift+w exec qutebrowser
 bindsym $mod+Control+w exec firefox
 bindsym $mod+Shift+t exec thunderbird
 bindsym $mod+Shift+f exec "$myterm --class wm-floating,wm-floating --command lf `$HOME/.dotfiles/bin/xcwd`"
+bindsym $mod+Control+n exec "dunstctl action"
 
 # Min and max sizes for floating windows
 floating_minimum_size 450x150
