@@ -28,6 +28,8 @@ alias wifi='nmtui'
 alias ag='rg'
 alias ps='procs'
 alias v='nvim'
+youtube-dl='yt-dlp'
+ytdl='yt-dlp'
 
 # VPN
 alias vpnheidelberguni='sudo openconnect -u st0@ix.urz.uni-heidelberg.de vpn-ac.urz.uni-heidelberg.de'
