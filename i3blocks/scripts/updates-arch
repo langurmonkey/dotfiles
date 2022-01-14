@@ -6,7 +6,7 @@
 #Mouse actions for the block
 case $BLOCK_BUTTON in
 	1 | 2 | 3)
-        kitty --class wm-floating paru -Syu & 
+        kitty --class wm-floating yay -Syu & 
         ;;
 esac
 
