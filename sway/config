@@ -281,7 +281,7 @@ mode $mode_system {
     bindsym l exec sway-exit lock, mode "default"
     bindsym s exec sway-exit suspend, mode "default"
     bindsym r exec sway-exit reboot, mode "default"
-    bindsym h exec sway-exit shutdown, mode "default"
+    bindsym d exec sway-exit shutdown, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode default
