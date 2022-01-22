@@ -352,8 +352,8 @@ bindsym $mod+shift+z exec --no-startup-id swaylock -c 000000
 #
 
 exec swayidle -w \
-	timeout 1800 'swaylock' \
-	timeout 1805 'swaymsg "output * dpms off"' \
+	timeout 180 'swaylock' \
+	timeout 185 'swaymsg "output * dpms off"' \
 	resume 'swaymsg "output * dpms on"'
 
 # Repeat interval and delay
