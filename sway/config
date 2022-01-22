@@ -1,0 +1,381 @@
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+# Mod key: Super key
+set $mod Mod4
+# Mod2 key: Alt key
+set $mod2 Mod1
+# Default terminal
+set $myterm alacritty --config-file $($HOME/.dotfiles/bin/alacritty-config)
+
+# Font for window titles.
+font pango:JetBrainsMono Nerd Font 10
+
+# Gaps
+#for_window [class="^.*"] border pixel 0 
+title_align center
+default_border pixel 2
+default_floating_border normal
+gaps inner 4
+gaps outer 0
+
+# Colors
+#set_from_resource $wal-fg i3wm.color7 #f0f0f0
+#set_from_resource $wal-bg i3wm.color19 #295499
+
+set $wal-fg #f0f0f0
+set $wal-bg #295499
+
+set $bg-color 	         i3wm.color2
+set $inactive-bg-color   #666666
+set $text-color          #ffffff
+set $inactive-text-color #ffffff
+set $urgent-bg-color     #E42343
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod 
+# Start a terminal
+bindsym $mod+Return exec $myterm --working-directory "`$HOME/.dotfiles/bin/xcwd`"
+
+# kill focused window
+bindsym $mod+q kill
+bindsym $mod+grave kill
+
+# Scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+# start rofi
+# RUN
+bindsym $mod+d exec rofi -show run -config $($HOME/.dotfiles/bin/rofi-config)
+# LAUNCH
+bindsym $mod+z exec rofi -show drun -config $($HOME/.dotfiles/bin/rofi-config)
+# TASKS
+bindsym $mod+g exec rofi -show window -config $($HOME/.dotfiles/bin/rofi-config)
+# CALC
+bindsym $mod+equal exec rofi -show calc -no-show-match -no-sort -config $($HOME/.dotfiles/bin/rofi-config)
+# PASS
+bindsym $mod+i exec rofi-pass -config $($HOME/.dotfiles/bin/rofi-config)
+# POWER
+bindsym $mod+Shift+Escape exec ~/.dotfiles/bin/rofi-powermenu
+# AMBIENT SOUNDS
+bindsym $mod+Shift+s exec $HOME/.dotfiles/bin/ambientsound
+
+
+bindsym XF86Search exec $HOME/.dotfiles/bin/fmenu -i $HOME -t +10
+
+# pulsemixer
+bindsym $mod+Shift+p exec "$myterm --class wm-floating-big,wm-floating-big --command pulsemixer"
+
+# toggle compositor
+#bindsym $mod+c exec $HOME/.dotfiles/bin/togglepicom
+
+# monitor off
+bindsym $mod+F8 exec $HOME/.dotfiles/bin/monitoroff
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# move the whole workspace to the next output
+bindsym $mod+p move workspace to output right
+bindsym $mod+o move workspace to output left
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# fast focus with wmfocus
+bindsym $mod+x exec --no-startup-id wmfocus
+
+# split in horizontal orientation
+bindsym $mod+b split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+t floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# New workspace
+bindsym $mod+n exec --no-startup-id $HOME/.dotfiles/bin/i3-new-workspace
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# media player controls XF86Audio and $mod+Control
+bindsym $mod+Control+m exec "$myterm --class wm-floating-big,wm-floating-big --command ncmpcpp"
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym $mod+Control+period exec playerctl next
+bindsym $mod+Control+comma exec playerctl previous
+bindsym $mod+Shift+period exec playerctl position 5+
+bindsym $mod+Shift+comma exec playerctl position 5-
+bindsym $mod+Control+p exec playerctl play-pause
+bindsym $mod+Control+s exec playerctl stop
+bindsym $mod+Control+z exec mpc random
+# pulse audio controls
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle 
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1%
+bindsym $mod+Control+0 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1%
+bindsym $mod+Control+9 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1%
+
+# backlight - edit /usr/local/lib/brightnessctl/configuration.sh for step size
+bindsym XF86MonBrightnessUp exec brightness+
+bindsym XF86MonBrightnessDown exec brightness-
+
+#
+# WORKSPACES
+set $ws1 "1  "
+set $ws2 "2  "
+set $ws3 "3 﫯 "
+set $ws4 "4  "
+set $ws5 "5  "
+set $ws6 "6  "
+set $ws7 "7  "
+set $ws8 "8  "
+set $ws9 "9  "
+set $ws0 "10 卵 "
+# set $ws1 "1"
+# set $ws2 "2"
+# set $ws3 "3 "
+# set $ws4 "4"
+# set $ws5 "5"
+# set $ws6 "6"
+# set $ws7 "7"
+# set $ws8 "8"
+# set $ws9 "9"
+# set $ws0 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws0
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws0
+
+# default workspaces
+assign [class="qutebrowser"] $ws2
+assign [class="Thunderbird"] $ws3
+assign [class="Eclipse"] $ws4
+assign [class="jetbrains-idea-ce"] $ws4
+assign [class="Skype"] $ws9
+assign [class="zoom"] $ws9
+assign [class="telegram-desktop"] $ws9
+assign [class="discord"] $ws9
+assign [class="Signal"] $ws9
+assign [class="Steam"] $ws5
+assign [class="FreeTube"] $ws6
+
+# default floating
+for_window [class="gimp"] floating enable
+for_window [class="pdfpc"] floating enable
+for_window [class="Lxappearance"] floating enable sticky enable
+for_window [class="qt5ct"] floating enable sticky enable
+for_window [class="Qtconfig-qt4"] floating enable sticky enable
+for_window [class="Blueman-manager"] floating enable
+for_window [class="GParted"] floating enable
+for_window [class="Skype"] floating enable
+for_window [class="zoom"] floating enable
+for_window [class="telegram-desktop"] floating enable
+for_window [class="Grub-customizer"] floating enable
+for_window [class="Gsimplecal"] floating enable
+for_window [class="Arandr"] floating enable
+for_window [class="Nemo"] floating enable
+for_window [class="Gaia Sky"] floating enable
+for_window [class="RTS Engine"] floating enable
+for_window [class="obs"] floating enable
+for_window [class="timeanalysis.py"] floating enable
+for_window [class="Yad"] floating enable
+for_window [class=".*starlink-topcat.*"] floating enable
+for_window [class="Audacity"] floating enable
+for_window [class="Terraria.bin.x86_64"] floating enable
+for_window [class="gaia-cu3-fl-flse-test-FlseTestClient"] floating enable
+for_window [class="gaia-cu1-maindb-dbexplorer-progs-ExplorerApplication"] floating enable
+for_window [class="mpv"] floating enable
+for_window [class=".*jprofiler.*"] floating enable
+for_window [class="install4j-com-install4j-Install4JGUI"] floating enable
+for_window [class="wm-floating"] floating enable
+for_window [class="wm-floating-big"] floating enable resize set 1680 920
+for_window [title="Blender User Preferences"] floating enable
+for_window [title="Blender Preferences"] floating enable
+for_window [title="Volume Control"] floating enable
+for_window [title="SteamVR Status"] floating enable
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# Start Applications
+bindsym $mod+Shift+w exec qutebrowser
+bindsym $mod+Control+w exec firefox
+bindsym $mod+Shift+t exec thunderbird
+bindsym $mod+Shift+f exec "$myterm --class wm-floating,wm-floating --command lf `$HOME/.dotfiles/bin/xcwd`"
+bindsym $mod+Control+n exec "dunstctl action"
+
+# Shut down, restart and locking
+bindsym $mod+Escape mode "$mode_system"
+set $mode_system (l)ock, sloc(k), (e)xit, l(o)gout, (s)uspend, (r)eboot, Shut(d)own
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $HOME/.dotfiles/bin/i3exit lock, mode "default"
+    bindsym k exec --no-startup-id $HOME/.dotfiles/bin/i3exit slock, mode "default"
+    bindsym s exec --no-startup-id $HOME/.dotfiles/bin/i3exit suspend, mode "default"
+    bindsym o exec --no-startup-id $HOME/.dotfiles/bin/i3exit logout, mode "default"
+    bindsym e exec --no-startup-id $HOME/.dotfiles/bin/i3exit logout, mode "default"
+    bindsym r exec --no-startup-id $HOME/.dotfiles/bin/i3exit reboot, mode "default"
+    bindsym d exec --no-startup-id $HOME/.dotfiles/bin/i3exit shutdown, mode "default"
+
+    # exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+#
+# Resizing containers:
+#
+mode "resize" {
+
+    bindsym h resize shrink width 10px
+    bindsym j resize grow height 10px
+    bindsym k resize shrink height 10px
+    bindsym l resize grow width 10px
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+#
+# GAPS
+#
+
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+    bindsym o      mode "$mode_gaps_outer"
+    bindsym i      mode "$mode_gaps_inner"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+    bindsym plus  gaps inner current plus 5
+    bindsym minus gaps inner current minus 5
+    bindsym 0     gaps inner current set 0
+
+    bindsym Shift+plus  gaps inner all plus 5
+    bindsym Shift+minus gaps inner all minus 5
+    bindsym Shift+0     gaps inner all set 0
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+    bindsym plus  gaps outer current plus 5
+    bindsym minus gaps outer current minus 5
+    bindsym 0     gaps outer current set 0
+
+    bindsym Shift+plus  gaps outer all plus 5
+    bindsym Shift+minus gaps outer all minus 5
+    bindsym Shift+0     gaps outer all set 0
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# Screen lockers
+bindsym $mod+shift+x exec --no-startup-id i3lock-fancy
+bindsym $mod+shift+z exec --no-startup-id "$myterm --class wm-floating,wm-floating --command slock"
+
+#
+# STARTUP APPLICATIONS
+#
+
+# Repeat interval and delay
+exec_always --no-startup-id xset r rate 200 35 # initial delay 300 ms, repeat 35 ms
+
+# Activate numlock
+exec_always --no-startup-id numlockx
+
+#
+# TRACKPAD  - Dell XPS13 
+#
+# trackpad speed
+exec_always --no-startup-id xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Accel Speed' 0.6
+# tapping enabled
+exec_always --no-startup-id xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Tapping Enabled' 1
+
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+  status_command i3blocks -c $HOME/.config/i3blocks/config
+  workspace_buttons yes
+  workspace_min_width 50
+  strip_workspace_numbers no
+
+  position top
+  tray_output primary
+  font pango:JetBrainsMono Nerd Font 10
+}
+
+include /etc/sway/config.d/*
+output "*" bg /home/tsagrista/Pictures/Wallpapers/pixel/wp1933956-pixel-art-wallpapers.jpg fill
