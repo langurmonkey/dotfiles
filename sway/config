@@ -28,11 +28,18 @@ gaps outer 0
 set $wal-fg #f0f0f0
 set $wal-bg #295499
 
-set $bg-color 	         i3wm.color2
 set $inactive-bg-color   #666666
 set $text-color          #ffffff
 set $inactive-text-color #ffffff
 set $urgent-bg-color     #E42343
+
+# Window colors
+# type                  border              background         text                 indicator
+client.focused          $wal-bg            $wal-bg             $text-color          $wal-bg
+client.unfocused        $inactive-bg-color $inactive-bg-color  $inactive-text-color $inactive-bg-color
+client.focused_inactive $inactive-bg-color $inactive-bg-color  $inactive-text-color $inactive-bg-color
+client.urgent           $urgent-bg-color   $urgent-bg-color    $text-color          $urgent-bg-color
+client.background       $wal-bg
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod 
@@ -268,27 +275,23 @@ bindsym $mod+Shift+t exec thunderbird
 bindsym $mod+Shift+f exec "$myterm --class wm-floating,wm-floating --command lf `$HOME/.dotfiles/bin/wcwd`"
 bindsym $mod+Control+n exec "dunstctl action"
 
-# Shut down, restart and locking
-bindsym $mod+Escape mode "$mode_system"
-set $mode_system (l)ock, sloc(k), (e)xit, l(o)gout, (s)uspend, (r)eboot, Shut(d)own
-mode "$mode_system" {
-    bindsym l exec --no-startup-id $HOME/.dotfiles/bin/i3exit lock, mode "default"
-    bindsym k exec --no-startup-id $HOME/.dotfiles/bin/i3exit slock, mode "default"
-    bindsym s exec --no-startup-id $HOME/.dotfiles/bin/i3exit suspend, mode "default"
-    bindsym o exec --no-startup-id $HOME/.dotfiles/bin/i3exit logout, mode "default"
-    bindsym e exec --no-startup-id $HOME/.dotfiles/bin/i3exit logout, mode "default"
-    bindsym r exec --no-startup-id $HOME/.dotfiles/bin/i3exit reboot, mode "default"
-    bindsym d exec --no-startup-id $HOME/.dotfiles/bin/i3exit shutdown, mode "default"
+set $mode_system "l[o]gout  [l]ock  [s]uspend  [r]eboot  shut[d]own"
+mode $mode_system {
+    bindsym o exec sway-exit exit, mode "default"
+    bindsym l exec sway-exit lock, mode "default"
+    bindsym s exec sway-exit suspend, mode "default"
+    bindsym r exec sway-exit reboot, mode "default"
+    bindsym h exec sway-exit shutdown, mode "default"
 
-    # exit system mode: "Enter" or "Escape"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode default
+    bindsym Escape mode default
 }
+bindsym $mod+Escape mode $mode_system
 #
 # Resizing containers:
 #
 mode "resize" {
-
     bindsym h resize shrink width 10px
     bindsym j resize grow height 10px
     bindsym k resize shrink height 10px
@@ -312,7 +315,6 @@ set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
 bindsym $mod+Shift+g mode "$mode_gaps"
-
 mode "$mode_gaps" {
     bindsym o      mode "$mode_gaps_outer"
     bindsym i      mode "$mode_gaps_inner"
