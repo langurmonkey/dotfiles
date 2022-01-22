@@ -37,7 +37,7 @@ set $urgent-bg-color     #E42343
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod 
 # Start a terminal
-bindsym $mod+Return exec $myterm --working-directory "`$HOME/.dotfiles/bin/xcwd`"
+bindsym $mod+Return exec $myterm --working-directory "`$HOME/.dotfiles/bin/wcwd`"
 
 # kill focused window
 bindsym $mod+q kill
@@ -68,9 +68,6 @@ bindsym XF86Search exec $HOME/.dotfiles/bin/fmenu -i $HOME -t +10
 
 # pulsemixer
 bindsym $mod+Shift+p exec "$myterm --class wm-floating-big,wm-floating-big --command pulsemixer"
-
-# toggle compositor
-#bindsym $mod+c exec $HOME/.dotfiles/bin/togglepicom
 
 # monitor off
 bindsym $mod+F8 exec $HOME/.dotfiles/bin/monitoroff
@@ -154,6 +151,14 @@ bindsym $mod+Control+9 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@
 # backlight - edit /usr/local/lib/brightnessctl/configuration.sh for step size
 bindsym XF86MonBrightnessUp exec brightness+
 bindsym XF86MonBrightnessDown exec brightness-
+
+input * {
+    xkb_layout "us,es"
+    xkb_options "grp:alt_space_toggle,caps:swapescape,eurosign:e"
+    xkb_model "pc104"
+    repeat_delay 200
+    repeat_rate 35
+}
 
 #
 # WORKSPACES
@@ -259,7 +264,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+w exec qutebrowser
 bindsym $mod+Control+w exec firefox
 bindsym $mod+Shift+t exec thunderbird
-bindsym $mod+Shift+f exec "$myterm --class wm-floating,wm-floating --command lf `$HOME/.dotfiles/bin/xcwd`"
+bindsym $mod+Shift+f exec "$myterm --class wm-floating,wm-floating --command lf `$HOME/.dotfiles/bin/wcwd`"
 bindsym $mod+Control+n exec "dunstctl action"
 
 # Shut down, restart and locking
@@ -340,12 +345,16 @@ mode "$mode_gaps_outer" {
 }
 
 # Screen lockers
-bindsym $mod+shift+x exec --no-startup-id i3lock-fancy
-bindsym $mod+shift+z exec --no-startup-id "$myterm --class wm-floating,wm-floating --command slock"
+bindsym $mod+shift+z exec --no-startup-id swaylock -c 000000
 
 #
 # STARTUP APPLICATIONS
 #
+
+exec swayidle -w \
+	timeout 1800 'swaylock' \
+	timeout 1805 'swaymsg "output * dpms off"' \
+	resume 'swaymsg "output * dpms on"'
 
 # Repeat interval and delay
 exec_always --no-startup-id xset r rate 200 35 # initial delay 300 ms, repeat 35 ms
