@@ -433,7 +433,20 @@ bar {
 }
 #bar {
 #  swaybar_command waybar
+#  workspace_buttons yes
+#  workspace_min_width 80
 #  tray_output primary
+#  font pango:JetBrainsMono Nerd Font 10
+#  colors {
+#    background #000000
+#    statusline #ffffff
+# 
+#    #class             border  backgr  text   
+#    focused_workspace  #000000 #295499 #ffffff
+#    inactive_workspace #000000 #000000 #aaaaaa
+#    active_workspace   #000000 #000000 #ffffff
+#    urgent_workspace   #f35888 #a31838 #ffffff
+#  }
 #}
 
 include /etc/sway/config.d/*
