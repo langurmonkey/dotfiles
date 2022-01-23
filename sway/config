@@ -229,6 +229,9 @@ assign [class="Signal"] $ws9
 assign [class="Steam"] $ws5
 assign [class="FreeTube"] $ws6
 
+set $opacity 1.0
+for_window [class=".*"] opacity $opacity
+for_window [app_id=".*"] opacity $opacity
 # default floating
 for_window [class="Gimp-2.10"] floating enable
 for_window [class="pdfpc"] floating enable

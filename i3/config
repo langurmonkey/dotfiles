@@ -269,12 +269,11 @@ bindsym $mod+Shift+r restart
 
 # Shut down, restart and locking
 bindsym $mod+Escape mode "$mode_system"
-set $mode_system "l[o]gout  [l]ock  [s]uspend  [r]eboot  shut[d]own"
+set $mode_system l[o]gout  [l]ock  [s]uspend  [r]eboot  shut[d]own
 mode "$mode_system" {
     bindsym l exec --no-startup-id $HOME/.dotfiles/bin/i3exit slock, mode "default"
     bindsym s exec --no-startup-id $HOME/.dotfiles/bin/i3exit suspend, mode "default"
     bindsym o exec --no-startup-id $HOME/.dotfiles/bin/i3exit logout, mode "default"
-    bindsym e exec --no-startup-id $HOME/.dotfiles/bin/i3exit logout, mode "default"
     bindsym r exec --no-startup-id $HOME/.dotfiles/bin/i3exit reboot, mode "default"
     bindsym d exec --no-startup-id $HOME/.dotfiles/bin/i3exit shutdown, mode "default"
 
