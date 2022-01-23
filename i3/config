@@ -22,7 +22,7 @@ gaps outer 0
 
 # Colors
 set_from_resource $wal-fg i3wm.color7 #f0f0f0
-set_from_resource $wal-bg i3wm.color19 #295499
+set_from_resource $wal-bg i3wm.color19 #26398e
 
 set $bg-color 	         i3wm.color2
 set $inactive-bg-color   #666666
@@ -269,10 +269,9 @@ bindsym $mod+Shift+r restart
 
 # Shut down, restart and locking
 bindsym $mod+Escape mode "$mode_system"
-set $mode_system (l)ock, sloc(k), (e)xit, l(o)gout, (s)uspend, (r)eboot, Shut(d)own
+set $mode_system "l[o]gout  [l]ock  [s]uspend  [r]eboot  shut[d]own"
 mode "$mode_system" {
-    bindsym l exec --no-startup-id $HOME/.dotfiles/bin/i3exit lock, mode "default"
-    bindsym k exec --no-startup-id $HOME/.dotfiles/bin/i3exit slock, mode "default"
+    bindsym l exec --no-startup-id $HOME/.dotfiles/bin/i3exit slock, mode "default"
     bindsym s exec --no-startup-id $HOME/.dotfiles/bin/i3exit suspend, mode "default"
     bindsym o exec --no-startup-id $HOME/.dotfiles/bin/i3exit logout, mode "default"
     bindsym e exec --no-startup-id $HOME/.dotfiles/bin/i3exit logout, mode "default"

@@ -26,7 +26,7 @@ gaps outer 0
 #set_from_resource $wal-bg i3wm.color19 #295499
 
 set $wal-fg #f0f0f0
-set $wal-bg #295499
+set $wal-bg #26398e
 
 set $inactive-bg-color   #666666
 set $text-color          #ffffff
@@ -42,7 +42,7 @@ client.urgent           $urgent-bg-color   $urgent-bg-color    $text-color      
 client.background       $wal-bg
 
 # Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod 
+floating_modifier $mod
 # Start a terminal
 bindsym $mod+Return exec $myterm --working-directory "`$HOME/.dotfiles/bin/wcwd`"
 
@@ -366,7 +366,7 @@ exec --no-startup-id playerctld
 exec --no-startup-id udiskie -f $HOME/.dotfiles/bin/ranger-term --tray
 
 exec_always --no-startup-id swayidle -w \
-	timeout 180 'swaylock -c 000000' \
+	timeout 220 'swaylock -c 000000' \
 	timeout 185 'swaymsg "output * dpms off"' \
 	resume 'swaymsg "output * dpms on"'
 
@@ -404,6 +404,17 @@ bar {
   position top
   tray_output primary
   font pango:JetBrainsMono Nerd Font 10
+
+  colors {
+    background #000000
+    statusline #ffffff
+ 
+    #class             border  backgr  text   
+    focused_workspace  #000000 #295499 #ffffff
+    inactive_workspace #000000 #000000 #aaaaaa
+    active_workspace   #000000 #000000 #ffffff
+    urgent_workspace   #f35888 #a31838 #ffffff
+  }
 }
 #bar {
 #  swaybar_command waybar
