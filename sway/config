@@ -362,6 +362,16 @@ bindsym $mod+shift+z exec --no-startup-id swaylock -c 000000
 #
 
 #
+# SYSTEM TRAY
+#
+# network manager
+exec --no-startup-id nm-applet
+# bluetooth
+exec --no-startup-id blueman-applet
+# volume
+exec --no-startup-id pasystray
+
+#
 # playerctld
 #
 exec --no-startup-id playerctld
@@ -395,8 +405,6 @@ exec_always --no-startup-id xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'li
 # mpDris2 - MPRIS2 support for mpd
 # 
 exec_always --no-startup-id mpDris2
-
-
 
 #
 # Status Bar:

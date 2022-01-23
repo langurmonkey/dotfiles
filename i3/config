@@ -30,6 +30,14 @@ set $text-color          #ffffff
 set $inactive-text-color #ffffff
 set $urgent-bg-color     #E42343
 
+# Window colors
+# type                  border              background         text                 indicator
+client.focused          $wal-bg            $wal-bg             $text-color          $wal-bg
+client.unfocused        $inactive-bg-color $inactive-bg-color  $inactive-text-color $inactive-bg-color
+client.focused_inactive $inactive-bg-color $inactive-bg-color  $inactive-text-color $inactive-bg-color
+client.urgent           $urgent-bg-color   $urgent-bg-color    $text-color          $urgent-bg-color
+client.background       $wal-bg
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod 
 # Start a terminal
@@ -352,15 +360,6 @@ mode "resize" {
     bindsym Return mode "default" 
     bindsym Escape mode "default"
 }
-
-# Window colors
-# type                  border              background         text                 indicator
-client.focused          $wal-bg            $wal-bg             $text-color          $wal-bg
-client.unfocused        $inactive-bg-color $inactive-bg-color  $inactive-text-color $inactive-bg-color
-client.focused_inactive $inactive-bg-color $inactive-bg-color  $inactive-text-color $inactive-bg-color
-client.urgent           $urgent-bg-color   $urgent-bg-color    $text-color          $urgent-bg-color
-
-client.background       $wal-bg
 
 #
 # STARTUP APPLICATIONS
