@@ -354,6 +354,17 @@ bindsym $mod+shift+z exec --no-startup-id swaylock -c 000000
 # STARTUP APPLICATIONS
 #
 
+#
+# playerctld
+#
+exec --no-startup-id playerctld
+
+
+#
+# UDISKIE - automount
+#
+exec --no-startup-id udiskie -f $HOME/.dotfiles/bin/ranger-term --tray
+
 exec_always --no-startup-id swayidle -w \
 	timeout 180 'swaylock -c 000000' \
 	timeout 185 'swaymsg "output * dpms off"' \
@@ -373,6 +384,12 @@ exec_always --no-startup-id xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'li
 # tapping enabled
 exec_always --no-startup-id xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Tapping Enabled' 1
 
+#
+# mpDris2 - MPRIS2 support for mpd
+# 
+exec_always --no-startup-id mpDris2
+
+
 
 #
 # Status Bar:
@@ -388,6 +405,10 @@ bar {
   tray_output primary
   font pango:JetBrainsMono Nerd Font 10
 }
+#bar {
+#  swaybar_command waybar
+#  tray_output primary
+#}
 
 include /etc/sway/config.d/*
 output "*" bg /home/tsagrista/Pictures/Wallpapers/pixel/wp1933956-pixel-art-wallpapers.jpg fill
