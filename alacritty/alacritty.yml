@@ -23,6 +23,10 @@ window:
     columns: 0
     lines: 0
 
+  # Window opacity as a floating point number from `0.0` to `1.0`.
+  # The value `0.0` is completely transparent and `1.0` is opaque.
+  opacity: 0.85
+
   # Window position (changes require restart)
   #
   # Specified in number of pixels.
@@ -222,11 +226,6 @@ bell:
   duration: 0
   color: '0xffffff'
 
-# Background opacity
-#
-# Window opacity as a floating point number from `0.0` to `1.0`.
-# The value `0.0` is completely transparent and `1.0` is opaque.
-window_opacity: 0.85
 
 # Mouse bindings
 #
