@@ -6,7 +6,7 @@ i3wm, polybar, vim, ranger, and some other programs.
 
 ## Bootstrap
 
-The following line checks out the repository into `~/.dotfiles` and installs the essential tools for arch or ubuntu:
+The following line checks out the repository into `~/.dotfiles` and installs the essential tools:
 
 ```console
 bash <(curl -s https://gitlab.com/langurmonkey/dotfiles/raw/master/bootstrap.sh)
