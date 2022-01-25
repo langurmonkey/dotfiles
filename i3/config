@@ -160,10 +160,10 @@ bindsym XF86MonBrightnessUp exec brightness+
 bindsym XF86MonBrightnessDown exec brightness-
 
 # screenshots
-# scrot
-bindsym Print exec scrot $HOME/Pictures/Screenshots/screenshot_%Y_%m_%d_%H_%M_%S.png
-# scrot & gimp
-bindsym $mod+Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
+bindsym Print exec maim $HOME/Pictures/Screenshots/screenshot_%Y_%m_%d_%H_%M_%S.png && notify-send "Screenshot saved to ~/Pictures/$(\ls -Art /home/tsagrista/Pictures | tail -n 1)"
+
+# maim & gimp
+bindsym $mod+Print exec maim -e 'mv $f /tmp/ && gimp /tmp/$f'
 
 # Start Applications
 bindsym $mod+Shift+w exec qutebrowser
