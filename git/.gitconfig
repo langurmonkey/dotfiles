@@ -17,6 +17,7 @@
     lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
     lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
     lgb = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches
+    lgp = log -p
     lg = log --stat --pretty=short --graph
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
     l = log --oneline
@@ -41,7 +42,6 @@
     pager = delta
 
 [diff]
-    tool = vimdiff
     colorMoved = default
 
 [merge]
@@ -61,10 +61,13 @@
 	defaultBranch = master
 
 [interactive]
-    diffFilter = delta --color-only
+    diffFilter = delta --color-only --features=interactive
 
 [delta]
+    features = decorations
     navigate = true
+    side-by-side = true
+    line-numbers = true
 
 [rerere]
 	enabled = 1
