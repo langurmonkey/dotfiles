@@ -219,7 +219,6 @@ echo-custom " ** " "==== i3 CONFIG ===="
 # Symlink i3 configuration
 do-symlink $DOTFILES_PATH/i3 ~/.config/i3
 do-symlink $DOTFILES_PATH/i3blocks ~/.config/i3blocks
-
 echo-ok "Done"
 
 #
@@ -229,7 +228,6 @@ echo-custom " ** " "==== sway CONFIG ===="
 
 # Symlink sway configuration
 do-symlink $DOTFILES_PATH/sway ~/.config/sway
-
 echo-ok "Done"
 
 #
@@ -239,7 +237,6 @@ echo-custom " ** " "==== Qtile CONFIG ===="
 
 # Symlink Qtile configuration
 do-symlink $DOTFILES_PATH/qtile ~/.config/qtile
-
 echo-ok "Done"
 
 
@@ -259,7 +256,6 @@ echo-custom " ** " "==== POLYBAR ===="
 do-clone "$DIR_PROJ"/polybar-scripts https://github.com/x70b1/polybar-scripts.git polybar-scripts
 # Config
 do-symlink $DOTFILES_PATH/polybar ~/.config/polybar
-
 echo-ok "Done"
 
 
@@ -292,7 +288,6 @@ do-symlink $DOTFILES_PATH/urxvt/font-size ~/.urxvt/ext/font-size
 do-symlink $DOTFILES_PATH/kitty $DIR_KITTY
 # Alacritty config
 do-symlink $DOTFILES_PATH/alacritty $DIR_ALACRITTY
-
 echo-ok "Done"
 
 #
@@ -308,6 +303,14 @@ echo-ok "Done"
 echo-custom " ** " " ==== MPD ===="
 do-symlink $DOTFILES_PATH/mpd/config ~/.config/mpd
 do-symlink $DOTFILES_PATH/mpd/playlists ~/.local/share/mpd/playlists
+echo-ok "Done"
+
+#
+# xob
+#
+echo-custom " ** " "==== XOB ===="
+
+do-symlink $DOTFILES_PATH/xob ~/.config/xob
 echo-ok "Done"
 
 #

@@ -382,6 +382,11 @@ exec_always --no-startup-id xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'li
 # tapping enabled
 exec_always --no-startup-id xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'libinput Tapping Enabled' 1
 
+#
+# XOB - indicator bars for volume and brightness
+#
+exec_always --no-startup-id $HOME/.dotfiles/bin/pulse-vol-watcher | xob -s volume
+exec_always --no-startup-id $HOME/.dotfiles/bin/brightness-watcher | xob -s brightness
 
 #
 # SYSTEM TRAY
@@ -434,7 +439,7 @@ exec_always --no-startup-id mpDris2
 # WALLPAPER - after screens have been setup
 #
 #exec --no-startup-id hsetroot -solid "#000000"
-exec_always --no-startup-id $HOME/.dotfiles/bin/wallpaper-apply
+exec_always --no-startup-id sleep 5s && $HOME/.dotfiles/bin/wallpaper-apply && notify-send "Wallpaper applied"
 
 #
 # BAR (polybar, bumblebee-status, i3status...)
