@@ -223,6 +223,16 @@ do-symlink $DOTFILES_PATH/i3blocks ~/.config/i3blocks
 echo-ok "Done"
 
 #
+# sway
+#
+echo-custom " ** " "==== sway CONFIG ===="
+
+# Symlink sway configuration
+do-symlink $DOTFILES_PATH/sway ~/.config/sway
+
+echo-ok "Done"
+
+#
 # Qtile
 #
 echo-custom " ** " "==== Qtile CONFIG ===="
@@ -327,16 +337,6 @@ if [ ! -d "$DIR_DUNST" ]; then
     mkdir -p $DIR_DUNST
 fi
 do-symlink $DOTFILES_PATH/dunst/dunstrc $DIR_DUNST/dunstrc
-echo-ok "Done"
-
-#
-# PYWAL
-#
-echo-custom " ** " "==== WAL ===="
-do-clone "$DIR_PROJ"/pywal https://github.com/dylanaraps/pywal.git pywal
-# Install pywal
-echo-info "Installing pywal"
-pip3 install --user "$DIR_PROJ"/pywal
 echo-ok "Done"
 
 
