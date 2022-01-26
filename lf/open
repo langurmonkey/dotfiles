@@ -94,8 +94,8 @@ esac
 case "$(file -Lb --mime-type -- "$1")" in
   image/*)
     if [ -n "$DISPLAY" ]; then
-      case "$(choose sxiv gimp)" in
-        sxiv)
+      case "$(choose imv gimp)" in
+        imv)
           if [ "$#" -eq 1 ]; then
             listfiles () {
               find -L "$(dirname -- "$1")" -maxdepth 1 -type f -iregex \
@@ -103,9 +103,9 @@ case "$(file -Lb --mime-type -- "$1")" in
             }
             count="$(listfiles "$1" | grep -m 1 -ZznF -- "$1" | cut -d: -f1)"
             redirect
-            listfiles "$1" | fork xargs -0 sxiv -a -n "$count" --
+            listfiles "$1" | fork xargs -0 imv -n "$count" --
           else
-            spawn sxiv -a -- "$@"
+            spawn imv -- "$@"
           fi
           ;;
         gimp) spawn gimp -- "$@";;
