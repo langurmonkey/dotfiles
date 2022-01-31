@@ -168,6 +168,9 @@ input * {
     xkb_model "pc104"
     repeat_delay 200
     repeat_rate 35
+    tap enabled
+    # Uncomment the next line for reverse scrolling (macOS-style)
+    #natural_scroll enabled
 }
 
 #
