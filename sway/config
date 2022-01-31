@@ -161,6 +161,7 @@ bindsym $mod+Control+9 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@
 bindsym XF86MonBrightnessUp exec brightness+
 bindsym XF86MonBrightnessDown exec brightness-
 
+# Input
 input * {
     xkb_layout "us,es"
     xkb_options "grp:alt_space_toggle,caps:swapescape,eurosign:e"
