@@ -29,7 +29,8 @@ window#waybar.solo {
 */
 
 #workspaces button {
-    padding: 0 5px;
+    padding: 0 3px;
+    margin: 0 5px;
     color: #ffffff;
     border-bottom: 3px solid transparent;
 }
@@ -72,7 +73,7 @@ window#waybar.solo {
 #idle_inhibitor,
 #mpd {
     padding: 0 10px;
-    margin: 0 4px;
+    margin: 1;
     color: #ffffff;
 }
 
