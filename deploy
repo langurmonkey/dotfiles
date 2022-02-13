@@ -231,6 +231,15 @@ do-symlink $DOTFILES_PATH/sway ~/.config/sway
 echo-ok "Done"
 
 #
+# waybar
+#
+echo-custom " ** " "==== waybar CONFIG ===="
+
+# Symlink waybar configuration
+do-symlink $DOTFILES_PATH/waybar ~/.config/waybar
+echo-ok "Done"
+
+#
 # Qtile
 #
 echo-custom " ** " "==== Qtile CONFIG ===="

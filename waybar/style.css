@@ -1,0 +1,139 @@
+* {
+    border: none;
+    border-radius: 0;
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-bottom: 0;
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.7;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+*/
+
+#workspaces button {
+    padding: 0 5px;
+    color: #ffffff;
+    border-bottom: 3px solid transparent;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: inherit;
+    border-bottom: 3px solid #ffffff;
+}
+
+#workspaces button.focused {
+    background-color: #295499;
+    border-bottom: 3px solid #000000;
+    color: #000000;
+}
+
+#workspaces button.urgent {
+    background-color: #ffeb3b;
+    color: #000000;
+    border-bottom: 3px solid #000000;
+}
+
+#mode {
+    background-color: #64727D;
+    border-bottom: 3px solid #ffffff;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#mpd {
+    padding: 0 10px;
+    margin: 0 4px;
+    color: #ffffff;
+}
+
+#clock {
+    background-color: #295499;
+}
+#battery {
+    background-color: #555555;
+}
+#battery.charging {
+    color: #ffffff;
+    background-color: #26A65B;
+}
+#pulseaudio {
+    background-color: #FF7228;
+}
+#pulseaudio.muted {
+    background-color: #d32f2f;
+}
+#backlight {
+    color: #000000;
+    background-color: #F4B400;
+}
+#cpu,
+#memory {
+    background-color: #0E8C4F;
+}
+
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #d32f2f;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#network.disconnected {
+    background-color: #d32f2f;
+}
+
+
+
+#temperature.critical {
+    background-color: #d32f2f;
+}
+
+#idle_inhibitor.activated {
+    background-color: #ffffff;
+    color: #000000;
+}

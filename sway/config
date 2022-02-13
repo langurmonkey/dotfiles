@@ -416,12 +416,12 @@ exec_always --no-startup-id mpDris2
 # Read `man 5 sway-bar` for more information about this section.
 bar {
   status_command i3blocks -c $HOME/.config/i3blocks/config
+  tray_output primary
   workspace_buttons yes
   workspace_min_width 50
   strip_workspace_numbers no
 
   position top
-  tray_output primary
   font pango:JetBrainsMono Nerd Font 10
 
   colors {
@@ -435,23 +435,22 @@ bar {
     urgent_workspace   #f35888 #a31838 #ffffff
   }
 }
-#bar {
-#  swaybar_command waybar
-#  workspace_buttons yes
-#  workspace_min_width 80
-#  tray_output primary
-#  font pango:JetBrainsMono Nerd Font 10
-#  colors {
-#    background #000000
-#    statusline #ffffff
-# 
-#    #class             border  backgr  text   
-#    focused_workspace  #000000 #295499 #ffffff
-#    inactive_workspace #000000 #000000 #aaaaaa
-#    active_workspace   #000000 #000000 #ffffff
-#    urgent_workspace   #f35888 #a31838 #ffffff
-#  }
-#}
+bar {
+  swaybar_command waybar
+  workspace_buttons yes
+  tray_output primary
+  font pango:JetBrainsMono Nerd Font 10
+  colors {
+    background #000000
+    statusline #ffffff
+ 
+    #class             border  backgr  text   
+    focused_workspace  #000000 #295499 #ffffff
+    inactive_workspace #000000 #000000 #aaaaaa
+    active_workspace   #000000 #000000 #ffffff
+    urgent_workspace   #f35888 #a31838 #ffffff
+  }
+}
 
 include /etc/sway/config.d/*
 output "*" bg /home/tsagrista/Pictures/Wallpapers/pixel/wp1933956-pixel-art-wallpapers.jpg fill
