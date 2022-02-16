@@ -107,7 +107,7 @@
                 "format-linked": "{ifname} (No IP) ",
                 "format-disconnected": "Disconnected ⚠",
                 "format-alt": "{ifname}: {ipaddr}/{cidr}",
-                "on-click-right": "alacritty --class wm-floating-big,wm-floating-big --command nmtui"
+                "on-click-right": "alacritty --class wm-floating-big --command nmtui"
             },
             "pulseaudio": {
                 // "scroll-step": 1, // %, can be a float
@@ -126,7 +126,8 @@
                     "car": "",
                     "default": ["", "", ""]
                 },
-                "on-click": "pavucontrol"
+                "on-click": "pavucontrol",
+                "on-click-right": "alacritty --class wm-floating-big --command pulsemixer"
             },
             "custom/media": {
                 "format": "{icon} {}",

@@ -139,7 +139,7 @@ bindsym $mod+n exec --no-startup-id $HOME/.dotfiles/bin/i3-new-workspace
 bindsym $mod+a focus parent
 
 # media player controls XF86Audio and $mod+Control
-bindsym $mod+Control+m exec "$myterm --class wm-floating-big,wm-floating-big --command ncmpcpp"
+bindsym $mod+Control+m exec "$myterm --class wm-floating-big --command ncmpcpp"
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -369,7 +369,7 @@ bindsym $mod+shift+z exec --no-startup-id swaylock -c 000000
 # SYSTEM TRAY
 #
 # network manager
-exec --no-startup-id nm-applet
+exec --no-startup-id nm-applet --indicator
 # bluetooth
 exec --no-startup-id blueman-applet
 # volume
