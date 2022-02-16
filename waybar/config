@@ -84,7 +84,7 @@
             },
             "battery": {
                 "states": {
-                    // "good": 95,
+                    //"good": 95,
                     "warning": 30,
                     "critical": 15
                 },
@@ -106,7 +106,8 @@
                 "tooltip-format": "{ifname} via {gwaddr} ",
                 "format-linked": "{ifname} (No IP) ",
                 "format-disconnected": "Disconnected ⚠",
-                "format-alt": "{ifname}: {ipaddr}/{cidr}"
+                "format-alt": "{ifname}: {ipaddr}/{cidr}",
+                "on-click-right": "alacritty --class wm-floating-big,wm-floating-big --command nmtui"
             },
             "pulseaudio": {
                 // "scroll-step": 1, // %, can be a float
