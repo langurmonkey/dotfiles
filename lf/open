@@ -94,7 +94,8 @@ esac
 case "$(file -Lb --mime-type -- "$1")" in
   image/*)
     if [ -n "$DISPLAY" ]; then
-      case "$(choose imv gimp)" in
+      case "$(choose nsxiv imv gimp)" in
+        nsxiv) spawn nsxiv -- "$@";;
         imv)
           if [ "$#" -eq 1 ]; then
             listfiles () {
