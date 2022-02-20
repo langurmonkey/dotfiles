@@ -19,7 +19,7 @@ if _uncallable zsh || _uncallable git; then
     if [[ -f /etc/arch-release ]]; then
         $DOTFILES/bootstrap-arch.sh
     elif [[ -f /etc/debian_version ]]; then
-        $DOTFILES/bootstrap-ubuntu.sh
+        $DOTFILES/bootstrap-deb.sh
     fi
 fi
 
