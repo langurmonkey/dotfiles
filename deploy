@@ -127,7 +127,7 @@ do-symlink $DOTFILES_PATH/vim/coc-settings.json $DIR_VIMCONFIG/coc-settings.json
 do-symlink $DOTFILES_PATH/vim/after $DIR_VIMCONFIG/after
 
 # Create dictionary symlinks
-do-symlink $DOTFILES_PATH/words/en.utf-8.dict $DIR_VIMCONFIG/spell/en.utf-8.add
+do-symlink $DOTFILES_PATH/words/en.utf-8.dic $DIR_VIMCONFIG/spell/en.utf-8.add
 
 
 #
