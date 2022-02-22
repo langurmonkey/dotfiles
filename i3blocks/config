@@ -104,7 +104,7 @@ markup=pango
 
 [updates-arch]
 command=$LOCAL_DIR/updates-arch  "#ffffff"
-interval=1800
+interval=400
 markup=pango
 color=#ffffff
 background=#DF4A3D
