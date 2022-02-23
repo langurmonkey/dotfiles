@@ -5,7 +5,7 @@
         // Choose the order of the modules
         "modules-left": ["sway/workspaces", "sway/mode", "custom/media"],
         "modules-center": [],
-        "modules-right": ["mpd", "idle_inhibitor", "network", "cpu", "memory", "keyboard-state", "sway/language", "backlight", "battery#bat2", "battery", "pulseaudio", "clock", "tray"],
+        "modules-right": ["mpd", "idle_inhibitor", "network", "custom/cpulevels", "memory", "keyboard-state", "sway/language", "backlight", "battery#bat2", "battery", "pulseaudio", "clock", "tray"],
         "keyboard-state": {
             "numlock": true,
             "capslock": true,
@@ -65,6 +65,10 @@
             "cpu": {
                 "format": "{usage}% ",
                 "tooltip": false
+            },
+            "custom/cpulevels": {
+                "interval": 1,
+                "exec": "$HOME/.dotfiles/i3blocks/scripts/cpu-levels"
             },
             "memory": {
                 "format": "{}% "

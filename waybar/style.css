@@ -61,6 +61,7 @@ window#waybar.solo {
 
 #clock,
 #battery,
+#custom-cpulevels,
 #cpu,
 #memory,
 #temperature,
