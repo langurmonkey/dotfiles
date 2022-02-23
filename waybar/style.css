@@ -29,8 +29,8 @@ window#waybar.solo {
 */
 
 #workspaces button {
-    padding: 0 3px;
-    margin: 0 5px;
+    padding: 0 5px;
+    margin: 0 2px;
     color: #ffffff;
     border-bottom: 3px solid transparent;
 }
