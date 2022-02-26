@@ -5,7 +5,7 @@
         // Choose the order of the modules
         "modules-left": ["sway/workspaces", "sway/mode", "custom/media"],
         "modules-center": [],
-        "modules-right": ["mpd", "idle_inhibitor", "network", "custom/cpulevels", "memory", "keyboard-state", "sway/language", "backlight", "battery#bat2", "battery", "pulseaudio", "clock", "tray"],
+        "modules-right": ["mpd", "idle_inhibitor", "custom/cpulevels", "memory", "keyboard-state", "sway/language", "backlight", "battery#bat2", "battery", "pulseaudio", "clock", "tray"],
         "keyboard-state": {
             "numlock": true,
             "capslock": true,
@@ -28,7 +28,7 @@
                     "on": " "
                 },
                 "random-icons": {
-                    "off": "<span color=\"#f53c3c\"></span> ",
+                    "off": "",
                     "on": " "
                 },
                 "repeat-icons": {
@@ -93,8 +93,8 @@
                     "critical": 15
                 },
                 "format": "{capacity}% {icon}",
-                "format-charging": "{capacity}% ",
-                "format-plugged": "{capacity}% ",
+                "format-charging": "{capacity}% ",
+                "format-plugged": "{capacity}% ",
                 "format-alt": "{time} {icon}",
                 // "format-good": "", // An empty format will hide the module
                 // "format-full": "",
@@ -106,9 +106,9 @@
             "network": {
                 // "interface": "wlp2*", // (Optional) To force the use of this interface
                 "format-wifi": "{essid} ({signalStrength}%) ",
-                "format-ethernet": "{ipaddr}/{cidr} ",
-                "tooltip-format": "{ifname} via {gwaddr} ",
-                "format-linked": "{ifname} (No IP) ",
+                "format-ethernet": "{ipaddr}/{cidr}",
+                "tooltip-format": "{ifname} via {gwaddr}",
+                "format-linked": "{ifname} (No IP)",
                 "format-disconnected": "Disconnected ⚠",
                 "format-alt": "{ifname}: {ipaddr}/{cidr}",
                 "on-click-right": "alacritty --class wm-floating-big --command nmtui"
@@ -117,8 +117,8 @@
                 // "scroll-step": 1, // %, can be a float
                 "format": "{volume}% {icon} {format_source}",
                 "format-bluetooth": "{volume}% {icon} {format_source}",
-                "format-bluetooth-muted": " {icon} {format_source}",
-                "format-muted": " {format_source}",
+                "format-bluetooth-muted": "婢 {icon} {format_source}",
+                "format-muted": "婢 {format_source}",
                 "format-source": "{volume}% ",
                 "format-source-muted": "",
                 "format-icons": {
