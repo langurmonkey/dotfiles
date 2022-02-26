@@ -45,7 +45,7 @@ window#waybar.solo {
 #workspaces button.focused {
     background-color: #295499;
     border-bottom: 3px solid #000000;
-    color: #000000;
+    color: #ffffff;
 }
 
 #workspaces button.urgent {
