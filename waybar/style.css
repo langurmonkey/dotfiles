@@ -21,124 +21,123 @@ window#waybar.hidden {
 
 /*
 window#waybar.empty {
-    background-color: transparent;
+background-color: transparent;
 }
 window#waybar.solo {
-    background-color: #FFFFFF;
+background-color: #FFFFFF;
 }
-*/
+ */
 
-#workspaces button {
-    padding: 0 5px;
-    margin: 0 2px;
-    color: #ffffff;
-    border-bottom: 3px solid transparent;
-}
+    #workspaces button {
+        padding: 0 5px;
+        margin: 0 2px;
+        color: #ffffff;
+        border-bottom: 3px solid transparent;
+    }
 
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-#workspaces button:hover {
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: inherit;
-    border-bottom: 3px solid #ffffff;
-}
+    /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+    #workspaces button:hover {
+        background: rgba(255, 255, 255, 0.2);
+        box-shadow: inherit;
+        border-bottom: 3px solid #ffffff;
+    }
 
-#workspaces button.focused {
-    background-color: #295499;
-    border-bottom: 3px solid #000000;
-    color: #ffffff;
-}
+    #workspaces button.focused {
+        background-color: #295499;
+        border-bottom: 3px solid #000000;
+        color: #ffffff;
+    }
 
-#workspaces button.urgent {
-    background-color: #ffeb3b;
-    color: #000000;
-    border-bottom: 3px solid #000000;
-}
+    #workspaces button.urgent {
+        background-color: #ffeb3b;
+        color: #000000;
+        border-bottom: 3px solid #000000;
+    }
 
-#mode {
-    background-color: #64727D;
-    border-bottom: 3px solid #ffffff;
-}
+    #mode {
+        background-color: #64727D;
+        border-bottom: 3px solid #ffffff;
+    }
 
-#clock,
-#battery,
-#custom-cpulevels,
-#cpu,
-#memory,
-#temperature,
-#backlight,
-#network,
-#pulseaudio,
-#custom-media,
-#tray,
-#mode,
-#idle_inhibitor,
-#mpd {
-    padding: 0 10px;
-    margin: 1;
-    color: #ffffff;
-}
+    #clock,
+    #battery,
+    #cpu,
+    #memory,
+    #temperature,
+    #backlight,
+    #network,
+    #pulseaudio,
+    #custom-media,
+    #tray,
+    #mode,
+    #idle_inhibitor,
+    #mpd {
+        padding: 0 10px;
+        margin: 1;
+        color: #ffffff;
+    }
 
-#clock {
-    background-color: #295499;
-}
-#battery {
-    background-color: #555555;
-}
-#battery.charging {
-    color: #ffffff;
-    background-color: #26A65B;
-}
-#pulseaudio {
-    background-color: #FF7228;
-}
-#pulseaudio.muted {
-    background-color: #d32f2f;
-}
-#backlight {
-    color: #000000;
-    background-color: #F4B400;
-}
-#custom-cpulevels{
-    color: #0E8C4F;
-}
-#cpu,
-#memory {
-    background-color: #0E8C4F;
-}
+    #clock {
+        background-color: #295499;
+    }
+    #battery {
+        background-color: #555555;
+    }
+    #battery.charging {
+        color: #ffffff;
+        background-color: #26A65B;
+    }
+    #pulseaudio {
+        background-color: #FF7228;
+    }
+    #pulseaudio.muted {
+        background-color: #d32f2f;
+    }
+    #backlight {
+        color: #000000;
+        background-color: #F4B400;
+    }
+    #custom-cpulevels{
+        padding: 0;
+        margin: 1;
+        margin-bottom: -5px;
+        color: #0E8C4F;
+    }
+    #cpu,
+    #memory {
+        background-color: #0E8C4F;
+    }
 
+    @keyframes blink {
+        to {
+            background-color: #ffffff;
+            color: #000000;
+        }
+    }
 
-@keyframes blink {
-    to {
+    #battery.critical:not(.charging) {
+        background-color: #d32f2f;
+        color: #ffffff;
+        animation-name: blink;
+        animation-duration: 0.5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    label:focus {
+        background-color: #000000;
+    }
+
+    #network.disconnected {
+        background-color: #d32f2f;
+    }
+
+    #temperature.critical {
+        background-color: #d32f2f;
+    }
+
+    #idle_inhibitor.activated {
         background-color: #ffffff;
         color: #000000;
     }
-}
-
-#battery.critical:not(.charging) {
-    background-color: #d32f2f;
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-label:focus {
-    background-color: #000000;
-}
-
-#network.disconnected {
-    background-color: #d32f2f;
-}
-
-
-
-#temperature.critical {
-    background-color: #d32f2f;
-}
-
-#idle_inhibitor.activated {
-    background-color: #ffffff;
-    color: #000000;
-}

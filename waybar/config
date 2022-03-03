@@ -68,7 +68,7 @@
             },
             "custom/cpulevels": {
                 "interval": 1,
-                "exec": "$HOME/.dotfiles/i3blocks/scripts/cpu-levels"
+                "exec": "$HOME/.dotfiles/waybar/scripts/cpu-levels"
             },
             "memory": {
                 "format": "{}% "
