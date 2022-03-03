@@ -98,6 +98,9 @@ window#waybar.solo {
     color: #000000;
     background-color: #F4B400;
 }
+#custom-cpulevels{
+    color: #0E8C4F;
+}
 #cpu,
 #memory {
     background-color: #0E8C4F;
