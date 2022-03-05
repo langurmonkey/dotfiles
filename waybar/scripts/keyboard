@@ -9,7 +9,7 @@ if [[ $XDG_SESSION_TYPE -eq wayland ]]; then
     source $(dirname $0)/params
 
     dir_path=$(dirname $0)
-    echo "<span color='$col'>$icon</span>  $($dir_path/xkblayout-state print %s)"
+    echo "<span color='$col'>$icon</span>  $(swaymsg -t get_inputs | jq -r .[1].xkb_active_layout_name)"
 
 else
     #Mouse actions for the block
