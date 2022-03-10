@@ -70,9 +70,13 @@ background-color: #FFFFFF;
     #custom-media,
     #tray,
     #mode,
-    #idle_inhibitor,
     #mpd {
         padding: 0 10px;
+        margin: 0 0.5;
+        color: #ffffff;
+    }
+    #idle_inhibitor {
+        padding: 0 10px 0 5px;
         margin: 0 0.5;
         color: #ffffff;
     }
@@ -138,6 +142,6 @@ background-color: #FFFFFF;
     }
 
     #idle_inhibitor.activated {
-        background-color: #ffffff;
-        color: #000000;
+        color: #295499;
+        background-color: #ffff55;
     }
