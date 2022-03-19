@@ -232,6 +232,7 @@ assign [class="telegram-desktop"] $ws9
 assign [class="discord"] $ws9
 assign [class="Signal"] $ws9
 assign [class="Steam"] $ws5
+assign [class="itch"] $ws5
 assign [class="FreeTube"] $ws6
 
 set $opacity 1.0
