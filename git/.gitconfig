@@ -11,6 +11,7 @@
 	process = git-lfs filter-process
 
 [push]
+    followTags = true
 	default = matching
 
 [alias]
