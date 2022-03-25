@@ -16,7 +16,7 @@
             }
         },
         "sway/mode": {
-            "format": "<span style=\"italic\">{}</span>"
+            "format": "{}"
         },
             "mpd": {
                 "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title}  {volume}%",
