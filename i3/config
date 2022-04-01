@@ -367,7 +367,7 @@ mode "resize" {
 #
 
 # Repeat interval and delay
-exec_always --no-startup-id xset r rate 200 35 # initial delay 300 ms, repeat 35 ms
+exec_always --no-startup-id xset r rate 200 45 # initial delay 200 ms, with a rate of 45 repeats per second
 
 # Keyboard layout definition. Switch escape and caps lock key
 exec_always --no-startup-id setxkbmap -model pc104 -layout us,es -option 'grp:alt_space_toggle,caps:swapescape,eurosign:e'
