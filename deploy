@@ -4,19 +4,41 @@
 
 DOTFILES_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
 DIR_PROJ=~/Projects
+
 DIR_VIMCONFIG=~/.config/nvim
 FILE_VIMINIT=$DIR_VIMCONFIG/init.vim
 DIR_VIMPLUGINS=$DIR_VIMCONFIG/plugged
+
+DIR_ROFI=~/.config/rofi
+
 DIR_RANGER=~/.config/ranger
 DIR_NNN=~/.config/nnn
 DIR_LF=~/.config/lf
+
+DIR_I3=~/.config/i3
+DIR_SWAY=~/.config/sway
+DIR_QTILE=~/.config/qtile
+
+DIR_WAYBAR=~/.config/waybar
+DIR_POLYBAR=~/.config/polybar
+DIR_I3BLOCKS=~/.config/i3blocks
+DIR_XOB=~/.config/xob
+
 DIR_KITTY=~/.config/kitty
 DIR_ALACRITTY=~/.config/alacritty
+
 DIR_ZSHPLUGINS=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins
-DIR_VISCONFIG=~/.config/vis
+DIR_FISH=~/.config/fish
+DIR_STARSHIP=~/.config
+
+DIR_MPD=~/.config/mpd
+DIR_NCMPCPP=~/.config/ncmpcpp
+DIR_VIS=~/.config/vis
+
 DIR_NEWSBOAT=~/.config/newsboat
 DIR_AMFORA=~/.config/amfora
-DIR_STARSHIP=~/.config
+
+
 DIR_MUTT=~/.config/mutt
 
 # HELPERS ========================================
@@ -206,6 +228,14 @@ fi
 echo-ok "Done"
 
 #
+# FISH
+#
+echo-custom " ** " "==== FISH CONFIG ===="
+do-symlink $DOTFILES_PATH/fish $DIR_FISH
+echo-ok "Done"
+
+
+#
 # GIT
 #
 echo-custom " ** " "==== GIT CONFIG ===="
@@ -218,8 +248,8 @@ echo-ok "Done"
 echo-custom " ** " "==== i3 CONFIG ===="
 
 # Symlink i3 configuration
-do-symlink $DOTFILES_PATH/i3 ~/.config/i3
-do-symlink $DOTFILES_PATH/i3blocks ~/.config/i3blocks
+do-symlink $DOTFILES_PATH/i3 $DIR_I3
+do-symlink $DOTFILES_PATH/i3blocks $DIR_I3BLOCKS
 echo-ok "Done"
 
 #
@@ -228,7 +258,7 @@ echo-ok "Done"
 echo-custom " ** " "==== sway CONFIG ===="
 
 # Symlink sway configuration
-do-symlink $DOTFILES_PATH/sway ~/.config/sway
+do-symlink $DOTFILES_PATH/sway $DIR_SWAY
 echo-ok "Done"
 
 #
@@ -237,7 +267,7 @@ echo-ok "Done"
 echo-custom " ** " "==== waybar CONFIG ===="
 
 # Symlink waybar configuration
-do-symlink $DOTFILES_PATH/waybar ~/.config/waybar
+do-symlink $DOTFILES_PATH/waybar $DIR_WAYBAR
 echo-ok "Done"
 
 #
@@ -246,12 +276,12 @@ echo-ok "Done"
 echo-custom " ** " "==== Qtile CONFIG ===="
 
 # Symlink Qtile configuration
-do-symlink $DOTFILES_PATH/qtile ~/.config/qtile
+do-symlink $DOTFILES_PATH/qtile $DIR_QTILE
 echo-ok "Done"
 
 
 # Symlink rofi config
-do-symlink $DOTFILES_PATH/rofi ~/.config/rofi
+do-symlink $DOTFILES_PATH/rofi $DIR_ROFI
 
 # xkblayout
 mkdir -p ~/.local/bin/
@@ -265,7 +295,7 @@ echo-custom " ** " "==== POLYBAR ===="
 # Scripts
 do-clone "$DIR_PROJ"/polybar-scripts https://github.com/x70b1/polybar-scripts.git polybar-scripts
 # Config
-do-symlink $DOTFILES_PATH/polybar ~/.config/polybar
+do-symlink $DOTFILES_PATH/polybar $DIR_POLYBAR
 echo-ok "Done"
 
 
@@ -304,14 +334,14 @@ echo-ok "Done"
 # NCMPCPP
 #
 echo-custom " ** " " ==== NCMPCPP ===="
-do-symlink $DOTFILES_PATH/ncmpcpp ~/.config/ncmpcpp
+do-symlink $DOTFILES_PATH/ncmpcpp $DIR_NCMPCPP
 echo-ok "Done"
 
 #
 # MPD
 #
 echo-custom " ** " " ==== MPD ===="
-do-symlink $DOTFILES_PATH/mpd/config ~/.config/mpd
+do-symlink $DOTFILES_PATH/mpd/config $DIR_MPD
 do-symlink $DOTFILES_PATH/mpd/playlists ~/.local/share/mpd/playlists
 echo-ok "Done"
 
@@ -320,7 +350,7 @@ echo-ok "Done"
 #
 echo-custom " ** " "==== XOB ===="
 
-do-symlink $DOTFILES_PATH/xob ~/.config/xob
+do-symlink $DOTFILES_PATH/xob $DIR_XOB
 echo-ok "Done"
 
 #
@@ -375,7 +405,7 @@ echo-ok "Done"
 # CLI-VISUALIZER
 #
 echo-custom " ** " "==== CLI-VISUALIZER ===="
-do-symlink $DOTFILES_PATH/vis $DIR_VISCONFIG
+do-symlink $DOTFILES_PATH/vis $DIR_VIS
 echo-ok "Done"
 
 #
@@ -408,14 +438,16 @@ else
     desktop=$XDG_CURRENT_DESKTOP
 fi
 desktop=${desktop,,}  # convert to lower case
-if [ "$desktop" = "gnome" ]; then
+if [ "$desktop" = "gnome" ] && [ "$XDG_SESSION_TYPE" = "x11" ]; then
     gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 20
     gsettings set org.gnome.desktop.peripherals.keyboard delay 250
     echo-ok "Repeat delay set for desktop: $desktop"
-elif [ "$desktop" = "i3" ]; then
+elif [ "$desktop" = "i3" ] && [ "$XDG_SESSION_TYPE" = "x11" ]; then
     echo-ok "Repeat interval and delay for $desktop set in ~/.config/i3/config"
-else
+elif [ "$XDG_SESSION_TYPE" = "x11" ]; then
     echo-fail "Not setting repeat interval for desktop: $desktop"
+else
+    echo-fail "Not setting repeat interval for wayland"
 fi
 
 #
