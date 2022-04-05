@@ -427,7 +427,6 @@ do-symlink $DOTFILES_PATH/starship/starship.toml $DIR_STARSHIP/starship.toml
 echo-ok "Done"
 
 
-
 # Set keyboard repeat and delay - gnome or i3 only
 echo-custom " ** " "==== REPEAT DELAY 250 ms ===="
 SESSION_TYPE="${DISPLAY:+x11}${WAYLAND_DISPLAY:+wayland}"
