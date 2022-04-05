@@ -18,7 +18,6 @@ alias wgc="sudo wg-quick up"
 alias wgd="sudo wg-quick down"
 
 # Regular utils
-alias shit="sudo $(history -p \!\!)"
 alias diff="diff --color=auto"
 alias grep="grep --color=auto"
 alias wifi="nmtui"
