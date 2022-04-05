@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# VARIABLES ======================================
+# PATHS ==========================================
 
 DOTFILES_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
 DIR_PROJ=~/Projects
@@ -37,7 +37,6 @@ DIR_VIS=~/.config/vis
 
 DIR_NEWSBOAT=~/.config/newsboat
 DIR_AMFORA=~/.config/amfora
-
 
 DIR_MUTT=~/.config/mutt
 
@@ -429,22 +428,27 @@ echo-ok "Done"
 
 
 
-# Set keyboard repeat and delay - gnome or i3wm only
+# Set keyboard repeat and delay - gnome or i3 only
 echo-custom " ** " "==== REPEAT DELAY 250 ms ===="
-if [ "$XDG_CURRENT_DESKTOP" = "" ]
-then
-    desktop=$(echo "$XDG_DATA_DIRS" | sed 's/.*\(xfce\|kde\|gnome\).*/\1/')
+SESSION_TYPE="${DISPLAY:+x11}${WAYLAND_DISPLAY:+wayland}"
+# Capture DE
+if [ "$XDG_CURRENT_DESKTOP" = "" ]; then
+    desktop=$(echo "$XDG_DATA_DIRS" | grep -Eo 'xfce\|kde\|gnome')
 else
     desktop=$XDG_CURRENT_DESKTOP
 fi
+# Capture WM if DE is blank
+if [ "$desktop" = "" ]; then
+    desktop=$(wmctrl -m | grep "Name:" | awk '{print $2}')
+fi
 desktop=${desktop,,}  # convert to lower case
-if [ "$desktop" = "gnome" ] && [ "$XDG_SESSION_TYPE" = "x11" ]; then
+if [ "$desktop" = "gnome" ] && [ "$SESSION_TYPE" = "x11" ]; then
     gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 20
     gsettings set org.gnome.desktop.peripherals.keyboard delay 250
     echo-ok "Repeat delay set for desktop: $desktop"
-elif [ "$desktop" = "i3" ] && [ "$XDG_SESSION_TYPE" = "x11" ]; then
+elif [ "$desktop" = "i3" ] && [ "$SESSION_TYPE" = "x11" ]; then
     echo-ok "Repeat interval and delay for $desktop set in ~/.config/i3/config"
-elif [ "$XDG_SESSION_TYPE" = "x11" ]; then
+elif [ "$SESSION_TYPE" = "x11" ]; then
     echo-fail "Not setting repeat interval for desktop: $desktop"
 else
     echo-fail "Not setting repeat interval for wayland"
