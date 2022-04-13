@@ -111,3 +111,5 @@ shader
 biome
 specular
 glyphs
+performant
+discriminants
