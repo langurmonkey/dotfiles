@@ -113,3 +113,6 @@ specular
 glyphs
 performant
 discriminants
+interpretable
+recursivity
+scalability
