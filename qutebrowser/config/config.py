@@ -11,9 +11,9 @@ qutebrowser_version = qutebrowser.__version_info__
 ## Type: Dict
 c.aliases = {'w': 'session-save', 'q': 'quit', 'wq': 'quit --save' }
 
-c.aliases.update({'gmail': 'open -t mail.google.com'})
 c.aliases.update({'mail': 'open -t login.mailbox.org'})
-c.aliases.update({'arimail': 'open -t mail.ari.uni-heidelberg.de'})
+c.aliases.update({'gmail': 'open -t mail.google.com'})
+c.aliases.update({'arimail': 'open -t exchange.uni-heidelberg.de'})
 c.aliases.update({'github': 'open -t github.com'})
 c.aliases.update({'gitlab': 'open -t gitlab.com'})
 c.aliases.update({'netflix': 'open -t netflix.com'})
@@ -257,8 +257,10 @@ c.url.default_page = 'file://' + home + '/.dotfiles/startpage/index.html'
 ## used by prepending the search engine name to the search term, e.g.
 ## `:open google qutebrowser`.
 ## Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
+c.url.searchengines = {'DEFAULT': 'https://search.brave.com/search?q={}'}
+#c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
 #c.url.searchengines = {'DEFAULT': 'http://localhost:8888?q={}'}
+c.url.searchengines.update({'br': 'https://search.brave.com/search?q={}'})
 c.url.searchengines.update({'searx': 'https://searx.be?q={}'})
 c.url.searchengines.update({'ddg': 'https://duckduckgo.com/?q={}'})
 c.url.searchengines.update({'ddgo': 'https://3g2upl4pq6kufc4m.onion/?q={}'})

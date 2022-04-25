@@ -378,6 +378,11 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id pasystray
 
 #
+# Autotiling
+#
+exec --no-startup-id autotiling
+
+#
 # playerctld
 #
 exec --no-startup-id playerctld
