@@ -1,7 +1,4 @@
 #!/bin/bash
 
-set -a
-[ -f $HOME/.config/sway/env ] && . "$HOME/.config/sway/env"
-set +a
-exec /usr/bin/sway
-
+export _JAVA_AWT_WM_NONREPARENTING=1
+exec /bin/sway
