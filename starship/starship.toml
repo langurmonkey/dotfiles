@@ -1,5 +1,6 @@
 # Don't print a new line at the start of the prompt
 add_newline = false
+command_timeout = 1000
 
 [username]
 style_user = "green bold"
