@@ -33,10 +33,7 @@ alias vpnstatus="curl https://am.i.mullvad.net/connected"
 # Docker with sudo by default
 alias docker="sudo docker"
 # ARI machines
-alias heka="ssh -tX tsagrista@heka.ari.uni-heidelberg.de"
-alias herschel="ssh -tX tsagrista@herschel.iwr.uni-heidelberg.de"
 alias hidalgo="ssh -tX tsagrista@hidalgo"
-alias rpi="ssh -tX pi@raspberrypi"
 alias centaurus="ssh -tX tsagrista@centaurus.ari.uni-heidelberg.de"
 alias canisminor="ssh -tX sagrista@canisminor.ari.uni-heidelberg.de"
 alias umi="ssh -tX sagrista@umi.ari.uni-heidelberg.de"
@@ -44,8 +41,8 @@ alias uma="ssh -tX sagrista@uma.ari.uni-heidelberg.de"
 alias mintaka="ssh -tX tsagrista@mintaka.ari.uni-heidelberg.de"
 alias andromeda="ssh -tX tsagrista@andromeda.ari.uni-heidelberg.de"
 alias welcome="ssh -tX toni.sag@welcome.ari.uni-heidelberg.de"
-alias bohr="ssh -tX tsagrista@bohr.iwr.uni-heidelberg.de"
-
+# Raspberry
+alias rpi="ssh -tX pi@raspberrypi"
 # Mounts
 alias mountqnap="sudo mkdir -p /run/media/QNAP/Multimedia && sudo mount /run/media/QNAP/Multimedia"
 alias umountqnap="sudo umount /run/media/QNAP/Multimedia"
