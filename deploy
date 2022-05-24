@@ -5,6 +5,7 @@
 DOTFILES_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
 DIR_PROJ=~/Projects
 
+DIR_LVIMCONFIG=~/.config/lvim
 DIR_VIMCONFIG=~/.config/nvim
 FILE_VIMINIT=$DIR_VIMCONFIG/init.vim
 DIR_VIMPLUGINS=$DIR_VIMCONFIG/plugged
@@ -128,7 +129,7 @@ function do-source {
 # START ===================================
 
 #
-# VIM
+# NEOVIM
 #
 echo-custom " ** " "==== NEOVIM ===="
 
@@ -149,6 +150,14 @@ do-symlink $DOTFILES_PATH/vim/after $DIR_VIMCONFIG/after
 
 # Create dictionary symlinks
 do-symlink $DOTFILES_PATH/words/en.utf-8.dic $DIR_VIMCONFIG/spell/en.utf-8.add
+
+#
+# LUNARVIM
+#
+echo-custom " ** " "==== LUNARVIM ===="
+
+# Configuration symlink
+do-symlink $DOTFILES_PATH/lvim $DIR_LVIMCONFIG
 
 
 #
