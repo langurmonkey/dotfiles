@@ -409,7 +409,7 @@ exec --no-startup-id mons -a > /dev/null 2>&1
 #
 # Autotiling
 #
-exec --no-startup-id autotiling
+exec_always --no-startup-id autotiling
 
 #
 # playerctld
