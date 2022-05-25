@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-if [ -n "$DISPLAY" ] && [ command -v uberzug &> /dev/null ]; then
+if [ -n "$DISPLAY" ] && [ -x "$(command -v uberzug)" ]; then
   export FIFO_UEBERZUG="${TMPDIR:-/tmp}/lf-ueberzug-$$"
 
   cleanup() {
