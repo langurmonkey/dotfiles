@@ -17,6 +17,7 @@ lvim.keys.normal_mode["<F3>"] = ":set spelllang=es<CR>"
 
 -- wrap lines
 vim.opt.wrap = true
+vim.opt.textwidth = 90
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
