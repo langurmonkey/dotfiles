@@ -5,6 +5,19 @@ lvim.colorscheme = "onedarker"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
+-- spell checking
+vim.opt.spell = true
+vim.opt.spelllang = "en"
+vim.cmd("set spellfile=~/.config/nvim/spell/en.utf-8.add")
+--vim.opt.spellfile = "~/.dotfiles/words/en.utf-8.dic"
+-- toggle spell check, choose language
+lvim.keys.normal_mode["<F2>"] = ":set spell!<CR>"
+lvim.keys.normal_mode["<F4>"] = ":set spelllang=en<CR>"
+lvim.keys.normal_mode["<F3>"] = ":set spelllang=es<CR>"
+
+-- wrap lines
+vim.opt.wrap = true
+
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping

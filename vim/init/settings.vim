@@ -56,7 +56,9 @@ if !&sidescrolloff
 endif
 set display+=lastline
 
+" enable spell checking for English
 set spell spelllang=en_us
+set spellfile=$HOME/.dotfiles/words/en.utf-8.dic
 
 " disable omnicompletion
 filetype plugin on
