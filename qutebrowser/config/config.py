@@ -320,7 +320,7 @@ config.bind('yo', 'open -t https://youtube.com')
 config.bind('h', 'open')
 
 # Cycle stylesheets
-config.bind('<Ctrl-R>', 'config-cycle content.user_stylesheets "~/.config/qutebrowser/css/nord-all-sites.css" "~/.config/qutebrowser/css/solarized.css" "" ')
+config.bind('<Ctrl-R>', 'config-cycle content.user_stylesheets "~/.config/qutebrowser/css/nord-all-sites.css" "~/.config/qutebrowser/css/solarized-dark-all-sites.css" "~/.config/qutebrowser/css/solarized-light-all-sites.css"  "" ')
 
 
 # Expand in old reddit
