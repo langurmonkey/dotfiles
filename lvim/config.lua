@@ -15,8 +15,8 @@ lvim.keys.normal_mode["<F2>"] = ":set spell!<CR>"
 lvim.keys.normal_mode["<F4>"] = ":set spelllang=en<CR>"
 lvim.keys.normal_mode["<F3>"] = ":set spelllang=es<CR>"
 
--- wrap lines
-vim.opt.wrap = true
+-- do not wrap lines
+vim.opt.wrap = false
 vim.opt.textwidth = 90
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
