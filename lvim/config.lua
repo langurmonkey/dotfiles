@@ -18,13 +18,6 @@ lvim.keys.normal_mode["<F3>"] = ":set spelllang=es<CR>"
 -- do not wrap lines
 vim.opt.wrap = false
 vim.opt.textwidth = 90
-lvim.autocommands.custom_groups = {
-  {
-    "BufWinEnter,BufRead,BufNewFile",
-    "*", -- or any filetype for example *.md
-    "setlocal formatoptions-=t",
-  },
-}
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
