@@ -26,7 +26,5 @@ yay --noconfirm -S zsh neovim code-minimap ranger slock qutebrowser python-adblo
 # Install starship
 curl -fsSL https://starship.rs/install.sh | bash
 
-# Install LunarVim
-bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
 # Link vim to nvim
 [ ! -f /usr/bin/vim ] && sudo ln -s /usr/bin/nvim /usr/bin/vim
