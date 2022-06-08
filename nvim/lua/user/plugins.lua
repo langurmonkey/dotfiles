@@ -43,7 +43,7 @@ return packer.startup(function(use)
   -- My plugins here
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+  use "nvim-lua/plenary.nvim" -- Useful lua functions used in lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "numToStr/Comment.nvim" -- Easily comment stuff
   use "kyazdani42/nvim-web-devicons"
@@ -58,11 +58,15 @@ return packer.startup(function(use)
   use "goolord/alpha-nvim"
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
+  use {
+    "petertriho/nvim-scrollbar", -- A scrollbar for neovim
+    run = require("scrollbar").setup()
+  }
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
-  use "lunarvim/darkplus.nvim"
-  use "lunarvim/onedarker.nvim"
+  -- use "lunarvim/darkplus.nvim"  -- Another cool theme
+  use "lunarvim/onedarker.nvim" -- Default theme of Lunar vim
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
