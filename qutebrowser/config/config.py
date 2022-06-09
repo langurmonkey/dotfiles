@@ -173,7 +173,7 @@ c.editor.command = ['vim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
 ## setting, it's replaced with the fonts listed here.
 ## Type: Font
 c.fonts.default_size = '10pt'
-c.fonts.default_family = ["JetBrainsMono Nerd Font"]
+c.fonts.default_family = ["Hack Nerd Font"]
 
 
 ## CSS border value for hints.

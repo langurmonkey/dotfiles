@@ -11,7 +11,7 @@ set $mod2 Mod1
 set $myterm alacritty --config-file $($HOME/.dotfiles/bin/alacritty-config)
 
 # Font for window titles.
-font pango:JetBrainsMono Nerd Font 10
+font pango:Hack Nerd Font 10
 
 # Gaps
 #for_window [class="^.*"] border pixel 0 
@@ -431,7 +431,7 @@ exec_always --no-startup-id mpDris2
 #  strip_workspace_numbers no
 
 #  position top
-#  font pango:JetBrainsMono Nerd Font 10
+#  font pango:Hack Nerd Font 10
 
 #  colors {
 #    background #000000
@@ -448,7 +448,7 @@ bar {
   swaybar_command waybar
   workspace_buttons yes
   tray_output primary
-  font pango:JetBrainsMono Nerd Font 10
+  font pango:Hack Nerd Font 10
   colors {
     background #000000
     statusline #ffffff

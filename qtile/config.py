@@ -97,7 +97,7 @@ keys = [
     Key([mod], "z", lazy.spawn("rofi -show drun")),
     Key([mod], "g", lazy.spawn("rofi -show window")),
     Key([mod], "equal", lazy.spawn("rofi -show calc -no-show-math -no-sort")),
-    Key([mod], "Escape", lazy.spawn("rofi -show p -modi 'p:rofi-power-menu --choices=reboot/shutdown/logout/suspend/hibernate --confirm=reboot/shutdown/logout' -font 'JetBrainsMono Nerd Font 15'")),
+    Key([mod], "Escape", lazy.spawn("rofi -show p -modi 'p:rofi-power-menu --choices=reboot/shutdown/logout/suspend/hibernate --confirm=reboot/shutdown/logout' -font 'Hack Nerd Font 15'")),
     Key([mod], "i", lazy.spawn("rofi-pass")),
 
     # Applications
@@ -176,7 +176,7 @@ for i in groups:
     ])
 
 layout_theme = {
-                "font": "JetBrainsMono Nerd Font",
+                "font": "Hack Nerd Font",
                 "border_width": 2,
                 "margin": 4,
                 "border_focus": colors[7][0]
@@ -199,7 +199,7 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font='JetBrainsMono Nerd Font',
+    font='Hack Nerd Font',
     fontsize=12,
     padding=10
 )

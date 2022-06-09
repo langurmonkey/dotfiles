@@ -10,7 +10,7 @@ set $mod2 Mod1
 set $myterm alacritty --config-file $($HOME/.dotfiles/bin/alacritty-config)
 
 # Font for window titles.
-font pango:JetBrainsMono Nerd Font 10
+font pango:Hack Nerd Font 10
 
 # Gaps
 #for_window [class="^.*"] border pixel 0 
@@ -473,5 +473,5 @@ bar {
 
   position top
   tray_output primary
-  font pango:JetBrainsMono Nerd Font 10
+  font pango:Hack Nerd Font 10
 }
