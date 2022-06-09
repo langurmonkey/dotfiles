@@ -170,7 +170,7 @@ bindsym $mod+Print exec maim -e 'mv $f /tmp/ && gimp /tmp/$f'
 # Start Applications
 bindsym $mod+Shift+w exec qutebrowser
 bindsym $mod+Control+w exec firefox
-bindsym $mod+Shift+t exec thunderbird
+bindsym $mod+Shift+t exec thunderbird-beta
 bindsym $mod+Shift+f exec "$myterm --class wm-floating,wm-floating --command lf `$HOME/.dotfiles/bin/xcwd`"
 bindsym $mod+Control+n exec "dunstctl action"
 
@@ -226,7 +226,8 @@ bindsym $mod+Shift+0 move container to workspace $ws0
 
 # default workspaces
 assign [class="qutebrowser"] $ws2
-assign [class="Thunderbird"] $ws3
+assign [class="thunderbird"] $ws3
+assign [class="Mail"] $ws3
 assign [class="Eclipse"] $ws4
 assign [class="jetbrains-idea-ce"] $ws4
 assign [class="Skype"] $ws9
