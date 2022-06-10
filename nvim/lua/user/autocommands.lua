@@ -6,6 +6,7 @@ vim.cmd [[
     autocmd BufWinEnter * :set formatoptions-=cro
     autocmd FileType qf set nobuflisted
     autocmd FileType md,rst,tex,txt,log setlocal wrap
+    autocmd FileType md,rst,tex,txt,log :set spell
   augroup end
 
   augroup _git
