@@ -286,7 +286,7 @@ bindsym Print exec grimshot save screen && notify-send "Screenshot saved to /hom
 # start applications
 bindsym $mod+Shift+w exec qutebrowser
 bindsym $mod+Control+w exec firefox
-bindsym $mod+Shift+t exec thunderbird
+bindsym $mod+Shift+t exec thunderbird-beta
 bindsym $mod+Shift+f exec "$myterm --class wm-floating,wm-floating --command lf `$HOME/.dotfiles/bin/wcwd`"
 bindsym $mod+Control+n exec "dunstctl action"
 
