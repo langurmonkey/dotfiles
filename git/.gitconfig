@@ -1,74 +1,74 @@
 # This is Git's per-user configuration file.
 [user]
-	name = langurmonkey
-	email = me@tonisagrista.com
-	signingkey = 2FD2A59C1D734C1F
+  name = langurmonkey
+  email = me@tonisagrista.com
+  signingkey = 2FD2A59C1D734C1F
 
 [filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
 
 [push]
-    followTags = true
-	default = matching
+  followTags = true
+  default = matching
 
 [alias]
-    lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
-    lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
-    lgb = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches
-    lgp = log -p
-    lg = log --stat --pretty=short --graph
-    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-    l = log --oneline
-    
-    co = checkout
-    br = branch
-    st = status
-    ci = commit
-    cm = commit -m
-    pushall = !"git remote | xargs -L1 git push --all"
-    pa = !"git remote | xargs -L1 git push --all"
+  lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+  lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+  lgb = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches
+  lgp = log -p
+  lg = log --stat --pretty=short --graph
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  l = log --oneline
 
-    unstage = reset HEAD --
-    undo = reset --soft HEAD^
-    bm = branch --merged
-    discard = !git stash save --keep-index --include-untracked && git stash drop
-    dd = diff --dirstat --find-copies --find-renames --histogram --color
+  co = checkout
+  br = branch
+  st = status
+  ci = commit
+  cm = commit -m
+  pushall = !"git remote | xargs -L1 git push --all"
+  pa = !"git remote | xargs -L1 git push --all"
+
+  unstage = reset HEAD --
+  undo = reset --soft HEAD^
+  bm = branch --merged
+  discard = !git stash save --keep-index --include-untracked && git stash drop
+  dd = diff --dirstat --find-copies --find-renames --histogram --color
 
 [core]
-    autocrlf = input
-    eol = lf
-    pager = delta
+  autocrlf = input
+  eol = lf
+  pager = delta
 
 [diff]
-    colorMoved = default
+  colorMoved = default
 
 [merge]
-    tool = vimdiff
-    conflictstyle = diff3
+  tool = vimdiff
+  conflictstyle = diff3
 
 [commit]
-	gpgsign = true
+  gpgsign = true
 
 [pull]
-	rebase = true
+  rebase = true
 
 [log]
-	mailmap = true
+  mailmap = true
 
 [init]
-	defaultBranch = master
+  defaultBranch = master
 
 [interactive]
-    diffFilter = delta --color-only --features=interactive
+  diffFilter = delta --color-only --features=interactive
 
 [delta]
-    features = decorations
-    navigate = true
-    side-by-side = true
-    line-numbers = true
+  features = decorations
+  navigate = true
+  side-by-side = true
+  line-numbers = true
 
 [rerere]
-	enabled = 1
+  enabled = 1
