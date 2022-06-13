@@ -26,6 +26,7 @@ alias ps="procs"
 alias v="nvim"
 alias youtube-dl="yt-dlp"
 alias ytdl="yt-dlp"
+alias hx="helix"
 
 # VPN
 alias vpnheidelberguni="sudo openconnect -u st0@ix.urz.uni-heidelberg.de vpn-ac.urz.uni-heidelberg.de"
