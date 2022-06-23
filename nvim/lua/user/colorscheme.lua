@@ -1,6 +1,7 @@
 vim.cmd [[
 try
-  colorscheme darkplus
+colorscheme gruvbox
+"  colorscheme darkplus
 " colorscheme onedarker
 " colorscheme tomorrow
 " colorscheme codemonkey
