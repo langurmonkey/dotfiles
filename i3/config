@@ -227,6 +227,7 @@ bindsym $mod+Shift+0 move container to workspace $ws0
 # default workspaces
 assign [class="qutebrowser"] $ws2
 assign [class="thunderbird"] $ws3
+assign [class="thunderbird-beta"] $ws3
 assign [class="Mail"] $ws3
 assign [class="Eclipse"] $ws4
 assign [class="jetbrains-idea-ce"] $ws4
