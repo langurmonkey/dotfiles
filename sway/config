@@ -226,6 +226,8 @@ bindsym $mod+Shift+0 move container to workspace $ws0
 assign [app_id="org.qutebrowser.qutebrowser"] $ws2
 assign [class="firefox"] $ws2
 assign [class="Thunderbird"] $ws3
+assign [class="thunderbird-beta"] $ws3
+assign [class="Mail"] $ws3
 assign [class="Eclipse"] $ws4
 assign [class="jetbrains-idea-ce"] $ws4
 assign [class="Skype"] $ws9
