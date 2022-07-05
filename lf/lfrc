@@ -47,6 +47,8 @@ map X !$f
 
 # go home
 map ~ :cd ~
+map gh :cd ~
+map gc :cd ~/.dotfiles/
 
 # define a custom 'open' command
 # This command is called when current file is not a directory. You may want to
