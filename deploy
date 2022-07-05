@@ -161,6 +161,22 @@ echo-custom " ** " "==== HELIX ===="
 do-symlink $DOTFILES_PATH/helix $DIR_HELIXCONFIG
 
 #
+# TMUX
+#
+echo-custom " ** " "==== TMUX ===="
+
+# Install tmux resurrect
+DIR_TMUXR=~/git/tmux-resurrect/
+if [ ! -d "$DIR_TMUXR" ]; then
+    mkdir -p ~/git
+    git clone https://github.com/tmux-plugins/tmux-resurrect $DIR_TMUXR
+fi
+
+# Create .tmux.conf symlink
+rm ~/.tmux.conf
+ln -s $DOTFILES_PATH/tmux/.tmux.conf ~/.tmux.conf
+
+#
 # RANGER
 #
 echo-custom " ** " "==== RANGER ===="
