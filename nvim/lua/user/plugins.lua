@@ -60,6 +60,9 @@ return packer.startup(function(use)
   use "folke/which-key.nvim"
   use "petertriho/nvim-scrollbar" -- A scrollbar for neovim
 
+  -- Smooth scrolling for C-f and C-b
+  use "psliwka/vim-smoothie"
+
   -- Colorschemes
   use "lunarvim/colorschemes" -- A bunch of neat colorschemes, includes the next two
   use "https://github.com/morhetz/gruvbox.git"
