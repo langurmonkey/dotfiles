@@ -166,7 +166,7 @@ do-symlink $DOTFILES_PATH/helix $DIR_HELIXCONFIG
 echo-custom " ** " "==== TMUX ===="
 
 # Install tmux resurrect
-DIR_TMUXR="~/$DIR_PROJ/tmux-resurrect/"
+DIR_TMUXR="$DIR_PROJ/tmux-resurrect/"
 if [ ! -d "$DIR_TMUXR" ]; then
     mkdir -p ~/git
     git clone https://github.com/tmux-plugins/tmux-resurrect $DIR_TMUXR
