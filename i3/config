@@ -109,6 +109,13 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+# pass-through mode for remote desktops
+mode "pass-through" {
+    bindsym $mod+y mode "default"
+}
+
+bindsym $mod+y mode "pass-through"
+
 # fast focus with wmfocus
 bindsym $mod+x exec --no-startup-id wmfocus
 
