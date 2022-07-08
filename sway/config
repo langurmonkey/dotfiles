@@ -271,6 +271,7 @@ for_window [class=".*jprofiler.*"] floating enable
 for_window [class="install4j-com-install4j-Install4JGUI"] floating enable
 for_window [class="wm-floating"] floating enable
 for_window [class="wm-floating-big"] floating enable resize set 1680 920
+for_window [class="steam_app_*"] floating enable
 for_window [title="Blender User Preferences"] floating enable
 for_window [title="Blender Preferences"] floating enable
 for_window [title="Volume Control"] floating enable
