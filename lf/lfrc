@@ -50,7 +50,10 @@ map ~ :cd ~
 map gh :cd ~
 map gc :cd ~/.dotfiles
 map gp :cd ~/Pictures
+map gdw :cd ~/Downloads
+map gdo :cd ~/Documents
 map gw :cd ~/Pictures/Wallpapers
+map gs :cd ~/Sync
 
 # sets the current image file as wallpaper
 cmd setbg ${{
