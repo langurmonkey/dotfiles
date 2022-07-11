@@ -45,10 +45,30 @@ map S shell
 map x $$f
 map X !$f
 
-# go home
+# go places
 map ~ :cd ~
 map gh :cd ~
-map gc :cd ~/.dotfiles/
+map gc :cd ~/.dotfiles
+map gp :cd ~/Pictures
+map gw :cd ~/Pictures/Wallpapers
+
+# sets the current image file as wallpaper
+cmd setbg ${{
+    cp $f ~/Pictures/wallpaper.jpg
+    feh --bg-fill ~/Pictures/wallpaper.jpg
+
+}}
+map bg :setbg
+
+# sets the current image file as wallpaper and re-generates the
+# color theme with wal
+cmd setbgwal ${{
+    cp $f ~/Pictures/wallpaper.jpg
+    wal -c
+    wal -a 85 -i ~/Pictures/wallpaper.jpg
+
+}}
+map bw :setbgwal
 
 # define a custom 'open' command
 # This command is called when current file is not a directory. You may want to

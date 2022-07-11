@@ -1,0 +1,4 @@
+video/*; mpv '%s'; print=mpv --aid=no --vid=no --sid=no '%s' || : ;
+audio/*; mpv '%s'; print=mpv --aid=no --vid=no --sid=no '%s' || : ;
+image/*; imv -r '%s' $(dirname '%s'); print=imv -r '%s' $(dirname '%s');
+text/*; nvim '%s'; needsterminal; print=bat '%s';

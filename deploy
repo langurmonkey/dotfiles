@@ -129,9 +129,16 @@ function do-source {
 # START ===================================
 
 #
+# MAILCAP
+#
+echo-custom " ** " "==== MAILCAP ===="
+
+
+#
 # NEOVIM
 #
 echo-custom " ** " "==== NEOVIM ===="
+do-symlink $DOTFILES_PATH/mailcap/.mailcap ~/.mailcap
 
 # Install plugin manager
 # do-curl-fetchfile "$DIR_VIMCONFIG"/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim plug.vim
