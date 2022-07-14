@@ -39,11 +39,6 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
--- Use helix's gl, gh and gs to move in current line
-keymap("n", "gl", "$", opts)
-keymap("n", "gh", "0", opts)
-keymap("n", "gs", "^", opts)
-
 -- Insert --
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
