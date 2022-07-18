@@ -59,6 +59,7 @@ return packer.startup(function(use)
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
   use "petertriho/nvim-scrollbar" -- A scrollbar for neovim
+  use "simrat39/symbols-outline.nvim" -- Outline view using LSP
 
   -- Smooth scrolling for C-f and C-b
   use "psliwka/vim-smoothie"
