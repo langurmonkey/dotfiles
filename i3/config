@@ -180,7 +180,6 @@ bindsym $mod+Control+w exec firefox
 bindsym $mod+Shift+t exec thunderbird-beta
 bindsym $mod+Shift+f exec "$myterm --class wm-floating,wm-floating --command lf `$HOME/.dotfiles/bin/xcwd`"
 bindsym $mod+Control+n exec "dunstctl action"
-bindsym $mod+Shift+v exec goneovim
 
 # Min and max sizes for floating windows
 floating_minimum_size 450x150
