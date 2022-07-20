@@ -1,11 +1,14 @@
+vim.g.material_style = "oceanic"
+
 vim.cmd [[
 try
-colorscheme gruvbox
-"  colorscheme darkplus
+  colorscheme material
+" colorscheme gruvbox
+" colorscheme darkplus
 " colorscheme onedarker
 " colorscheme tomorrow
-" colorscheme codemonkey
 " colorscheme system76
+" colorscheme codemonkey
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme default
   set background=dark

@@ -66,7 +66,8 @@ return packer.startup(function(use)
 
   -- Colorschemes
   use "lunarvim/colorschemes" -- A bunch of neat colorschemes, includes the next two
-  use "https://github.com/morhetz/gruvbox.git"
+  use 'marko-cerovac/material.nvim' -- Provides darker, lighter, oceanic, palenight, deep ocean
+  -- use "https://github.com/morhetz/gruvbox.git"
   -- use "lunarvim/darkplus.nvim"  -- Another cool theme
   -- use "lunarvim/onedarker.nvim" -- Default theme of Lunar vim
 
