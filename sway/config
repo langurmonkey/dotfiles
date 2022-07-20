@@ -472,4 +472,4 @@ bar {
 }
 
 include /etc/sway/config.d/*
-output "*" bg /home/tsagrista/Pictures/Wallpapers/pixel/wp1933956-pixel-art-wallpapers.jpg fill
+output "*" bg /home/tsagrista/Pictures/wallpaper.jpg fill
