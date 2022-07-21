@@ -57,8 +57,16 @@ map gs :cd ~/Sync
 
 # sets the current image file as wallpaper
 cmd setbg ${{
-    cp $f ~/Pictures/wallpaper.jpg
-    feh --bg-fill ~/Pictures/wallpaper.jpg
+    CURRENT_WALLPAPER="$HOME/Pictures/current-wallpaper"
+    rm -f "$CURRENT_WALLPAPER"
+    ln -s "$f" "$CURRENT_WALLPAPER"
+    if [ -n "$DISPLAY" ]; then
+      # X11
+      feh --bg-fill "$CURRENT_WALLPAPER"
+    else
+      # Wayland
+      swaybg -m fill -i "$CURRENT_WALLPAPER"
+    fi
 
 }}
 map bg :setbg
