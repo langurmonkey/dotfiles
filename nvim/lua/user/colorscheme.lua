@@ -1,8 +1,11 @@
-vim.g.material_style = "oceanic"
+-- Load onedark theme
+local od = require('onedark');
+od.load();
 
 vim.cmd [[
 try
-  colorscheme material
+ colorscheme onedark
+" colorscheme material
 " colorscheme gruvbox
 " colorscheme darkplus
 " colorscheme onedarker
@@ -14,3 +17,5 @@ catch /^Vim\%((\a\+)\)\=:E185/
   set background=dark
 endtry
 ]]
+
+
