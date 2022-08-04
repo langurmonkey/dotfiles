@@ -406,8 +406,8 @@ exec --no-startup-id playerctld
 exec --no-startup-id udiskie -f $HOME/.dotfiles/bin/ranger-term --tray
 
 exec_always --no-startup-id swayidle -w \
-	timeout 220 'swaylock -c 000000' \
-	timeout 185 'swaymsg "output * dpms off"' \
+	timeout 1500 'swaylock -c 000000' \
+	timeout 1800 'swaymsg "output * dpms off"' \
 	resume 'swaymsg "output * dpms on"'
 
 # Repeat interval and delay
