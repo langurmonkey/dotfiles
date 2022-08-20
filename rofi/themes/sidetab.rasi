@@ -37,6 +37,8 @@
     //
     // Bold, Italic, Underline
     highlight:     bold #ffffff;
+
+	  normal-foreground:           @text-color;
 }
 #window {
     height:   100%;
