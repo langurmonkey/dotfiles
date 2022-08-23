@@ -69,8 +69,8 @@ bindsym $mod+i exec rofi-pass -config $($HOME/.dotfiles/bin/rofi-config)
 bindsym $mod+Shift+Escape exec ~/.dotfiles/bin/rofi-powermenu
 # AMBIENT SOUNDS
 bindsym $mod+Shift+s exec $HOME/.dotfiles/bin/ambientsound
-# EDITOR
-bindsym $mod+Shift+e exec nvim-qt
+# GUI VIM
+bindsym $mod+Shift+e exec neovide
 
 
 bindsym XF86Search exec $HOME/.dotfiles/bin/fmenu -i $HOME -t +10
