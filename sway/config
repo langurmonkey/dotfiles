@@ -385,9 +385,9 @@ bindsym $mod+shift+z exec --no-startup-id swaylock -c 000000
 # network manager
 exec --no-startup-id nm-applet --indicator
 # bluetooth
-exec --no-startup-id blueman-applet
+exec_always --no-startup-id blueman-applet
 # volume
-exec --no-startup-id pasystray
+exec_always --no-startup-id pasystray
 
 #
 # Autotiling
