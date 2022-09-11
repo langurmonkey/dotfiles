@@ -48,6 +48,9 @@ alias rpi="ssh -tX pi@raspberrypi"
 # Mounts
 alias mountqnap="sudo mkdir -p /run/media/QNAP/Multimedia && sudo mount /run/media/QNAP/Multimedia"
 alias umountqnap="sudo umount /run/media/QNAP/Multimedia"
+# Usual syncs
+alias syncvegetaqnap="rsync -avh /run/media/tsagrista/VegetaDisk/backupQNAP/Multimedia/Photos/tsagrista /run/media/QNAP/Multimedia/Photos/"
+alias syncqnapvegeta="rsync -avh /run/media/QNAP/Multimedia/Photos/tsagrista /run/media/tsagrista/VegetaDisk/backupQNAP/Multimedia/Photos/"
 
 # Dotfiles git alias
 alias dotfiles="git -C $HOME/.dotfiles"
