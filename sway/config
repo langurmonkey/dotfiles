@@ -284,6 +284,7 @@ for_window [title="Blender User Preferences"] floating enable
 for_window [title="Blender Preferences"] floating enable
 for_window [title="Volume Control"] floating enable
 for_window [title="SteamVR Status"] floating enable
+for_window [class="CrossCode"] floating enable
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
