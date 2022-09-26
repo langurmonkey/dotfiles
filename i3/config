@@ -13,9 +13,10 @@ set $myterm alacritty --config-file $($HOME/.dotfiles/bin/alacritty-config)
 font pango:Hack Nerd Font 10
 
 # Gaps
-#for_window [class="^.*"] border pixel 0 
 title_align center
 default_border pixel 2
+# Workaround to hidel window titles with i3 4.21
+for_window [class="^.*"] border pixel 2
 default_floating_border normal
 gaps inner 4
 gaps outer 0
