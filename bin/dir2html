@@ -35,7 +35,7 @@ function create_gnu_index ()
 	[[ $# < 3 ]] && echo "    -r       - optional, recursively generate indices"
 
 	[[ $# < 3 ]] && echo 
-	[[ $# < 3 ]] && echo "Example: dir2html '/dataB/gaiasky/files/releases/' '/releases' 'gaia.ari.uni-heidelberg.de/gaiasky' 'Gaia Sky repository'" && exit 2
+	[[ $# < 3 ]] && echo "Example: dir2html '/gaiasky/files/releases/' '/releases' 'gaia.ari.uni-heidelberg.de/gaiasky' 'Gaia Sky repository'" && exit 2
 
 	# Set title
 	if [[ $# < 4 ]]; then

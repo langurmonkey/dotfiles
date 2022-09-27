@@ -28,11 +28,11 @@ set autoindent
 set backspace=indent,eol,start
 set complete-=i
 
-" expand tabs to 4 spaces
+" expand tabs to 2 spaces
 set expandtab
-set tabstop=4
-" when using << or >> commands, shift lines by 4 spaces
-set shiftwidth=4
+set tabstop=2
+" when using << or >> commands, shift lines by 2 spaces
+set shiftwidth=2
 
 "set relativenumber              " show line numbers
 set number
