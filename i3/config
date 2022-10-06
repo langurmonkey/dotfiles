@@ -400,8 +400,8 @@ exec_always --no-startup-id xinput set-prop 'DELL07E6:00 06CB:76AF Touchpad' 'li
 #
 # XOB - indicator bars for volume and brightness
 #
-exec_always --no-startup-id $HOME/.dotfiles/bin/pulse-vol-watcher | xob -s volume
-exec_always --no-startup-id $HOME/.dotfiles/bin/brightness-watcher | xob -s brightness
+#exec_always --no-startup-id $HOME/.dotfiles/bin/pulse-vol-watcher | xob -s volume
+#exec_always --no-startup-id $HOME/.dotfiles/bin/brightness-watcher | xob -s brightness
 
 #
 # SYSTEM TRAY
