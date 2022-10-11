@@ -95,7 +95,7 @@ c.content.geolocation = 'ask'
 
 ## Value to send in the `Accept-Language` header.
 ## Type: String
-c.content.headers.accept_language = 'en-US,en,es,de'
+c.content.headers.accept_language = 'en-US,en,ca-ES,de'
 
 ## Custom headers for qutebrowser HTTP requests.
 ## Type: Dict
