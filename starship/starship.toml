@@ -16,6 +16,7 @@ trim_at = ".companyname.com"
 disabled = false
 
 [directory]
+read_only=" 🔒"
 truncation_length = 8
 truncate_to_repo = true
 truncation_symbol = "…/"
