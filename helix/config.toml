@@ -2,15 +2,40 @@ theme = "onedark"
 
 [editor]
 line-number = "absolute"
+cursorline = true
 mouse = true
+color-modes = true
 
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
 select = "underline"
 
+# Helix's statusline
+# [editor.statusline]
+# left = ["mode", "spinner"]
+# center = ["file-name", "diagnostics"]
+# right = ["selections", "position"]
+# separator = "│"
+# mode.normal = "NORMAL"
+# mode.insert = "INSERT"
+# mode.select = "SELECT"
+
+# File explorer configuration
 [editor.file-picker]
 hidden = false
+parents = false
 
+[editor.whitespace]
+render = "none"
+
+[editor.indent-guides]
+render = false
+character = "╎" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
+
+# LSP Server configuration
 [editor.lsp]
 display-messages = true
+auto-signature-help	= true
+display-signature-help-docs	= true
