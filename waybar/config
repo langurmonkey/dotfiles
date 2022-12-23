@@ -19,7 +19,7 @@
             "format": "{}"
         },
             "mpd": {
-                "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title}  {volume}%",
+                "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{album:.45} - {title:.45}  {volume}%",
                 "format-disconnected": "Disconnected ",
                 "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
                 "unknown-tag": "N/A",
