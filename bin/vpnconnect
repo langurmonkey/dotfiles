@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ]; then
+    echo "Usage: ${0} <country-code>"
+    exit -1
+fi
+MULLVAD_CFG="/home/pi/Downloads/mullvad_config_linux"
+VPN_CMD="nohup sudo openvpn --config ${MULLVAD_CFG}/mullvad_${1}_all.conf --auth-user-pass ${MULLVAD_CFG}/mullvad_userpass.txt --ca ${MULLVAD_CFG}/mullvad_ca.crt &"
+
+echo "Running ${VPN_CMD}"
+eval ${VPN_CMD}
