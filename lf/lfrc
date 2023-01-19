@@ -55,6 +55,9 @@ map gdo :cd ~/Documents
 map gw :cd ~/Pictures/Wallpapers
 map gs :cd ~/Sync
 
+# create directory
+map a push %mkdir<space>
+
 # sets the current image file as wallpaper
 cmd setbg ${{
     CURRENT_WALLPAPER="$HOME/Pictures/current-wallpaper"
