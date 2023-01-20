@@ -34,9 +34,9 @@ cmd open $$OPENER $fx
 cmd open-choose $OPENER_CHOOSE="true" $OPENER $fx
 # dedicated keys for file opener actions
 map o open
-map O open-choose
+# map O open-choose
 #map o &mimeopen $f
-#map O $mimeopen --ask $f
+map O $mimeopen --ask $f
 
 # use enter for shell commands
 map S shell
