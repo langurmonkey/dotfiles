@@ -20,17 +20,18 @@ bind-key k up
 bind-key l open
 bind-key h quit
 
-# solarized
-color background         default   default
-color listnormal         default   default
-color listnormal_unread  default   default
-color listfocus          black     cyan
-color listfocus_unread   black     cyan
-color info               default   black
-color article            default   default
+# # solarized
+# color background         default   default
+# color listnormal         default   default
+# color listnormal_unread  default   default
+# color listfocus          black     cyan
+# color listfocus_unread   black     cyan
+# color info               default   black
+# color article            default   default
+#
+# # highlights
+# highlight article "^(Title):.*$" blue default
+# highlight article "https?://[^ ]+" red default
+# highlight article "\\[image\\ [0-9]+\\]" green default
 
-# highlights
-highlight article "^(Title):.*$" blue default
-highlight article "https?://[^ ]+" red default
-highlight article "\\[image\\ [0-9]+\\]" green default
-
+include /usr/share/doc/newsboat/contrib/colorschemes/gruvbox
