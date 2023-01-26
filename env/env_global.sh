@@ -107,18 +107,18 @@ export CALIBRE_USE_DARK_PALETTE=1
 #
 # ALIASES
 # 
-do-source $DOTFILES/env/.aliases
+do-source $DOTFILES/env/aliases.sh
 
 #
 # FUNCTIONS
 # 
-do-source $DOTFILES/env/.functions
+do-source $DOTFILES/env/functions.sh
 
 #
 # ZSH-specific shit
 #
 if [ ! -z "$ZSH_VERSION" ]; then
-    do-source $DOTFILES/env/.env_zsh
+    do-source $DOTFILES/env/env_zsh.sh
 fi
 
 #

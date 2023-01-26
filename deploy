@@ -223,22 +223,16 @@ do-clone "$DIR_ZSHPLUGINS"/zsh-syntax-highlighting https://github.com/zsh-users/
 #
 echo-custom " ** " "==== SHELL ENVIRONMENT ===="
 
-# Symlink shell aliases file
-do-symlink $DOTFILES_PATH/env/.env_global ~/.env_global
-do-symlink $DOTFILES_PATH/env/.env_dpac ~/.env_dpac
-do-symlink $DOTFILES_PATH/env/.env_fun ~/.env_fun
-
 # Source in bash and zsh
-do-source "bash" ~/.env_global
-do-source "zsh"  ~/.env_global
-do-source "bash" ~/.env_fun
-do-source "zsh"  ~/.env_fun
+do-source "bash" $DOTFILES_PATH/env/env_global.sh
+do-source "zsh"  $DOTFILES_PATH/env/env_global.sh
+do-source "bash" $DOTFILES_PATH/env/env_fun.sh
+do-source "zsh"  $DOTFILES_PATH/env/env_fun.sh
 
 
 if [[ -f /etc/arch-release ]]; then
-    do-symlink $DOTFILES_PATH/env/.env_arch ~/.env_arch
-    do-source "bash" ~/.env_arch
-    do-source "zsh" ~/.env_arch
+    do-source "bash" $DOTFILES_PATH/env/env_arch.sh
+    do-source "zsh" $DOTFILES_PATH/env/env_arch.sh
 fi
 
 echo-ok "Done"
