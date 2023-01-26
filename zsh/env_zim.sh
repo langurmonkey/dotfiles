@@ -1,6 +1,8 @@
+#!/bin/zsh
 # This file sources zim to manage zsh plugins
 
 ZIM_HOME=~/.local/share/zim
+ZDOTDIR=${DOTFILES}/zim
 
 # Download zimfw plugin manager if missing.
 if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then

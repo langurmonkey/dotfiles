@@ -118,7 +118,7 @@ do-source $DOTFILES/env/functions.sh
 # ZSH-specific shit
 #
 if [ ! -z "$ZSH_VERSION" ]; then
-    do-source $DOTFILES/env/env_zsh.sh
+    do-source $DOTFILES/zsh/env_zsh.sh
 fi
 
 #

@@ -1,0 +1,8 @@
+# ZIM modules
+zmodule zsh-users/zsh-completions --fpath src
+zmodule completion
+zmodule zsh-users/zsh-syntax-highlighting
+zmodule zsh-users/zsh-autosuggestions
+
+# Plugins
+zmodule rupa/z
