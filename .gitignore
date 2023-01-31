@@ -8,3 +8,4 @@ mutt/ari.uni-heidelberg.de/*
 **/*.log
 **/__pycache__/
 zim/.zcompdump*
+zim/.zkbd

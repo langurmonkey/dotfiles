@@ -25,3 +25,8 @@ setopt auto_pushd
 if cmd-exists starship; then
     eval "$(starship init zsh)"
 fi
+
+# Enable home/end/del
+bindkey  "^[[H"   beginning-of-line
+bindkey  "^[[F"   end-of-line
+bindkey  "^[[3~"  delete-char
