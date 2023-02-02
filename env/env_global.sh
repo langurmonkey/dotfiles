@@ -87,8 +87,6 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 # Other utils
 export RANGER_RELOAD_RC=FALSE
 export TERMINAL=alacritty
-# Newsboat needs this, others dont seem to care
-#export TERM=screen-256color
 export BROWSER=qutebrowser
 GPG_TTY=$(tty)
 export GPG_TTY
