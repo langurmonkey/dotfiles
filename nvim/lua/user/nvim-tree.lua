@@ -25,7 +25,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
 nvim_tree.setup {
   disable_netrw = true,
   hijack_netrw = true,
-  open_on_setup = false,
   sort_by = "name",
   ignore_buffer_on_setup = false,
   ignore_ft_on_setup = {
