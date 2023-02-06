@@ -5,5 +5,5 @@ if pgrep -x picom &> /dev/null; then
     pkill picom &
 else
     notify-send "Turning picom on"
-    picom --experimental-backends -b --config "$HOME/.dotfiles/picom/picom.conf" &
+    picom -b --config "$HOME/.dotfiles/picom/picom.conf" &
 fi
