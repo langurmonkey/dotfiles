@@ -106,3 +106,5 @@ alias btc="curl rate.sx/btc"
 alias eth="curl rate.sx/eth"
 alias ltc="curl rate.sx/ltc"
 
+# ChatGPT ata
+alias ata="ata --config=/home/tsagrista/.config/ata/ata.toml"
