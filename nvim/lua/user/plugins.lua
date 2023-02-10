@@ -1,114 +1,83 @@
 local fn = vim.fn
 
--- Automatically install packer
-local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system {
+-- Automatically install lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
     "git",
     "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
-  }
-  print "Installing packer close and reopen Neovim..."
-  vim.cmd [[packadd packer.nvim]]
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
-
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]]
-
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-  return
-end
-
--- Have packer use a popup window
-packer.init {
-  display = {
-    open_fn = function()
-      return require("packer.util").float { border = "rounded" }
-    end,
-  },
-}
+vim.opt.rtp:prepend(lazypath)
 
 -- Install your plugins here
-return packer.startup(function(use)
+require("lazy").setup({
   -- My plugins here
-  use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used in lots of plugins
-  use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-  use "numToStr/Comment.nvim" -- Easily comment stuff
-  use "kyazdani42/nvim-web-devicons"
-  use "kyazdani42/nvim-tree.lua"
-  use "akinsho/bufferline.nvim" -- Show buffers as tabs
-  use "moll/vim-bbye"
-  use "nvim-lualine/lualine.nvim" -- A basic status line
-  use "akinsho/toggleterm.nvim"
-  use "ahmedkhalf/project.nvim"
-  use "lewis6991/impatient.nvim"
-  use "lukas-reineke/indent-blankline.nvim"
-  use "goolord/alpha-nvim"
-  use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
-  use "folke/which-key.nvim"
-  use "petertriho/nvim-scrollbar" -- A scrollbar for neovim
-  use "simrat39/symbols-outline.nvim" -- Outline view using LSP
+  "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
+  "nvim-lua/plenary.nvim", -- Useful lua functions used in lots of plugins
+  "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
+  "numToStr/Comment.nvim", -- Easily comment stuff
+  "kyazdani42/nvim-web-devicons",
+  "kyazdani42/nvim-tree.lua",
+  "akinsho/bufferline.nvim", -- Show buffers as tabs
+  "moll/vim-bbye",
+  "nvim-lualine/lualine.nvim", -- A basic status line
+  "akinsho/toggleterm.nvim",
+  "ahmedkhalf/project.nvim",
+  "lewis6991/impatient.nvim",
+  "lukas-reineke/indent-blankline.nvim",
+  "goolord/alpha-nvim",
+  "antoinemadec/FixCursorHold.nvim", -- This is needed to fix lsp doc highlight
+  "folke/which-key.nvim",
+  "petertriho/nvim-scrollbar", -- A scrollbar for neovim
+  "simrat39/symbols-outline.nvim", -- Outline view using LSP
 
   -- Smooth scrolling for C-f and C-b
-  use "psliwka/vim-smoothie"
+  "psliwka/vim-smoothie",
 
-  -- Colorschemes
-  use "navarasu/onedark.nvim" -- Very nice colorscheme
-  use 'marko-cerovac/material.nvim' -- Provides darker, lighter, oceanic, palenight, deep ocean
+  -- Colrschemes
+  "navarasu/onedark.nvim", -- Very nice colorscheme
+  'marko-cerovac/material.nvim', -- Provides darker, lighter, oceanic, palenight, deep ocean
   -- use "lunarvim/colorschemes" -- A bunch of neat colorschemes, includes the next two
   -- use "https://github.com/morhetz/gruvbox.git"
   -- use "lunarvim/darkplus.nvim"  -- Another cool theme
   -- use "lunarvim/onedarker.nvim" -- Default theme of Lunar vim
 
   -- cmp plugins
-  use "hrsh7th/nvim-cmp" -- The completion plugin
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use "hrsh7th/cmp-nvim-lsp"
+  "hrsh7th/nvim-cmp", -- The completion plugin
+  "hrsh7th/cmp-buffer", -- buffer completions
+  "hrsh7th/cmp-path", -- path completions
+  "hrsh7th/cmp-cmdline", -- cmdline completions
+  "saadparwaiz1/cmp_luasnip", -- snippet completions
+  "hrsh7th/cmp-nvim-lsp",
 
   -- markdown previewer
   -- use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
 
   -- snippets
-  use "L3MON4D3/LuaSnip" --snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+  "L3MON4D3/LuaSnip", --snippet engine
+  "rafamadriz/friendly-snippets", -- a bunch of snippets to use
 
   -- LSP
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
-  use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
-  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+  "neovim/nvim-lspconfig", -- enable LSP
+  "williamboman/nvim-lsp-installer", -- simple to use language server installer
+  "tamago324/nlsp-settings.nvim", -- language server settings defined in json for
+  "jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
 
   -- Telescope
-  use "nvim-telescope/telescope.nvim"
+  "nvim-telescope/telescope.nvim",
 
   -- Treesitter
-  use {
+  {
     "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-  }
-  use "JoosepAlviste/nvim-ts-context-commentstring"
+    build = ":TSUpdate",
+  },
+  "JoosepAlviste/nvim-ts-context-commentstring",
 
   -- Git
-  use "lewis6991/gitsigns.nvim"
-
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then
-    require("packer").sync()
-  end
-end)
+  "lewis6991/gitsigns.nvim",
+})
