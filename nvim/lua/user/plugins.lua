@@ -34,7 +34,7 @@ require("lazy").setup({
   "antoinemadec/FixCursorHold.nvim", -- This is needed to fix lsp doc highlight
   "folke/which-key.nvim",
   "petertriho/nvim-scrollbar", -- A scrollbar for neovim
-  "simrat39/symbols-outline.nvim", -- Outline view using LSP
+  "liuchengxu/vista.vim", -- LSP symbols view
 
   -- Smooth scrolling for C-f and C-b
   "psliwka/vim-smoothie",
