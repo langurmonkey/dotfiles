@@ -1,7 +1,7 @@
 configuration {
 	modi: "run,drun,window,calc,ssh";
 	font: "Hack Nerd Font 22";
-	terminal: "alacritty";
+	terminal: "kitty";
 	display-window: "Tasks";
 	display-run: "Run";
 	display-ssh: "SSH";
