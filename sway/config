@@ -76,7 +76,7 @@ bindsym $mod+Shift+e exec neovide
 bindsym XF86Search exec $HOME/.dotfiles/bin/fmenu -i $HOME -t +10
 
 # pulsemixer
-bindsym $mod+Shift+p exec "$myterm --class wm-floating-big,wm-floating-big --command pulsemixer"
+bindsym $mod+Shift+p exec "$myterm --class=wm-floating-big,wm-floating-big pulsemixer"
 
 # monitor off
 bindsym $mod+F8 exec swayidle -w \
@@ -148,7 +148,7 @@ mode "pass-through" {
 bindsym $mod+y mode "pass-through"
 
 # media player controls XF86Audio and $mod+Control
-bindsym $mod+Control+m exec "$myterm --class wm-floating-big --command ncmpcpp"
+bindsym $mod+Control+m exec "$myterm --class=wm-floating-big ncmpcpp"
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -299,7 +299,7 @@ bindsym Print exec grimshot save screen && notify-send "Screenshot saved to /hom
 bindsym $mod+Shift+w exec qutebrowser
 bindsym $mod+Control+w exec firefox
 bindsym $mod+Shift+t exec thunderbird-beta
-bindsym $mod+Shift+f exec "$myterm --class wm-floating,wm-floating --command lf `$HOME/.dotfiles/bin/wcwd`"
+bindsym $mod+Shift+f exec "$myterm --class=wm-floating,wm-floating lf `$HOME/.dotfiles/bin/wcwd`"
 bindsym $mod+Control+n exec "dunstctl action"
 
 set $mode_system "l[o]gout  [l]ock  [s]uspend  [r]eboot  shut[d]own"
