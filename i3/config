@@ -74,7 +74,8 @@ bindsym $mod+Shift+e exec neovide
 bindsym XF86Search exec $HOME/.dotfiles/bin/fmenu -i $HOME -t +10
 
 # pulsemixer
-bindsym $mod+Shift+p exec "$myterm --class wm-floating-big,wm-floating-big --command pulsemixer"
+#bindsym $mod+Shift+p exec "$myterm --class wm-floating-big,wm-floating-big --command pulsemixer"
+bindsym $mod+Shift+p exec "$myterm --class=wm-floating-big,wm-floating-big pulsemixer"
 
 # toggle compositor
 bindsym $mod+c exec $HOME/.dotfiles/bin/togglepicom
@@ -147,7 +148,7 @@ mode "pass-through" {
 bindsym $mod+y mode "pass-through"
 
 # media player controls XF86Audio and $mod+Control
-bindsym $mod+Control+m exec "$myterm --class wm-floating-big,wm-floating-big --command ncmpcpp"
+bindsym $mod+Control+m exec "$myterm --class=wm-floating-big,wm-floating-big ncmpcpp"
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -179,7 +180,7 @@ bindsym $mod+Print exec maim -e 'mv $f /tmp/ && gimp /tmp/$f'
 bindsym $mod+Shift+w exec qutebrowser
 bindsym $mod+Control+w exec firefox
 bindsym $mod+Shift+t exec thunderbird-beta
-bindsym $mod+Shift+f exec "$myterm --class wm-floating,wm-floating --command lf `$HOME/.dotfiles/bin/xcwd`"
+bindsym $mod+Shift+f exec "$myterm --class=wm-floating,wm-floating lf `$HOME/.dotfiles/bin/xcwd`"
 bindsym $mod+Control+n exec "dunstctl action"
 
 # Min and max sizes for floating windows
@@ -349,7 +350,7 @@ mode "$mode_gaps_outer" {
 
 # Screen lockers
 bindsym $mod+shift+x exec --no-startup-id i3lock-fancy
-bindsym $mod+shift+z exec --no-startup-id "$myterm --class wm-floating,wm-floating --command slock"
+bindsym $mod+shift+z exec --no-startup-id "$myterm --class=wm-floating,wm-floating slock"
 
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
