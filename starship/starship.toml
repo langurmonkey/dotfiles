@@ -52,6 +52,9 @@ disabled = true
 [golang]
 disabled = true
 
+[gradle]
+symbol = "ⓖ "
+
 [julia]
 disabled = true
 
