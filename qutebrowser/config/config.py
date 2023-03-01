@@ -260,13 +260,17 @@ c.url.default_page = 'file://' + home + '/.dotfiles/startpage/index.html'
 ## used by prepending the search engine name to the search term, e.g.
 ## `:open google qutebrowser`.
 ## Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://search.brave.com/search?q={}'}
+c.url.searchengines = {'DEFAULT': 'https://searx.kutay.dev/search?q={}'}
+#c.url.searchengines = {'DEFAULT': 'https://search.brave.com/search?q={}'}
 #c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
 #c.url.searchengines = {'DEFAULT': 'http://localhost:8888?q={}'}
+c.url.searchengines.update({'searx': 'https://searx.kutay.dev/search?q={}'})
 c.url.searchengines.update({'br': 'https://search.brave.com/search?q={}'})
-c.url.searchengines.update({'searx': 'https://searx.be?q={}'})
 c.url.searchengines.update({'ddg': 'https://duckduckgo.com/?q={}'})
 c.url.searchengines.update({'ddgo': 'https://3g2upl4pq6kufc4m.onion/?q={}'})
+c.url.searchengines.update({'qw': 'https://www.qwant.com/?l=en&q={}&t=web'})
+c.url.searchengines.update({'ec': 'https://www.ecosia.org/search?method=index&q={}'})
+c.url.searchengines.update({'gl': 'https://google.com/search?q={}'})
 c.url.searchengines.update({'sp': 'https://www.startpage.com/do/search?query={}'})
 c.url.searchengines.update({'yt': 'https://youtube.com/results?search_query={}'})
 c.url.searchengines.update({'tw': 'https://twitter.com/{}'})
