@@ -42,7 +42,7 @@ client.background       $wal-bg
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod 
 # Start a terminal
-bindsym $mod+Return exec $myterm --working-directory "`$HOME/.dotfiles/bin/xcwd`"
+bindsym $mod+Return exec $myterm "`xcwd`"
 
 # kill focused window
 bindsym $mod+q kill
