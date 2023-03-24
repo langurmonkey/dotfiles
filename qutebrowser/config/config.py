@@ -270,11 +270,12 @@ c.url.searchengines.update({'ddg': 'https://duckduckgo.com/?q={}'})
 c.url.searchengines.update({'ddgo': 'https://3g2upl4pq6kufc4m.onion/?q={}'})
 c.url.searchengines.update({'qw': 'https://www.qwant.com/?l=en&q={}&t=web'})
 c.url.searchengines.update({'ec': 'https://www.ecosia.org/search?method=index&q={}'})
-c.url.searchengines.update({'gl': 'https://google.com/search?q={}'})
 c.url.searchengines.update({'sp': 'https://www.startpage.com/do/search?query={}'})
 c.url.searchengines.update({'yt': 'https://youtube.com/results?search_query={}'})
 c.url.searchengines.update({'tw': 'https://twitter.com/{}'})
 c.url.searchengines.update({'aw': 'https://wiki.archlinux.org/?search={}'})
+c.url.searchengines.update({'gl': 'https://google.com/search?q={}'})
+c.url.searchengines.update({'google': 'https://google.com/search?q={}'})
 
 ## Page(s) to open at the start.
 ## Type: List of FuzzyUrl, or FuzzyUrl
