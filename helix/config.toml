@@ -26,8 +26,13 @@ select = "underline"
 hidden = false
 parents = false
 
+# Do not render white spaces
 [editor.whitespace]
 render = "none"
+
+# Enable soft wrapping
+#[editor.soft-wrap]
+#enable = true
 
 [editor.indent-guides]
 render = false
