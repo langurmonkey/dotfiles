@@ -1,0 +1,5 @@
+# Save this file to /etc/default/keyboard to automatically set the
+# following setxkbmap options
+XKBMODEL=pc104
+XKBLAYOUT=us,es
+XKBOPTIONS=grp:alt_space_toggle,caps:swapescape,eurosign:e
