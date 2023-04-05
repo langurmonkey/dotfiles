@@ -35,5 +35,10 @@ fi
 #    $HOME/.dotfiles/X/autostart.sh
 #fi
 
+# Keyboard configuration (layout and repeat rate)
+setxkbmap -model pc104 -layout us,es -option 'grp:alt_space_toggle,caps:swapescape,eurosign:e'
+xset r rate 200 45
+numlockx
+
 # Start i3wm
 exec i3
