@@ -262,10 +262,10 @@ c.url.default_page = 'file://' + home + '/.dotfiles/startpage/index.html'
 ## used by prepending the search engine name to the search term, e.g.
 ## `:open google qutebrowser`.
 ## Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://www.qwant.com/?l=en&q={}&t=web'}
+# c.url.searchengines = {'DEFAULT': 'https://www.qwant.com/?l=en&q={}&t=web'}
 #c.url.searchengines = {'DEFAULT': 'https://searxng.nicfab.eu/searxng/search?q={}'}
 #c.url.searchengines = {'DEFAULT': 'https://northboot.xyz/search?q={}'}
-#c.url.searchengines = {'DEFAULT': 'https://search.brave.com/search?q={}'}
+c.url.searchengines = {'DEFAULT': 'https://search.brave.com/search?q={}'}
 #c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
 #c.url.searchengines = {'DEFAULT': 'http://localhost:8888?q={}'}
 c.url.searchengines.update({'searx': 'https://searxng.nicfab.eu/searxng/search?q={}'})
