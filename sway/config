@@ -176,10 +176,15 @@ input * {
     xkb_options "grp:alt_space_toggle,caps:swapescape,eurosign:e"
     xkb_model "pc104"
     repeat_delay 200
-    repeat_rate 35
+    repeat_rate 30
     tap enabled
     # Uncomment the next line for reverse scrolling (macOS-style)
     #natural_scroll enabled
+}
+input "2:7:SynPS/2_Synaptics_TouchPad" {
+    # accel_profile "adaptive"
+    accel_profile "flat"
+    pointer_accel 1.0
 }
 
 #
