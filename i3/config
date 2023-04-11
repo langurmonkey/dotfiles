@@ -452,13 +452,13 @@ exec_always --no-startup-id "mpDris2"
 #
 
 # Repeat interval and delay
-exec sleep 2 && xset r rate 200 45
+exec sleep 3s && xset r rate 200 45
 
 # Keyboard layout definition. Switch escape and caps lock key
-exec sleep 2 && setxkbmap -model pc104 -layout us,es -option 'grp:alt_space_toggle,caps:swapescape,eurosign:e'
+exec sleep 3s && setxkbmap -model pc104 -layout us,es -option 'grp:alt_space_toggle,caps:swapescape,eurosign:e'
 
 # Activate numlock
-exec sleep 2 && numlockx
+exec sleep 3s && numlockx
 
 #
 # WALLPAPER - after screens have been setup
