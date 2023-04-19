@@ -26,8 +26,9 @@ export FL=$CU3/FL
 export FL_BASE=$FL
 export FL_TR=$FL_BASE/Trunk
 export FL_22=$FL_BASE/R_22.1.x
+export FL_22_2=$FL_BASE/R_22.2.0
 export FL_ODAS=$FL_BASE/FL-SmallODAS
-export FL_HOME=$FL_ODAS
+export FL_HOME=$FL_22_2
 export CATGEN_HOME=$CU3/CatGen/Trunk
 export FLSE=$CU3/FLSE
 

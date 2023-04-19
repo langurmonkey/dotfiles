@@ -20,13 +20,22 @@ require("lazy").setup({
   "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
   "nvim-lua/plenary.nvim", -- Useful lua functions used in lots of plugins
   "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
-  "numToStr/Comment.nvim", -- Easily comment stuff
+  {
+    "numToStr/Comment.nvim", -- Easily comment stuff
+    version = "*"
+  },
   "kyazdani42/nvim-web-devicons",
-  "kyazdani42/nvim-tree.lua",
+  {
+    "kyazdani42/nvim-tree.lua",
+    lazy = true
+  },
   "akinsho/bufferline.nvim", -- Show buffers as tabs
   "moll/vim-bbye",
   "nvim-lualine/lualine.nvim", -- A basic status line
-  "akinsho/toggleterm.nvim",
+  {
+    "akinsho/toggleterm.nvim",
+    lazy = true
+  },
   "ahmedkhalf/project.nvim",
   "lewis6991/impatient.nvim",
   "lukas-reineke/indent-blankline.nvim",
