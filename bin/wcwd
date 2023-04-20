@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Wayland version of xcwd
+# Sway version of xcwd
 
 pid=$(swaymsg -t get_tree | jq '.. | select(.type?) | select(.type=="con") | select(.focused==true).pid')
 ppid=$(pgrep --newest --parent ${pid})
