@@ -349,7 +349,7 @@ mode "$mode_gaps_outer" {
 }
 
 # Screen lockers
-bindsym $mod+shift+x exec --no-startup-id i3lock-fancy
+bindsym $mod+shift+x exec --no-startup-id $HOME/.dotfiles/bin/lock
 bindsym $mod+shift+z exec --no-startup-id "$myterm --class=wm-floating,wm-floating slock"
 
 # Resize window (you can also use the mouse for that)
