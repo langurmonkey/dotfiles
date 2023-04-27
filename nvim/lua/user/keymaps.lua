@@ -35,9 +35,13 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
--- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+-- Move text up and down in normal, insert and visual modes
+keymap("n", "<A-j>", ":m .+1<CR>==", opts)
+keymap("n", "<A-k>", ":m .-2<CR>==", opts)
+keymap("i", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
+keymap("i", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
+keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 
 -- Insert --
 -- Press jk fast to enter
