@@ -246,6 +246,8 @@ assign [class="telegram-desktop"] $ws9
 assign [class="discord"] $ws9
 assign [class="Signal"] $ws9
 assign [class="Steam"] $ws5
+assign [class="steam"] $ws5
+assign [class="steamwebhelper"] $ws5
 assign [class="itch"] $ws5
 assign [class="FreeTube"] $ws6
 
