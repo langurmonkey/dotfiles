@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<opml version="1.0">
+  <head>
+    <title>Liferea Feed List Export</title>
+  </head>
+  <body>
+    <outline title="Linux" text="Linux" description="Linux" type="folder">
+      <outline title="The Linux Experiment" text="The Linux Experiment" description="The Linux Experiment" type="rss" xmlUrl="https://thelinuxexp.com/feed.xml" htmlUrl="https://thelinuxexp.com/"/>
+      <outline title="Langur Monkey" text="Langur Monkey" description="Langur Monkey" type="rss" xmlUrl="https://tonisagrista.com/index.xml" htmlUrl="https://tonisagrista.com/"/>
+      <outline title="Arch Linux: Recents" text="Arch Linux: Recents" description="Arch Linux: Recents" type="rss" xmlUrl="https://archlinux.org/feeds/news/" htmlUrl="https://archlinux.org/news/"/>
+      <outline title="Phoronix" text="Phoronix" description="Phoronix" type="rss" xmlUrl="https://www.phoronix.com/rss.php" htmlUrl="https://www.phoronix.com/"/>
+    </outline>
+    <outline title="Barces" text="Barces" description="Barces" type="folder">
+      <outline title="Sport" text="Sport" description="Sport" type="rss" xmlUrl="https://www.sport.es/es/rss/barca/rss.xml" htmlUrl="https://www.sport.es"/>
+    </outline>
+    <outline title="Deck" text="Deck" description="Deck" type="folder">
+      <outline title="reddit/r/steamdeck" text="reddit/r/steamdeck" description="reddit/r/steamdeck" type="atom" xmlUrl="https://www.reddit.com/r/SteamDeck.rss" htmlUrl="https://www.reddit.com/r/SteamDeck"/>
+      <outline title="GamingOnLinux" text="GamingOnLinux" description="GamingOnLinux" type="rss" xmlUrl="https://www.gamingonlinux.com/article_rss.php" htmlUrl="https://www.gamingonlinux.com/"/>
+    </outline>
+    <outline title="Photo" text="Photo" description="Photo" type="folder">
+      <outline title="Fujifilm" text="Fujifilm" description="Fujifilm" type="rss" xmlUrl="https://fujifilm-x.com/en-us/news/feed/" htmlUrl="https://fujifilm-x.com/en-us"/>
+    </outline>
+    <outline title="Tech" text="Tech" description="Tech" type="folder">
+      <outline title="The Thunderbird Blog" text="The Thunderbird Blog" description="The Thunderbird Blog" type="rss" xmlUrl="https://blog.thunderbird.net/feed/" htmlUrl="https://blog.thunderbird.net/"/>
+    </outline>
+  </body>
+</opml>
