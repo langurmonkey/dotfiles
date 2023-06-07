@@ -24,6 +24,11 @@ export GPD_TTY=$(tty)
 # ENVIRONMENT VARIABLES
 #
 
+# XDG defaults
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_STATE_HOME=$HOME/.local/state
+export XDG_CACHE_HOME=$HOME/.cache
 
 # GPG Key
 export GPGKEY=448C2B189756743013D5F7C22FD2A59C1D734C1F
