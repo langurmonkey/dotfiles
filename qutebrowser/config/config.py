@@ -156,7 +156,7 @@ c.content.notifications.presenter = 'auto'
 
 ## List of user stylesheet filenames to use.
 ## Type: List of File, or File
-c.content.user_stylesheets = [ "scrollbar.css" ]
+#c.content.user_stylesheets = [ "scrollbar.css" ]
 
 ## Adblocking
 ##
