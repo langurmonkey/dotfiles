@@ -1,0 +1,52 @@
+#
+# ~/.zshrc
+#
+
+# Auto source .env_global
+if [ -f $HOME/.dotfiles/env/env_global.sh ]; then
+  source $HOME/.dotfiles/env/env_global.sh
+fi
+
+# Source DPAC environment
+#[ -f ~/.env_dpac ] && source ~/.env_dpac
+
+# Environment relative to THIS MACHINE ONLY
+export DATEN=/media/tsagrista/Daten
+export D=$DATEN
+export NEUDATEN=/media/tsagrista/NeuDaten
+export F=$NEUDATEN
+export DOWNLOADS=$DATEN/Downloads
+
+# Android
+export PATH=$PATH:$HOME/Programs/Android/platform-tools
+
+# CUDA
+export CUDA=/opt/cuda
+
+# PATHs
+export PATH=$PATH:$PROGRAMS/Libraries/fbx-conv:$CUDA/bin:$PROJECTS/gbintocsv:$HOME/go/bin
+
+# JENV to manager JDKs
+# export PATH="$HOME/.jenv/bin:$PATH"
+# eval "$(jenv init -)"
+
+
+# Auto source .profile
+if [ -f $HOME/.profile ]; then
+	source $HOME/.profile
+fi
+
+# Auto source .env_zsh
+if [ -f $HOME/.dotfiles/env/env_zsh.sh ]; then
+	source $HOME/.dotfiles/env/env_zsh.sh
+fi
+
+# Auto source .env_arch
+if [ -f $HOME/.dotfiles/env/env_arch.sh ]; then
+	source $HOME/.dotfiles/env/env_arch.sh
+fi
+
+# Auto source .env_fun
+if [ -f $HOME/.dotfiles/env/env_fun.sh ]; then
+	source $HOME/.dotfiles/env/env_fun.sh
+fi
