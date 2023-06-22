@@ -71,7 +71,7 @@ bindsym $mod+Shift+s exec $HOME/.dotfiles/bin/ambientsound
 bindsym $mod+Shift+e exec neovide
 
 # SETUP KEYBOARD
-bindsym $mod+Control+k exec $HOME/.dotfiles/X/kbsetup && notify-send "Keyboard configured"
+bindsym $mod+Control+k exec $HOME/.dotfiles/bin/kbsetupx && notify-send "Keyboard configured"
 
 
 
