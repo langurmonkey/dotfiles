@@ -174,11 +174,13 @@ bindsym $mod+Control+9 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@
 bindsym XF86MonBrightnessUp exec brightness+
 bindsym XF86MonBrightnessDown exec brightness-
 
-# screenshots
+# screenshot - full screen
 bindsym Print exec maim -f jpg $HOME/Pictures/Screenshots/screenshot_$(date -u +"%Y_%m_%d_%H_%M_%S").png && notify-send "Screenshot saved to ~/Pictures/$(\ls -Art /home/tsagrista/Pictures/Screenshots | tail -n 1)"
+# screenshot - grab region
+bindsym --release $mod+Print exec import $HOME/Pictures/Screenshots/screenshot_$(date -u +"%Y_%m_%d_%H_%M_%S").png && notify-send "Screenshot saved to ~/Pictures/$(\ls -Art /home/tsagrista/Pictures/Screenshots | tail -n 1)"
 
 # maim & gimp
-bindsym $mod+Print exec maim -e 'mv $f /tmp/ && gimp /tmp/$f'
+#bindsym $mod+Print exec maim -e 'mv $f /tmp/ && gimp /tmp/$f'
 
 # Start Applications
 bindsym $mod+Shift+w exec qutebrowser
