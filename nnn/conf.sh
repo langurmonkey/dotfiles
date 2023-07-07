@@ -7,6 +7,7 @@ export NNN_ARCHIVE='\\.(7z|bz2|gz|tar|tgz|zip)$'
 export NNN_PLUG='f:fzz;t:preview-tabbed;p:preview-tui;d:diffs;v:imgview;m:mediainf'
 export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_FCOLORS="a5a02177fb2121f7c6d6abc4"
+export NNN_ICONLOOKUP=1
 
 n ()
 {
@@ -28,7 +29,8 @@ n ()
     # stty lwrap undef
     # stty lnext undef
 
-    nnn "$@"
+    # Launch nnn with preview-tui enabled
+    nnn "$@" -a -P p
 
     if [ -f "$NNN_TMPFILE" ]; then
             . "$NNN_TMPFILE"
