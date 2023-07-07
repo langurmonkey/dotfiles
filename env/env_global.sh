@@ -72,7 +72,7 @@ export PATH=$PATH:$HOME/.local/bin:$HOME/.dotfiles/bin:$HOME/.cargo/bin:.
 export ANDROID_SDK_ROOT=/opt/android-sdk
 
 # NNN config
-# do-source "$DOTFILES"/nnn/conf.sh
+do-source "$DOTFILES"/nnn/conf.sh
 
 # LF config
 export OPENER="run-mailcap"
