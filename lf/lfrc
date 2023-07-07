@@ -29,6 +29,7 @@ set scrolloff 10
 # image preview
 set previewer ~/.config/lf/preview
 set cleaner ~/.config/lf/cleaner
+
 # define a custom 'open' command
 cmd open $$OPENER $fx
 cmd open-choose $OPENER_CHOOSE="true" $OPENER $fx
