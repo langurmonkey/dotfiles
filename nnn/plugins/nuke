@@ -307,8 +307,8 @@ handle_multimedia() {
             elif [ "$GUI" -ne 0 ] && which feh >/dev/null 2>&1; then
                 load_dir feh "${FPATH}" >/dev/null 2>&1 &
                 exit 0
-            elif [ "$GUI" -ne 0 ] && which sxiv >/dev/null 2>&1; then
-                load_dir sxiv "${FPATH}" >/dev/null 2>&1 &
+            elif [ "$GUI" -ne 0 ] && which nsxiv >/dev/null 2>&1; then
+                load_dir nsxiv "${FPATH}" >/dev/null 2>&1 &
                 exit 0
             elif which viu >/dev/null 2>&1; then
                 viu -n "${FPATH}" | eval "$PAGER"
