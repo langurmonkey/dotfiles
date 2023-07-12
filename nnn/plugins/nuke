@@ -130,9 +130,6 @@ handle_video() {
     if [ "$GUI" -ne 0 ] && is_mac; then
         open "${FPATH}" >/dev/null 2>&1 &
         exit 0
-    elif [ "$GUI" -ne 0 ] && which smplayer >/dev/null 2>&1; then
-        smplayer "${FPATH}" >/dev/null 2>&1 &
-        exit 0
     elif [ "$GUI" -ne 0 ] && which mpv >/dev/null 2>&1; then
         mpv "${FPATH}" >/dev/null 2>&1 &
         exit 0
@@ -307,8 +304,8 @@ handle_multimedia() {
             if [ "$GUI" -ne 0 ] && is_mac; then
                 open "${FPATH}" >/dev/null 2>&1 &
                 exit 0
-            elif [ "$GUI" -ne 0 ] && which imvr >/dev/null 2>&1; then
-                load_dir imvr "${FPATH}" >/dev/null 2>&1 &
+            elif [ "$GUI" -ne 0 ] && which feh >/dev/null 2>&1; then
+                load_dir feh "${FPATH}" >/dev/null 2>&1 &
                 exit 0
             elif [ "$GUI" -ne 0 ] && which sxiv >/dev/null 2>&1; then
                 load_dir sxiv "${FPATH}" >/dev/null 2>&1 &

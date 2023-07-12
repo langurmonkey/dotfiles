@@ -8,6 +8,7 @@ export NNN_PLUG='f:fzz;t:preview-tabbed;p:preview-tui;d:diffs;v:imgview;m:mediai
 export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_FCOLORS="a5a02177fb2121f7c6d6abc4"
 export NNN_ICONLOOKUP=1
+export GUI=1
 
 n ()
 {
