@@ -3,11 +3,11 @@
 # 
 
 # Format for listings and directory usages
-alias ll="exa -alh --color=auto --icons --group-directories-first"
-alias la="exa -alhS --color=auto --icons --group-directories-first"
-alias l="exa -lhrS --color=auto --icons --group-directories-first"
-alias ls="exa -a --color=auto --icons --group-directories-first"
-alias lsd="exa -D --color=auto --icons"
+alias ll="eza -alh --color=auto --icons --group-directories-first"
+alias la="eza -alhS --color=auto --icons --group-directories-first"
+alias l="eza -lhrS --color=auto --icons --group-directories-first"
+alias ls="eza -a --color=auto --icons --group-directories-first"
+alias lsd="eza -D --color=auto --icons"
 alias df="df -Th"
 alias du="du -h"
 alias cp="cp -fv"
