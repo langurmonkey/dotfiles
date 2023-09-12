@@ -44,7 +44,7 @@ xset r rate 200 45
 numlockx
 
 # Start window manager
-#exec i3
+exec i3
 #exec awesome
 #exec qtile
-exec leftwm
+#exec leftwm
