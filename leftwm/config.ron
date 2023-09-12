@@ -48,10 +48,10 @@
     focus_behaviour: Sloppy,
     focus_new_windows: true,
     keybind: [
-        (command: CloseWindow, value: "", modifier: ["modkey"], key: "q"),
         (command: SoftReload, value: "", modifier: ["modkey", "Shift"], key: "r"),
-        (command: Execute, value: "loginctl kill-session $XDG_SESSION_ID", modifier: ["modkey"], key: "Esc"),
-        (command: Execute, value: "slock", modifier: ["modkey", "Control"], key: "l"),
+        (command: HardReload, value: "", modifier: ["modkey", "Shift"], key: "c"),
+
+        (command: CloseWindow, value: "", modifier: ["modkey"], key: "q"),
         (command: MoveWindowUp, value: "", modifier: ["modkey", "Shift"], key: "k"),
         (command: MoveWindowDown, value: "", modifier: ["modkey", "Shift"], key: "j"),
         (command: FocusWindowUp, value: "", modifier: ["modkey"], key: "k"),
@@ -68,6 +68,7 @@
         (command: PreviousLayout, value: "", modifier: ["modkey", "Control"], key: "Down"),
         (command: FocusWorkspaceNext, value: "", modifier: ["modkey"], key: "Right"),
         (command: FocusWorkspacePrevious, value: "", modifier: ["modkey"], key: "Left"),
+
         (command: GotoTag, value: "1", modifier: ["modkey"], key: "1"),
         (command: GotoTag, value: "2", modifier: ["modkey"], key: "2"),
         (command: GotoTag, value: "3", modifier: ["modkey"], key: "3"),
@@ -86,6 +87,9 @@
         (command: MoveToTag, value: "7", modifier: ["modkey", "Shift"], key: "7"),
         (command: MoveToTag, value: "8", modifier: ["modkey", "Shift"], key: "8"),
         (command: MoveToTag, value: "9", modifier: ["modkey", "Shift"], key: "9"),
+
+        (command: Execute, value: "loginctl kill-session $XDG_SESSION_ID", modifier: ["modkey"], key: "Esc"),
+        (command: Execute, value: "slock", modifier: ["modkey", "Control"], key: "l"),
 
         (command: Execute, value: "kitty", modifier: ["modkey"], key: "Return"),
         (command: Execute, value: "qutebrowser", modifier: ["modkey", "Shift"], key: "w"),
