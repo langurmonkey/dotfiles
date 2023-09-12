@@ -10,6 +10,7 @@ echo "------ XRANDR COMMAND OUTPUT BELOW ------" >> $file
 xrandr --verbose --dpi 96 \
     --output DVI-D-0 --scale 1x1 --mode 1920x1080 --pos 0x0 --rotate normal \
     --output DP-2 --primary --mode 1920x1080 --pos 1920x0 --rotate normal \
+    --output None-1-1 --off \
     >> $file 2>&1
 echo "------ DONE ------" >> $file
 echo ""

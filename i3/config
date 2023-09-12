@@ -385,6 +385,9 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 
+# START USER I3-SESSION.SERVICE
+exec --no-startup-id systemctl start --user i3-session.service
+
 #
 # STARTUP APPLICATIONS
 #

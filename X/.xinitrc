@@ -43,5 +43,8 @@ setxkbmap -model pc104 -layout us,es -option 'grp:alt_space_toggle,caps:swapesca
 xset r rate 200 45
 numlockx
 
-# Start i3wm
-exec i3
+# Start window manager
+#exec i3
+#exec awesome
+#exec qtile
+exec leftwm
