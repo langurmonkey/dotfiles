@@ -9,7 +9,7 @@ require "user.treesitter"
 require "user.autopairs"
 require "user.comment"
 require "user.gitsigns"
-require "user.nvim-tree"
+require "user.nvimtree"
 require "user.bufferline"
 require "user.lualine"
 require "user.toggleterm"
@@ -21,3 +21,6 @@ require "user.whichkey"
 require "user.autocommands"
 require "user.scrollbar"
 require "user.outline"
+
+-- This line seems to be needed for nvim-tree to work...
+require'nvim-tree'.setup {}
