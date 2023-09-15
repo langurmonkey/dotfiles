@@ -1,10 +1,11 @@
 -- Load onedark theme
-local od = require('onedark');
-od.load();
+--local od = require('onedark');
+--od.load();
 
 vim.cmd [[
 try
- colorscheme onedark
+colorscheme catppuccin-frappe
+" colorscheme onedark
 " colorscheme material
 " colorscheme gruvbox
 " colorscheme darkplus

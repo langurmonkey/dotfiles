@@ -50,7 +50,8 @@ require("lazy").setup({
 
   -- Colrschemes
   "navarasu/onedark.nvim", -- Very nice colorscheme
-  'marko-cerovac/material.nvim', -- Provides darker, lighter, oceanic, palenight, deep ocean
+  "marko-cerovac/material.nvim", -- Provides darker, lighter, oceanic, palenight, deep ocean
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 }, -- Soothing pastel theme
   -- use "lunarvim/colorschemes" -- A bunch of neat colorschemes, includes the next two
   -- use "https://github.com/morhetz/gruvbox.git"
   -- use "lunarvim/darkplus.nvim"  -- Another cool theme
