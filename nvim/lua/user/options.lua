@@ -32,12 +32,12 @@ local options = {
   wrap = false,                                   -- display lines as one long line
   scrolloff = 8,                                  -- is one of my fav
   sidescrolloff = 8,
-  guifont = "Hack Nerd Font:h10",                  -- the font used in graphical neovim applications
+  guifont = "Hack Nerd Font:h9",                  -- font for graphical nvim (neovide)
+  linespace = 4,                                  -- space between lines (neovide)
   spellfile = "/home/tsagrista/.config/nvim/spell/en.utf-8.add",-- spell file
   spell = false,                                  -- enable spell checking
   spelllang = "en",                               -- spell checking language
 }
-
 
 vim.opt.shortmess:append "c"
 
