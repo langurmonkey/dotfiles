@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -x
+
+MAX_VIDEO_SIZE="7800000"
+TRIM_FINAL_SECONDS="2"
+
+if [[ "$1" == "" ]]; then
+	echo "Error: No video file selected"
+	echo "Usage: $0 <video-file>"
+	exit
+fi
+
+duration=`ffprobe -v error -show_entries format=duration -of csv=p=0 ${1}`
+duration=`echo ${duration} - ${TRIM_FINAL_SECONDS} | bc`
+
+TITLE=${1%.*}
+
+ffmpeg -y -i "$1" -movflags +faststart -c:v libx264 -preset veryslow -ss 00:00:01 -to $duration -vf scale=1920:-1,fps=15 -tune animation -fs ${MAX_VIDEO_SIZE} -metadata title="${TITLE}" -b:v 900k -to $duration -pass 1 -an -f null /dev/null
+ffmpeg -y -i "$1" -movflags +faststart -c:v libx264 -preset veryslow -ss 00:00:01 -to $duration -vf scale=1920:-1,fps=15 -tune animation -fs ${MAX_VIDEO_SIZE} -metadata title="${TITLE}" -b:v 900k -pass 2 -an "$1-compressed-1920_15fps.mp4" 
