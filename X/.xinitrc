@@ -45,6 +45,7 @@ numlockx
 
 # Start window manager
 exec i3
+#exec gnome-shell
 #exec awesome
 #exec qtile start
 #exec leftwm
