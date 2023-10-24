@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Extracts audio from a given URL, and converts it to MP3 with a quality of 2.
+
+if [ $# -eq 0 ]
+  then
+    echo "Please provide a URL for yt-dlp."
+fi
+
+yt-dlp  -x --audio-format mp3 --audio-quality 2 -o "%(title)s.%(ext)s" $1
