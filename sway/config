@@ -237,6 +237,7 @@ bindsym $mod+Shift+0 move container to workspace $ws0
 # default workspaces
 assign [app_id="org.qutebrowser.qutebrowser"] $ws2
 assign [class="firefox"] $ws2
+assign [class="*thorium-browser"] $ws2
 assign [class=".*Thunderbird"] $ws3
 assign [title=".*Thunderbird"] $ws3
 assign [app_id="thunderbird-beta"] $ws3
@@ -305,6 +306,7 @@ bindsym Print exec grimshot save screen && notify-send "Screenshot saved to /hom
 # start applications
 bindsym $mod+Shift+w exec qutebrowser
 bindsym $mod+Control+w exec firefox
+bindsym $mod2+w exec thorium-browser
 bindsym $mod+Shift+t exec thunderbird-beta
 bindsym $mod+Shift+f exec "$myterm --class=wm-floating,wm-floating lf `$HOME/.dotfiles/bin/wcwd`"
 bindsym $mod+Control+n exec "dunstctl action"
