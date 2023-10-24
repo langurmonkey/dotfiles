@@ -7,4 +7,4 @@ if [ $# -eq 0 ]
     echo "Please provide a URL for yt-dlp."
 fi
 
-yt-dlp  -x --audio-format mp3 --audio-quality 2 -o "%(title)s.%(ext)s" $1
+yt-dlp  -x --audio-format mp3 --audio-quality 1 -o "%(title)s.%(ext)s" $1
