@@ -72,7 +72,6 @@ bindsym $mod+Shift+s exec $HOME/.dotfiles/bin/ambientsound
 # GUI VIM
 bindsym $mod+Shift+e exec neovide
 
-
 bindsym XF86Search exec $HOME/.dotfiles/bin/fmenu -i $HOME -t +10
 
 # pulsemixer
@@ -237,7 +236,7 @@ bindsym $mod+Shift+0 move container to workspace $ws0
 # default workspaces
 assign [app_id="org.qutebrowser.qutebrowser"] $ws2
 assign [class="firefox"] $ws2
-assign [class="*thorium-browser"] $ws2
+assign [class="Thorium-browser"] $ws2
 assign [class=".*Thunderbird"] $ws3
 assign [title=".*Thunderbird"] $ws3
 assign [app_id="thunderbird-beta"] $ws3
