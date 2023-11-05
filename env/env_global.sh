@@ -40,8 +40,9 @@ export GPGKEY=448C2B189756743013D5F7C22FD2A59C1D734C1F
    export EDITOR='nvim'
  fi
 export PAGER="less"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+# export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 #export MANPAGER="nvim -c 'set ft=man' -"
+export MANPAGER=$PAGER
 export PROGRAMS=$HOME/Programs
 export GAMES=$PROGRAMS/Games
 export DOTFILES=$HOME/.dotfiles
