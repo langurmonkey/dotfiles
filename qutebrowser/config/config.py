@@ -20,10 +20,7 @@ c.aliases.update({'netflix': 'open -t netflix.com'})
 c.aliases.update({'gaia': 'open -t cosmos.esa.int/web/gaia'})
 c.aliases.update({'cosmos': 'open -t cosmos.esa.int/web/gaia'})
 c.aliases.update({'jira': 'open -t issues.cosmos.esa.int/gaia'})
-c.aliases.update({'twitter': 'open -t twitter.com'})
 c.aliases.update({'tw': 'open -t twitter.com'})
-c.aliases.update({'tweetdeck': 'open -t tweetdeck.twitter.com'})
-c.aliases.update({'td': 'open -t tweetdeck.twitter.com'})
 c.aliases.update({'md': 'open -t mastodon.social'})
 c.aliases.update({'mdt': 'open -t mastodont.cat'})
 c.aliases.update({'bs': 'open -t bsky.app'})
@@ -268,7 +265,7 @@ c.url.searchengines = {'DEFAULT': 'https://search.bus-hit.me/search?q={}'}
 #c.url.searchengines = {'DEFAULT': 'https://search.brave.com/search?q={}'}
 #c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
 #c.url.searchengines = {'DEFAULT': 'http://localhost:8888?q={}'}
-c.url.searchengines.update({'searx': 'https://search.bus-hit.me/search?q={}'})
+c.url.searchengines.update({'sx': 'https://search.bus-hit.me/search?q={}'})
 c.url.searchengines.update({'br': 'https://search.brave.com/search?q={}'})
 c.url.searchengines.update({'ddg': 'https://duckduckgo.com/?q={}'})
 c.url.searchengines.update({'ddgo': 'https://3g2upl4pq6kufc4m.onion/?q={}'})
