@@ -46,7 +46,7 @@ require("lazy").setup({
   "liuchengxu/vista.vim", -- LSP symbols view
 
   -- Smooth scrolling for C-f and C-b
-  "psliwka/vim-smoothie",
+  --"psliwka/vim-smoothie",
 
   -- Colrschemes
   "navarasu/onedark.nvim", -- Very nice colorscheme

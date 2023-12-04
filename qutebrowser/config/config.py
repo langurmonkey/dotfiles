@@ -3,7 +3,6 @@ import os
 home = os.environ['HOME']
 
 import qutebrowser
-qutebrowser_version = qutebrowser.__version_info__
 
 
 ## Aliases for commands. The keys of the given dictionary are the
@@ -363,5 +362,5 @@ config.load_autoconfig()
 
 
 # Source theme
-#config.source('themes/base-16.py')
-config.source('themes/city-lights-theme.py')
+config.source('themes/base-16.py')
+#config.source('themes/city-lights-theme.py')
