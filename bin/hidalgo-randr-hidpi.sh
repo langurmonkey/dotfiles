@@ -9,7 +9,7 @@ xrandr -q >> $file
 echo "------ XRANDR COMMAND OUTPUT BELOW ------" >> $file
 xrandr --verbose --dpi 190 \
     --output DVI-D-0 --scale 2x2 --mode 1920x1080 --pos 0x0 --rotate normal \
-    --output DP-2 --primary --mode 3840x2160 --pos 3900x0 --rotate normal \
+    --output DP-0 --primary --mode 3840x2160 --pos 3900x0 --rotate normal \
     --output None-1-1 --off \
     >> $file 2>&1
 echo "------ DONE ------" >> $file

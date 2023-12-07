@@ -49,8 +49,8 @@ require("lazy").setup({
   --"psliwka/vim-smoothie",
 
   -- Colrschemes
-  "navarasu/onedark.nvim", -- Very nice colorscheme
-  "marko-cerovac/material.nvim", -- Provides darker, lighter, oceanic, palenight, deep ocean
+  -- "navarasu/onedark.nvim", -- Very nice colorscheme
+  -- "marko-cerovac/material.nvim", -- Provides darker, lighter, oceanic, palenight, deep ocean
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 }, -- Soothing pastel theme
   -- use "lunarvim/colorschemes" -- A bunch of neat colorschemes, includes the next two
   -- use "https://github.com/morhetz/gruvbox.git"
@@ -69,8 +69,8 @@ require("lazy").setup({
   -- use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
 
   -- snippets
-  "L3MON4D3/LuaSnip", --snippet engine
-  "rafamadriz/friendly-snippets", -- a bunch of snippets to use
+  -- "L3MON4D3/LuaSnip", --snippet engine
+  -- "rafamadriz/friendly-snippets", -- a bunch of snippets to use
 
   -- LSP
   "neovim/nvim-lspconfig", -- enable LSP
@@ -94,5 +94,5 @@ require("lazy").setup({
   "JoosepAlviste/nvim-ts-context-commentstring",
 
   -- Git
-  "lewis6991/gitsigns.nvim",
+  -- "lewis6991/gitsigns.nvim",
 })
