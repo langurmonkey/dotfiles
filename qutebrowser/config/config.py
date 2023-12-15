@@ -294,9 +294,11 @@ c.colors.webpage.darkmode.threshold.foreground = 150
 c.colors.webpage.darkmode.threshold.background = 205
 c.colors.webpage.preferred_color_scheme = 'dark'
 
-## Default file picker
+## LF as file picker
 ##
-c.fileselect.handler = 'default'
+c.fileselect.handler = 'external'
+c.fileselect.single_file.command = ['kitty', 'lf', '-print-selection', '-selection-path', '{}', '~']
+c.fileselect.multiple_files.command = ['kitty', 'lf', '-print-selection', '-selection-path', '{}', '~']
 
 ## Bindings
 config.bind('wi', 'devtools bottom')
