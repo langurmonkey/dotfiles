@@ -2,6 +2,11 @@
 # ALIASES
 # 
 
+# AUR
+alias yay="paru"
+alias pru="paru"
+alias yeet="paru -Rcs"
+
 # Format for listings and directory usages
 alias ll="eza -alh --color=auto --icons --group-directories-first"
 alias la="eza -alhS --color=auto --icons --group-directories-first"
