@@ -201,3 +201,11 @@ map R bulkrename
 push mw
 map Q push 'w:quit<enter>
 map q push :quit<enter>
+
+# go to videos directory
+cmd videos :cd /media/tsagrista/Daten/Gaia/Videos
+# go to GS data directory
+cmd data :cd /home/tsagrista/.local/share/gaiasky/data
+# go to GS config directory
+cmd config :cd /home/tsagrista/.config/gaiasky
+
