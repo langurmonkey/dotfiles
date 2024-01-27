@@ -57,6 +57,7 @@ map gdw :cd ~/Downloads
 map gdo :cd ~/Documents
 map gw :cd ~/Pictures/Wallpapers
 map gs :cd ~/Sync
+map gm :cd /run/media/tsagrista/
 
 # create directory
 map a push %mkdir<space>
