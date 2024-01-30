@@ -298,8 +298,8 @@ c.colors.webpage.preferred_color_scheme = 'dark'
 ## LF as file picker
 ##
 c.fileselect.handler = 'external'
-c.fileselect.single_file.command = ['kitty', 'lf', '-print-selection', '-selection-path', '{}', '~']
-c.fileselect.multiple_files.command = ['kitty', 'lf', '-print-selection', '-selection-path', '{}', '~']
+c.fileselect.single_file.command =    ['kitty', 'lffilechooser', '{}']
+c.fileselect.multiple_files.command = ['kitty', 'lffilechooser', '{}']
 
 ## Bindings
 config.bind('wi', 'devtools bottom')
