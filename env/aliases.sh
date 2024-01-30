@@ -34,7 +34,7 @@ alias ytdl="yt-dlp"
 alias hx="helix"
 
 # VPN
-alias vpnheidelberguni="sudo openconnect -u st0@ix.urz.uni-heidelberg.de vpn-ac.urz.uni-heidelberg.de"
+alias vpnhduni="sudo openconnect --user=st0@ix.urz.uni-heidelberg.de --os=win --useragent='AnyConnect' vpn-ac.urz.uni-heidelberg.de"
 alias vpnstatus="curl https://am.i.mullvad.net/connected"
 # Docker with sudo by default
 alias docker="sudo docker"
