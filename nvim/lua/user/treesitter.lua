@@ -12,10 +12,10 @@ configs.setup {
   },
   highlight = {
     enable = true, -- false will disable the whole extension
-    disable = { "dart", "hack", "ruby", "cue", "odin" }, -- list of language that will be disabled
+    disable = { "dart", "hack", "ruby", "cue", "odin", "swift" }, -- list of language that will be disabled
     additional_vim_regex_highlighting = false,
   },
-  indent = { enable = true, disable = { "yaml" } },
+  indent = { enable = true },
 }
 require('ts_context_commentstring').setup {
   enable_autocmd = false,
