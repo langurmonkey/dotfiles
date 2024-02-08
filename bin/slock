@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+cd "$(dirname "$0")" || exit
+
+grim -t png $HOME/Pictures/lockscreen.png
+rm $HOME/Pictures/lockscreen-blur.png
+magick $HOME/Pictures/lockscreen.png -blur 0x6 $HOME/Pictures/lockscreen-blur.png
+source "$HOME/.cache/wal/colors.sh"
+
+swaylock \
+  --indicator-radius 160 \
+  --indicator-thickness 20 \
+  --inside-color 00000000 \
+  --inside-clear-color 00000000 \
+  --inside-ver-color 00000000 \
+  --inside-wrong-color 00000000 \
+  --key-hl-color "$color1" \
+  --bs-hl-color "$color2" \
+  --ring-color "$background" \
+  --ring-clear-color "$color2" \
+  --ring-wrong-color "$color5" \
+  --ring-ver-color "$color3" \
+  --line-uses-ring \
+  --line-color 00000000 \
+  --font 'Hack:style=Regular 40' \
+  --text-color 00000000 \
+  --text-clear-color 00000000 \
+  --text-wrong-color 00000000 \
+  --text-ver-color 00000000 \
+  --separator-color 00000000 \
+  --image "$HOME/Pictures/lockscreen-blur.png" \
+  --daemonize
