@@ -11,8 +11,8 @@ FILE_VIMINIT=$DIR_VIMCONFIG/init.vim
 DIR_VIMPLUGINS=$DIR_VIMCONFIG/plugged
 
 DIR_ROFI=~/.config/rofi
-DIR_TOFI=~/.config/tofi
 DIR_FUZZEL=~/.config/fuzzel
+DIR_TSCHUSS=~/.config/tschuss
 
 DIR_RANGER=~/.config/ranger
 DIR_NNN=~/.config/nnn
@@ -294,8 +294,8 @@ echo-ok "Done"
 
 # Symlink rofi config
 do-symlink $DOTFILES_PATH/rofi $DIR_ROFI
-# Symlink tofi config
-do-symlink $DOTFILES_PATH/tofi $DIR_TOFI
+# Symlink tschuss config
+do-symlink $DOTFILES_PATH/tschuss $DIR_TSCHUSS
 # Symlink fuzzel config
 do-symlink $DOTFILES_PATH/fuzzel $DIR_FUZZEL
 
