@@ -48,6 +48,12 @@ background-color: #FFFFFF;
         color: #ffffff;
     }
 
+    #workspaces button.active {
+        background-color: #295499;
+        border-bottom: 3px solid #000000;
+        color: #ffffff;
+    }
+
     #workspaces button.urgent {
         background-color: #ffeb3b;
         color: #000000;
