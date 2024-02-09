@@ -20,7 +20,7 @@ DIR_LF=~/.config/lf
 
 DIR_I3=~/.config/i3
 DIR_SWAY=~/.config/sway
-DIR_QTILE=~/.config/qtile
+DIR_HYPR=~/.config/hypr
 
 DIR_WAYBAR=~/.config/waybar
 DIR_POLYBAR=~/.config/polybar
@@ -283,12 +283,12 @@ do-symlink $DOTFILES_PATH/waybar $DIR_WAYBAR
 echo-ok "Done"
 
 #
-# Qtile
+# Hyprland
 #
-echo-custom " ** " "==== Qtile CONFIG ===="
+echo-custom " ** " "==== Hyprland CONFIG ===="
 
-# Symlink Qtile configuration
-do-symlink $DOTFILES_PATH/qtile $DIR_QTILE
+# Symlink hypr configuration
+do-symlink $DOTFILES_PATH/hyprland $DIR_HYPR
 echo-ok "Done"
 
 
