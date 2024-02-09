@@ -1,0 +1,4 @@
+#!/bin/bash
+
+export _JAVA_AWT_WM_NONREPARENTING=1
+exec /bin/Hyprland --config /home/tsagrista/.dotfiles/hyprland/hyprland-hidalgo.conf
