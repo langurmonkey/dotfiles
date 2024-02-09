@@ -39,7 +39,6 @@ DIR_NCMPCPP=~/.config/ncmpcpp
 DIR_VIS=~/.config/vis
 
 DIR_NEWSBOAT=~/.config/newsboat
-DIR_AMFORA=~/.config/amfora
 
 DIR_MUTT=~/.config/mutt
 
