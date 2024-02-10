@@ -292,10 +292,13 @@ echo-ok "Done"
 
 
 # Symlink rofi config
+echo-custom " ** " "==== Rofi CONFIG ===="
 do-symlink $DOTFILES_PATH/rofi $DIR_ROFI
 # Symlink tschuss config
+echo-custom " ** " "==== Tschuss CONFIG ===="
 do-symlink $DOTFILES_PATH/tschuss $DIR_TSCHUSS
 # Symlink fuzzel config
+echo-custom " ** " "==== Fuzzel CONFIG ===="
 do-symlink $DOTFILES_PATH/fuzzel $DIR_FUZZEL
 
 # xkblayout
@@ -428,13 +431,6 @@ echo-ok "Done"
 #
 echo-custom " ** " "==== NEWSBOAT ===="
 do-symlink $DOTFILES_PATH/newsboat $DIR_NEWSBOAT
-echo-ok "Done"
-
-#
-# AMFORA
-#
-echo-custom " ** " "==== AMFORA ===="
-do-symlink $DOTFILES_PATH/amfora $DIR_AMFORA
 echo-ok "Done"
 
 # STARSHIP SHELL
