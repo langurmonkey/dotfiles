@@ -1,4 +1,4 @@
 #!/bin/bash
 
 export _JAVA_AWT_WM_NONREPARENTING=1
-exec Hyprland --config=~/.dotfiles/hyprland/hyprland-nvidia.conf
+exec Hyprland --config ~/.dotfiles/hyprland/hyprland-nvidia.conf

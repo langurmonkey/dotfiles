@@ -57,20 +57,8 @@ handle_image() {
   #           && return 6 || return 1;;
 
   ## Image
-  image/*)
-    local orientation
-    orientation="$(identify -format '%[EXIF:Orientation]\n' -- "${FILE_PATH}")"
-    ## If orientation data is present and the image actually
-    ## needs rotating ("1" means no rotation)...
-    if [[ -n "$orientation" && "$orientation" != 1 ]]; then
-      ## ...auto-rotate the image according to the EXIF data.
-      convert -- "${FILE_PATH}" -auto-orient "${IMAGE_CACHE_PATH}" && return 6
-    fi
-
-    ## `w3mimgdisplay` will be called for all images (unless overridden
-    ## as above), but might fail for unsupported types.
-    return 7
-    ;;
+  image/*) img2sixel "${file}";;
+  *.png) img2sixel "${file}";;
 
   ## Video
   video/*)
@@ -230,9 +218,9 @@ draw() {
 
 fallback() {
   if [ "$PAGE_MODE" ]; then
-    pistol -c ~/.config/pistol/pistol.conf "$FILE_PATH" | less -R
+    pistol "$FILE_PATH" | less -R
   else
-    pistol -c ~/.config/pistol/pistol.conf "$FILE_PATH"
+    pistol "$FILE_PATH"
   fi
 }
 
