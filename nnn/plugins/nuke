@@ -304,8 +304,8 @@ handle_multimedia() {
             if [ "$GUI" -ne 0 ] && is_mac; then
                 open "${FPATH}" >/dev/null 2>&1 &
                 exit 0
-            elif [ "$GUI" -ne 0 ] && which feh >/dev/null 2>&1; then
-                load_dir feh "${FPATH}" >/dev/null 2>&1 &
+            elif [ "$GUI" -ne 0 ] && which imv >/dev/null 2>&1; then
+                load_dir imv "${FPATH}" >/dev/null 2>&1 &
                 exit 0
             elif [ "$GUI" -ne 0 ] && which nsxiv >/dev/null 2>&1; then
                 load_dir nsxiv "${FPATH}" >/dev/null 2>&1 &
