@@ -7,7 +7,7 @@ grim -t png ~/Pictures/lockscreen.png
 # Remove blurred if it exists.
 rm ~/Pictures/lockscreen-blur.png
 # Blur screenshot.
-magick ~/Pictures/lockscreen.png -blur 0x6 ~/Pictures/lockscreen-blur.png
+magick ~/Pictures/lockscreen.png -filter Gaussian -resize 30% -blur 0x6 -modulate 15,0 ~/Pictures/lockscreen-blur.png
 # Some colors.
 background='#1d1f21'
 color1='#CC342B'
