@@ -1,12 +1,13 @@
 #!/bin/bash
-export NNN_OPTS='cEHd'
+export NNN_OPTS='cEHi'
 export NNN_OPENER=$HOME/.config/nnn/plugins/nuke
 export NNN_BMS='D:~/Documents;P:~/Projects'
 export NNN_COLORS='12345678'
 export NNN_ARCHIVE='\\.(7z|bz2|gz|tar|tgz|zip)$'
-export NNN_PLUG='f:fzz;t:preview-tabbed;p:preview-tui;d:diffs;v:imgview;m:mediainf'
-export NNN_FIFO='/tmp/nnn.fifo'
+export NNN_PLUG='f:fzz;p:preview-tui;d:diffs;m:mediainf;r:renamer'
 export NNN_FCOLORS="a5a02177fb2121f7c6d6abc4"
+export NNN_PREVIEWDIR=$XDG_CACHE_HOME/nnn/previews
+export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_ICONLOOKUP=1
 export GUI=1
 

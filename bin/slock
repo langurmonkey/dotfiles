@@ -2,11 +2,20 @@
 
 cd "$(dirname "$0")" || exit
 
-grim -t png $HOME/Pictures/lockscreen.png
-rm $HOME/Pictures/lockscreen-blur.png
-magick $HOME/Pictures/lockscreen.png -blur 0x6 $HOME/Pictures/lockscreen-blur.png
-source "$HOME/.cache/wal/colors.sh"
+# Take screenshot.
+grim -t png ~/Pictures/lockscreen.png
+# Remove blurred if it exists.
+rm ~/Pictures/lockscreen-blur.png
+# Blur screenshot.
+magick ~/Pictures/lockscreen.png -blur 0x6 ~/Pictures/lockscreen-blur.png
+# Some colors.
+background='#1d1f21'
+color1='#CC342B'
+color2='#198844'
+color3='#FBA922'
+color4='#A36AC7'
 
+# Lock with blurred image.
 swaylock \
   --indicator-radius 160 \
   --indicator-thickness 20 \
@@ -18,7 +27,7 @@ swaylock \
   --bs-hl-color "$color2" \
   --ring-color "$background" \
   --ring-clear-color "$color2" \
-  --ring-wrong-color "$color5" \
+  --ring-wrong-color "$color4" \
   --ring-ver-color "$color3" \
   --line-uses-ring \
   --line-color 00000000 \
@@ -30,3 +39,7 @@ swaylock \
   --separator-color 00000000 \
   --image "$HOME/Pictures/lockscreen-blur.png" \
   --daemonize
+
+# Clean up.
+rm ~/Pictures/lockscreen-blur.png
+rm ~/Pictures/lockscreen.png
