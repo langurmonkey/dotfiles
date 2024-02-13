@@ -365,5 +365,7 @@ config.load_autoconfig()
 
 
 # Source theme
-config.source('themes/base-16.py')
+#config.source('themes/base16.py')
+config.source('themes/base16-3024.py')
+#config.source('themes/base16-material.py')
 #config.source('themes/city-lights-theme.py')
