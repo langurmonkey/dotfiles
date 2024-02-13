@@ -1,7 +1,7 @@
 * {
   border: none;
   border-radius: 6;
-  padding: 1px;
+  padding: 0.1em;
   /* `otf-font-awesome` is required to be installed for icons */
   font-family: "Hack Nerd Font";
   font-size: 14px;
@@ -28,35 +28,40 @@ background-color: #FFFFFF;
 */
 
 #workspaces button {
-  padding: 0 5px;
-  margin: 0 2px;
+  padding: 0 3px;
+  margin: 0 1px;
   color: #ffffff;
-  border-bottom: 3px solid transparent;
+  border-bottom: 2px solid transparent;
+  border-right: 2px solid transparent;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
   background: rgba(255, 255, 255, 0.2);
   box-shadow: inherit;
-  border-bottom: 3px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
 }
 
 #workspaces button.focused {
-  background-color: #5984ff;
-  border-bottom: 3px solid #000000;
   color: #ffffff;
+  background-color: #5984ff;
+  border-bottom: 2px solid #000000;
+  border-right: 2px solid #000000;
 }
 
 #workspaces button.active {
-  background-color: #295499;
-  border-bottom: 3px solid #000000;
   color: #ffffff;
+  background-color: #295499;
+  border-bottom: 2px solid #000000;
+  border-right: 2px solid #000000;
 }
 
 #workspaces button.urgent {
-  background-color: #ffeb3b;
   color: #000000;
-  border-bottom: 3px solid #000000;
+  background-color: #ffeb3b;
+  border-bottom: 2px solid #000000;
+  border-right: 2px solid #000000;
 }
 
 #mode {
