@@ -32,9 +32,7 @@
       "8": "8 ﮊ ",
       "9": "9  ",
       "10": "10  ",
-    },
-    "on-scroll-up": "hyprctl dispatch workspace e+1",
-    "on-scroll-down": "hyprctl dispatch workspace e-1"
+    }
   },
   "sway/mode": {
     "format": "{}"
