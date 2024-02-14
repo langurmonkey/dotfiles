@@ -3,42 +3,41 @@
 }
 
 button {
-    background-color: rgba(32, 34, 36, 0.2);
     border: solid;
     margin-left: 0px;
     margin-right: 0px;
     margin-bottom: 0px;
     margin-top: 0px;
-    font-size: 130px;
-    color: rgb(255, 85, 0);
+    font-size: 80px;
+    color: rgb(0, 85, 255);
 }
 
 #description-shutdown {
-    font-size: 35px;
+    font-size: 20px;
     color: white;
 }
 
 #description-reboot {
-    font-size: 35px;
+    font-size: 20px;
     color: white;
 }
 
 #description-logout {
-    font-size: 35px;
+    font-size: 20px;
     color: white;
 }
 
 #description-hibernate {
-    font-size: 35px;
+    font-size: 20px;
     color: white;
 }
 
 #description-suspend {
-    font-size: 35px;
+    font-size: 20px;
     color: white;
 }
 
 #description-lock {
-    font-size: 35px;
+    font-size: 20px;
     color: white;
 }
