@@ -59,3 +59,4 @@ Change the following:
         export QT_FONT_DPI=96
         ```
 - **Thunderbird**: On i3, you need to set ``layout.css.devPixelsPerPixel`` to 2 in the config editor.
+- **FreeTube**: On wayland, you need to edit the Exec line in the desktop file (`/usr/share/applications/freetube.desktop`) so that it reads `Exec=/opt/FreeTube/freetube --enable-features=UseOzonePlatform --ozone-platform=wayland %U`.
