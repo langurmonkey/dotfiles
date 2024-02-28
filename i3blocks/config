@@ -60,24 +60,28 @@ markup=pango
 
 [cryptobtc]
 command=$LOCAL_DIR/crypto "BTC"
-interval=90
+interval=120
 color=#ffffff
+background=#000000
+border=#000000
 border_top=0
-border_right=8
-border_left=8
-border_bottom=2
+border_right=0
+border_left=6
+border_bottom=0
 markup=pango
 
 [separator]
 
 [cryptoeth]
 command=$LOCAL_DIR/crypto "ETH"
-interval=90
+interval=120
 color=#ffffff
+background=#000000
+border=#000000
 border_top=0
-border_right=8
-border_left=8
-border_bottom=2
+border_right=6
+border_left=6
+border_bottom=0
 markup=pango
 
 [separator]
