@@ -6,7 +6,7 @@
   // Choose the order of the modules
   "modules-left": ["hyprland/workspaces", "sway/workspaces", "sway/mode", "hyprland/window", "custom/media"],
   "modules-center": [],
-  "modules-right": ["mpd", "idle_inhibitor", "custom/cpulevels", "memory", "keyboard-state", "sway/language", "backlight", "battery#bat2", "battery", "pulseaudio", "clock", "tray"],
+  "modules-right": ["mpd", "idle_inhibitor", "custom/cryptobtc", "custom/cryptoeth", "custom/cpulevels", "memory", "keyboard-state", "sway/language", "backlight", "battery#bat2", "battery", "pulseaudio", "clock", "tray"],
   "keyboard-state": {
     "numlock": true,
     "capslock": true,
@@ -80,6 +80,14 @@
     "format": "{: %Y-%m-%d  %H:%M:%OS}",
     "tooltip-format": "<big>{:%d}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": "{:%Y-%m-%d}"
+  },
+  "custom/cryptoeth": {
+    "interval": 120,
+    "exec": "$HOME/.dotfiles/waybar/scripts/crypto ETH"
+  },
+  "custom/cryptobtc": {
+    "interval": 120,
+    "exec": "$HOME/.dotfiles/waybar/scripts/crypto BTC"
   },
   "cpu": {
     "format": "{usage}% ",
