@@ -44,10 +44,12 @@ if len(sys.argv) < 2:
 
 coin_name = sys.argv[1]
 
-with open('.cryptoscript-apikey.txt', 'r') as file:
+base_path = os.path.dirname(os.path.realpath(sys.argv[0]))
+
+with open(base_path + '/.cryptoscript-apikey.txt', 'r') as file:
     filedata = file.read().replace('\n', '')
     API_KEY = filedata
-    PRICE_CHANGE_PERIOD = '1h' # Available: '1h', '24h', '7d'
+    PRICE_CHANGE_PERIOD = '24h' # Available: '1h', '24h', '7d'
     PRICE_CHANGE_URGENT_PERCENT = 10
 
     API_URL = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
