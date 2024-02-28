@@ -6,6 +6,7 @@ mutt/tonisagrista.com/*
 mutt/ari.uni-heidelberg.de/*
 **/.uuid
 **/*.log
+**/.cryptoscript-apikey.txt
 **/__pycache__/
 zim/.zkbd
 zim/.zcomp*

@@ -34,11 +34,9 @@ command=$SCRIPT_DIR/$BLOCK_NAME/$BLOCK_NAME
 align=center
 color=#ffffff
 background=#000000
-# full_text=❮
 full_text=
 separator=false
-# separator_block_width=15
-separator_block_width=5
+separator_block_width=10
 
 # [window title]
 # command=xdotool getactivewindow getwindowname
@@ -59,6 +57,31 @@ border_bottom=2
 markup=pango
 
 [separator]
+
+[cryptobtc]
+command=$LOCAL_DIR/crypto BTC
+interval=90
+color=#ffffff
+border_top=0
+border_right=8
+border_left=8
+border_bottom=2
+markup=pango
+
+[separator]
+
+[cryptoeth]
+command=$LOCAL_DIR/crypto ETH
+interval=90
+color=#ffffff
+border_top=0
+border_right=8
+border_left=8
+border_bottom=2
+markup=pango
+
+[separator]
+
 
 [cpulevels]
 command=$LOCAL_DIR/cpu-levels "#33aa7a"
