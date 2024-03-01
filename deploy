@@ -17,6 +17,7 @@ DIR_TSCHUSS=~/.config/tschuss
 DIR_RANGER=~/.config/ranger
 DIR_NNN=~/.config/nnn
 DIR_LF=~/.config/lf
+DIR_YAZI=~/.config/yazi
 
 DIR_I3=~/.config/i3
 DIR_SWAY=~/.config/sway
@@ -200,8 +201,16 @@ do-symlink $DOTFILES_PATH/nnn $DIR_NNN
 #
 echo-custom " ** " "==== LF ===="
 
-# Create nnn config symlink
+# Create lf config symlink
 do-symlink $DOTFILES_PATH/lf $DIR_LF
+
+#
+# YAZI
+#
+echo-custom " ** " "==== YAZI ===="
+
+# Create yazi config symlink
+do-symlink $DOTFILES_PATH/yazi $DIR_YAZI
 
 #
 # SCREEN
