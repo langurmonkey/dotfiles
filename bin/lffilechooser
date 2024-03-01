@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ $# -eq 0 ]; then
-  lf -last-dir-path ~/.cache/lf/last-location.txt -print-selection $(cat ~/.cache/lf/last-location.txt)
+  lf -last-dir-path $HOME/.cache/lf/last-location.txt -print-selection $(cat $HOME/.cache/lf/last-location.txt)
 else
-  lf -last-dir-path ~/.cache/lf/last-location.txt -print-selection -selection-path "$1" $(cat ~/.cache/lf/last-location.txt)
+  lf -last-dir-path $HOME/.cache/lf/last-location.txt -print-selection -selection-path "$1" $(cat $HOME/.cache/lf/last-location.txt)
 fi

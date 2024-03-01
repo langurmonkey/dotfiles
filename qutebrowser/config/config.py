@@ -297,6 +297,7 @@ c.colors.webpage.preferred_color_scheme = 'dark'
 ## LF as file picker
 ##
 c.fileselect.handler = 'external'
+c.fileselect.folder.command =    ['kitty', 'lffilechooser', '{}']
 c.fileselect.single_file.command =    ['kitty', 'lffilechooser', '{}']
 c.fileselect.multiple_files.command = ['kitty', 'lffilechooser', '{}']
 
