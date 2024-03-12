@@ -83,11 +83,11 @@
   },
   "custom/cryptoeth": {
     "interval": 120,
-    "exec": "$HOME/.dotfiles/waybar/scripts/crypto ETH"
+    "exec": "$HOME/.dotfiles/waybar/scripts/crypto ethereum"
   },
   "custom/cryptobtc": {
     "interval": 120,
-    "exec": "$HOME/.dotfiles/waybar/scripts/crypto BTC"
+    "exec": "$HOME/.dotfiles/waybar/scripts/crypto bitcoin"
   },
   "cpu": {
     "format": "{usage}% ",

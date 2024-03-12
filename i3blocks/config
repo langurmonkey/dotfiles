@@ -59,7 +59,7 @@ markup=pango
 [separator]
 
 [cryptobtc]
-command=$LOCAL_DIR/crypto "BTC"
+command=$LOCAL_DIR/crypto "bitcoin"
 interval=120
 color=#ffffff
 background=#000000
@@ -73,7 +73,7 @@ markup=pango
 [separator]
 
 [cryptoeth]
-command=$LOCAL_DIR/crypto "ETH"
+command=$LOCAL_DIR/crypto "ethereum"
 interval=120
 color=#ffffff
 background=#000000
