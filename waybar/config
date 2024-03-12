@@ -75,7 +75,7 @@
     "spacing": 10
   },
   "clock": {
-    // "timezone": "America/New_York",
+    "timezone": "Europe/Berlin",
     "interval": 1,
     "format": "{: %Y-%m-%d  %H:%M:%OS}",
     "tooltip-format": "<big>{:%d}</big>\n<tt><small>{calendar}</small></tt>",
