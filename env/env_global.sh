@@ -68,6 +68,7 @@ export TOPCAT=$PROGRAMS/Topcat
 
 # Path
 export PATH="${PATH:+${PATH}:}$HOME/.local/bin:$HOME/.dotfiles/bin:$HOME/.cargo/bin:$HOME/go/bin"
+export PATH="${PATH:+${PATH}:}./"
 
 # Android SDK
 export ANDROID_SDK_ROOT=/opt/android-sdk
