@@ -1,2 +1,8 @@
 [manager]
-border_symbol = " "
+border_symbol = "│"
+border_style = { fg="#202054" }
+
+[icon]
+append_rules = [
+  { name = "*/", text = " "}
+]
