@@ -77,7 +77,7 @@
   "clock": {
     "timezone": "Europe/Berlin",
     "interval": 1,
-    "format": "{: %Y-%m-%d  %H:%M:%OS}",
+    "format": " {:%Y-%m-%d  %T}",
     "tooltip-format": "<big>{:%d}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": "{:%Y-%m-%d}"
   },
