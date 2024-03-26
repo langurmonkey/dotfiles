@@ -4,3 +4,14 @@ sort_sensitive = false
 sort_dir_first = true
 show_hidden = true
 linemode = "size"
+
+[opener]
+pdf = [
+	{ run = 'zathura "$1"', desc = "Zathura", block = false },
+	{ run = 'evince "$1"', desc = "Evince", block = false },
+]
+
+[open]
+rules = [
+  { name = "*.pdf", use = "pdf" }
+]
