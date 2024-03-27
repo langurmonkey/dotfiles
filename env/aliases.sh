@@ -113,3 +113,9 @@ alias ltc="curl rate.sx/ltc"
 
 # ChatGPT ata
 alias ata="ata --config=/home/tsagrista/.config/ata/ata.toml"
+
+# Alias gimp to flatpak if gimp is not in the system
+if ! command -v gimp &> /dev/null
+then
+    alias gimp='flatpak run org.gimp.GIMP'
+fi
