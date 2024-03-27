@@ -7,11 +7,32 @@ linemode = "size"
 
 [opener]
 pdf = [
-	{ run = 'zathura "$1"', desc = "Zathura", block = false },
-	{ run = 'evince "$1"', desc = "Evince", block = false },
+	{ run = 'zathura "$1"', desc = "zathura", block = false },
+	{ run = 'evince "$1"', desc = "evince", block = false },
+]
+image = [
+    { run = 'feh "$1"', desc = "feh", block = false },
+    { run = 'nsxiv "$1"', desc = "nsxiv", block = false },
+    { run = 'imv "$1"', desc = "imv", block = false },
+    { run = 'gimp "$1"', desc = "gimp", block = false },
+]
+text = [
+    { run = 'nvim "$1"', desc = "nvim", block = true },
+    { run = 'gedit "$1"', desc = "gedit", block = false },
 ]
 
 [open]
 rules = [
-  { name = "*.pdf", use = "pdf" }
+  { name = "*.pdf", use = "pdf" },
+  { mime = "image/*", use = "image" },
+  { mime = "text/*", use = "text" },
+  { name = "*.json", use = "text" },
+  { name = "*.html", use = "text" },
+  { name = "*.sh", use = "text" },
+  { name = "*.txt", use = "text" },
+  { name = "*.csv", use = "text" },
+  { name = "*.dat", use = "text" },
+  { name = "*.toml", use = "text" },
+  { name = "*.yaml", use = "text" },
+  { name = "*.yml", use = "text" },
 ]
