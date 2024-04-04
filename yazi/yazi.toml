@@ -21,11 +21,15 @@ text = [
     { run = 'nvim "$1"', desc = "nvim", block = true },
     { run = 'gedit "$1"', desc = "gedit", block = false },
 ]
+video = [
+    { run = 'mpv "$1"', desc = "mpv", block = false },
+]
 
 [open]
 rules = [
   { name = "*.pdf", use = "pdf" },
   { mime = "image/*", use = "image" },
+  { mime = "video/*", use = "video" },
   { mime = "text/*", use = "text" },
   { name = "*.json", use = "text" },
   { name = "*.html", use = "text" },
