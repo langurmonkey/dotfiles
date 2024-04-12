@@ -294,12 +294,13 @@ c.colors.webpage.darkmode.threshold.foreground = 150
 c.colors.webpage.darkmode.threshold.background = 205
 c.colors.webpage.preferred_color_scheme = 'dark'
 
-## LF as file picker
+## YAZI as file picker
 ##
+## yazi --cwd-file ~/.cache/lf/last-location.txt $(cat ~/.cache/lf/last-location.txt)
 c.fileselect.handler = 'external'
-c.fileselect.folder.command =    ['kitty', 'yazi', '--chooser-file', '{}']
-c.fileselect.single_file.command =    ['kitty', 'yazi', '--chooser-file', '{}']
-c.fileselect.multiple_files.command = ['kitty', 'yazi', '--chooser-file', '{}']
+c.fileselect.folder.command = ['kitty', 'yafilechooser', '{}']
+c.fileselect.single_file.command = ['kitty', 'yafilechooser', '{}']
+c.fileselect.multiple_files.command = ['kitty', 'yafilechooser', '{}']
 
 ## Bindings
 config.bind('wi', 'devtools bottom')

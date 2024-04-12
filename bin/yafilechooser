@@ -1,0 +1,8 @@
+#!/bin/bash
+mkdir -p $HOME/.cache/yazi
+YAZI_LOC=$HOME/.cache/yazi/last-location.txt
+if [ $# -eq 0 ]; then
+  yazi --cwd-file $YAZI_LOC $(cat $YAZI_LOC)
+else
+  yazi --cwd-file $YAZI_LOC --chooser-file "$1" $(cat $YAZI_LOC)
+fi

@@ -7,3 +7,23 @@ desc = "Enter the child directory, or open the file"
 on   = [ "<C-s>" ]
 run  = 'shell "$SHELL" --block --confirm'
 desc = "Open shell here"
+
+[[manager.append_keymap]]
+on   = [ "g", "v" ]
+run  = "cd /media/tsagrista/Daten/Gaia/Videos"
+desc = "Go to the $VIDEOS directory"
+
+[[manager.append_keymap]]
+on   = [ "g", "b" ]
+run  = "cd ~/.local/share/gaiasky/data"
+desc = "Go to the Gaia Sky data directory"
+
+[[manager.append_keymap]]
+on   = [ "<C-o>" ]
+run  = "back"
+desc = "Go back to the previous directory"
+
+[[manager.append_keymap]]
+on   = [ "<C-i>" ]
+run  = "forward"
+desc = "Go forward to the next directory"
