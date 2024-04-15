@@ -32,6 +32,7 @@ rules = [
   { mime = "video/*", use = "video" },
   { mime = "text/*", use = "text" },
   { name = "*.json", use = "text" },
+  { name = "*.md", use = "text" },
   { name = "*.html", use = "text" },
   { name = "*.sh", use = "text" },
   { name = "*.txt", use = "text" },

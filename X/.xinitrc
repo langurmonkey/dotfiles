@@ -5,6 +5,9 @@ usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
+export XDG_SESSION_TYPE=x11
+export GDK_BACKEND=x11
+
 xrandr --dpi 190
 
 # merge in defaults and keymaps
@@ -47,6 +50,4 @@ numlockx
 
 # Start window manager
 exec i3
-#exec awesome
-#exec qtile start
-#exec leftwm
+#exec gnome-session
