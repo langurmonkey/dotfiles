@@ -41,4 +41,5 @@ rules = [
   { name = "*.toml", use = "text" },
   { name = "*.yaml", use = "text" },
   { name = "*.yml", use = "text" },
+  { name = "*.lua", use = "text" },
 ]
