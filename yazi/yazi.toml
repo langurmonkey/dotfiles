@@ -18,6 +18,10 @@ image = [
     { run = 'flatpak run org.gimp.GIMP "$1"', desc = "gimp (flatpak)", block = false },
 ]
 text = [
+    { run = 'less "$1"', desc = "less", block = true },
+    { run = 'bat "$1"', desc = "bat", block = true },
+]
+edit = [
     { run = 'nvim "$1"', desc = "nvim", block = true },
     { run = 'gedit "$1"', desc = "gedit", block = false },
 ]
@@ -27,19 +31,25 @@ video = [
 
 [open]
 rules = [
-  { name = "*.pdf", use = "pdf" },
+  # Mime types
+  { mime = "application/pdf", use = "pdf" },
   { mime = "image/*", use = "image" },
   { mime = "video/*", use = "video" },
   { mime = "text/*", use = "text" },
-  { name = "*.json", use = "text" },
-  { name = "*.md", use = "text" },
-  { name = "*.html", use = "text" },
-  { name = "*.sh", use = "text" },
-  { name = "*.txt", use = "text" },
-  { name = "*.csv", use = "text" },
-  { name = "*.dat", use = "text" },
-  { name = "*.toml", use = "text" },
-  { name = "*.yaml", use = "text" },
-  { name = "*.yml", use = "text" },
-  { name = "*.lua", use = "text" },
+
+  # File extensions
+  { name = "*.pdf", use = "pdf" },
+  { name = "*.json", use = "edit" },
+  { name = "*.md", use = "edit" },
+  { name = "*.html", use = ["edit", "text"] },
+  { name = "*.sh", use = "edit" },
+  { name = "*.txt", use = ["edit", "text"] },
+  { name = "*.csv", use = "edit" },
+  { name = "*.dat", use = "edit" },
+  { name = "*.toml", use = "edit" },
+  { name = "*.yaml", use = "edit" },
+  { name = "*.yml", use = "edit" },
+  { name = "*.lua", use = ["edit", "text"] },
+  { name = "*.log", use = "text" },
+  { name = "*.rs", use = "text" },
 ]
