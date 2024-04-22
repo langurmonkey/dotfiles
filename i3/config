@@ -261,6 +261,7 @@ assign [class="itch"] $ws5
 assign [class="FreeTube"] $ws6
 
 # default floating
+for_window [class="Msgcompose"] floating enable
 for_window [class="gimp"] floating enable
 for_window [class="pdfpc"] floating enable
 for_window [class="pympress"] floating enable
@@ -297,6 +298,7 @@ for_window [title="Blender User Preferences"] floating enable
 for_window [title="Blender Preferences"] floating enable
 for_window [title="Volume Control"] floating enable
 for_window [title="SteamVR Status"] floating enable
+for_window [title="Write: (no subject) - Thunderbird.*"] floating enable
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
