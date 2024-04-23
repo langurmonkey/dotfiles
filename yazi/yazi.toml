@@ -35,7 +35,7 @@ rules = [
   { mime = "application/pdf", use = "pdf" },
   { mime = "image/*", use = "image" },
   { mime = "video/*", use = "video" },
-  { mime = "text/*", use = "text" },
+  { mime = "text/*", use = ["edit", "text"] },
 
   # File extensions
   { name = "*.pdf", use = "pdf" },
