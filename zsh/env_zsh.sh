@@ -36,6 +36,9 @@ function ya() {
 	rm -f -- "$tmp"
 }
 
+# Zoxide
+eval "$(zoxide init zsh)"
+
 # Enable home/end/del
 bindkey  "^[[H"   beginning-of-line
 bindkey  "^[[F"   end-of-line

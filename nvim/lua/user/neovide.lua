@@ -1,6 +1,6 @@
 if vim.g.neovide then
   local neovide_options = {
-    guifont = "Hack Nerd Font:h9",         -- font for graphical nvim
+    guifont = "Hack Nerd Font:h11",         -- font for graphical nvim
     linespace = 4,                         -- space between lines
   }
 
