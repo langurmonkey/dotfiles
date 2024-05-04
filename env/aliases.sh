@@ -103,7 +103,7 @@ alias ctar="tar -cvzf"
 
 # Radio, etc.
 alias catradio="mpv https://directes-radio-int.ccma.cat/live-content/catalunya-radio-hls/bitrate_1.m3u8"
-alias rac1="mpv https://streaming.rac1.cat"
+alias rac1="mpv https://27743.live.streamtheworld.com/RAC_1.mp3"
 
 # Crypto
 alias crypto="curl rate.sx"
