@@ -364,7 +364,7 @@ mode "$mode_gaps_outer" {
 
 # Screen lockers
 bindsym $mod+shift+x exec --no-startup-id $HOME/.dotfiles/bin/lock
-bindsym $mod+shift+z exec --no-startup-id "$myterm --class=wm-floating,wm-floating slock"
+bindsym $mod+shift+z exec --no-startup-id "$myterm --class=wm-floating slock"
 
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
