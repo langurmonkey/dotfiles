@@ -35,11 +35,11 @@ export GPGKEY=448C2B189756743013D5F7C22FD2A59C1D734C1F
 
 # My variables
  if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
+   export EDITOR='/usr/bin/vim'
  else
-   export EDITOR='nvim'
+   export EDITOR='/usr/bin/nvim'
  fi
-export PAGER="less"
+export PAGER='/usr/bin/less'
 # export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 #export MANPAGER="nvim -c 'set ft=man' -"
 export MANPAGER=$PAGER
@@ -60,18 +60,18 @@ export WEB=$PROJ/website-source
 export PHD=$PROJ/phd_thesis
 
 # JVM
-export JAVA_HOME=/usr/lib/jvm/default
-export JDK_HOME=/usr/lib/jvm/default-runtime
+export JAVA_HOME='/usr/lib/jvm/default'
+export JDK_HOME='/usr/lib/jvm/default-runtime'
 
 # Programs
-export TOPCAT=$PROGRAMS/Topcat
+export TOPCAT="$PROGRAMS/Topcat"
 
 # Path
 export PATH="${PATH:+${PATH}:}$HOME/.local/bin:$HOME/.dotfiles/bin:$HOME/.cargo/bin:$HOME/go/bin"
 export PATH="${PATH:+${PATH}:}./"
 
 # Android SDK
-export ANDROID_SDK_ROOT=/opt/android-sdk
+export ANDROID_SDK_ROOT='/opt/android-sdk'
 
 # NNN config
 do-source "$DOTFILES"/nnn/conf.sh
@@ -93,8 +93,8 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
 # Other utils
 export RANGER_RELOAD_RC=FALSE
-export TERMINAL=kitty
-export BROWSER=/usr/bin/firefox
+export TERMINAL='/usr/bin/kitty'
+export BROWSER='/usr/bin/firefox'
 GPG_TTY=$(tty)
 export GPG_TTY
 
