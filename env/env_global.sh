@@ -94,7 +94,7 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 # Other utils
 export RANGER_RELOAD_RC=FALSE
 export TERMINAL=kitty
-export BROWSER=firefox
+export BROWSER=/usr/bin/firefox
 GPG_TTY=$(tty)
 export GPG_TTY
 
