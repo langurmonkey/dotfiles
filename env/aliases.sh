@@ -57,12 +57,16 @@ alias umountqnap="sudo umount /run/media/QNAP/Multimedia"
 alias syncvegetaqnap="rsync -avh /run/media/tsagrista/VegetaDisk/backupQNAP/Multimedia/Photos/tsagrista /run/media/QNAP/Multimedia/Photos/"
 alias syncqnapvegeta="rsync -avh /run/media/QNAP/Multimedia/Photos/tsagrista /run/media/tsagrista/VegetaDisk/backupQNAP/Multimedia/Photos/"
 
-# Dotfiles git alias
+# Git aliases
+alias pull="git pull"
+alias push="git pa"
+
+# Dotfiles
 alias dotfiles="git -C $HOME/.dotfiles"
 alias dot="git -C $HOME/.dotfiles"
 alias dotp="git -C $HOME/.dotfiles add . && git -C $HOME/.dotfiles commit -m 'feat: update' && git -C $HOME/.dotfiles pull && git -C $HOME/.dotfiles pa"
 
-# Gamesaves git alias
+# Gamesaves
 alias gamesaves="git -C $HOME/.gamesaves"
 alias gsv="git -C $HOME/.gamesaves"
 alias gsvp="git -C $HOME/.gamesaves add . && git -C $HOME/.gamesaves commit -m 'feat: update' && git -C $HOME/.gamesaves pull && git -C $HOME/.gamesaves pa"
