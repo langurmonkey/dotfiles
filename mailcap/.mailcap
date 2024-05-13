@@ -4,7 +4,8 @@ audio/*; mpv '%s'; print=mpv --aid=no --vid=no --sid=no '%s' || : ;
 
 image/*; nsxiv -r '%s' $(dirname '%s'); print=nsxiv -r '%s' $(dirname '%s');
 
-text/html; firefox '%s';
+text/html; /usr/bin/firefox '%s';
+text/xml; /usr/bin/firefox '%s';
 text/*; nvim '%s'; needsterminal; print=bat '%s';
 
 application/pdf; zathura '%s';
