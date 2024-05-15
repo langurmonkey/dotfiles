@@ -1,0 +1,6 @@
+if [ $# -eq 0 ]
+  then
+    echo "Usage: gpgdecrypt [FILE]"
+fi
+
+gpg --decrypt "$1"

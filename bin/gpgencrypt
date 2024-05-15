@@ -1,0 +1,6 @@
+if [ $# -eq 0 ]
+  then
+    echo "Usage: gpgencrypt [FILE]"
+fi
+
+gpg --encrypt --armor -r me@tonisagrista.com "$1"
