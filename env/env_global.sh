@@ -42,8 +42,7 @@ fi
 export VISUAL='/usr/bin/nvim'
 export PAGER='/usr/bin/less'
 export BROWSER='/usr/bin/firefox'
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-#export MANPAGER=$PAGER
+export MANPAGER=$PAGER
 
 # Locations
 export PROGRAMS=$HOME/Programs
