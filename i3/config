@@ -183,9 +183,8 @@ bindsym --release $mod+Print exec import $HOME/Pictures/Screenshots/screenshot_$
 #bindsym $mod+Print exec maim -e 'mv $f /tmp/ && gimp /tmp/$f'
 
 # Start Applications
+bindsym $mod+w exec firefox
 bindsym $mod+Shift+w exec qutebrowser
-bindsym $mod+Control+w exec firefox
-bindsym $mod2+w exec thorium-browser
 bindsym $mod+Shift+t exec thunderbird-beta
 bindsym $mod+Shift+f exec "$myterm --class=wm-floating,wm-floating lf `$HOME/.dotfiles/bin/xcwd`"
 bindsym $mod+Control+n exec "dunstctl action"
