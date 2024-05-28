@@ -33,16 +33,19 @@ export XDG_CACHE_HOME=$HOME/.cache
 # GPG Key
 export GPGKEY=448C2B189756743013D5F7C22FD2A59C1D734C1F
 
-# My variables
- if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='/usr/bin/vim'
- else
-   export EDITOR='/usr/bin/nvim'
- fi
+# System utils
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='/usr/bin/vim'
+else
+  export EDITOR='/usr/bin/nvim'
+fi
+export VISUAL='/usr/bin/nvim'
 export PAGER='/usr/bin/less'
-# export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-#export MANPAGER="nvim -c 'set ft=man' -"
-export MANPAGER=$PAGER
+export BROWSER='/usr/bin/firefox'
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+#export MANPAGER=$PAGER
+
+# Locations
 export PROGRAMS=$HOME/Programs
 export GAMES=$PROGRAMS/Games
 export DOTFILES=$HOME/.dotfiles
@@ -94,7 +97,6 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 # Other utils
 export RANGER_RELOAD_RC=FALSE
 export TERMINAL='/usr/bin/kitty'
-export BROWSER='/usr/bin/firefox'
 GPG_TTY=$(tty)
 export GPG_TTY
 
