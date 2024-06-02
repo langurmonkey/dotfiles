@@ -75,5 +75,5 @@ playerctld
 #
 # WALLPAPER - after screens have been setup
 #
-$HOME/.dotfiles/bin/wallpaper-apply
+$HOME/.dotfiles/bin/wallpapermgr
 echo "WALLPAPER DONE"

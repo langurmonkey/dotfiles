@@ -480,7 +480,7 @@ exec sleep 3s && numlockx
 # WALLPAPER - after screens have been setup
 #
 #exec --no-startup-id hsetroot -solid "#000000"
-exec_always --no-startup-id sleep 5s && $HOME/.dotfiles/bin/wallpaper-apply && notify-send "Wallpaper applied"
+exec_always --no-startup-id sleep 5s && $HOME/.dotfiles/bin/wallpapermgr && notify-send "Wallpaper applied"
 
 #
 # BAR (polybar, bumblebee-status, i3status...)

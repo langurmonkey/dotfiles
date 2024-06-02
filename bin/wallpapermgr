@@ -1,0 +1,78 @@
+#!/bin/bash
+
+CURRENT_WALLPAPER="$HOME/Pictures/current-wallpaper"
+SCRIPT_NAME=$(basename "$0")
+CURRENT_DIR=$(pwd)
+
+# Function to display the help message.
+function display_help {
+    echo "Manage wallpapers. Use without arguments to apply the current wallpaper. Set a new wallpaper with -s."
+    echo
+    echo "Usage: $SCRIPT_NAME [-s IMAGE] [-h]"
+    echo
+    echo "Options:"
+    echo "  -s <string>  Wallpaper to set."
+    echo "  -h           Display this help message"
+    echo
+    echo "Example:"
+    echo "  $SCRIPT_NAME -s wallpaper.jpg"
+    echo "  $SCRIPT_NAME -h"
+}
+
+function apply_wallpaper {
+  if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
+    # Wayland.
+    echo "Using swaybg"
+    swaybg -m fill -i "$CURRENT_WALLPAPER"
+  else
+    # X11.
+    echo "Using feh"
+    feh --bg-fill "$CURRENT_WALLPAPER"
+  fi
+  echo "Wallpaper applied"
+}
+
+function set_wallpaper() {
+  local wallpaper="$1"
+  echo "Setting $wallpaper"
+  rm -f "$CURRENT_WALLPAPER"
+  ln -s "$wallpaper" "$CURRENT_WALLPAPER"
+  apply_wallpaper
+}
+
+no_args=true
+
+# Parse the command-line options.
+while getopts ":hs:" option; do
+  no_args=false
+  case $option in
+      h)
+          display_help
+          exit 0
+          ;;
+      s) 
+          new_wallpaper=$OPTARG
+          if ! [[ "$new_wallpaper" == /* ]]; then
+            # Relative path, complete.
+            new_wallpaper=$(pwd)/$new_wallpaper
+          fi
+          set_wallpaper "$new_wallpaper"
+          exit 0
+          ;;
+      \?)
+          echo "Invalid option: -$OPTARG" >&2
+          exit 1
+          ;;
+      :)
+          echo "Option -$OPTARG requires an argument." >&2
+          exit 1
+          ;;
+  esac
+done
+
+# No arguments, just apply current wallpaper.
+if $no_args; then
+  apply_wallpaper
+fi
+exit 0
+

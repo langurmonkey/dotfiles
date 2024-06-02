@@ -20,7 +20,7 @@ desc = "Go to the Gaia Sky data directory"
 
 [[manager.append_keymap]]
 on   = [ "b", "g" ]
-run  = 'shell "setwallpaper $0" --confirm --orphan'
+run  = 'shell "wallpapermgr -s $0" --confirm --orphan'
 desc = "Set current image as wallpaper"
 
 [[manager.append_keymap]]
