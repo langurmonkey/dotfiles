@@ -289,6 +289,7 @@ c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%
 ## Dark mode
 ## 
 c.colors.webpage.darkmode.enabled = True
+config.set('colors.webpage.darkmode.enabled', True, '<all-urls>')
 config.set('colors.webpage.darkmode.enabled', False, 'https://*.uni-heidelberg.de')
 c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
 c.colors.webpage.darkmode.threshold.foreground = 150
