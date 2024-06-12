@@ -291,6 +291,9 @@ c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%
 c.colors.webpage.darkmode.enabled = True
 config.set('colors.webpage.darkmode.enabled', True, '<all-urls>')
 config.set('colors.webpage.darkmode.enabled', False, 'https://*.uni-heidelberg.de')
+config.set('colors.webpage.darkmode.enabled', False, 'https://*amazon.de')
+config.set('colors.webpage.darkmode.enabled', False, 'https://*amazon.com')
+config.set('colors.webpage.darkmode.enabled', False, 'https://*amazon.es')
 config.set('colors.webpage.darkmode.enabled', False, 'https://*.garmin.com')
 c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
 c.colors.webpage.darkmode.threshold.foreground = 150
