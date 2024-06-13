@@ -294,10 +294,11 @@ config.set('colors.webpage.darkmode.enabled', False, 'https://*.uni-heidelberg.d
 config.set('colors.webpage.darkmode.enabled', False, 'https://*.amazon.de')
 config.set('colors.webpage.darkmode.enabled', False, 'https://*.amazon.com')
 config.set('colors.webpage.darkmode.enabled', False, 'https://*.amazon.es')
+config.set('colors.webpage.darkmode.enabled', False, 'https://*.fahrrad.de')
 config.set('colors.webpage.darkmode.enabled', False, 'https://*.garmin.com')
 c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
-c.colors.webpage.darkmode.threshold.foreground = 150
-c.colors.webpage.darkmode.threshold.background = 205
+c.colors.webpage.darkmode.threshold.foreground = 80
+c.colors.webpage.darkmode.threshold.background = 225
 c.colors.webpage.preferred_color_scheme = 'dark'
 
 ## YAZI as file picker
