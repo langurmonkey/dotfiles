@@ -11,11 +11,11 @@ pdf = [
 	{ run = 'evince "$1"', desc = "evince", block = false },
 ]
 image = [
-    { run = 'feh "$1"', desc = "feh", block = false },
+    { run = 'imv "$1"', desc = "imv", block = false },
     { run = 'krita "$1"', desc = "krita", block = false },
     { run = 'flatpak run org.kde.krita "$1"', desc = "krita (flatpak)", block = false },
     { run = 'nsxiv "$1"', desc = "nsxiv", block = false },
-    { run = 'imv "$1"', desc = "imv", block = false },
+    { run = 'feh "$1"', desc = "feh", block = false },
     { run = 'gimp "$1"', desc = "gimp", block = false },
     { run = 'flatpak run org.gimp.GIMP "$1"', desc = "gimp (flatpak)", block = false },
 ]
