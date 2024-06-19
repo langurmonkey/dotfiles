@@ -30,6 +30,9 @@ edit = [
 video = [
     { run = 'mpv "$1"', desc = "mpv", block = false },
 ]
+audio = [
+    { run = 'mpv --force-window "$1"', desc = "mpv", block = false },
+]
 
 [open]
 rules = [
@@ -37,6 +40,7 @@ rules = [
   { mime = "application/pdf", use = "pdf" },
   { mime = "image/*", use = "image" },
   { mime = "video/*", use = "video" },
+  { mime = "audio/*", use = "audio" },
   { mime = "text/*", use = ["edit", "text"] },
 
   # File extensions
@@ -54,4 +58,7 @@ rules = [
   { name = "*.lua", use = ["edit", "text"] },
   { name = "*.log", use = "text" },
   { name = "*.rs", use = "text" },
+  { name = "*.mp3", use = "audio" },
+  { name = "*.wav", use = "audio" },
+  { name = "*.ogg", use = "audio" },
 ]
