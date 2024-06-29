@@ -1,0 +1,27 @@
+#!/usr/bin/bash
+
+# Check if the correct number of arguments is provided
+if [ "$#" -ne 2 ]; then
+    echo "Usage: $0 input_video output_video"
+    exit 1
+fi
+
+# Assign input and output file names from arguments
+input_video=$1
+output_video=$2
+
+# Use ffmpeg to transcode the video to 30 FPS
+ffmpeg -i "$input_video" -r 30 -filter:v fps=30 -vsync cfr -c:v libx264 -preset slow -crf 25 -c:a aac -b:a 192k "$output_video"
+
+# Explanation of ffmpeg options:
+# -i "$input_video": specifies the input file
+# -r 30: sets the output frame rate to 30 FPS
+# -c:v libx264: specifies the video codec (H.264)
+# -preset slow: sets the encoding preset for better quality
+# -crf 22: sets the Constant Rate Factor (quality level) for the video
+# -c:a aac: specifies the audio codec (AAC)
+# -b:a 192k: sets the audio bitrate to 192kbps
+
+echo "Transcoding completed: $output_video"
+
+#ffmpeg -i INPUT.mp4 -filter:v fps=30 -vsync cfr OUTPUT.mp4
