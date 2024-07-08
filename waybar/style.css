@@ -1,17 +1,17 @@
 * {
   border: none;
-  border-radius: 6;
+  border-radius: 4;
   padding: 0.1em;
   /* `otf-font-awesome` is required to be installed for icons */
   font-family: "Hack Nerd Font";
-  font-size: 14px;
+  font-size: 13px;
   min-height: 0;
 }
 
 window#waybar {
   border-bottom: 0;
   color: #ffffff;
-  background: rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.4);
 }
 
 window#waybar.hidden {

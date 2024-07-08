@@ -1,8 +1,8 @@
 {
   "position": "top", // Waybar position (top|bottom|left|right)
   "layer": "top",
-  "height": 27, // Waybar height (to be removed for auto height)
-  "spacing": 5, // Gaps between modules (px)
+  "height": 25, // Waybar height (to be removed for auto height)
+  "spacing": 4, // Gaps between modules (px)
   // Choose the order of the modules
   "modules-left": ["hyprland/workspaces", "sway/workspaces", "sway/mode", "hyprland/window", "custom/media"],
   "modules-center": [],
