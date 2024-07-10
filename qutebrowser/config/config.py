@@ -296,6 +296,7 @@ config.set('colors.webpage.darkmode.enabled', False, 'https://*.amazon.com')
 config.set('colors.webpage.darkmode.enabled', False, 'https://*.amazon.es')
 config.set('colors.webpage.darkmode.enabled', False, 'https://*.fahrrad.de')
 config.set('colors.webpage.darkmode.enabled', False, 'https://*.garmin.com')
+config.set('colors.webpage.darkmode.enabled', False, 'https://*.thebookofshaders.com')
 c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
 c.colors.webpage.darkmode.threshold.foreground = 80
 c.colors.webpage.darkmode.threshold.background = 225
