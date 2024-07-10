@@ -6,7 +6,7 @@
   // Choose the order of the modules
   "modules-left": ["hyprland/workspaces", "sway/workspaces", "sway/mode", "hyprland/window", "custom/media"],
   "modules-center": [],
-  "modules-right": ["mpd", "idle_inhibitor", "custom/cryptobtc", "custom/cryptoeth", "custom/cpulevels", "memory", "keyboard-state", "sway/language", "backlight", "battery#bat2", "battery", "pulseaudio", "clock", "tray"],
+  "modules-right": ["mpd", "idle_inhibitor", "custom/cryptobtc", "custom/cryptoeth", "custom/cpulevels", "memory", "sway/language", "backlight", "battery#bat2", "battery", "pulseaudio", "clock", "tray"],
   "keyboard-state": {
     "numlock": true,
     "capslock": true,
