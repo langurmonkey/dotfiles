@@ -1,4 +1,0 @@
-#!/bin/bash
-
-export _JAVA_AWT_WM_NONREPARENTING=1
-exec Hyprland --config /home/tsagrista/.dotfiles/hyprland/hyprland-simian.conf
