@@ -16,7 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Install your plugins here
 require("lazy").setup({
-  -- My plugins here
+  -- Plugins here
   "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
   "nvim-lua/plenary.nvim", -- Useful lua functions used in lots of plugins
   "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
@@ -80,6 +80,9 @@ require("lazy").setup({
 
   -- Telescope
   "nvim-telescope/telescope.nvim",
+  -- Mini.nvim
+  { 'echasnovski/mini.icons', version = false },
+
   -- FZF for telescope
   { 
     "nvim-telescope/telescope-fzf-native.nvim", 
