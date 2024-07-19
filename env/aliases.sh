@@ -111,9 +111,8 @@ alias rac1="mpv https://27743.live.streamtheworld.com/RAC_1.mp3"
 
 # Crypto
 alias crypto="curl rate.sx"
-alias btc="curl rate.sx/btc"
-alias eth="curl rate.sx/eth"
-alias ltc="curl rate.sx/ltc"
+alias btc="curl rate.sx/btc@30d"
+alias eth="curl rate.sx/eth@30d"
 
 # ChatGPT ata
 alias ata="ata --config=/home/tsagrista/.config/ata/ata.toml"
