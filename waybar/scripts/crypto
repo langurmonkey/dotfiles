@@ -32,8 +32,12 @@ def print_currency(data: list, rate: float):
     elif percentChange == 0: percentChangeInfo = percentChangeFormat.format('#CCCCCC', '', percentChange)
     else: percentChangeInfo = percentChangeFormat.format('#F7555E', '⇩', percentChange)
 
-    print(('{} {:.' + str(precision) + 'f}€ {}').format(data['symbol'], price, percentChangeInfo)) # Full Text
-    print(('{} {:.' + str(precision) + 'f}€').format(data['symbol'], price)) # Short Text
+    sym = data['symbol']
+    if sym == "BTC":
+        sym = "₿"
+
+    print(('{} {:.' + str(precision) + 'f}€ {}').format(sym, price, percentChangeInfo)) # Full Text
+    print(('{} {:.' + str(precision) + 'f}€').format(sym, price)) # Short Text
 
 if len(sys.argv) < 2:
     sys.exit("Error: need 1 parameter:   crypto bitcoin")

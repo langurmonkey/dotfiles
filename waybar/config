@@ -1,12 +1,12 @@
 {
   "position": "top", // Waybar position (top|bottom|left|right)
   "layer": "top",
-  "height": 25, // Waybar height (to be removed for auto height)
-  "spacing": 4, // Gaps between modules (px)
+  "height": 22, // Waybar height (to be removed for auto height)
+  "spacing": 3, // Gaps between modules (px)
   // Choose the order of the modules
-  "modules-left": ["hyprland/workspaces", "sway/workspaces", "sway/mode", "hyprland/window", "custom/media"],
-  "modules-center": [],
-  "modules-right": ["mpd", "idle_inhibitor", "custom/cryptobtc", "custom/cryptoeth", "custom/cpulevels", "memory", "sway/language", "backlight", "battery#bat2", "battery", "pulseaudio", "clock", "tray"],
+  "modules-left": ["hyprland/workspaces", "hyprland/window", "custom/media"],
+  "modules-center": ["hyprland/language"],
+  "modules-right": ["mpd", "idle_inhibitor", "custom/cryptobtc", "custom/cryptoeth", "custom/cpulevels", "cpu", "memory", "backlight", "battery#bat2", "battery", "pulseaudio", "clock", "tray"],
   "keyboard-state": {
     "numlock": true,
     "capslock": true,
@@ -33,6 +33,12 @@
       "9": "9  ",
       "10": "10  ",
     }
+  },
+  "hyprland/language": {
+    "format": "  {}",
+    "format-en": "en/us",
+    "format-es": "cat",
+    "format-de": "de",
   },
   "sway/mode": {
     "format": "{}"
@@ -71,8 +77,8 @@
     }
   },
   "tray": {
-    "icon-size": 21,
-    "spacing": 10
+    "icon-size": 18,
+    "spacing": 4
   },
   "clock": {
     "timezone": "Europe/Berlin",
@@ -90,7 +96,7 @@
     "exec": "$HOME/.dotfiles/waybar/scripts/crypto bitcoin"
   },
   "cpu": {
-    "format": "{usage}% ",
+    "format": "{usage}% ",
     "tooltip": false
   },
   "custom/cpulevels": {
@@ -98,7 +104,7 @@
     "exec": "$HOME/.dotfiles/waybar/scripts/cpu-levels"
   },
   "memory": {
-    "format": "{}% "
+    "format": "{}% "
   },
   "temperature": {
     // "thermal-zone": 2,
@@ -121,7 +127,7 @@
     },
     "format": "{capacity}% {icon}",
     "format-charging": "{capacity}% ",
-    "format-plugged": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
     "format-alt": "{time} {icon}",
     // "format-good": "", // An empty format will hide the module
     // "format-full": "",
@@ -150,8 +156,7 @@
     "format-source-muted": "",
     "format-icons": {
       "headphone": "",
-      "hands-free": "",
-      "headset": "",
+      "headset": "🎧",
       "phone": "",
       "portable": "",
       "car": "",
