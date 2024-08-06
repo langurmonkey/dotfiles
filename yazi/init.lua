@@ -26,3 +26,8 @@ function Header:render(area)
 		ui.Paragraph(area, { right }):align(ui.Paragraph.RIGHT),
 	}
 end
+
+-- Enable copy/paste between instances.
+require("session"):setup {
+  sync_yanked = true
+}
