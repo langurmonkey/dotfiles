@@ -260,11 +260,11 @@ c.url.default_page = 'file://' + home + '/.dotfiles/startpage/index.html'
 ## `:open google qutebrowser`.
 ## Type: Dict
 # c.url.searchengines = {'DEFAULT': 'https://www.qwant.com/?l=en&q={}&t=web'}
-c.url.searchengines = {'DEFAULT': 'https://search.bus-hit.me/search?q={}'}
+c.url.searchengines = {'DEFAULT': 'https://priv.au/search?q={}'}
 #c.url.searchengines = {'DEFAULT': 'https://search.brave.com/search?q={}'}
 #c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
 #c.url.searchengines = {'DEFAULT': 'http://localhost:8888?q={}'}
-c.url.searchengines.update({'sx': 'https://search.bus-hit.me/search?q={}'})
+c.url.searchengines.update({'sx': 'https://priv.au/search?q={}'})
 c.url.searchengines.update({'br': 'https://search.brave.com/search?q={}'})
 c.url.searchengines.update({'ddg': 'https://duckduckgo.com/?q={}'})
 c.url.searchengines.update({'ddgo': 'https://3g2upl4pq6kufc4m.onion/?q={}'})
