@@ -70,6 +70,7 @@ background-color: #FFFFFF;
 }
 
 #clock,
+#custom-clock,
 #battery,
 #cpu,
 #memory,
@@ -91,6 +92,7 @@ background-color: #FFFFFF;
   color: #ffffff;
 }
 
+#custom-clock,
 #clock {
   background-color: #295499;
 }
