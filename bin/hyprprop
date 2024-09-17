@@ -1,67 +1,95 @@
-#!/usr/bin/env bash
+#!/bin/sh
+## Hyprprop: a xprop replacement for hyprland
+## Requirements:
+##  - `slurp`: to select an area
+##  - `hyprctl`: to read properties of current window
+##  - `jq`: json utility to parse hyprctl output
+##
+## See `man 1 hyprprop` for further details
 
-EVENT_HANDLER="$(dirname "$0")/event_handler"
+## Author: Douile (https://github.com/Douile)
 
-prop() {
-    hypr_tree=$(hyprctl clients -j)
+## The window selection part (and others) of this tool is based on grimblast
+## https://github.com/hyprwm/contrib/blob/main/grimblast
 
-    out_file=/tmp/hyprprop.out
-    error_file=/tmp/hyprprop.error
-    echo "$hypr_tree" | jq -r ".[] | select(.workspace.id == "$(hyprctl activewindow -j \
-                                                                | jq -r '.workspace.id')\)"" \
-                      | jq -r ".at,.size" | jq -s "add" | jq '_nwise(4)' \
-                      | jq -r '"\(.[0]),\(.[1]) \(.[2])x\(.[3])"' \
-                      | slurp -r > $out_file 2> $error_file &
-    PID=$!
-    wait $PID
+set -eu
 
-    error=$(cat $error_file)
-    rm $error_file
-
-    selection=$(cat $out_file)
-    rm $out_file
-
-    [ -n "$error" ] && prop # invalid box format: null,null nullxnull
-    [ -z "$selection" ] && cleanup && exit
-
-    x=$(echo "$selection" | awk -F'[, x]' '{print $1}')
-    y=$(echo "$selection" | awk -F'[, x]' '{print $2}')
-    w=$(echo "$selection" | awk -F'[, x]' '{print $3}')
-    h=$(echo "$selection" | awk -F'[, x]' '{print $4}')
-    workspace=$(hyprctl activewindow -j | jq -r '.workspace.id')
-
-    # Find the window matching the selection
-    echo "$hypr_tree" | jq -r --argjson i "$workspace" \
-                              --argjson x "$x" --argjson y "$y" \
-                              --argjson w "$w" --argjson h "$h" \
-             '.[] | select(.workspace.id == $i and
-                           .at[0] == $x and .at[1] == $y and
-                           .size[0] == $w and .size[1] == $h)'
-
-    cleanup
-    exit
+check() {
+  COMMAND=$1
+  if command -v "$COMMAND" >/dev/null 2>&1; then
+    RESULT="OK"
+  else
+    RESULT="NOT FOUND"
+  fi
+  echo "   $COMMAND: $RESULT"
 }
 
-cleanup() {
-    hyprevents -f "$EVENT_HANDLER" -k
+# https://www.shellcheck.net/wiki/SC2086
+jq_with_flags() {
+  if [ "$RAW" = "yes" ]; then
+    set -- --compact-output "$@"
+    set -- --monochrome-output "$@"
+  fi
+  jq "$@"
 }
 
-event_handler() {
-    pkill slurp
-    wait $PID 2>/dev/null
-    prop
-}
+CHECK=no
+HELP=no
+ID=""
+RAW=no
 
-terminate() {
-    pkill slurp
-    wait $PID 2>/dev/null
-    cleanup
-    exit
-}
+while [ $# -gt 0 ]; do
+  key="$1"
+  case "$key" in
+  -c | --check)
+    CHECK=yes
+    shift
+    ;;
+  -h | --help)
+    HELP=yes
+    shift
+    ;;
+  --id)
+    shift
+    ID="$1"
+    shift
+    ;;
+  -r | --raw)
+    RAW=yes
+    shift
+    ;;
+  *)
+    break
+    ;;
+  esac
+done
 
-# Capture events on hyprland window/workspace change events
-hyprevents -f "$EVENT_HANDLER" 2>/dev/null &
-trap event_handler USR1
+if [ "$HELP" = "yes" ]; then
+  echo "Hyprprop: View window information of selected window"
+  echo "Usage:"
+  echo "  hyprprop [--help] [--check] [--id id] [--raw]"
+  echo ""
+  echo "Flags:"
+  echo "  --help    : Print help information"
+  echo "  --check   : Check dependencies are installed"
+  echo "  --id <id> : Print information for window ID, skip selection, e.g. 0x1d0503e0"
+  echo "  --raw     : Output raw JSON data"
+  echo ""
+  exit
+elif [ "$CHECK" = "yes" ]; then
+  check slurp
+  check hyprctl
+  check jq
+  exit
+fi
 
-trap terminate SIGINT
-prop
+WORKSPACES="$(hyprctl monitors -j | jq -r 'map(.activeWorkspace.id)')"
+WINDOWS="$(hyprctl clients -j | jq -r --argjson workspaces "$WORKSPACES" 'map(select([.workspace.id] | inside($workspaces)))')"
+
+if [ "$ID" = "" ]; then
+  ID=$(printf "%s" "$WINDOWS" | jq -r '.[] | "\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1]) \(.address)"' | slurp -f "%l")
+fi
+
+# NOTE: We don't want to expand the expression as it is an argument used by jq
+# shellcheck disable=SC2016
+printf "%s" "$WINDOWS" | jq_with_flags --arg id "$ID" '.[] | select(.address == $id)'
