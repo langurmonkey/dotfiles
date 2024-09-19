@@ -22,23 +22,6 @@ local setup = { ---@type false | "classic" | "modern" | "helix"
   spec = {},
   -- show a warning when issues were detected with your mappings
   notify = true,
-  -- Enable/disable WhichKey for certain mapping modes
-  modes = {
-    n = true, -- Normal mode
-    i = true, -- Insert mode
-    x = true, -- Visual mode
-    s = true, -- Select mode
-    o = true, -- Operator pending mode
-    t = true, -- Terminal mode
-    c = true, -- Command mode
-    -- Start hidden and wait for a key to be pressed before showing the popup
-    -- Only used by enabled xo mapping modes.
-    -- Set to false to show the popup immediately (after the delay)
-    defer = {
-      ["<C-V>"] = true,
-      V = true,
-    },
-  },
   plugins = {
     marks = true, -- shows a list of your marks on ' and `
     registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
@@ -166,19 +149,23 @@ local setup = { ---@type false | "classic" | "modern" | "helix"
   },
   show_help = true, -- show a help message in the command line for using WhichKey
   show_keys = true, -- show the currently pressed key and its label as a message in the command line
-  -- Which-key automatically sets up triggers for your mappings.
-  -- But you can disable this and setup the triggers yourself.
-  -- Be aware, that triggers are not needed for visual and operator pending mode.
-  triggers = true, -- automatically setup triggers
+    -- Which-key automatically sets up triggers for your mappings.
+  -- But you can disable this and setup the triggers manually.
+  -- Check the docs for more info.
+  ---@type wk.Spec
+  triggers = {
+    { "<auto>", mode = "nxso" },
+  },
+  -- Start hidden and wait for a key to be pressed before showing the popup
+  -- Only used by enabled xo mapping modes.
+  ---@param ctx { mode: string, operator: string }
+  defer = function(ctx)
+    return ctx.mode == "V" or ctx.mode == "<C-V>"
+  end,
   disable = {
     -- disable WhichKey for certain buf types and file types.
     ft = {},
     bt = {},
-    -- disable a trigger for a certain context by returning true
-    ---@type fun(ctx: { keys: string, mode: string, plugin?: string }):boolean?
-    trigger = function(ctx)
-      return false
-    end,
   },
   debug = false, -- enable wk.log in the current directory
 }
@@ -191,20 +178,6 @@ local mappings = {
     { "<leader>c", "<cmd>Bdelete!<CR>", desc = "Close Buffer", nowait = true, remap = false },
     { "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Explorer", nowait = true, remap = false },
     { "<leader>f", "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes'))<cr>", desc = "Find files", nowait = true, remap = false },
-    { "<leader>g", group = "Git", nowait = true, remap = false },
-    { "<leader>gR", "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", desc = "Reset Buffer", nowait = true, remap = false },
-    { "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch", nowait = true, remap = false },
-    { "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "Checkout commit", nowait = true, remap = false },
-    { "<leader>gd", "<cmd>Gitsigns diffthis HEAD<cr>", desc = "Diff", nowait = true, remap = false },
-    { "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", desc = "Lazygit", nowait = true, remap = false },
-    { "<leader>gj", "<cmd>lua require 'gitsigns'.next_hunk()<cr>", desc = "Next Hunk", nowait = true, remap = false },
-    { "<leader>gk", "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", desc = "Prev Hunk", nowait = true, remap = false },
-    { "<leader>gl", "<cmd>lua require 'gitsigns'.blame_line()<cr>", desc = "Blame", nowait = true, remap = false },
-    { "<leader>go", "<cmd>Telescope git_status<cr>", desc = "Open changed file", nowait = true, remap = false },
-    { "<leader>gp", "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", desc = "Preview Hunk", nowait = true, remap = false },
-    { "<leader>gr", "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", desc = "Reset Hunk", nowait = true, remap = false },
-    { "<leader>gs", "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", desc = "Stage Hunk", nowait = true, remap = false },
-    { "<leader>gu", "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", desc = "Undo Stage Hunk", nowait = true, remap = false },
     { "<leader>h", "<cmd>nohlsearch<CR>", desc = "No Highlight", nowait = true, remap = false },
     { "<leader>l", group = "LSP", nowait = true, remap = false },
     { "<leader>lI", "<cmd>LspInstallInfo<cr>", desc = "Installer Info", nowait = true, remap = false },
