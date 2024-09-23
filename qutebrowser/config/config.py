@@ -56,11 +56,17 @@ c.aliases.update({'ipfs': 'open -t localhost:5001/webui'})
 c.aliases.update({"clean" : "spawn --userscript readability-js"})
 c.aliases.update({"json" : "spawn --userscript format_json"})
 # Toggle javascript
-c.aliases.update({"tjs" : "config-cycle content.javascript.enabled"})
+c.aliases.update({"js" : "config-cycle content.javascript.enabled"})
 # Disable javascript
 c.aliases.update({"djs" : "set content.javascript.enabled false"})
 # Enable javascript
 c.aliases.update({"ejs" : "set content.javascript.enabled true"})
+# Enable dark mode
+c.aliases.update({"edm" : "set colors.webpage.darkmode.enabled true"})
+# Disable dark mode
+c.aliases.update({"ddm" : "set colors.webpage.darkmode.enabled false"})
+# Toggle dark mode
+c.aliases.update({"dm" : "config-cycle colors.webpage.darkmode.enabled"})
 
 
 ## Width (in pixels) of the scrollbar in the completion window.
