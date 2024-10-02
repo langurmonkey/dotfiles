@@ -7,6 +7,7 @@ vim.cmd [[
     autocmd FileType qf set nobuflisted
     autocmd FileType md,rst,tex,txt,log,yaml,json setlocal wrap
     autocmd FileType md,rst,tex,txt,log,yaml,json :set spell
+    autocmd FileType json set formatprg=jq
   augroup end
 
   augroup _git
