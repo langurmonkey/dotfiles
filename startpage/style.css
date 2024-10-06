@@ -1,9 +1,9 @@
 @import url(https://fonts.googleapis.com/css2?family=Source+Code+Pro);
 :root {
-  --background-color: rgb(253, 129, 57);
+  --background-color: rgb(124 43 183);
   --link-hover: rgb(252, 100, 19);
   --link-heading: rgb(255, 157, 72);
-  --background-glow: 0px 0px 30px rgb(255, 150, 85);
+  --background-glow: 0px 0px 30px  rgb(124 43 183);
 }
 * {
   padding: 0;
@@ -16,7 +16,7 @@ html {
   justify-content: center;
 }
 body {
-  background-color: rgb(36, 36, 36);
+  background-color: rgb(25 22 30);
   font-family: "Source Code Pro", monospace;
   display: flex;
   align-items: center;
@@ -34,7 +34,7 @@ body {
 .maincard {
   display: flex;
   flex-direction: column;
-  background-color: rgba(35, 35, 35, 0.902);
+  background-color: rgb(9 26 56 / 90%);
   margin-top: 10%;
   height: 710px;
   width: 700px;
@@ -43,7 +43,7 @@ body {
 }
 .content {
   display: flex;
-  gap: 3rem;
+  gap: 2rem;
 }
 .image {
   max-width: 50%;
