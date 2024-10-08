@@ -7,6 +7,9 @@ alias yay="paru"
 alias pru="paru"
 alias yeet="paru -Rcs"
 
+# Installed packages with descriptions
+alias pkglist='paru -Qs --color=always | less -R'
+
 # Format for listings and directory usages
 alias ll="eza -alh --color=auto --icons --group-directories-first"
 alias la="eza -alhS --color=auto --icons --group-directories-first"
@@ -17,6 +20,9 @@ alias df="df -Th"
 alias du="du -h"
 alias cp="cp -fv"
 alias rsync="rsync --progress"
+
+# Display journalctl errors
+alias error='journalctl -b -p err'
 
 # Wireguard connect and disconnect
 alias wgc="sudo wg-quick up"
@@ -74,7 +80,7 @@ alias gsvp="git -C $HOME/.gamesaves add . && git -C $HOME/.gamesaves commit -m '
 # Mus invokes ncmpcpp
 alias mus="ncmpcpp"
 
-# Movement random
+# Random movement
 alias up="cd .."
 alias back="cd -"
 alias ..="cd .."
@@ -86,12 +92,6 @@ alias ..3="cd ../../.."
 # Best calculator
 alias bc="bc -l"
 
-# Image viewer
-alias img="sxiv"
-
-# Screen off script using vbetool
-alias off="~/.dotfiles/bin/monitor_off"
-
 # Systemd
 alias sstatus="sudo systemctl status"
 alias sstart="sudo systemctl start"
@@ -99,11 +99,6 @@ alias srestart="sudo systemctl restart"
 alias sstop="sudo systemctl stop"
 alias senable="sudo systemctl enable"
 alias sdisable="sudo systemctl disable"
-
-# Archives
-alias ltar="tar -ztvf"
-alias untar="tar -zxvf"
-alias ctar="tar -cvzf"
 
 # Radio, etc.
 alias catradio="mpv https://directes-radio-int.ccma.cat/live-content/catalunya-radio-hls/bitrate_1.m3u8"
@@ -113,9 +108,6 @@ alias rac1="mpv https://27743.live.streamtheworld.com/RAC_1.mp3"
 alias crypto="curl rate.sx"
 alias btc="curl rate.sx/btc@30d"
 alias eth="curl rate.sx/eth@30d"
-
-# ChatGPT ata
-alias ata="ata --config=/home/tsagrista/.config/ata/ata.toml"
 
 # Alias gimp to flatpak if gimp is not in the system
 if ! command -v gimp &> /dev/null
