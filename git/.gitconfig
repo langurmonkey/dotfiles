@@ -78,3 +78,9 @@
 
 [checkout]
   defaultRemote = origin
+
+[sendemail]
+  smtpserver = smtp.mailbox.org
+  smtpuser = me@tonisagrista.com
+  smtpencryption = tls
+  smtpserverport = 587
