@@ -1,7 +1,7 @@
 theme = "onedark"
 
 [editor]
-line-number = "absolute"
+line-number = "relative"
 cursorline = true
 mouse = true
 color-modes = true
