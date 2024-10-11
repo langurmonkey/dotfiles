@@ -37,9 +37,9 @@ export GPGKEY=448C2B189756743013D5F7C22FD2A59C1D734C1F
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='/usr/bin/vim'
 else
-  export EDITOR='/usr/bin/nvim'
+  export EDITOR='/usr/bin/helix'
 fi
-export VISUAL='/usr/bin/nvim'
+export VISUAL='/usr/bin/helix'
 export PAGER='/usr/bin/less'
 export BROWSER='/usr/bin/firefox'
 export MANPAGER=$PAGER
