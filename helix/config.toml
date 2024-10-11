@@ -1,4 +1,4 @@
-theme = "catppuccin_frappe"
+theme = "onedark"
 
 [editor]
 line-number = "absolute"
@@ -25,6 +25,9 @@ select = "underline"
 [editor.file-picker]
 hidden = false
 parents = false
+
+[editor.soft-wrap]
+enable = true
 
 # Do not render white spaces
 [editor.whitespace]
