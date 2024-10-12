@@ -1,0 +1,14 @@
+[language-server.typos]     
+command = "typos-lsp"
+
+
+# Languages
+[[language]] 
+name = "rust" 
+language-servers = ["rust-analyzer", "typos"]
+
+[[language]]
+name = "markdown"
+language-servers = [ "marksman", "typos" ]
+
+
