@@ -47,3 +47,7 @@ skip-levels = 1
 display-messages = true
 auto-signature-help	= true
 display-signature-help-docs	= true
+
+# Key mappings
+[keys.normal]
+D = "kill_to_line_end"
