@@ -1,10 +1,19 @@
 theme = "onedark"
 
 [editor]
+# Relative line numbering
 line-number = "relative"
+# Highlight the whole current line
 cursorline = true
+# Enable mouse use
 mouse = true
+# Colors :)
 color-modes = true
+# Force the theme to show colors
+true-color = true
+# Always show the tabs at the top
+bufferline = "always"
+rulers = [100]
 
 [editor.cursor-shape]
 insert = "bar"
@@ -12,20 +21,21 @@ normal = "block"
 select = "underline"
 
 # Helix's statusline
-# [editor.statusline]
-# left = ["mode", "spinner"]
-# center = ["file-name", "diagnostics"]
-# right = ["selections", "position"]
-# separator = "│"
-# mode.normal = "NORMAL"
-# mode.insert = "INSERT"
-# mode.select = "SELECT"
+[editor.statusline]
+left = ["mode", "spinner", "spacer", "version-control"]
+center = ["file-name", "diagnostics"]
+right = ["selections", "position", "file-encoding", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
 
 # File explorer configuration
 [editor.file-picker]
 hidden = false
 parents = false
 
+# Enable soft wrapping
 [editor.soft-wrap]
 enable = true
 
@@ -33,13 +43,9 @@ enable = true
 [editor.whitespace]
 render = "none"
 
-# Enable soft wrapping
-#[editor.soft-wrap]
-#enable = true
-
 [editor.indent-guides]
-render = false
-character = "╎" # Some characters that work well: "▏", "┆", "┊", "⸽"
+render = true
+character = "▏" # Some characters that work well: "▏", "┆", "┊", "⸽"
 skip-levels = 1
 
 # LSP Server configuration
@@ -48,6 +54,17 @@ display-messages = true
 auto-signature-help	= true
 display-signature-help-docs	= true
 
-# Key mappings
+# Key mappings in normal mode
 [keys.normal]
+C-s = ":w"
 D = "kill_to_line_end"
+# Use Shift-l and -h to move through tabs
+S-l = "goto_next_buffer"
+S-h = "goto_previous_buffer"
+A-x = "extend_to_line_bounds"
+X = ["extend_line_up", "extend_to_line_bounds"]
+
+# Key mappings in select mode
+[keys.select]
+A-x = "extend_to_line_bounds"
+X = ["extend_line_up", "extend_to_line_bounds"]
