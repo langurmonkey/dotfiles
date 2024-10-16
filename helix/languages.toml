@@ -1,6 +1,8 @@
+[language-server]
+glsl_analyzer = { command = "glsl_analyzer" }
+
 [language-server.typos]     
 command = "typos-lsp"
-
 
 # Languages
 [[language]] 
@@ -11,4 +13,14 @@ language-servers = ["rust-analyzer", "typos"]
 name = "markdown"
 language-servers = [ "marksman", "typos" ]
 
+[[language]]
+name = "toml"
+language-servers = [ "taplo", "typos" ]
 
+[[language]]
+name = "latex"
+language-servers = [ "texlab", "typos" ]
+
+[[language]]
+name = "glsl"
+language-servers = [ "glsl_analyzer" ]
