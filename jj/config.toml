@@ -2,6 +2,11 @@
 name = "Toni Sagristà Sellés"
 email = "me@tonisagrista.com"
 
+[signing]
+sign-all = true
+backend = "gpg"
+key = "2FD2A59C1D734C1F"
+
 [ui]
 # Disable all pagination, equivalent to using --no-pager
 paginate = "never"
