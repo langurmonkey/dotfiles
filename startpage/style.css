@@ -2,7 +2,7 @@
 :root {
   --background-color: rgb(255 101 82);
   --link-hover: rgb(0 134 222);
-  --link-heading: rgb(207 7 12);
+  --link-heading: rgb(227 7 12);
   --background-glow: 0px 0px 30px  rgb(242 149 138);
 }
 * {
@@ -71,7 +71,7 @@ section {
   margin-top: 1rem;
   padding-top: 5px;
   margin-left: 40px;
-  color: rgb(120 5 5);
+  color: var(--link-heading);
   font-size: 20px;
   font-weight: 100;
   border-color: rgba(255, 255, 255, 0);
@@ -99,7 +99,7 @@ a:hover {
 a {
   padding: 0px;
   text-decoration: none;
-  color: rgb(120 5 5);
+  color: var(--link-heading);
 }
 form {
   font-size: 2.5rem;
