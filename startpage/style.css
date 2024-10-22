@@ -71,7 +71,7 @@ section {
   margin-top: 1rem;
   padding-top: 5px;
   margin-left: 40px;
-  color: aliceblue;
+  color: rgb(120 5 5);
   font-size: 20px;
   font-weight: 100;
   border-color: rgba(255, 255, 255, 0);
@@ -99,7 +99,7 @@ a:hover {
 a {
   padding: 0px;
   text-decoration: none;
-  color: aliceblue;
+  color: rgb(120 5 5);
 }
 form {
   font-size: 2.5rem;
