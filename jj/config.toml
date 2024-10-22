@@ -1,0 +1,7 @@
+[user]
+name = "Toni Sagristà Sellés"
+email = "me@tonisagrista.com"
+
+[ui]
+# Disable all pagination, equivalent to using --no-pager
+paginate = "never"

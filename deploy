@@ -18,6 +18,7 @@ DIR_RANGER=~/.config/ranger
 DIR_NNN=~/.config/nnn
 DIR_LF=~/.config/lf
 DIR_YAZI=~/.config/yazi
+DIR_JJ=~/.config/jj
 
 DIR_I3=~/.config/i3
 DIR_SWAY=~/.config/sway
@@ -260,6 +261,13 @@ echo-ok "Done"
 #
 echo-custom " ** " "==== GIT CONFIG ===="
 do-symlink $DOTFILES_PATH/git/.gitconfig ~/.gitconfig
+echo-ok "Done"
+
+#
+# JJ
+#
+echo-custom " ** " "==== JJ CONFIG ===="
+do-symlink $DOTFILES_PATH/jj $DIR_JJ
 echo-ok "Done"
 
 #
