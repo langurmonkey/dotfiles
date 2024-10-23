@@ -102,7 +102,7 @@ alias sdisable="sudo systemctl disable"
 
 # Radio, etc.
 alias catradio="mpv https://directes-radio-int.ccma.cat/live-content/catalunya-radio-hls/bitrate_1.m3u8"
-alias rac1="mpv https://27743.live.streamtheworld.com/RAC_1.mp3"
+alias rac1="mpv https://23603.live.streamtheworld.com/RAC_1.mp3"
 
 # Crypto
 alias crypto="curl rate.sx"
