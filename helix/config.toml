@@ -70,6 +70,10 @@ y = "yank_to_clipboard"
 Y = "yank_joined_to_clipboard"
 R = "replace_selections_with_clipboard"
 d = ["yank_to_clipboard", "delete_selection_noyank"]
+# Vim-style motion
+"^" = "goto_line_start"
+"0" = "goto_line_start"
+"$" = "goto_line_end"
 
 # Key mappings in select mode
 [keys.select]
