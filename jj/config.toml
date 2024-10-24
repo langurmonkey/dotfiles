@@ -1,5 +1,5 @@
 [user]
-name = "Toni Sagristà Sellés"
+name = "langurmonkey"
 email = "me@tonisagrista.com"
 
 [signing]
@@ -8,5 +8,7 @@ backend = "gpg"
 key = "2FD2A59C1D734C1F"
 
 [ui]
-# Disable all pagination, equivalent to using --no-pager
-paginate = "never"
+paginate = "auto"
+
+[revsets]
+log = "root().."
