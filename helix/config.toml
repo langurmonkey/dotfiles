@@ -41,7 +41,7 @@ enable = true
 
 # Do not render white spaces
 [editor.whitespace]
-render = "none"
+render.newline = "all"
 
 [editor.indent-guides]
 render = true
