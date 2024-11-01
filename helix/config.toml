@@ -63,13 +63,6 @@ S-l = "goto_next_buffer"
 S-h = "goto_previous_buffer"
 A-x = "extend_to_line_bounds"
 X = ["extend_line_up", "extend_to_line_bounds"]
-# Use system clipboard by default
-p = "paste_clipboard_after"
-P = "paste_clipboard_before"
-y = "yank_to_clipboard"
-Y = "yank_joined_to_clipboard"
-R = "replace_selections_with_clipboard"
-d = ["yank_to_clipboard", "delete_selection_noyank"]
 # Vim-style motion
 "^" = "goto_line_start"
 "0" = "goto_line_start"
