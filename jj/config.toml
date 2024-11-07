@@ -5,7 +5,7 @@ email = "me@tonisagrista.com"
 [signing]
 sign-all = true
 backend = "gpg"
-key = "2FD2A59C1D734C1F"
+key = "448C2B189756743013D5F7C22FD2A59C1D734C1F"
 
 [ui]
 paginate = "auto"

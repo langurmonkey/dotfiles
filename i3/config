@@ -129,7 +129,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod2+s layout stacking
-bindsym $mod2+w layout tabbed
+bindsym $mod+w layout tabbed
 bindsym $mod2+e layout toggle split
 
 # toggle tiling / floating
@@ -183,7 +183,7 @@ bindsym --release $mod+Print exec import $HOME/Pictures/Screenshots/screenshot_$
 #bindsym $mod+Print exec maim -e 'mv $f /tmp/ && gimp /tmp/$f'
 
 # Start Applications
-bindsym $mod+w exec firefox
+bindsym $mod+Control+w exec firefox
 bindsym $mod+Shift+w exec qutebrowser
 bindsym $mod+Shift+t exec thunderbird-beta
 bindsym $mod+Shift+f exec "$myterm --class=wm-floating,wm-floating lf `$HOME/.dotfiles/bin/xcwd`"
