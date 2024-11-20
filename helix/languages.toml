@@ -24,3 +24,4 @@ language-servers = [ "texlab", "typos" ]
 [[language]]
 name = "glsl"
 language-servers = [ "glsl_analyzer" ]
+auto-format = true
