@@ -57,6 +57,7 @@ display-signature-help-docs	= true
 # Key mappings in normal mode
 [keys.normal]
 C-s = ":w"
+C-r = ":reload-all"
 D = "kill_to_line_end"
 # Use Shift-l and -h to move through tabs
 S-l = "goto_next_buffer"
