@@ -33,7 +33,7 @@ create_post() {
         printf "Here the body\n" >> $POST_DIR/$POST_FNAME
 
         # Opening
-        vim $POST_DIR/$POST_FNAME
+        $EDITOR $POST_DIR/$POST_FNAME
         
     else
         printf "The file name already exists: %s\n" "$POST_DIR/$POST_FNAME"
