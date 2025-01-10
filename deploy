@@ -487,6 +487,7 @@ fi
 #
 echo-custom " ** " "==== FONTS ===="
 do-symlink $DOTFILES_PATH/fonts/ttf ~/.local/share/fonts/ttf
+do-symlink $DOTFILES_PATH/fonts/otf ~/.local/share/fonts/otf
 fc-cache
 echo-ok "Done"
 
