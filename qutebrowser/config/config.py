@@ -72,6 +72,8 @@ c.aliases.update({"dm" : "config-cycle colors.webpage.darkmode.enabled"})
 ## Width (in pixels) of the scrollbar in the completion window.
 ## Type: Int
 c.completion.scrollbar.width = 16
+## Max number of history items.
+c.completion.web_history.max_items = 250
 
 ## Which cookies to accept.
 ## Type: String
