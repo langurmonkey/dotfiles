@@ -26,6 +26,7 @@ c.aliases.update({'bs': 'open -t bsky.app'})
 c.aliases.update({'pf': 'open -t pixelfed.social'})
 c.aliases.update({'yt': 'open -t youtube.com/results?search_query='})
 c.aliases.update({'imdb': 'open -t https://www.imdb.com/find?q='})
+c.aliases.update({'lt': 'open -t https://leta.mullvad.net/?q='})
 c.aliases.update({'iu': 'open -t yewtu.be/search?q='})
 c.aliases.update({'pt': 'open -t tube.privacytools.io/search?search='})
 c.aliases.update({'ht': 'open -t hooktube.com/results?search_query='})
@@ -272,6 +273,7 @@ c.url.default_page = 'file://' + home + '/.dotfiles/startpage/index.html'
 #c.url.searchengines = {'DEFAULT': 'https://search.brave.com/search?q={}'}
 c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
 #c.url.searchengines = {'DEFAULT': 'http://localhost:8888?q={}'}
+c.url.searchengines.update({'lt': 'https://leta.mullvad.net/?q={}'})
 c.url.searchengines.update({'sx': 'https://priv.au/search?q={}'})
 c.url.searchengines.update({'br': 'https://search.brave.com/search?q={}'})
 c.url.searchengines.update({'ddg': 'https://duckduckgo.com/?q={}'})
