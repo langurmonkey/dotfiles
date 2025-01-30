@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Ensure ImageMagick is installed
+if ! command -v convert &> /dev/null; then
+    echo "Error: ImageMagick is not installed. Install it and try again."
+    exit 1
+fi
+
+# Loop through image files in the current directory
+for img in *.jpg *.jpeg *.png *.gif *.bmp *.tiff; do
+    # Check if the file exists (to handle cases where no matching files exist)
+    [ -e "$img" ] || continue
+    
+    # Generate thumbnail filename
+    thumb_name="${img%.*}-thumb.${img##*.}"
+    
+    # Create the thumbnail with a height of 300, preserving aspect ratio
+    magick "$img" -resize x300 "$thumb_name"
+    
+    echo "Thumbnail created: $thumb_name"
+
+done
