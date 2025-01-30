@@ -11,12 +11,18 @@ for img in *.jpg *.jpeg *.png *.gif *.bmp *.tiff; do
     # Check if the file exists (to handle cases where no matching files exist)
     [ -e "$img" ] || continue
     
+    # Skip files that are already thumbnails
+    if [[ "$img" == *-thumb.* ]]; then
+        continue
+    fi
+    
     # Generate thumbnail filename
     thumb_name="${img%.*}-thumb.${img##*.}"
     
     # Create the thumbnail with a height of 300, preserving aspect ratio
-    magick "$img" -resize x300 "$thumb_name"
+    convert "$img" -resize x300 "$thumb_name"
     
     echo "Thumbnail created: $thumb_name"
 
 done
+
