@@ -57,6 +57,7 @@ export TAR=$PROJ/time-analysis-res/results
 export GS=$PROJ/gaiasky
 export GSC=$PROJ/gaiasky-catgen
 export GSD=$PROJ/gaiasky-docs
+export GSW=$PROJ/gaiasky-web
 export RTS=$PROJ/rts-engine-private
 export WEB=$PROJ/website-source
 export PHD=$PROJ/phd_thesis
