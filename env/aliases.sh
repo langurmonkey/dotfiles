@@ -95,7 +95,7 @@ alias ..3="cd ../../.."
 alias bc="bc -l"
 
 # Systemd
-alias sstatus="sudo systemctl status"
+alias sstatus="systemctl status"
 alias sstart="sudo systemctl start"
 alias srestart="sudo systemctl restart"
 alias sstop="sudo systemctl stop"
