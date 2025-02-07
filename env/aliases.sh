@@ -37,7 +37,9 @@ alias ps="procs"
 alias v="nvim"
 alias youtube-dl="yt-dlp"
 alias ytdl="yt-dlp"
-alias hx="helix"
+if [[ "$OSTYPE" != "darwin"* ]]; then
+    alias hx="helix"
+fi
 
 # VPN
 alias vpnhduni="sudo openconnect --user=st0@ix.urz.uni-heidelberg.de --os=win --useragent='AnyConnect' vpn-ac.urz.uni-heidelberg.de"
