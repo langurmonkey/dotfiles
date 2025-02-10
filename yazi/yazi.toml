@@ -12,6 +12,7 @@ pdf = [
 ]
 image = [
     { run = 'nsxiv "$1"', desc = "nsxiv", block = false },
+    { run = 'eog "$1"', desc = "eog", block = false },
     { run = 'krita "$1"', desc = "krita", block = false },
     { run = 'flatpak run org.kde.krita "$1"', desc = "krita (flatpak)", block = false },
     { run = 'feh "$1"', desc = "feh", block = false },
