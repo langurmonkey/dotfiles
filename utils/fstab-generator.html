@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>fstab generator v3</title>
+<link href="https://fonts.googleapis.com/css?family=Quicksand:500,800" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<style>
+	body {
+		background: white;
+		font-family: 'Quicksand';
+	}
+	div {
+		background: white;
+	}
+	header {
+		width: 100%;
+	}
+	h1 {
+		font-size: 2em;
+		font-weight: 555;
+	}
+	footer {
+		width: 100%;
+		text-align: center;
+	}
+	li {
+		list-style-type: none;
+	}
+	.container {
+		margin-right: auto;
+		margin-left: auto;
+		max-width: 900px; /* or 950px */
+	}
+	.container-fluid {
+		margin-right: auto;
+		margin-left: auto;
+		max-width: 900px; /* or 950px */
+	}
+	.gray-back { 
+		background: rgb(44, 18, 68);
+		color: white;
+		width=100%;
+		font-weight: 800;
+	}
+	#bigtitle {
+		font-size: 2em;
+		text-emphasis: strong;
+	}
+</style>
+</head>
+<body setFocus()>
+	<div class="container-fluid">
+		<header class="container">
+			<p class="gray-back" id="bigtitle">&nbsp;&nbsp;fstab generator</p>
+		</header>
+
+		<div class="container">
+			<form id="form" method="post" action="" autocomplete="off">
+				<p>This tool is being released for anyone to use, but its creator is not responsible for your use of it.
+				<br><br>To use:<br>
+				1. Use 'sudo blkid' to get your device's UUID. <br>	 	
+				2. Select an example from the pull-down list, then enter text or make some selections.<br>
+				3.Copy the resulting fstab line from here and use it in your system's fstab file.<br>
+				</p>	
+
+				<div>	
+					<p>copy and use this:
+						<p id="line" class="gray-back">(...)</p>
+					</p>
+				</div>
+				<div>select one of these examples:
+					<ul>
+						<li>
+							<div>
+								<select onchange="refreshLine(this)" id="input_1" value=""/> 
+									<option></option>
+									<option>[External-Exfat] UUID=123456-654321 /media/DRIVENAME/folder exfat auto,user,nofail,uuid= 0 0</option>
+									<option>[External-ntfs] /dev/sda /media/DRIVENAME/folder ntfs auto,user,nofail,uuid= 0 0</option>
+									<option>[HDD] /dev/hda1 /boot ext4 defaults 0 0</option>
+									<option>[Swap] /dev/someswap swap swap defaults 0 0</option>
+								</select>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div>or enter your own fields:</div>
+				<ul>
+					<li id="li_2" >
+						<label for="element_2">Device Spec (can be a LABEL, UUID, a Device Name like /dev/sda or other text)</label>
+						<div>
+							<input class="form-control" onchange="refreshLine(this)" id="input_2" type="text" maxlength="40" value=""/> 
+						</div> 
+					</li>
+					<li id="li_3" >
+						<label for="element_3">Mount Point (or none)</label>
+						<div>
+							<input class="form-control" onchange="refreshLine(this)" id="input_3" type="text" maxlength="40" value=""/> 
+						</div> 
+					</li>
+
+					<li id="li_4" >
+						<label for="element_4">File System Type</label>
+						<div>
+							<select class="form-control" onchange="refreshLine(this)" id="input_4" value=""/> 
+								<option></option>
+								<option>ext2</option>
+								<option>ext3</option>
+								<option>ext4</option>
+								<option>exfat</option>
+								<option>ntfs</option>
+								<option>xfs</option>
+								<option>tmpfs</option>
+								<option>swap</option>
+								<option>sysfs</option>
+								<option>proc</option>
+							</select>
+						</div> 
+					</li>
+
+					<li id="li_5" >
+						<label for="element_5">Option 1</label>
+						<div>
+							<select class="form-control" onchange="refreshLine(this)" id="input_5" value=""/> 
+								<option></option>
+								<option>async</option>
+								<option>atime</option>
+								<option>noatime</option>
+								<option>auto</option>
+								<option>noauto</option>
+								<option>defaults</option>
+								<option>dev</option>
+								<option>nodev</option>
+								<option>diratime</option>
+								<option>nmodiratime</option>
+								<option>dirsync</option>
+								<option>exec</option>
+								<option>noexec</option>
+								<option>group</option>
+								<option>iversion</option>
+								<option>noiversion</option>
+								<option>mand</option>
+								<option>nomand</option>
+								<option>nofail</option>
+								<option>relatime</option>
+								<option>norelatime</option>
+								<option>strictatime</option>
+								<option>nostrictatime</option>
+								<option>lazytime</option>
+								<option>nolazytime</option>
+								<option>suid</option>
+								<option>nosuid</option>
+								<option>silent</option>
+								<option>loud</option>
+								<option>owner</option>
+								<option>ro</option>
+								<option>rw</option>
+								<option>sync</option>
+								<option>user</option>
+								<option>nouser</option>
+								<option>users</option>
+								<option>uid=</option>
+								<option>gid=</option>
+								<option>umask=</option>
+							</select>
+						</div> 
+					</li>
+
+					<li id="li_6" >
+						<label for="element_6">Option 2</label>
+						<div>
+							<select class="form-control" onchange="refreshLine(this)" id="input_6" value=""/> 
+								<option></option>
+								<option>async</option>
+								<option>atime</option>
+								<option>noatime</option>
+								<option>auto</option>
+								<option>noauto</option>
+								<option>defaults</option>
+								<option>dev</option>
+								<option>nodev</option>
+								<option>diratime</option>
+								<option>nmodiratime</option>
+								<option>dirsync</option>
+								<option>exec</option>
+								<option>noexec</option>
+								<option>group</option>
+								<option>iversion</option>
+								<option>noiversion</option>
+								<option>mand</option>
+								<option>nomand</option>
+								<option>nofail</option>
+								<option>relatime</option>
+								<option>norelatime</option>
+								<option>strictatime</option>
+								<option>nostrictatime</option>
+								<option>lazytime</option>
+								<option>nolazytime</option>
+								<option>suid</option>
+								<option>nosuid</option>
+								<option>silent</option>
+								<option>loud</option>
+								<option>owner</option>
+								<option>ro</option>
+								<option>rw</option>
+								<option>sync</option>
+								<option>user</option>
+								<option>nouser</option>
+								<option>users</option>
+								<option>uid=</option>
+								<option>gid=</option>
+								<option>umask=</option>
+							</select>
+						</div> 
+					</li>
+
+					<li id="li_7">
+						<label for="element_7">Option 3</label>
+						<div>
+							<select class="form-control" onchange="refreshLine(this)" id="input_7" value=""/> 
+								<option></option>
+								<option>async</option>
+								<option>atime</option>
+								<option>noatime</option>
+								<option>auto</option>
+								<option>noauto</option>
+								<option>defaults</option>
+								<option>dev</option>
+								<option>nodev</option>
+								<option>diratime</option>
+								<option>nmodiratime</option>
+								<option>dirsync</option>
+								<option>exec</option>
+								<option>noexec</option>
+								<option>group</option>
+								<option>iversion</option>
+								<option>noiversion</option>
+								<option>mand</option>
+								<option>nomand</option>
+								<option>nofail</option>
+								<option>relatime</option>
+								<option>norelatime</option>
+								<option>strictatime</option>
+								<option>nostrictatime</option>
+								<option>lazytime</option>
+								<option>nolazytime</option>
+								<option>suid</option>
+								<option>nosuid</option>
+								<option>silent</option>
+								<option>loud</option>
+								<option>owner</option>
+								<option>ro</option>
+								<option>rw</option>
+								<option>sync</option>
+								<option>user</option>
+								<option>nouser</option>
+								<option>users</option>
+								<option>uid=</option>
+								<option>gid=</option>
+								<option>umask=</option>
+							</select>
+						</div> 
+					</li>
+
+					<li id="li_8" >
+						<label for="element_8">Option 4</label>
+						<div>
+							<select class="form-control" onchange="refreshLine(this)" id="input_8" value=""/> 
+								<option></option>
+								<option>async</option>
+								<option>atime</option>
+								<option>noatime</option>
+								<option>auto</option>
+								<option>noauto</option>
+								<option>defaults</option>
+								<option>dev</option>
+								<option>nodev</option>
+								<option>diratime</option>
+								<option>nmodiratime</option>
+								<option>dirsync</option>
+								<option>exec</option>
+								<option>noexec</option>
+								<option>group</option>
+								<option>iversion</option>
+								<option>noiversion</option>
+								<option>mand</option>
+								<option>nomand</option>
+								<option>nofail</option>
+								<option>relatime</option>
+								<option>norelatime</option>
+								<option>strictatime</option>
+								<option>nostrictatime</option>
+								<option>lazytime</option>
+								<option>nolazytime</option>
+								<option>suid</option>
+								<option>nosuid</option>
+								<option>silent</option>
+								<option>loud</option>
+								<option>owner</option>
+								<option>ro</option>
+								<option>rw</option>
+								<option>sync</option>
+								<option>user</option>
+								<option>nouser</option>
+								<option>users</option>
+								<option>uid=</option>
+								<option>gid=</option>
+								<option>umask=</option>
+							</select>
+						</div> 
+					</li>
+
+					<li id="li_9" >
+						<label for="element_9">Option 5</label>
+						<div>
+							<select class="form-control" onchange="refreshLine(this)" id="input_9" value=""/> 
+								<option></option>							
+								<option>async</option>
+								<option>atime</option>
+								<option>noatime</option>
+								<option>auto</option>
+								<option>noauto</option>
+								<option>defaults</option>
+								<option>dev</option>
+								<option>nodev</option>
+								<option>diratime</option>
+								<option>nmodiratime</option>
+								<option>dirsync</option>
+								<option>exec</option>
+								<option>noexec</option>
+								<option>group</option>
+								<option>iversion</option>
+								<option>noiversion</option>
+								<option>mand</option>
+								<option>nomand</option>
+								<option>nofail</option>
+								<option>relatime</option>
+								<option>norelatime</option>
+								<option>strictatime</option>
+								<option>nostrictatime</option>
+								<option>lazytime</option>
+								<option>nolazytime</option>
+								<option>suid</option>
+								<option>nosuid</option>
+								<option>silent</option>
+								<option>loud</option>
+								<option>owner</option>
+								<option>ro</option>
+								<option>rw</option>
+								<option>sync</option>
+								<option>user</option>
+								<option>nouser</option>
+								<option>users</option>
+								<option>uid=</option>
+								<option>gid=</option>
+								<option>umask=</option>
+							</select>
+						</div> 
+					</li>
+
+					<li id="li_10" >
+						<label for="element_10">Frequency (for use with dump)</label>
+						<div>
+							<input class="form-control" onchange="refreshLine(this)" id="input_10" type="number" maxlength="10" value="0"/> 
+						</div> 
+					</li>
+
+					<li id="li_11" >
+						<label for="element_11">Pass number (AKA passno)</label>
+						<div>
+							<input class="form-control" onchange="refreshLine(this)" id="input_11" type="number" maxlength="10" value="0"/> 
+						</div> 
+					</li>
+
+
+				</ul>
+
+				<p><br><br><a href="#">[Top]</a><br><br></p>
+			</form>	
+			<footer>
+				version 3<br>
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+				<p style="background: darkgray; color: white;"><br></p>
+			</footer>	
+		</div> <!-- row -->
+	</div> <!-- container -->
+
+	<script>
+		function setFocus(){
+		    document.getElementById("input_2").focus();
+		}
+
+		function refreshLine(obj) {
+			var i1 = document.getElementById("input_1").value;
+			if (i1 && obj.id === "input_1") {
+				var arr = i1.split(" ");
+				document.getElementById("input_2").value = arr[1];
+				document.getElementById("input_3").value = arr[2];
+				document.getElementById("input_4").value = arr[3];
+				document.getElementById("input_5").value = "";
+				document.getElementById("input_6").value = "";
+				document.getElementById("input_7").value = "";
+				document.getElementById("input_8").value = "";
+				document.getElementById("input_9").value = "";
+				arrOpts = arr[4].split(',');
+				for (var x=0; x <=arrOpts.length-1; x++) {
+					var y = (x + 5).toString();
+					document.getElementById("input_"+y).value = arrOpts[x];
+				}				
+				document.getElementById("input_10").value = arr[5];
+				document.getElementById("input_11").value = arr[6];
+			}
+			if (obj.id != "input_1") {
+				document.getElementById("input_1").disabled;
+			}
+			var i2 = document.getElementById("input_2").value;
+			var i3 = document.getElementById("input_3").value;			
+			var i4 = document.getElementById("input_4").value;
+			var i5 = document.getElementById("input_5").value;
+			var i6 = document.getElementById("input_6").value;
+			var i7 = document.getElementById("input_7").value;
+			var i8 = document.getElementById("input_8").value;
+			var i9 = document.getElementById("input_9").value;
+			var i10 = document.getElementById("input_10").value;
+			var i11 = document.getElementById("input_11").value;
+			var linetext = i2 + " " + i3 + " " + i4 + " ";
+			linetext += i5 + "," + i6 + "," + i7 + "," + i8 + "," + i9 + " ";
+			linetext += i10 + " " + i11;
+			linetext = linetext.replace(/,,/g,"");
+			document.getElementById("line").innerHTML = linetext.toString();
+		}
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	</body>
+</html>
