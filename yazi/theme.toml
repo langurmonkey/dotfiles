@@ -6,3 +6,6 @@ border_style = { fg="#202054" }
 append_rules = [
   { name = "*/", text = " "}
 ]
+
+[status]
+overall = { fg = "#cad3f5", bg = "#181926" }
