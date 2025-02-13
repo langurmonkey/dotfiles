@@ -25,3 +25,8 @@ language-servers = [ "texlab", "typos" ]
 name = "glsl"
 language-servers = [ "glsl_analyzer" ]
 auto-format = true
+
+[[language]]
+name = "make"
+language-servers = [ "make-language-server" ]
+file-types = [ "make", "just", { glob = "Makefile" }, { glob = "justfile" } ]
