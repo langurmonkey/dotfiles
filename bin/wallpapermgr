@@ -21,9 +21,16 @@ function display_help {
 
 function apply_wallpaper {
   if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
-    # Wayland.
-    echo "Using swaybg"
-    swaybg -m fill -i "$CURRENT_WALLPAPER"
+    # Wayland. Try hyprpaper and swaybg.
+    if command -v hyprpaper 2>&1 >/dev/null
+    then
+      echo "Using hyprpaper"
+      hyprctl hyprpaper reload ,"$CURRENT_WALLPAPER"
+    elif  command -v swaybg 2>&1 >/dev/null
+    then
+      echo "Using swaybg"
+      swaybg -m fill -i "$CURRENT_WALLPAPER"
+    fi
   else
     # X11.
     echo "Using feh"
