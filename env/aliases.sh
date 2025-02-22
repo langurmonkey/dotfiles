@@ -64,6 +64,7 @@ alias umountqnap="sudo umount /run/media/QNAP/Multimedia"
 # Usual syncs
 alias syncvegetaqnap="rsync -avh /run/media/tsagrista/VegetaDisk/backupQNAP/Multimedia/Photos/tsagrista /run/media/QNAP/Multimedia/Photos/"
 alias syncqnapvegeta="rsync -avh /run/media/QNAP/Multimedia/Photos/tsagrista /run/media/tsagrista/VegetaDisk/backupQNAP/Multimedia/Photos/"
+alias syncvegetaaridisk="rsync -avh /run/media/tsagrista/VegetaDisk/backupQNAP/Multimedia/Photos/tsagrista/ pi@rpi5:/media/pi/aridisk/Media/Photos/"
 
 # Git aliases
 alias pull="git pull"
