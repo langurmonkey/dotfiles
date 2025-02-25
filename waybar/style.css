@@ -5,7 +5,7 @@
   /* `otf-font-awesome` is required to be installed for icons */
   font-family: "Hack Nerd Font";
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 400;
   text-shadow: 1px 1px 1px black;
   min-height: 0;
 }
