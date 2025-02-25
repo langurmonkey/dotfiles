@@ -12,7 +12,8 @@
 
 [push]
   followTags = true
-  default = matching
+  default = simple
+  autoSetupRemote = true
 
 [alias]
   lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
@@ -41,15 +42,20 @@
   autocrlf = input
   eol = lf
   pager = delta
+  excludesfile = ~/.gitignore
 
 [diff]
-  colorMoved = default
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
 
 [merge]
   tool = vimdiff
   conflictstyle = diff3
 
 [commit]
+  verbose = true
   gpgsign = true
 
 [pull]
@@ -71,10 +77,13 @@
   line-numbers = true
 
 [rerere]
-  enabled = 1
+  enabled = true
+  autoupdate = true
 
 [fetch]
   prune = true
+  pruneTags = true
+  all = true
 
 [checkout]
   defaultRemote = origin
@@ -84,3 +93,20 @@
   smtpuser = me@tonisagrista.com
   smtpencryption = tls
   smtpserverport = 587
+
+[column]
+  ui = auto
+
+[branch]
+  sort = -committerdate
+
+[tag]
+  sort = version:refname
+
+[help]
+  autocorrect = prompt
+
+[rebase]
+  autoSquash = true
+  autoStash = true
+  updateRefs = true
