@@ -88,6 +88,9 @@ background-color: #FFFFFF;
   margin: 0 0.5;
   color: #ffffff;
 }
+#tray > * {
+    -gtk-icon-shadow: 1px 1px 1px black;
+}
 #idle_inhibitor {
   padding: 0 10px 0 5px;
   margin: 0 0.5;
