@@ -1,5 +1,9 @@
-[language-server]
-glsl_analyzer = { command = "glsl_analyzer" }
+[language-server.glsl_analyzer]
+command = "glsl_analyzer"
+
+[language-server.harper-ls]
+command = "harper-ls"
+args = ["--stdio"]
 
 [language-server.typos]     
 command = "typos-lsp"
@@ -7,26 +11,26 @@ command = "typos-lsp"
 # Languages
 [[language]] 
 name = "rust" 
-language-servers = ["rust-analyzer", "typos"]
+language-servers = ["rust-analyzer", "typos", "harper-ls" ]
 
 [[language]]
 name = "markdown"
-language-servers = [ "marksman", "typos" ]
+language-servers = [ "marksman", "typos", "harper-ls" ]
 
 [[language]]
 name = "toml"
-language-servers = [ "taplo", "typos" ]
+language-servers = [ "taplo", "typos", "harper-ls" ]
 
 [[language]]
 name = "latex"
-language-servers = [ "texlab", "typos" ]
+language-servers = [ "texlab", "typos", "harper-ls" ]
 
 [[language]]
 name = "glsl"
-language-servers = [ "glsl_analyzer" ]
+language-servers = [ "glsl_analyzer", "typos" ]
 auto-format = true
 
 [[language]]
 name = "make"
-language-servers = [ "make-language-server" ]
+language-servers = [ "make-language-server", "typos", "harper-ls" ]
 file-types = [ "make", "just", { glob = "Makefile" }, { glob = "justfile" } ]
