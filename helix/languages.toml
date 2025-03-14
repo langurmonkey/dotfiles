@@ -24,6 +24,7 @@ language-servers = [ "taplo", "typos", "harper-ls" ]
 [[language]]
 name = "rst"
 language-servers = [ "typos", "harper-ls" ]
+indent = { tab-width = 4, unit = "    " }
 
 [[language]]
 name = "latex"
