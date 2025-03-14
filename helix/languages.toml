@@ -22,6 +22,10 @@ name = "toml"
 language-servers = [ "taplo", "typos", "harper-ls" ]
 
 [[language]]
+name = "rst"
+language-servers = [ "typos", "harper-ls" ]
+
+[[language]]
 name = "latex"
 language-servers = [ "texlab", "typos", "harper-ls" ]
 
