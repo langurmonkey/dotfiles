@@ -1,67 +1,42 @@
-#!/usr/bin/env python3
-# coding=utf-8
+#!/usr/bin/python
+import sys, json, requests
 
-# Modified by tsagrista, from original source at
-# https://github.com/Optixal/i3blocks-crypto
-#
-# This version needs the cryptocurrency as an argument:
-# $  crypto ethereum
-# $  crypto bitcoin
-#
-# Also, this script uses the open coincap.io API instead of CoinMarketCap.
+# Set your API endpoint here
 
-import json
-from lxml import etree
-import requests
-from requests import Request, Session
-from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
-import os
-import sys
+def get_price(coin):
+    symbol = "₿" if coin == "XBT" else "Ξ"
+    key = f"X{coin}ZEUR"
+    # Send a GET request to the Kraken API
+    API_URL = f"https://api.kraken.com/0/public/Ticker?pair={key}"
+    response = requests.get(API_URL)
 
-def print_currency(data: list, rate: float):
-    price = float(data['priceUsd'])
-    price = price / rate
+    # Check if the response was successful
+    if response.status_code == 200:
+        # Parse the JSON response
+        data = json.loads(response.text)
+        
+        # Extract the current price and 24-hour VWAP from the response
+        current_price = float(data['result'][key]['a'][0])
+        vwap_24h = float(data['result'][key]['p'][1])
 
-    if price > 100: precision = 0
-    elif price > 0.1: precision = 2
-    else: precision = 6
+        # Calculate the percentage change in price
+        if vwap_24h != 0:
+            change = ((current_price - vwap_24h) / vwap_24h) * 100
 
-    percentChange = float(data['changePercent24Hr'])
-    percentChangeFormat = '<span color="{}">{}{:.2f}%</span>'
-    if percentChange > 0: percentChangeInfo = percentChangeFormat.format('#3BB92D', '⇧', percentChange)
-    elif percentChange == 0: percentChangeInfo = percentChangeFormat.format('#CCCCCC', '', percentChange)
-    else: percentChangeInfo = percentChangeFormat.format('#F7555E', '⇩', percentChange)
+            changeFmt = '<span color="{}">{}{:.2f}%</span>'
+            if change > 0: changeInfo = changeFmt.format('#3BB92D', '⇧', change)
+            elif change == 0: changeInfo = changeFmt.format('#CCCCCC', '', change)
+            else: changeInfo = changeFmt.format('#F7555E', '⇩', change)
 
-    print(('{} {:.' + str(precision) + 'f}€ {}').format(data['symbol'], price, percentChangeInfo)) # Full Text
-    print(('{} {:.' + str(precision) + 'f}€').format(data['symbol'], price)) # Short Text
+            # Print the current price and percentage change
+            print(f"{symbol} {current_price}€ {changeInfo}")
+        else:
+            # Only print price
+            print(f"{symbol} {current_price}€")
 
 if len(sys.argv) < 2:
-    sys.exit("Error: need 1 parameter:   crypto bitcoin")
+    sys.exit("Error: need 1 parameter:   crypto [XBT|ETH]")
 
-coin_name = sys.argv[1]
-
-base_path = os.path.dirname(os.path.realpath(sys.argv[0]))
-
-API_URL = 'https://api.coincap.io/v2/assets/' + coin_name
-
-headers = {
-    'Accepts': 'application/json',
-}
-
-# Get cryptocurrency price.
-session = Session()
-session.headers.update(headers)
-
-r0 = session.get(API_URL)
-data = json.loads(r0.text)
-data = data['data']
-
-# Get EUR-USD conversion from the ECB.
-r1 = requests.get('http://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml', stream=True)
-r1.raw.decode_content = True
-line = r1.text.splitlines()[8].strip()
-st = line.index('\'', 23) + 1
-ed = line.index('\'', st)
-rate = float(line[st:ed])
-
-print_currency(data, rate)
+coin = sys.argv[1]
+# Call the function to get and print the current price
+get_price(coin)
