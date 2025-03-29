@@ -93,11 +93,11 @@
       "exec": "date +' %Y-%m-%d  %H:%M:%S'",
     },
     "custom/cryptoeth": {
-      "interval": 120,
+      "interval": 600,
       "exec": "$HOME/.dotfiles/waybar/scripts/crypto ETH"
     },
     "custom/cryptobtc": {
-      "interval": 120,
+      "interval": 600,
       "exec": "$HOME/.dotfiles/waybar/scripts/crypto XBT"
     },
     "cpu": {
