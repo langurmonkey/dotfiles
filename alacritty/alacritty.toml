@@ -53,7 +53,7 @@ TERM = "xterm-256color"
 WINIT_X11_SCALE_FACTOR = "1.0"
 
 [font]
-size = 12.0
+size = 11.0
 
 [font.bold]
 family = "Hack Nerd Font"
@@ -613,7 +613,7 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 [window]
 decorations = "full"
 dynamic_padding = false
-opacity = 0.9
+opacity = 0.75
 startup_mode = "Windowed"
 
 [window.dimensions]
