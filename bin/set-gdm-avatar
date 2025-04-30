@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+set -e
+
+# Input check
+if [[ -z "$1" ]]; then
+  echo "Usage: $0 /path/to/avatar.png [username]"
+  exit 1
+fi
+
+IMG_PATH="$1"
+USERNAME="${2:-$(whoami)}"
+ICON_DIR="/var/lib/AccountsService/icons"
+USER_FILE="/var/lib/AccountsService/users/$USERNAME"
+DEST_IMG="$ICON_DIR/$USERNAME"
+
+# Check if image exists
+if [[ ! -f "$IMG_PATH" ]]; then
+  echo "Error: Image file not found at $IMG_PATH"
+  exit 1
+fi
+
+# Require root
+if [[ "$EUID" -ne 0 ]]; then
+  echo "This script must be run as root."
+  exit 1
+fi
+
+echo "Setting avatar for user: $USERNAME"
+
+# Create directories if they don't exist
+mkdir -p "$ICON_DIR"
+mkdir -p "$(dirname "$USER_FILE")"
+
+# Copy and set permissions
+cp "$IMG_PATH" "$DEST_IMG"
+chown root:root "$DEST_IMG"
+chmod 644 "$DEST_IMG"
+
+# Create or modify user config
+if [[ ! -f "$USER_FILE" ]]; then
+  echo "[User]" > "$USER_FILE"
+fi
+
+# Remove existing Icon= line
+sed -i '/^Icon=/d' "$USER_FILE"
+echo "Icon=$DEST_IMG" >> "$USER_FILE"
+
+# Ensure SystemAccount=false is set
+grep -q "^SystemAccount=" "$USER_FILE" || echo "SystemAccount=false" >> "$USER_FILE"
+
+# Restart accounts-daemon
+echo "Restarting accounts-daemon..."
+systemctl restart accounts-daemon
+
+echo "✅ Avatar set successfully for '$USERNAME'. You may need to restart GDM and accounts-daemon for it to appear."
