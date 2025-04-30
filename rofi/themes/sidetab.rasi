@@ -41,7 +41,7 @@
 	  normal-foreground:           @text-color;
 }
 #window {
-    height:   100%;
+    height:   94%;
     width: 22%;
     location: west;
     anchor:   west;
