@@ -41,10 +41,10 @@
 	  normal-foreground:           @text-color;
 }
 #window {
-    height:   94%;
+    height:   97%;
     width: 22%;
-    location: west;
-    anchor:   west;
+    location: southwest;
+    anchor:   southwest;
     border:  0px 2px 0px 0px;
     text-color: @lightwhite;
 	orientation: horizontal;
