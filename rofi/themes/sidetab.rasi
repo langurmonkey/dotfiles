@@ -97,13 +97,14 @@
 #element alternate normal {
 }
 #element alternate active {
+    background-color: @green;
     text-color: @lightblue;
 }
 #element alternate urgent {
     text-color: @lightred;
 }
 #element selected active {
-    background-color: @lightblue;
+    background-color: @green;
     text-color: @dark;
 }
 #element selected urgent {
