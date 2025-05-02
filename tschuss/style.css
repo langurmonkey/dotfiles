@@ -9,35 +9,35 @@ button {
     margin-bottom: 0px;
     margin-top: 0px;
     font-size: 80px;
-    color: rgb(0, 85, 255);
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    font-size: 35px;
+    border-radius: 30px;
+}
+button:hover {
+    background-color: rgba(140, 140, 140, 0.5);
 }
 
 #description-shutdown {
     font-size: 20px;
-    color: white;
 }
 
 #description-reboot {
     font-size: 20px;
-    color: white;
 }
 
 #description-logout {
     font-size: 20px;
-    color: white;
 }
 
 #description-hibernate {
     font-size: 20px;
-    color: white;
 }
 
 #description-suspend {
     font-size: 20px;
-    color: white;
 }
 
 #description-lock {
     font-size: 20px;
-    color: white;
 }
