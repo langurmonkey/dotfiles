@@ -11,33 +11,10 @@ button {
     font-size: 80px;
     color: white;
     text-shadow: 1px 1px 2px black;
-    font-size: 35px;
+    font-size: 20px;
     border-radius: 30px;
 }
 button:hover {
     background-color: rgba(140, 140, 140, 0.5);
 }
 
-#description-shutdown {
-    font-size: 20px;
-}
-
-#description-reboot {
-    font-size: 20px;
-}
-
-#description-logout {
-    font-size: 20px;
-}
-
-#description-hibernate {
-    font-size: 20px;
-}
-
-#description-suspend {
-    font-size: 20px;
-}
-
-#description-lock {
-    font-size: 20px;
-}
