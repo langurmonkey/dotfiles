@@ -109,7 +109,7 @@ alias catradio="mpv https://directes-radio-int.3catdirectes.cat/live-content/cat
 alias rac1="mpv https://25633.live.streamtheworld.com/RAC_1.mp3"
 
 # Crypto
-alias crypto="curl rate.sx"
+alias crypto="curl eur.rate.sx/?n=2"
 alias btc="curl rate.sx/btc@30d"
 alias eth="curl rate.sx/eth@30d"
 
