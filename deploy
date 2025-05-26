@@ -491,6 +491,9 @@ do-symlink $DOTFILES_PATH/fonts/otf ~/.local/share/fonts/otf
 fc-cache
 echo-ok "Done"
 
+# SERVICES
+systemctl --user enable --now hyprpolkitagent.service
+
 # Done
 echo ""
 echo-ok "Done! Your environment should be ready to go"
