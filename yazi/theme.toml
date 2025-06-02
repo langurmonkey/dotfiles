@@ -1,4 +1,4 @@
-[manager]
+[mgr]
 border_symbol = "│"
 border_style = { fg="#202054" }
 
