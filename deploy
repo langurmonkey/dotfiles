@@ -407,14 +407,11 @@ echo-ok "Done"
 
 
 #
-# DUNST
+# FNOTT
 #
-echo-custom " ** " "==== DUNST ===="
-DIR_DUNST=~/.config/dunst
-if [ ! -d "$DIR_DUNST" ]; then
-    mkdir -p $DIR_DUNST
-fi
-do-symlink $DOTFILES_PATH/dunst/dunstrc $DIR_DUNST/dunstrc
+echo-custom " ** " "==== FNOTT ===="
+DIR_FNOTT=~/.config/fnott
+do-symlink $DOTFILES_PATH/fnott $DIR_FNOTT
 echo-ok "Done"
 
 
