@@ -58,6 +58,7 @@ export GS=$PROJ/gaiasky
 export GSC=$PROJ/gaiasky-catgen
 export GSD=$PROJ/gaiasky-docs
 export GSW=$PROJ/gaiasky-web
+export VT=$PROJ/virtualtexture-tools
 export RTS=$PROJ/rts-engine-private
 export WEB=$PROJ/website-source
 export PHD=$PROJ/phd_thesis
