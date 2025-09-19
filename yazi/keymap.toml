@@ -15,8 +15,13 @@ desc = "Open shell here"
 
 [[mgr.append_keymap]]
 on   = [ "g", "v" ]
-run  = 'cd ~/Videos/gaiasky-videos/'
-desc = "Go to the $VIDEOS directory"
+run  = 'cd ~/Videos'
+desc = "Go to the ~/Videos directory"
+
+[[mgr.append_keymap]]
+on   = [ "g", "p" ]
+run  = 'cd ~/Pictures'
+desc = "Go to the ~/Pictures directory"
 
 [[mgr.append_keymap]]
 on   = [ "g", "b" ]
