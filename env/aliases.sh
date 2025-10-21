@@ -39,6 +39,7 @@ alias youtube-dl="yt-dlp"
 alias ytdl="yt-dlp"
 if [[ "$OSTYPE" != "darwin"* ]]; then
     alias hx="helix"
+    alias mpv="mpv --ytdl-raw-options=cookies-from-browser=firefox"
 fi
 
 # VPN
