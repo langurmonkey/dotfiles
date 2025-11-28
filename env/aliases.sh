@@ -43,7 +43,7 @@ if [[ "$OSTYPE" != "darwin"* ]]; then
 fi
 
 # VPN
-alias vpnhduni="sudo openconnect --user=st0@ix.urz.uni-heidelberg.de --os=win --useragent='AnyConnect' vpn-ac.urz.uni-heidelberg.de"
+alias vpnhduni="sudo openconnect --user=ku127 --os=win --useragent='AnyConnect' vpn-ac.urz.uni-heidelberg.de"
 alias vpnstatus="curl https://am.i.mullvad.net/connected"
 # Docker with sudo by default
 alias docker="sudo docker"
