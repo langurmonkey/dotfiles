@@ -72,20 +72,6 @@ markup=pango
 
 [separator]
 
-[cryptoeth]
-command=$LOCAL_DIR/crypto "ETH"
-interval=120
-color=#ffffff
-background=#000000
-border=#000000
-border_top=0
-border_right=6
-border_left=6
-border_bottom=0
-markup=pango
-
-[separator]
-
 
 [cpulevels]
 command=$LOCAL_DIR/cpu-levels "#33aa7a"
