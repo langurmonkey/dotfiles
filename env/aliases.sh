@@ -3,7 +3,6 @@
 # 
 
 # AUR
-alias yay="paru"
 alias pru="paru"
 alias yeet="paru -Rcs"
 
