@@ -81,8 +81,8 @@ alias gamesaves="git -C $HOME/.gamesaves"
 alias gsv="git -C $HOME/.gamesaves"
 alias gsvp="git -C $HOME/.gamesaves add . && git -C $HOME/.gamesaves commit -m 'feat: update' && git -C $HOME/.gamesaves pull && git -C $HOME/.gamesaves pa"
 
-# Mus invokes ncmpcpp
-alias mus="ncmpcpp"
+# Mus invokes rmpc
+alias mus="rmpc"
 
 # Random movement
 alias up="cd .."
