@@ -1,6 +1,7 @@
-# Don't print a new line at the start of the prompt
+# Don't print a newline at the start of the prompt
 add_newline = false
 command_timeout = 4000
+scan_timeout = 4000
 
 [username]
 style_user = "green bold"
