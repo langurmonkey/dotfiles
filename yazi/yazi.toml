@@ -36,7 +36,7 @@ audio = [
 ]
 
 [open]
-rules = [
+prepend_rules = [
   # Mime types
   { mime = "application/pdf", use = "pdf" },
   { mime = "image/*", use = "image" },
@@ -45,23 +45,26 @@ rules = [
   { mime = "text/*", use = ["edit", "text"] },
 
   # File extensions
-  { name = "*.pdf", use = "pdf" },
-  { name = "*.json", use = "edit" },
-  { name = "*.md", use = "edit" },
-  { name = "*.html", use = ["edit", "text"] },
-  { name = "*.sh", use = "edit" },
-  { name = "*.txt", use = ["edit", "text"] },
-  { name = "*.csv", use = "edit" },
-  { name = "*.dat", use = "edit" },
-  { name = "*.toml", use = "edit" },
-  { name = "*.yaml", use = "edit" },
-  { name = "*.yml", use = "edit" },
-  { name = "*.lua", use = ["edit", "text"] },
-  { name = "*.log", use = "text" },
-  { name = "*.rs", use = ["edit", "text"] },
-  { name = "*.js", use = ["edit", "text"] },
-  { name = "*.ts", use = ["edit", "text"] },
-  { name = "*.mp3", use = "audio" },
-  { name = "*.wav", use = "audio" },
-  { name = "*.ogg", use = "audio" },
+  { url = "*.pdf", use = "pdf" },
+  { url = "*.json", use = "edit" },
+  { url = "*.md", use = "edit" },
+  { url = "*.html", use = ["edit", "text"] },
+  { url = "*.sh", use = "edit" },
+  { url = "*.txt", use = ["edit", "text"] },
+  { url = "*.csv", use = "edit" },
+  { url = "*.dat", use = "edit" },
+  { url = "*.toml", use = "edit" },
+  { url = "*.yaml", use = "edit" },
+  { url = "*.yml", use = "edit" },
+  { url = "*.lua", use = ["edit", "text"] },
+  { url = "*.log", use = "text" },
+  { url = "*.rs", use = ["edit", "text"] },
+  { url = "*.js", use = ["edit", "text"] },
+  { url = "*.ts", use = ["edit", "text"] },
+  { url = "*.mp3", use = "audio" },
+  { url = "*.wav", use = "audio" },
+  { url = "*.ogg", use = "audio" },
+]
+append_rules = [
+	{ url = "*", use = "less" },
 ]
