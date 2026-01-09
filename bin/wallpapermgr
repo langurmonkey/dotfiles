@@ -25,7 +25,7 @@ function apply_wallpaper {
     if command -v hyprpaper 2>&1 >/dev/null
     then
       echo "Using hyprpaper"
-      hyprctl hyprpaper reload ,"$CURRENT_WALLPAPER"
+      hyprctl hyprpaper wallpaper ,"$CURRENT_WALLPAPER",
     elif  command -v swaybg 2>&1 >/dev/null
     then
       echo "Using swaybg"
