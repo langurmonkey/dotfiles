@@ -35,13 +35,13 @@ export GPGKEY=448C2B189756743013D5F7C22FD2A59C1D734C1F
 
 # System utils
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='/usr/bin/vim'
+  export EDITOR='vim'
 else
-  export EDITOR='/usr/bin/helix'
+  export EDITOR='helix'
 fi
-export VISUAL='/usr/bin/helix'
-export PAGER='/usr/bin/less'
-export BROWSER='/usr/bin/firefox'
+export VISUAL='helix'
+export PAGER='less'
+export BROWSER='firefox'
 export MANPAGER=$PAGER
 
 # Locations
