@@ -10,5 +10,8 @@ key = "448C2B189756743013D5F7C22FD2A59C1D734C1F"
 [ui]
 paginate = "auto"
 
+[aliases]
+tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+
 [revsets]
 log = "root().."
