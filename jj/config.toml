@@ -11,7 +11,10 @@ key = "448C2B189756743013D5F7C22FD2A59C1D734C1F"
 paginate = "auto"
 
 [aliases]
+# Updates the main bookmark.
 tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+# Shows commits on the working copy commit's bookmark compared to master.
+l = ["log", "-r", "(master..@):: | (master..@)-"]
 
 [revsets]
 log = "root().."
