@@ -9,6 +9,7 @@ key = "448C2B189756743013D5F7C22FD2A59C1D734C1F"
 
 [ui]
 paginate = "auto"
+default-command = "log"
 
 [aliases]
 # Updates the main bookmark.
