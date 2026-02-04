@@ -10,6 +10,10 @@ command = "typos-lsp"
 
 # Languages
 [[language]] 
+name = "html" 
+rulers = [200]
+
+[[language]] 
 name = "rust" 
 language-servers = ["rust-analyzer", "typos", "harper-ls" ]
 
