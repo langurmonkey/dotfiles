@@ -334,8 +334,8 @@ config.bind('<Ctrl-p>', 'set-cmd-text -s :open -p ')
 config.bind('<Ctrl-e>', 'open-editor', mode='insert')
 
 ## Youtube special bindings
-config.bind(',v', 'hint links spawn mpv {hint-url}')
-config.bind('V', 'hint links spawn mpv {hint-url}')
+config.bind(',v', 'hint links spawn ~/.dotfiles/bin/mpvyt {hint-url}')
+config.bind('V', 'hint links spawn ~/.dotfiles/bin/mpvyt {hint-url}')
 config.bind('A', 'hint links spawn mpv {hint-url} --no-video')
 config.bind(';V', 'spawn kitty yt-dlp --all-subs --output ~/temp/vid/yt/%(title)s.%(ext)s {url}')
 config.bind(';A', 'spawn kitty yt-dlp --extract-audio --audio-format mp3 --output ~/temp/audio/yt/%(title)s.%(ext)s {url}')
