@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Play YouTube (or other yt-dlp supported URLs) in mpv
+# using Firefox cookies for age/login-restricted videos.
+
+set -euo pipefail
+
+if [[ $# -eq 0 ]]; then
+    echo "Usage: mpvyt <url>"
+    exit 1
+fi
+
+URL="$1"
+
+exec yt-dlp \
+    --cookies-from-browser firefox \
+    -f "bv*+ba/b" \
+    -o - "$URL" \
+| mpv --cache=yes \
+        --force-window=yes \
+        --player-operation-mode=pseudo-gui \
+        --ytdl-raw-options=live_from_start=1 -

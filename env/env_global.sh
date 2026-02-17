@@ -16,21 +16,6 @@ function cmd-exists {
    type "$1" &> /dev/null;
 }
 
-# mpvyt to watch youtube with mpv
-mpvyt() {
-    if [ -z "$1" ]; then
-        echo "Usage: mpvyt <url>"
-        return 1
-    fi
-
-    yt-dlp \
-        --cookies-from-browser firefox \
-        -f "bv*+ba/b" \
-        -o - "$1" | mpv --cache=yes -
-}
-
-
-
 # Add GPD
 export GPD_TTY=$(tty)
 
