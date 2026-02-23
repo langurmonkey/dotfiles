@@ -1,0 +1,67 @@
+#!/usr/bin/env python3
+import sys
+import os
+import re
+
+# Hex signature for UTF-8 BOM
+UTF8_BOM = b'\xef\xbb\xbf'
+# Note the 'r' prefix here to prevent Python from interpreting the backslash
+UNICODE_ESCAPE_RE = re.compile(r'\\u[0-9a-fA-F]{4}')
+
+def has_bom(file_path):
+    """Check if the file already starts with the UTF-8 BOM."""
+    with open(file_path, 'rb') as f:
+        return f.read(3) == UTF8_BOM
+
+def decode_match(match):
+    # This converts the string '\u30AB' into the actual character
+    return match.group(0).encode('ascii').decode('unicode_escape')
+
+def process_file(file_path):
+    # Added r prefix to the docstring below to fix your SyntaxError
+    r"""Unescapes \uXXXX sequences and saves as UTF-8 with BOM."""
+    if not file_path.endswith('.properties'):
+        return
+
+    if has_bom(file_path):
+        print(f"[-] Skipping: '{file_path}' (Already has BOM)")
+        return
+
+    try:
+        # Read as UTF-8 to handle any existing non-ascii chars safely
+        with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+            content = f.read()
+
+        # Only replace the \uXXXX sequences
+        decoded_content = UNICODE_ESCAPE_RE.sub(decode_match, content)
+
+        # Write with UTF-8 BOM
+        with open(file_path, 'w', encoding='utf-8-sig') as f:
+            f.write(decoded_content)
+
+        print(f"[+] Converted: '{file_path}'")
+        
+    except Exception as e:
+        print(f"[!] Error processing '{file_path}': {e}")
+
+def main():
+    if len(sys.argv) < 2:
+        print("Usage: convert-to-utf8-bom <file_or_directory>")
+        sys.exit(1)
+
+    path = sys.argv[1]
+
+    if os.path.isfile(path):
+        process_file(path)
+    elif os.path.isdir(path):
+        print(f"Scanning directory: {path}...")
+        for root, _, files in os.walk(path):
+            for file in files:
+                if file.endswith('.properties'):
+                    process_file(os.path.join(root, file))
+    else:
+        print(f"Error: '{path}' is not a valid file or directory.")
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()
