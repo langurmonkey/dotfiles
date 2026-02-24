@@ -110,3 +110,7 @@
   autoSquash = true
   autoStash = true
   updateRefs = true
+
+[i18n]
+	commitencoding = utf-8
+	workingcopyencoding = utf-8
