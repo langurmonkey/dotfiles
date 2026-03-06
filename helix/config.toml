@@ -11,9 +11,14 @@ mouse = true
 color-modes = true
 # Force the theme to show colors
 true-color = true
-# Always show the tabs at the top
-bufferline = "always"
+# Where to put the vertical rulers
 rulers = [100, 150]
+
+# Always show the tabs at the top
+#[editor.bufferline]
+#render-mode = "always"
+#separator = "|"
+bufferline = "always"
 
 [editor.cursor-shape]
 insert = "bar"
