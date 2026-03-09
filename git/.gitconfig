@@ -114,3 +114,5 @@
 [i18n]
 	commitencoding = utf-8
 	workingcopyencoding = utf-8
+[credential]
+	helper = store
