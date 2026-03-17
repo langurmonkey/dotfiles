@@ -2,7 +2,7 @@ theme = "langur"
 
 [editor]
 # Relative line numbering
-line-number = "relative"
+line-number = "absolute"
 # Highlight the whole current line
 cursorline = true
 # Enable mouse use
