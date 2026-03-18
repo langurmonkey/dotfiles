@@ -10,6 +10,7 @@ pdf = [
 	{ run = 'zathura "$1"', desc = "zathura", block = false },
 	{ run = 'papers "$1"', desc = "papers", block = false },
 	{ run = 'evince "$1"', desc = "evince", block = false },
+	{ run = 'xournalpp "$1"', desc = "xournal++", block = false },
 ]
 image = [
     { run = 'nsxiv "$1"', desc = "nsxiv", block = false },
