@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+uvx --from 'git+https://github.com/Mic92/puss-say' puss-say "$@"
+
