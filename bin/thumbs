@@ -1,3 +1,13 @@
+#!/bin/bash
+
+# Ensure ImageMagick is installed
+if ! command -v magick &> /dev/null; then
+    echo "Error: ImageMagick is not installed. Install it and try again."
+    exit 1
+fi
+
+SIZE="${1:-300}"
+
 if [[ "$SIZE" == *% ]]; then
     RESIZE="$SIZE"
 else
@@ -15,7 +25,7 @@ for img in *.jpg *.jpeg *.png *.gif *.bmp *.tiff; do
     
     thumb_name="${img%.*}-thumb.${img##*.}"
     
-    convert "$img" -resize "$RESIZE" "$thumb_name"
-    
+    echo "Running 'magick $img -resize $RESIZE $thumb_name'"
+    magick "$img" -resize "$RESIZE" "$thumb_name"
     echo "Thumbnail created: $thumb_name"
 done
