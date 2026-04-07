@@ -1,8 +1,8 @@
-# File system watcher LSP
+# File system watcher LSP: cargo install fs_watcher_lsp
 [language-server.fs_watcher_lsp]
-command = "fs_watcher_lsp" # Run cargo install fs_watcher_lsp
-args = []
+command = "fs_watcher_lsp"
 
+# GLSL
 [language-server.glsl_analyzer]
 command = "glsl_analyzer"
 
@@ -10,8 +10,13 @@ command = "glsl_analyzer"
 command = "harper-ls"
 args = ["--stdio"]
 
+# Typos
 [language-server.typos]     
 command = "typos-lsp"
+
+# RST: uv tool install --prerelease allow esbonio
+[language-server.esbonio]
+command = "esbonio"
 
 # Languages
 [[language]] 
@@ -27,7 +32,6 @@ language-servers = ["rust-analyzer", "typos", "harper-ls", "fs_watcher_lsp" ]
 name = "markdown"
 language-servers = [ "marksman", "typos", "harper-ls", "fs_watcher_lsp" ]
 
-
 [[language]]
 name = "yaml"
 language-servers = [ "yaml-language-server", "typos", "harper-ls", "fs_watcher_lsp" ]
@@ -38,7 +42,7 @@ language-servers = [ "taplo", "typos", "harper-ls", "fs_watcher_lsp" ]
 
 [[language]]
 name = "rst"
-language-servers = [ "typos", "harper-ls", "fs_watcher_lsp" ]
+language-servers = ["esbonio", "typos", "harper-ls", "fs_watcher_lsp" ]
 indent = { tab-width = 4, unit = "    " }
 
 [[language]]
