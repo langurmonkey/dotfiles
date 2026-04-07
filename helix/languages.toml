@@ -1,3 +1,8 @@
+# File system watcher LSP
+[language-server.fs_watcher_lsp]
+command = "fs_watcher_lsp" # Run cargo install fs_watcher_lsp
+args = []
+
 [language-server.glsl_analyzer]
 command = "glsl_analyzer"
 
@@ -12,34 +17,52 @@ command = "typos-lsp"
 [[language]] 
 name = "html" 
 rulers = [200]
+language-servers = ["fs_watcher_lsp"]
 
 [[language]] 
 name = "rust" 
-language-servers = ["rust-analyzer", "typos", "harper-ls" ]
+language-servers = ["rust-analyzer", "typos", "harper-ls", "fs_watcher_lsp" ]
 
 [[language]]
 name = "markdown"
-language-servers = [ "marksman", "typos", "harper-ls" ]
+language-servers = [ "marksman", "typos", "harper-ls", "fs_watcher_lsp" ]
+
+
+[[language]]
+name = "yaml"
+language-servers = [ "yaml-language-server", "typos", "harper-ls", "fs_watcher_lsp" ]
 
 [[language]]
 name = "toml"
-language-servers = [ "taplo", "typos", "harper-ls" ]
+language-servers = [ "taplo", "typos", "harper-ls", "fs_watcher_lsp" ]
 
 [[language]]
 name = "rst"
-language-servers = [ "typos", "harper-ls" ]
+language-servers = [ "typos", "harper-ls", "fs_watcher_lsp" ]
 indent = { tab-width = 4, unit = "    " }
 
 [[language]]
 name = "latex"
-language-servers = [ "texlab", "typos", "harper-ls" ]
+language-servers = [ "texlab", "typos", "harper-ls", "fs_watcher_lsp" ]
 
 [[language]]
 name = "glsl"
-language-servers = [ "glsl_analyzer", "typos" ]
+language-servers = [ "glsl_analyzer", "typos", "fs_watcher_lsp" ]
 auto-format = true
 
 [[language]]
 name = "make"
-language-servers = [ "make-language-server", "typos", "harper-ls" ]
+language-servers = [ "make-language-server", "typos", "harper-ls", "fs_watcher_lsp" ]
 file-types = [ "make", "just", { glob = "Makefile" }, { glob = "justfile" } ]
+
+[[language]]
+name = "txt"
+scope = "source.txt"
+injection-regex = "txt"
+file-types = ["txt"]
+language-servers = ["fs_watcher_lsp"]
+
+[[language]]
+name = "java"
+file-types = ["java"]
+language-servers = ["jdtls", "typos", "harper-ls", "fs_watcher_lsp"]
