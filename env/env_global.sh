@@ -70,7 +70,7 @@ export JDK_HOME='/usr/lib/jvm/default-runtime'
 export TOPCAT="$PROGRAMS/Topcat"
 
 # Path
-export PATH="${PATH:+${PATH}:}$HOME/.local/bin:$HOME/.dotfiles/bin:$HOME/.cargo/bin:$HOME/go/bin"
+export PATH="${PATH:+${PATH}:}$HOME/.local/bin:$HOME/.dotfiles/bin:$HOME/.cargo/bin:$HOME/go/bin:$HOME/bin"
 export PATH="${PATH:+${PATH}:}./"
 
 # Android SDK
