@@ -3,7 +3,7 @@ local dots = os.getenv("HOME") .. "/.dotfiles/hyprland/"
 
 -- Monitors
 hl.monitor("DVI-D-1", "1920x1080@60", "0x0", 1)
-hl.monitor("DP-2", "3860x2560@60", "1920x0", 2)
+hl.monitor("DP-2", "3860x2560@60", "1920x0", 1.33)
 
 -- Host-specific Overwrites
 hl.env("HYPRCURSOR_SIZE", "30")
