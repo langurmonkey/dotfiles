@@ -2,7 +2,12 @@
 local dots = os.getenv("HOME") .. "/.dotfiles/hyprland/"
 
 -- Monitors
-hl.monitor("eDP-1", "1920x1080@60", "0x0", 1)
+hl.monitor({
+  output = "eDP-1",
+  mode = "1920x1080@60",
+  position = "0x0",
+  scale = 1
+})
 
 -- HiDPI forcing for the internal display
 hl.env("GDK_SCALE", "1")
@@ -14,5 +19,5 @@ hl.env("HYPRCURSOR_SIZE", "20")
 hl.env("XCURSOR_SIZE", "20")
 
 -- Load the Shared Nvidia logic (which also loads Common)
-local nvidia = require("hosts.nvidia")
-nvidia.apply()
+local nvidiacfg = require("hosts.nvidia")
+nvidiacfg.apply()

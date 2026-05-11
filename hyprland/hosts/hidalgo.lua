@@ -2,8 +2,18 @@
 local dots = os.getenv("HOME") .. "/.dotfiles/hyprland/"
 
 -- Monitors
-hl.monitor("DVI-D-1", "1920x1080@60", "0x0", 1)
-hl.monitor("DP-2", "3860x2560@60", "1920x0", 1.25)
+hl.monitor({
+    output = "DVI-D-1",
+    mode = "1920x1080@60",
+    position = "0x0",
+    scale = 1
+})
+hl.monitor({
+    output = "DP-2",
+    mode = "3860x2560@60",
+    position = "1920x0",
+    scale = 1.25
+})
 
 -- Host-specific Overwrites
 hl.env("HYPRCURSOR_SIZE", "30")
@@ -20,5 +30,5 @@ hl.config({
 })
 
 -- Load Nvidia logic
-local nvidia = require("hosts.nvidia")
-nvidia.apply()
+local nvidiacfg = require("hosts.nvidia")
+nvidiacfg.apply()

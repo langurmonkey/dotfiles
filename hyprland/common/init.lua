@@ -6,7 +6,6 @@ print(">>> HYPRLAND LUA CONFIG LOADED SUCCESSFULLY <<<")
 local home = os.getenv("HOME")
 
 -- 1. Monitors & Ecosystem
-hl.monitor("", "preferred", "auto", "auto")
 hl.config({ ecosystem = { no_donation_nag = true } })
 
 -- 2. Exec-once (Autostart)
@@ -27,7 +26,7 @@ local autostart = {
 }
 
 for _, cmd in ipairs(autostart) do
-    hl.exec_once(cmd)
+    hl.exec_cmd(cmd)
 end
 
 -- 3. Environment Variables
@@ -104,7 +103,6 @@ hl.config({
     },
 
     dwindle = {
-        pseudotile = true,
         preserve_split = true,
         force_split = 2
     },

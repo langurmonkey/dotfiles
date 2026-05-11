@@ -17,3 +17,5 @@ function nvidia.apply()
     -- Finally, load common settings
     require("common")
 end
+
+return nvidia
