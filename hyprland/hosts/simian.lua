@@ -10,4 +10,4 @@ hl.monitor({
 })
 
 -- Load the common configuration
-dofile(dots .. "hyprland-common.lua")
+require("common")

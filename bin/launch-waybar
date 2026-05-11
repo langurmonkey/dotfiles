@@ -1,12 +1,30 @@
 #!/bin/bash
 
-CONFIG_FILES="$HOME/.config/waybar/config $HOME/.config/waybar/style.css"
+# Define paths
+CONFIG_DIR="$HOME/.config/waybar"
+CONFIG_FILES="$CONFIG_DIR/config $CONFIG_DIR/style.css"
 
-trap "killall waybar" EXIT
+# Cleanup function
+terminate() {
+    killall waybar
+    exit 0
+}
+
+# Ensure waybar is killed when this script stops
+trap terminate EXIT SIGINT SIGTERM
 
 while true; do
-    hyprctl dispatch exec waybar &
-    sleep 1
+    # Run waybar directly. 
+    # Using 'uwsm app --' here is optional if the script itself is already 
+    # launched by uwsm, but it helps ensure the environment is correct.
+    waybar &
+    
+    # Wait for the config files to change
     inotifywait -e create,modify $CONFIG_FILES
+    
+    # Kill the current instance to restart
     killall waybar
+    
+    # Small cooldown to prevent rapid restart loops if there's a config error
+    sleep 0.5
 done
