@@ -132,15 +132,16 @@ hl.bind(mod .. " + minus",                  hl.dsp.workspace.toggle_special())
 --------------------------------
 
 
-local resize_val = 30
-hl.bind(mod .. " + CONTROL + right", hl.dsp.window.resize({ x =  resize_val, y =  0, relative = true }), { repeating = true })
-hl.bind(mod .. " + CONTROL + l",     hl.dsp.window.resize({ x =  resize_val, y =  0, relative = true  }), { repeating = true })
-hl.bind(mod .. " + CONTROL + left",  hl.dsp.window.resize({ x = -resize_val, y =  0, relative = true  }), { repeating = true })
-hl.bind(mod .. " + CONTROL + h",     hl.dsp.window.resize({ x = -resize_val, y =  0 }), { repeating = true })
-hl.bind(mod .. " + CONTROL + up",    hl.dsp.window.resize({ x =  0, y = -resize_val, relative = true  }), { repeating = true })
-hl.bind(mod .. " + CONTROL + k",     hl.dsp.window.resize({ x =  0, y = -resize_val, relative = true  }), { repeating = true })
-hl.bind(mod .. " + CONTROL + down",  hl.dsp.window.resize({ x =  0, y =  resize_val, relative = true  }), { repeating = true })
-hl.bind(mod .. " + CONTROL + j",     hl.dsp.window.resize({ x =  0, y =  resize_val, relative = true  }), { repeating = true })
+local rv_p = 30
+local rv_n = -rv_p
+hl.bind(mod .. " + CONTROL + right", hl.dsp.window.resize({ x = rv_p, y =  0, relative = true }), { repeating = true })
+hl.bind(mod .. " + CONTROL + l",     hl.dsp.window.resize({ x = rv_p, y =  0, relative = true }), { repeating = true })
+hl.bind(mod .. " + CONTROL + left",  hl.dsp.window.resize({ x = rv_n, y =  0, relative = true }), { repeating = true })
+hl.bind(mod .. " + CONTROL + h",     hl.dsp.window.resize({ x = rv_n, y =  0, relative = true }), { repeating = true })
+hl.bind(mod .. " + CONTROL + up",    hl.dsp.window.resize({ x =  0, y = rv_n, relative = true }), { repeating = true })
+hl.bind(mod .. " + CONTROL + k",     hl.dsp.window.resize({ x =  0, y = rv_n, relative = true }), { repeating = true })
+hl.bind(mod .. " + CONTROL + down",  hl.dsp.window.resize({ x =  0, y = rv_p, relative = true }), { repeating = true })
+hl.bind(mod .. " + CONTROL + j",     hl.dsp.window.resize({ x =  0, y = rv_p, relative = true }), { repeating = true })
 
 --------------------------------
 ---- MOUSE                  ----
