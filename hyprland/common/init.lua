@@ -14,31 +14,23 @@ hl.config({ ecosystem = { no_donation_nag = true } })
 
 
 -- Exec-once (Autostart)
--- Using a list for cleaner reading
-local autostart = {
-    -- Notification daemon
-    "uwsm app -- fnott",
-    -- Media and Bluetooth
-    "uwsm app -- playerctld",
-    "uwsm app -- blueman-tray",
-    "uwsm app -- nm-applet --indicator",
-    -- Storage
-    "uwsm app -- udiskie -f " .. home .. "/.dotfiles/bin/ranger-term --tray",
-    -- Idle and Music
-    "uwsm app -- hypridle",
-    "uwsm app -- mpDris2",
-    -- Keyring
-    "uwsm app -- gnome-keyring-daemon --start --components=secrets",
-    -- UI elements
-    "uwsm app -- " .. home .. "/.dotfiles/bin/launch-waybar",
-    -- Portals (Assuming this script handles portal restarts)
-    home .. "/.dotfiles/bin/run-portals"
-}
 hl.on("hyprland.start", function () 
-  for _, cmd in ipairs(autostart) do
-    -- Using the 'once' option prevents duplicates on config reloads
-    hl.exec_cmd(cmd, { once = true })
-  end 
+    local autostart = {
+        home .. "/.dotfiles/bin/run-portals",
+        "uwsm app -- fnott",
+        "uwsm app -- playerctld",
+        "uwsm app -- blueman-tray",
+        "uwsm app -- nm-applet --indicator",
+        "uwsm app -- udiskie -f " .. home .. "/.dotfiles/bin/ranger-term --tray",
+        "uwsm app -- hypridle",
+        "uwsm app -- mpDris2",
+        "uwsm app -- gnome-keyring-daemon --start --components=secrets",
+        "uwsm app -- waybar",
+    }
+
+    for _, cmd in ipairs(autostart) do
+        hl.exec_cmd(cmd)
+    end
 end)
 
 -- Environment Variables
@@ -70,7 +62,7 @@ hl.config({
         gaps_out = 6,
         border_size = 2,
         col = {
-            active_border   = { colors = {"rgba(5984ffff)", "rgba(00ff99ee)"}, angle = 45 },
+            active_border   = { colors = {"rgba(2944ffff)", "rgba(128599ff)"}, angle = 90 },
             inactive_border = "rgba(666666aa)",
         },
         resize_on_border = false,

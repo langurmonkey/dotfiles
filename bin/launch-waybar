@@ -18,6 +18,7 @@ while true; do
     # Using 'uwsm app --' here is optional if the script itself is already 
     # launched by uwsm, but it helps ensure the environment is correct.
     waybar &
+    WAYBAR_PID=$!
     
     # Wait for the config files to change
     inotifywait -e create,modify $CONFIG_FILES
