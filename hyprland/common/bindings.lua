@@ -82,7 +82,11 @@ hl.bind(mod .. " + F", hl.dsp.window.fullscreen())
 --------------------------------
 
 local dirs = { h = "left", l = "right", k = "up", j = "down" }
+local dirs_cursors = { left = "left", right = "right", up = "up", down = "down" }
 for key, dir in pairs(dirs) do
+    hl.bind(mod .. " + " .. key,          hl.dsp.focus({ direction = dir }))
+end
+for key, dir in pairs(dirs_cursors) do
     hl.bind(mod .. " + " .. key,          hl.dsp.focus({ direction = dir }))
 end
 
