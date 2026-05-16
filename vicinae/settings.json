@@ -22,6 +22,9 @@
          "icon_theme": "Numix Circle"
       }
    },
+   "telemetry": {
+      "system_info": false
+   },
    "launcher_window": {
       "opacity": 0.8
    }
