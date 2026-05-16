@@ -11,8 +11,7 @@ FILE_VIMINIT=$DIR_VIMCONFIG/init.vim
 DIR_VIMPLUGINS=$DIR_VIMCONFIG/plugged
 
 DIR_ROFI=~/.config/rofi
-DIR_FUZZEL=~/.config/fuzzel
-DIR_TSCHUSS=~/.config/tschuss
+DIR_VICINAE=~/.config/vicinae
 
 DIR_RANGER=~/.config/ranger
 DIR_NNN=~/.config/nnn
@@ -311,12 +310,9 @@ echo-ok "Done"
 # Symlink rofi config
 echo-custom " ** " "==== Rofi CONFIG ===="
 do-symlink $DOTFILES_PATH/rofi $DIR_ROFI
-# Symlink tschuss config
-echo-custom " ** " "==== Tschuss CONFIG ===="
-do-symlink $DOTFILES_PATH/tschuss $DIR_TSCHUSS
-# Symlink fuzzel config
-echo-custom " ** " "==== Fuzzel CONFIG ===="
-do-symlink $DOTFILES_PATH/fuzzel $DIR_FUZZEL
+# Symlink vicinae config
+echo-custom " ** " "==== Vicinae CONFIG ===="
+do-symlink $DOTFILES_PATH/vicinae $DIR_VICINAE
 
 # xkblayout
 mkdir -p ~/.local/bin/
