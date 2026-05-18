@@ -26,7 +26,7 @@ hl.on("hyprland.start", function ()
         "uwsm app -- mpDris2",
         "uwsm app -- gnome-keyring-daemon --start --components=secrets",
         "uwsm app -- waybar",
-        "uwsm app -- vicinae server",
+        "uwsm app -- env QT_SCALE_FACTOR=1 vicinae server",
     }
 
     for _, cmd in ipairs(autostart) do

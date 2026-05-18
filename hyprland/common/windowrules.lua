@@ -347,3 +347,13 @@ hl.window_rule({
     border_size = 0,
     no_focus    = true,
 })
+
+-----------------------
+-- VICINAE BLUR     ---
+-----------------------
+hl.layer_rule({
+  match = { namespace = "vicinae" },
+  name = "vicinae-blur",
+  blur = true,
+  ignore_alpha = 0,
+})
