@@ -3,7 +3,7 @@ local home = os.getenv("HOME")
 hl.on("hyprland.start", function () 
     local autostart = {
         home .. "/.dotfiles/bin/run-portals",
-        "uwsm app -- fnott",
+        "uwsm app -- histuid",
         "uwsm app -- playerctld",
         "uwsm app -- blueman-tray",
         "uwsm app -- nm-applet --indicator",
