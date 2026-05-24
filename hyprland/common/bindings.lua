@@ -38,11 +38,6 @@ hl.config({
         enable_hyprcursor = true, 
     },
 })
-hl.gesture({
-    fingers = 3,
-    direction = "horizontal",
-    action = "workspace"
-})
 
 --------------------------------
 ---- BASIC DISPATCHERS      ----
