@@ -5,7 +5,7 @@
     "spacing": 8, // Gaps between modules (px)
                   // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "hyprland/window", "custom/media"],
-    "modules-center": ["hyprland/language"],
+    "modules-center": ["custom/histui", "hyprland/language"],
     "modules-right": ["mpd", "idle_inhibitor", "custom/cryptobtc", "custom/cpulevels", "cpu", "memory", "backlight", "battery#bat2", "battery", "pulseaudio", "custom/clock", "tray"],
     "keyboard-state": {
       "numlock": true,
@@ -88,6 +88,22 @@
       "format": " {:%Y-%m-%d  %T}",
       "tooltip-format": "<big>{:%d}</big>\n<tt><small>{calendar}</small></tt>",
       "format-alt": "{:%Y-%m-%d}"
+    },
+    "custom/histui": {
+        "exec": "histui status --detailed",
+        "return-type": "json",
+        "interval": 5,
+        "format": "{icon} {text}",
+        "format-icons": {
+            "empty": "",      // No notifications
+            "dnd": "󰂛",        // Do Not Disturb
+            "low": "󱅫",        // Low priority
+            "normal": "󱅫",     // Normal priority
+            "critical": "󰂚"    // Critical notification
+        },
+        "on-click": "histui dnd toggle",
+        "on-click-right": "kitty --class wm-floating -e histui tui",
+        "on-click-middle": "histui get --format dmenu --since 24h | rofi -dmenu -p 'Notifications'"
     },
     "custom/clock": {
       "format": "{}",
