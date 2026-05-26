@@ -18,6 +18,6 @@ hl.curve("spring_ws",      { type = "spring", mass = 1.2, stiffness = 30, dampen
 hl.curve("spring_win",     { type = "spring", mass = 1,   stiffness = 30, dampening = 8 })
 
 
-hl.animation({ leaf = "global",      enabled = true, speed = 7,   bezier = "easeInOutCubic" })
+hl.animation({ leaf = "global",      enabled = true, speed = 5,   bezier = "quick" })
 hl.animation({ leaf = "workspaces",  enabled = true, speed = 7,   spring = "spring_ws",  style="slide" })
 hl.animation({ leaf = "windows",     enabled = true, speed = 10,  spring = "spring_win", style = "slide" })
