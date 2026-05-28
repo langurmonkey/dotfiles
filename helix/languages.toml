@@ -6,6 +6,7 @@ command = "fs_watcher_lsp"
 [language-server.glsl_analyzer]
 command = "glsl_analyzer"
 
+# Harper
 [language-server.harper-ls]
 command = "harper-ls"
 args = ["--stdio"]
@@ -27,6 +28,16 @@ language-servers = ["fs_watcher_lsp"]
 [[language]] 
 name = "rust" 
 language-servers = ["rust-analyzer", "typos", "harper-ls", "fs_watcher_lsp" ]
+
+[[language]] 
+name = "python"
+scope = "source.python"
+injection-regex = "py(thon)?"
+file-types = ["py", "pyi", "py3", "pyw", "ptl", "rpy", "cpy", "ipy", "pyt", { glob = ".python_history" }, { glob = ".pythonstartup" }, { glob = ".pythonrc" }, { glob = "*SConstruct" }, { glob = "*SConscript" }, { glob = "*sconstruct" }]
+shebangs = ["python", "uv"]
+roots = ["pyproject.toml", "setup.py", "poetry.lock", "pyrightconfig.json"]
+comment-token = "#"
+language-servers = ["ty", "ruff", "jedi-language-server", "pylsp", "typos", "harper-ls", "fs_watcher_lsp"]
 
 [[language]]
 name = "markdown"
