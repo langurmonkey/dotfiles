@@ -75,13 +75,13 @@ hl.window_rule({
     workspace = "5 silent",
 })
 
-hl.window_rule({
-    name  = "topcat",
-    match = { class = "uk-ac-starlink-topcat-Driver" },
+-- hl.window_rule({
+--     name  = "topcat",
+--     match = { class = "uk-ac-starlink-topcat-Driver" },
 
-    workspace = "8 silent",
-    float     = true,
-})
+--     workspace = "8 silent",
+--     float     = true,
+-- })
 
 hl.window_rule({
     name  = "terraria",
