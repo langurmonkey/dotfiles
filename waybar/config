@@ -102,7 +102,7 @@
             "critical": "󰂚"    // Critical notification
         },
         "on-click": "histui dnd toggle",
-        "on-click-right": "kitty --class wm-floating -e histui tui",
+        "on-click-right": "kitty --class wm-floating-big -e histui tui",
         "on-click-middle": "histui get --format dmenu --since 24h | rofi -dmenu -p 'Notifications'"
     },
     "custom/clock": {
