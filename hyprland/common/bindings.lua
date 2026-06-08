@@ -43,7 +43,7 @@ hl.config({
 ---- BASIC DISPATCHERS      ----
 --------------------------------
 
-hl.bind(mod .. " + RETURN", hl.dsp.exec_cmd(term .. " --working-directory '$(" .. home .. "/.dotfiles/bin/hyprcwd)'"))
+hl.bind(mod .. " + RETURN", hl.dsp.exec_cmd(term .. " --working-directory $(" .. home .. "/.dotfiles/bin/hyprcwd || echo ~)"))
 hl.bind(mod .. " + Q",      hl.dsp.window.kill())
 hl.bind(mod .. " + escape", hl.dsp.exec_cmd(menu .. " -show power-menu -modi power-menu:" .. home .. "/.dotfiles/bin/rofi-power-menu"))
 
