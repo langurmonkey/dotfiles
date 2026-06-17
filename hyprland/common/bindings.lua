@@ -52,17 +52,17 @@ hl.bind(mod .. " + escape", hl.dsp.exec_cmd(menu .. " -show power-menu -modi pow
 --------------------------------
 
 hl.bind(mod .. " + CONTROL + W", hl.dsp.exec_cmd("uwsm app -- firefox"))
-hl.bind(mod .. " + SHIFT + W", hl.dsp.exec_cmd("uwsm app -- env QT_SCALE_FACTOR=1 qutebrowser --qt-flag enable-gpu-rasterization"))
-hl.bind(mod .. " + SHIFT + T", hl.dsp.exec_cmd("uwsm app -- thunderbird"))
-hl.bind(mod .. " + SHIFT + A", hl.dsp.exec_cmd("fnottctl actions"))
-hl.bind(mod .. " + SHIFT + Z", hl.dsp.exec_cmd("uwsm app -- hyprlock"))
-hl.bind(mod .. " + Z",     hl.dsp.exec_cmd(menu .. " -show drun"))
-hl.bind(mod .. " + SPACE",     hl.dsp.exec_cmd("vicinae vicinae://toggle"))
-hl.bind(mod .. " + X",     hl.dsp.exec_cmd(menu .. " -show window"))
-hl.bind(mod .. " + equal", hl.dsp.exec_cmd(menu .. " -show calc"))
-hl.bind(mod .. " + C",     hl.dsp.exec_cmd("speedcrunch"))
-hl.bind(mod .. " + E",     hl.dsp.exec_cmd("rofimoji"))
-hl.bind(mod .. " + SHIFT + E", hl.dsp.exec_cmd("uwsm app -- neovide"))
+hl.bind(mod .. " + SHIFT + W",   hl.dsp.exec_cmd("uwsm app -- env QT_SCALE_FACTOR=1 qutebrowser --qt-flag enable-gpu-rasterization"))
+hl.bind(mod .. " + SHIFT + T",   hl.dsp.exec_cmd("uwsm app -- thunderbird"))
+hl.bind(mod .. " + SHIFT + A",   hl.dsp.exec_cmd("fnottctl actions"))
+hl.bind(mod .. " + SHIFT + Z",   hl.dsp.exec_cmd("uwsm app -- hyprlock"))
+hl.bind(mod .. " + Z",           hl.dsp.exec_cmd("vicinae vicinae://toggle"))
+hl.bind(mod .. " + SPACE",       hl.dsp.exec_cmd(menu .. " -show drun"))
+hl.bind(mod .. " + X",           hl.dsp.exec_cmd(menu .. " -show window"))
+hl.bind(mod .. " + equal",       hl.dsp.exec_cmd(menu .. " -show calc"))
+hl.bind(mod .. " + C",           hl.dsp.exec_cmd("speedcrunch"))
+hl.bind(mod .. " + E",           hl.dsp.exec_cmd("rofimoji"))
+hl.bind(mod .. " + SHIFT + E",   hl.dsp.exec_cmd("uwsm app -- neovide"))
 
 --------------------------------
 ---- WINDOW LAYOUT          ----
