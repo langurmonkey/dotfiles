@@ -48,7 +48,7 @@ hl.config({
     -- Scrolling layout
     scrolling = {
         fullscreen_on_one_column = true,
-        column_width = 0.6,
+        column_width = 0.5,
         follow_min_visible = 0.01,
     },
 
