@@ -29,6 +29,10 @@ language-servers = ["fs_watcher_lsp"]
 name = "rust" 
 language-servers = ["rust-analyzer", "typos", "harper-ls", "fs_watcher_lsp" ]
 
+[[language]]
+name = "css"
+file-types = ["css", "tcss", "scss"]
+
 [[language]] 
 name = "python"
 scope = "source.python"
