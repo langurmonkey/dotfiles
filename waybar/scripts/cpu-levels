@@ -1,11 +1,22 @@
-#!/bin/sh
-# Define array
+#!/usr/bin/env bash
+
+# Unicode ramp
 ramp_arr=(▁ ▂ ▃ ▄ ▅ ▆ ▇ █)
 
-sar -P ALL 1 1 | grep -E 'Average:\s+[0-9]+' | while read -r line ; do
-    val=$(echo $line | awk '{cpu_usage=$3} END {printf "%0.2f", cpu_usage}')
-    idx=`echo "scale=4; $val/14.3" | bc`
-    intidx=$( printf "%.0f" $idx )
-    printf "${ramp_arr[$intidx]}"
+sar -P ALL 1 1 |
+awk '
+/^Average:[[:space:]]+[0-9]+/ {
+    usage = 100 - $NF          # %idle is the last column
+    idx = int((usage / 100) * 7 + 0.5)
+
+    if (idx < 0) idx = 0
+    if (idx > 7) idx = 7
+
+    print idx
+}
+' |
+while read -r idx; do
+    printf "%s" "${ramp_arr[$idx]}"
 done
+
 echo
