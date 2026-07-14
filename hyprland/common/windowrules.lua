@@ -204,7 +204,6 @@ hl.window_rule({
 hl.window_rule({
     name  = "gaiasky",
     match = {
-        class = "Gaia Sky.*",
         title = "Gaia Sky.*",
     },
 
