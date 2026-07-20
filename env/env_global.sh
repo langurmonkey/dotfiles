@@ -143,5 +143,6 @@ fi
 # Uncomment to unlock ssh key by default (asks for password)
 if command -v keychain &> /dev/null
 then
+    sleep 0.05
     eval $(keychain --quiet --eval $HOME/.ssh/id_rsa $HOME/.ssh/id_ed25519)
 fi
