@@ -14,10 +14,10 @@ hl.curve("overshoot",      { type = "bezier", points = { {0.5, 0.9},   {0.1, 1.1
 -- Springs
 hl.curve("bouncy",         { type = "spring", mass = 3,   stiffness = 80, dampening = 10 })
 hl.curve("easy",           { type = "spring", mass = 2,   stiffness = 50, dampening = 10 })
-hl.curve("spring_ws",      { type = "spring", mass = 0.8, stiffness = 40, dampening = 8  })
+hl.curve("spring_ws",      { type = "spring", mass = 1.0, stiffness = 160, dampening = 14  })
 hl.curve("spring_win",     { type = "spring", mass = 0.9,   stiffness = 130, dampening = 12 })
 
 
 hl.animation({ leaf = "global",      enabled = true, speed = 1,   bezier = "quick" })
-hl.animation({ leaf = "workspaces",  enabled = true, speed = 4,   spring = "spring_ws",  style="slide" })
+hl.animation({ leaf = "workspaces",  enabled = true, speed = 100,   spring = "spring_ws",  style="slide" })
 hl.animation({ leaf = "windows",     enabled = true, speed = 10,  spring = "spring_win", style = "slide" })
