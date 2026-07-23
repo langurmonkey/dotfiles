@@ -51,8 +51,7 @@
   renames = true
 
 [merge]
-  tool = vimdiff
-  conflictstyle = diff3
+  conflictstyle = zdiff3
 
 [commit]
   verbose = true
@@ -71,9 +70,8 @@
   diffFilter = delta --color-only --features=interactive
 
 [delta]
-  features = decorations
   navigate = true
-  side-by-side = true
+  dark = true
   line-numbers = true
 
 [rerere]
