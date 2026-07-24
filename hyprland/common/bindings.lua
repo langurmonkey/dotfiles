@@ -51,8 +51,8 @@ hl.bind(mod .. " + escape", hl.dsp.exec_cmd("vicinae vicinae://launch/power"))
 ---- APPLICATIONS           ----
 --------------------------------
 
-hl.bind(mod .. " + CONTROL + W", hl.dsp.exec_cmd("uwsm app -- firefox"))
-hl.bind(mod .. " + SHIFT + W",   hl.dsp.exec_cmd("uwsm app -- env QT_SCALE_FACTOR=1 qutebrowser --qt-flag enable-gpu-rasterization"))
+hl.bind(mod .. " + SHIFT + W", hl.dsp.exec_cmd("uwsm app -- firefox"))
+hl.bind(mod .. " + CONTROL + W",   hl.dsp.exec_cmd("uwsm app -- env QT_SCALE_FACTOR=1 qutebrowser --qt-flag enable-gpu-rasterization"))
 hl.bind(mod .. " + SHIFT + T",   hl.dsp.exec_cmd("uwsm app -- thunderbird"))
 hl.bind(mod .. " + SHIFT + A",   hl.dsp.exec_cmd("fnottctl actions"))
 hl.bind(mod .. " + SHIFT + Z",   hl.dsp.exec_cmd("uwsm app -- hyprlock"))
