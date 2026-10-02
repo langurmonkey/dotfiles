@@ -7,32 +7,33 @@
 // If you want to maintain a configuration file with your own comments and formatting, you should create a separate file and add it to the 'imports' array.
 //
 // Learn more about configuration at https://docs.vicinae.com/config
+
 {
-  "$schema": "https://vicinae.com/schemas/config.json",
-  "pop_to_root_on_close": true,
-  "global_shortcuts": {
-    "toggle": ""
-  },
-  "font": {
-    "rendering": "native",
-    "normal": {
-      "family": "Overpass Nerd Font",
-      "size": 11
-    }
-  },
-  "theme": {
-    "dark": {
-      "name": "vicinae-dark",
-      "icon_theme": "Numix Circle"
-    }
-  },
-  "telemetry": {
-    "system_info": false
-  },
-  "launcher_window": {
-    "opacity": 0.9,
-    "compact_mode": {
-      "enabled": true
-    }
-  }
+   "$schema": "https://vicinae.com/schemas/config.json",
+   "pop_to_root_on_close": true,
+   "global_shortcuts": {
+      "toggle": ""
+   },
+   "font": {
+      "rendering": "native",
+      "normal": {
+         "family": "Overpass Nerd Font",
+         "size": 11
+      }
+   },
+   "theme": {
+      "dark": {
+         "name": "vicinae-dark",
+         "icon_theme": "Numix Circle"
+      }
+   },
+   "telemetry": {
+      "system_info": false
+   },
+   "launcher_window": {
+      "opacity": 0.9,
+      "compact_mode": {
+         "enabled": false
+      }
+   }
 }
