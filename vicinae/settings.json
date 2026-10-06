@@ -15,15 +15,15 @@
       "toggle": ""
    },
    "font": {
-      "rendering": "native",
+      "rendering": "qt",
       "normal": {
-         "family": "Overpass Nerd Font",
+         "family": "ProFontIIx Nerd Font Mono",
          "size": 11
       }
    },
    "theme": {
       "dark": {
-         "name": "vicinae-dark",
+         "name": "zenwritten-dark",
          "icon_theme": "Numix Circle"
       }
    },
@@ -31,9 +31,17 @@
       "system_info": false
    },
    "launcher_window": {
+      "rounding": 10,
       "opacity": 0.9,
+      "client_side_decorations": {
+         "enabled": true
+      },
       "compact_mode": {
          "enabled": false
+      },
+      "floating_status_bar": true,
+      "layer_shell": {
+         "enabled": true
       }
    }
 }
