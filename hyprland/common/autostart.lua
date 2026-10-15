@@ -11,7 +11,7 @@ hl.on("hyprland.start", function ()
         "uwsm app -- hypridle",
         "uwsm app -- mpDris2",
         "uwsm app -- gnome-keyring-daemon --start --components=secrets",
-        "uwsm app -- waybar",
+        "uwsm app -- ashell",
         "uwsm app -- env QT_SCALE_FACTOR=1 vicinae server",
     }
 
