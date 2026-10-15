@@ -24,6 +24,7 @@ DIR_SWAY=~/.config/sway
 DIR_HYPR=~/.config/hypr
 
 DIR_WAYBAR=~/.config/waybar
+DIR_ASHELL=~/.config/ashell
 DIR_POLYBAR=~/.config/polybar
 DIR_I3BLOCKS=~/.config/i3blocks
 DIR_XOB=~/.config/xob
@@ -295,6 +296,15 @@ echo-custom " ** " "==== waybar CONFIG ===="
 
 # Symlink waybar configuration
 do-symlink $DOTFILES_PATH/waybar $DIR_WAYBAR
+echo-ok "Done"
+
+#
+# ashell
+#
+echo-custom " ** " "==== ashell CONFIG ===="
+
+# Symlink ashell configuration
+do-symlink $DOTFILES_PATH/ashell $DIR_ASHELL
 echo-ok "Done"
 
 #

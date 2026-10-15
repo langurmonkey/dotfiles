@@ -1,0 +1,74 @@
+# Basic settings
+log_level = "warn"
+outputs = "All"
+position = "Top"
+
+# Module layout
+[modules]
+left = [ [ "appLauncher", "Workspaces" ] ]
+center = [ [ "WindowTitle" ] ]
+right = [ "KeyboardLayout", "Updates", [ "SystemInfo", "MediaPlayer" ], [ "Tempo" ] ,[ "Tray", "Privacy", "Settings"] ]
+
+# Appearance settings
+[appearance]
+font_name = "Hack Nerd Font"
+success_color = "#a3be8c"
+warning_color = "#ebcb8b"
+danger_color = "#bf616a"
+text_color = "#eceff4"
+workspace_colors = [ "#88c0d0", "#81a1c1", "#5e81ac" ]
+
+[appearance.primary_color]
+base = "#88c0d0"
+text = "#242933"
+
+[appearance.background_color]
+base = "#3b4252"
+weak = "#434c5e"
+strong = "#4c566a"
+
+[apperaance.bar]
+surface = "solid"
+radius = "md"
+
+[workspaces]
+group_by_monitor = true
+workspace_names = ["1  ","2  ","3 﫯","4  ","5  ","6 ","7 ♫","8 ‍☠","9  ","10  "]
+
+[window_title]
+mode = "Title"                   # "Title" (default), "Class", "InitialTitle", "InitialClass"
+truncate_title_after_length = 150 # (default) 0 means no truncation; capped at 2048
+
+[updates]
+check_cmd = "checkupdates; paru -Qua"
+update_cmd = 'kitty -e bash -c "paru; echo Done - Press enter to exit; read" &'
+interval = 3600             # seconds (default); effective minimum at runtime is 60
+
+[keyboard_layout.labels]
+"English (intl., with AltGr dead keys)" = "  en-us"
+"Spanish" = "  cat"
+"Deutsch" = "  de"
+
+
+[tempo]
+clock_format = " %Y-%m-%d   %H:%M:%S"
+# formats = [ "%a %d %b %R", "%Y-%m-%d %H:%M:%S", "%H:%M:%S" ]
+# timezones = [ "UTC", "America/New_York", "Europe/London" ]
+# weather_location = { City = "Rome" }
+# weather_location = { Coordinates = [40.7128, -74.0060] }
+# weather_location = "Current"
+weather_indicator = "IconAndTemperature"  # (default), "Icon", or "None"
+# wind_speed_unit = "Kmh"   # (default: None = derive from locale) "Kmh", "Mph", or "Ms"
+
+[notifications]
+format = "%H:%M"
+show_timestamps = true
+show_bodies = true
+# grouped = false           # (default) group notifications by app
+# toast = true              # (default) enable toast popups
+# toast_position = "TopRight"  # (default) "TopLeft", "TopRight", "TopCenter", "BottomLeft", "BottomRight", "BottomCenter"
+# toast_timeout = 5000      # (default) milliseconds before auto-dismiss
+# toast_limit = 5           # (default) max concurrent toasts
+# toast_max_height = 150    # (default) max height of toast cards in pixels
+# blocklist = ["regex"]     # (default: []) suppress notifications from apps matching regex
+
