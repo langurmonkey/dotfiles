@@ -13,12 +13,14 @@ right = [ "KeyboardLayout",  "CryptoXBT" , "Updates", [ "SystemInfo", "MediaPlay
 # Appearance settings
 [appearance]
 font_name = "Hack Nerd Font"
+font_weight = 800
+scale_factor = 1.0
 success_color = "#a3be8c"
 warning_color = "#ebcb8b"
 danger_color = "#bf616a"
 text_color = "#ffffff"
-workspace_colors = [ "#333333", "#81a1c1", "#5e81ac" ]
-opacity = 0.9
+workspace_colors = [ "#fab387", "#81a1c1", "#5eac81" ]
+opacity = 0.8
 blur = "auto"
 
 [appearance.primary_color]
@@ -30,10 +32,11 @@ base = "#111111"
 weak = "#666666"
 strong = "#000000"
 
-[apperaance.bar]
-surface = "solid"
+[appearance.bar]
+surface = "transparent"
 radius = "md"
-margin = "md"
+padding = "xxs"
+margin = "xxs"
 
 [[CustomModule]]
 name = "AppLauncher"
@@ -74,6 +77,9 @@ interval = 3600             # seconds (default); effective minimum at runtime is
 "Spanish" = "  cat"
 "Deutsch" = "  de"
 
+[system_info]
+indicators = [ "Cpu", "Memory", "Temperature", "DownloadSpeed" ]
+interval = 5
 
 [tempo]
 clock_format = " %Y-%m-%d   %H:%M:%S"
