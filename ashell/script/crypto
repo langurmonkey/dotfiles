@@ -1,0 +1,42 @@
+#!/usr/bin/python
+import sys, json, requests
+
+# Set your API endpoint here
+
+def get_price(coin):
+    symbol = "₿" if coin == "XBT" else "Ξ"
+    key = f"X{coin}ZEUR"
+    # Send a GET request to the Kraken API
+    API_URL = f"https://api.kraken.com/0/public/Ticker?pair={key}"
+    response = requests.get(API_URL)
+
+    # Check if the response was successful
+    if response.status_code == 200:
+        # Parse the JSON response
+        data = json.loads(response.text)
+        
+        # Extract the current price and 24-hour VWAP from the response
+        current_price = float(data['result'][key]['a'][0])
+        vwap_24h = float(data['result'][key]['p'][1])
+
+        # Calculate the percentage change in price
+        if vwap_24h != 0:
+            change = ((current_price - vwap_24h) / vwap_24h) * 100
+
+            changeFmt = '{}{:.2f}%'
+            if change > 0: changeInfo = changeFmt.format('⇧', change)
+            elif change == 0: changeInfo = changeFmt.format('=', change)
+            else: changeInfo = changeFmt.format('⇩', change)
+
+            # Print the current price and percentage change
+            print(f"{symbol} {current_price}€ {changeInfo}")
+        else:
+            # Only print price
+            print(f"{symbol} {current_price}€")
+
+if len(sys.argv) < 2:
+    sys.exit("Error: need 1 parameter:   crypto [XBT|ETH]")
+
+coin = sys.argv[1]
+# Call the function to get and print the current price
+get_price(coin)

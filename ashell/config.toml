@@ -3,11 +3,12 @@ log_level = "warn"
 outputs = "All"
 position = "Top"
 
+
 # Module layout
 [modules]
-left = [ [ "appLauncher", "Workspaces" ] ]
-center = [ [ "WindowTitle" ] ]
-right = [ "KeyboardLayout", "Updates", [ "SystemInfo", "MediaPlayer" ], [ "Tempo" ] ,[ "Tray", "Privacy", "Settings"] ]
+left = [ [ "AppLauncher", "Workspaces" ], "WindowTitle" ]
+center = [ "Tempo" ]
+right = [ "KeyboardLayout",  "CryptoXBT" , "Updates", [ "SystemInfo", "MediaPlayer" ], [ "Tray", "Privacy", "Settings"] ]
 
 # Appearance settings
 [appearance]
@@ -33,6 +34,27 @@ strong = "#000000"
 surface = "solid"
 radius = "md"
 margin = "md"
+
+[[CustomModule]]
+name = "AppLauncher"
+icon = "󱗼"
+command = "vicinae open"
+
+[[CustomModule]]
+name = "CryptoXBT"
+type = "Text"
+text = "HELLO"
+listen_cmd = '''
+while true; do
+  cat <<EOF
+{
+  "text": "$(/home/tsagrista/.dotfiles/ashell/script/crypto XBT)",
+  "alt": ""
+}
+EOF
+  sleep 300
+done
+'''
 
 [workspaces]
 group_by_monitor = true
