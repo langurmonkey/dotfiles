@@ -8,7 +8,7 @@ position = "Top"
 [modules]
 left = [ [ "AppLauncher", "Workspaces" ], "WindowTitle" ]
 center = [ "Tempo" ]
-right = [ "KeyboardLayout",  "CryptoXBT" , "Updates", [ "SystemInfo", "MediaPlayer" ], [ "Tray", "Privacy", "Settings"] ]
+right = [ "KeyboardLayout",  "CryptoXBT" , "Updates",  "SystemInfo", "MediaPlayer" , [ "Tray", "Privacy", "Settings"] ]
 
 # Appearance settings
 [appearance]
@@ -65,7 +65,7 @@ workspace_names = ["1  ","2  ","3 﫯","4  ","5  ","6 ","7 ♫","
 
 [window_title]
 mode = "Title"                   # "Title" (default), "Class", "InitialTitle", "InitialClass"
-truncate_title_after_length = 90 # (default) 0 means no truncation; capped at 2048
+truncate_title_after_length = 40 # (default) 0 means no truncation; capped at 2048
 
 [updates]
 check_cmd = "checkupdates; paru -Qua"
@@ -80,6 +80,12 @@ interval = 3600             # seconds (default); effective minimum at runtime is
 [system_info]
 indicators = [ "Cpu", "Memory", "Temperature", "DownloadSpeed" ]
 interval = 5
+
+[media_player]
+max_text_length = 40
+indicator_visualizer = "Background"
+menu_visualizer = true
+visualizer_framerate = 30
 
 [tempo]
 clock_format = " %Y-%m-%d   %H:%M:%S"
