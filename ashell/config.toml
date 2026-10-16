@@ -36,7 +36,7 @@ strong = "#000000"
 surface = "transparent"
 radius = "md"
 padding = "xxs"
-margin = "xxs"
+margin = "none" # Use margin = xxs if surface = solid
 
 [[CustomModule]]
 name = "AppLauncher"
