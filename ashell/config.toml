@@ -62,7 +62,7 @@ workspace_names = ["1  ","2  ","3 﫯","4  ","5  ","6 ","7 ♫","
 
 [window_title]
 mode = "Title"                   # "Title" (default), "Class", "InitialTitle", "InitialClass"
-truncate_title_after_length = 150 # (default) 0 means no truncation; capped at 2048
+truncate_title_after_length = 90 # (default) 0 means no truncation; capped at 2048
 
 [updates]
 check_cmd = "checkupdates; paru -Qua"
