@@ -8,7 +8,7 @@ position = "Top"
 [modules]
 left = [ [ "AppLauncher", "Workspaces" ], "WindowTitle" ]
 center = [ "Tempo" ]
-right = [ "KeyboardLayout",  "CryptoXBT" , "Updates",  "SystemInfo", "MediaPlayer" , [ "Tray", "Privacy", "Settings"] ]
+right = [ "MediaPlayer" , "KeyboardLayout",  "CryptoXBT" , "Updates",  "SystemInfo", [ "Tray", "Privacy", "Settings"] ]
 
 # Appearance settings
 [appearance]
