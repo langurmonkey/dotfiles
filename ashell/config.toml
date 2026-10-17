@@ -6,9 +6,9 @@ position = "Top"
 
 # Module layout
 [modules]
-left = [ [ "AppLauncher", "Workspaces" ], "WindowTitle" ]
+left = [ [ "AppLauncher", "Workspaces" ], "WindowTitle", "SystemInfo", "Updates" ]
 center = [ "Tempo" ]
-right = [ "MediaPlayer" , "KeyboardLayout",  "CryptoXBT" , "Updates",  "SystemInfo", [ "Tray", "Privacy", "Settings"] ]
+right = [ "MediaPlayer" , "KeyboardLayout",  "CryptoXBT" , [ "Tray", "Privacy", "Settings"] ]
 
 # Appearance settings
 [appearance]
