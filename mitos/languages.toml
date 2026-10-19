@@ -1,0 +1,87 @@
+# File system watcher LSP: cargo install fs_watcher_lsp
+[language-server.fs_watcher_lsp]
+command = "fs_watcher_lsp"
+
+# GLSL
+[language-server.glsl_analyzer]
+command = "glsl_analyzer"
+
+# Harper
+[language-server.harper-ls]
+command = "harper-ls"
+args = ["--stdio"]
+
+# Typos
+[language-server.typos]     
+command = "typos-lsp"
+
+# RST: uv tool install --prerelease allow esbonio
+[language-server.esbonio]
+command = "esbonio"
+
+# Languages
+[[language]] 
+name = "html" 
+rulers = [200]
+language-servers = ["fs_watcher_lsp"]
+
+[[language]] 
+name = "rust" 
+language-servers = ["rust-analyzer", "typos", "harper-ls", "fs_watcher_lsp" ]
+
+[[language]]
+name = "css"
+file-types = ["css", "tcss", "scss"]
+
+[[language]] 
+name = "python"
+scope = "source.python"
+injection-regex = "py(thon)?"
+file-types = ["py", "pyi", "py3", "pyw", "ptl", "rpy", "cpy", "ipy", "pyt", { glob = ".python_history" }, { glob = ".pythonstartup" }, { glob = ".pythonrc" }, { glob = "*SConstruct" }, { glob = "*SConscript" }, { glob = "*sconstruct" }]
+shebangs = ["python", "uv"]
+roots = ["pyproject.toml", "setup.py", "poetry.lock", "pyrightconfig.json"]
+comment-token = "#"
+language-servers = ["ty", "ruff", "jedi-language-server", "pylsp", "typos", "harper-ls", "fs_watcher_lsp"]
+
+[[language]]
+name = "markdown"
+language-servers = [ "marksman", "typos", "harper-ls", "fs_watcher_lsp" ]
+
+[[language]]
+name = "yaml"
+language-servers = [ "yaml-language-server", "typos", "harper-ls", "fs_watcher_lsp" ]
+
+[[language]]
+name = "toml"
+language-servers = [ "taplo", "typos", "harper-ls", "fs_watcher_lsp" ]
+
+[[language]]
+name = "rst"
+language-servers = ["esbonio", "typos", "harper-ls", "fs_watcher_lsp" ]
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "latex"
+language-servers = [ "texlab", "typos", "harper-ls", "fs_watcher_lsp" ]
+
+[[language]]
+name = "glsl"
+language-servers = [ "glsl_analyzer", "typos", "fs_watcher_lsp" ]
+auto-format = true
+
+[[language]]
+name = "make"
+language-servers = [ "make-language-server", "typos", "harper-ls", "fs_watcher_lsp" ]
+file-types = [ "make", "just", { glob = "Makefile" }, { glob = "justfile" } ]
+
+[[language]]
+name = "txt"
+scope = "source.txt"
+injection-regex = "txt"
+file-types = ["txt"]
+language-servers = ["fs_watcher_lsp"]
+
+[[language]]
+name = "java"
+file-types = ["java"]
+language-servers = ["jdtls", "typos", "harper-ls", "fs_watcher_lsp"]

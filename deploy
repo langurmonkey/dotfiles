@@ -7,6 +7,7 @@ DIR_PROJ=~/Projects
 
 DIR_VIMCONFIG=~/.config/nvim
 DIR_HELIXCONFIG=~/.config/helix
+DIR_MITOSCONFIG=~/.config/mitos
 FILE_VIMINIT=$DIR_VIMCONFIG/init.vim
 DIR_VIMPLUGINS=$DIR_VIMCONFIG/plugged
 
@@ -154,6 +155,13 @@ do-symlink $DOTFILES_PATH/words/en.utf-8.dic $DIR_VIMCONFIG/spell/en.utf-8.add
 echo-custom " ** " "==== HELIX ===="
 
 do-symlink $DOTFILES_PATH/helix $DIR_HELIXCONFIG
+
+#
+# MITOS
+#
+echo-custom " ** " "==== MITOS ===="
+
+do-symlink $DOTFILES_PATH/mitos $DIR_HELIXCONFIG
 
 #
 # TMUX

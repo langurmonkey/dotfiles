@@ -1,0 +1,79 @@
+theme = "langur"
+
+[editor]
+# Relative line numbering
+line-number = "absolute"
+# Highlight the whole current line
+cursorline = true
+# Enable mouse use
+mouse = true
+# Colors :)
+color-modes = true
+# Force the theme to show colors
+true-color = true
+# Where to put the vertical rulers
+rulers = [100, 150]
+
+# Always show the tabs at the top
+#[editor.bufferline]
+#render-mode = "always"
+#separator = "|"
+bufferline = "always"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+# Helix's statusline
+[editor.statusline]
+left = ["mode", "spinner", "spacer", "branch", "file-name", "file-modification-indicator"]
+right = ["diagnostics", "workspace-diagnostics", "selections", "register", "position", "file-encoding", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+# File explorer configuration
+[editor.file-picker]
+hidden = false
+parents = false
+
+# Enable soft wrapping
+[editor.soft-wrap]
+enable = true
+
+# Do not render white spaces
+[editor.whitespace]
+render.newline = "all"
+
+[editor.indent-guides]
+render = true
+character = "▏" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
+
+# LSP Server configuration
+[editor.lsp]
+display-messages = true
+auto-signature-help	= true
+display-signature-help-docs	= true
+
+# Key mappings in normal mode
+[keys.normal]
+C-s = ":w"
+C-r = ":reload-all"
+D = "kill_to_line_end"
+# Use Shift-l and -h to move through tabs
+S-l = "goto_next_buffer"
+S-h = "goto_previous_buffer"
+A-x = "extend_to_line_bounds"
+X = ["extend_line_up", "extend_to_line_bounds"]
+# Vim-style motion
+"^" = "goto_line_start"
+"0" = "goto_line_start"
+"$" = "goto_line_end"
+
+# Key mappings in select mode
+[keys.select]
+A-x = "extend_to_line_bounds"
+X = ["extend_line_up", "extend_to_line_bounds"]
