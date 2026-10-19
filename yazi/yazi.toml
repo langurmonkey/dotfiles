@@ -26,7 +26,8 @@ text = [
     { run = 'bat %s', desc = "bat", block = true },
 ]
 edit = [
-    { run = 'helix %s', desc = "helix", block = true },
+    { run = 'ms %s', desc = "mitos", block = true },
+    { run = 'hx %s', desc = "helix", block = true },
     { run = 'nvim %s', desc = "nvim", block = true },
     { run = 'gedit %s', desc = "gedit", block = false },
 ]
