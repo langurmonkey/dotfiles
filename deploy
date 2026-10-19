@@ -307,15 +307,6 @@ do-symlink $DOTFILES_PATH/waybar $DIR_WAYBAR
 echo-ok "Done"
 
 #
-# ashell
-#
-echo-custom " ** " "==== ashell CONFIG ===="
-
-# Symlink ashell configuration
-do-symlink $DOTFILES_PATH/ashell $DIR_ASHELL
-echo-ok "Done"
-
-#
 # Hyprland
 #
 echo-custom " ** " "==== Hyprland CONFIG ===="
