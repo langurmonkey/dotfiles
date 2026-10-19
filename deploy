@@ -12,7 +12,6 @@ FILE_VIMINIT=$DIR_VIMCONFIG/init.vim
 DIR_VIMPLUGINS=$DIR_VIMCONFIG/plugged
 
 DIR_ROFI=~/.config/rofi
-DIR_VICINAE=~/.config/vicinae
 
 DIR_RANGER=~/.config/ranger
 DIR_NNN=~/.config/nnn
@@ -24,11 +23,12 @@ DIR_I3=~/.config/i3
 DIR_SWAY=~/.config/sway
 DIR_HYPR=~/.config/hypr
 
+DIR_NOCTALIA=~/.config/noctalia
+
+DIR_XOB=~/.config/xob
 DIR_WAYBAR=~/.config/waybar
-DIR_ASHELL=~/.config/ashell
 DIR_POLYBAR=~/.config/polybar
 DIR_I3BLOCKS=~/.config/i3blocks
-DIR_XOB=~/.config/xob
 
 DIR_KITTY=~/.config/kitty
 DIR_ALACRITTY=~/.config/alacritty
@@ -324,13 +324,13 @@ echo-custom " ** " "==== Hyprland CONFIG ===="
 do-symlink $DOTFILES_PATH/hyprland $DIR_HYPR
 echo-ok "Done"
 
+# Symlink noctalia configuration
+do-symlink $DOTFILES_PATH/noctalia $DIR_NOCTALIA
+echo-ok "Done"
 
 # Symlink rofi config
 echo-custom " ** " "==== Rofi CONFIG ===="
 do-symlink $DOTFILES_PATH/rofi $DIR_ROFI
-# Symlink vicinae config
-echo-custom " ** " "==== Vicinae CONFIG ===="
-do-symlink $DOTFILES_PATH/vicinae $DIR_VICINAE
 
 # xkblayout
 mkdir -p ~/.local/bin/

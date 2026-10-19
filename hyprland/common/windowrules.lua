@@ -11,20 +11,30 @@
 --------------------------------
 
 hl.window_rule({
-    name  = "floating",
-    match = { class = "wm-floating" },
+  name   = "floating",
+  match  = { class = "wm-floating" },
 
-    float  = true,
-    center = true,
+  float  = true,
+  center = true,
 })
 
 hl.window_rule({
-    name  = "floating-big",
-    match = { class = "wm-floating-big" },
+  name   = "floating-big",
+  match  = { class = "wm-floating-big" },
 
-    float  = true,
-    size   = "1680 920",
-    center = true,
+  float  = true,
+  size   = "1680 920",
+  center = true,
+})
+
+--------------------------------
+---- NOCTALIA               ----
+--------------------------------
+---
+hl.window_rule({
+  match = { class = "dev.noctalia.Noctalia" },
+  float = true,
+  size = { 1080, 920 },
 })
 
 
@@ -34,123 +44,123 @@ hl.window_rule({
 --------------------------------
 
 hl.window_rule({
-    name  = "qutebrowser",
-    match = { class = ".*qutebrowser.*" },
+  name      = "qutebrowser",
+  match     = { class = ".*qutebrowser.*" },
 
-    workspace = "2 silent",
+  workspace = "2 silent",
 })
 
 hl.window_rule({
-    name  = "firefox",
-    match = { class = "firefox" },
+  name      = "firefox",
+  match     = { class = "firefox" },
 
-    workspace = "2 silent",
+  workspace = "2 silent",
 })
 
 hl.window_rule({
-    name  = "mail",
-    match = { class = ".*Mail.*" },
+  name      = "mail",
+  match     = { class = ".*Mail.*" },
 
-    workspace = "3 silent",
+  workspace = "3 silent",
 })
 
 hl.window_rule({
-    name  = "intellij-idea",
-    match = { class = ".*jetbrains-idea.*" },
+  name      = "intellij-idea",
+  match     = { class = ".*jetbrains-idea.*" },
 
-    workspace = "4 silent",
+  workspace = "4 silent",
 })
 
 hl.window_rule({
-    name  = "steam",
-    match = { class = ".*steam.*" },
+  name      = "steam",
+  match     = { class = ".*steam.*" },
 
-    workspace = "5 silent",
+  workspace = "5 silent",
 })
 
 hl.window_rule({
-    name  = "steam-webhelper",
-    match = { class = ".*steamwebhelper.*" },
+  name      = "steam-webhelper",
+  match     = { class = ".*steamwebhelper.*" },
 
-    workspace = "5 silent",
+  workspace = "5 silent",
 })
 
 hl.window_rule({
-    name  = "topcat",
-    match = { class = "uk-ac-starlink-topcat-Driver" },
+  name  = "topcat",
+  match = { class = "uk-ac-starlink-topcat-Driver" },
 
-    float     = true,
+  float = true,
 })
 
 hl.window_rule({
-    name  = "terraria",
-    match = { class = ".*Terraria.*" },
+  name      = "terraria",
+  match     = { class = ".*Terraria.*" },
 
-    workspace = "5 silent",
-    float     = true,
+  workspace = "5 silent",
+  float     = true,
 })
 
 hl.window_rule({
-    name  = "freetube",
-    match = { class = ".*freetube.*" },
+  name      = "freetube",
+  match     = { class = ".*freetube.*" },
 
-    workspace = "6 silent",
+  workspace = "6 silent",
 })
 
 hl.window_rule({
-    name  = "davinci-resolve",
-    match = { class = ".*resolve.*" },
+  name      = "davinci-resolve",
+  match     = { class = ".*resolve.*" },
 
-    workspace = "7 silent",
+  workspace = "7 silent",
 })
 
 hl.window_rule({
-    name  = "anythingllm",
-    match = { class = ".*anythingllm-desktop.*" },
+  name      = "anythingllm",
+  match     = { class = ".*anythingllm-desktop.*" },
 
-    workspace = "7 silent",
+  workspace = "7 silent",
 })
 
 hl.window_rule({
-    name  = "lm-studio",
-    match = { class = "LM-Studio" },
+  name      = "lm-studio",
+  match     = { class = "LM-Studio" },
 
-    workspace = "7 silent",
+  workspace = "7 silent",
 })
 
 hl.window_rule({
-    name  = "godot",
-    match = { class = ".*Godot.*" },
+  name      = "godot",
+  match     = { class = ".*Godot.*" },
 
-    workspace = "8 silent",
+  workspace = "8 silent",
 })
 
 hl.window_rule({
-    name  = "zoom",
-    match = { class = ".*zoom.*" },
+  name      = "zoom",
+  match     = { class = ".*zoom.*" },
 
-    workspace = "9 silent",
+  workspace = "9 silent",
 })
 
 hl.window_rule({
-    name  = "telegram",
-    match = { class = ".*telegram-desktop.*" },
+  name      = "telegram",
+  match     = { class = ".*telegram-desktop.*" },
 
-    workspace = "9 silent",
+  workspace = "9 silent",
 })
 
 hl.window_rule({
-    name  = "discord",
-    match = { class = ".*discord.*" },
+  name      = "discord",
+  match     = { class = ".*discord.*" },
 
-    workspace = "9 silent",
+  workspace = "9 silent",
 })
 
 hl.window_rule({
-    name  = "signal",
-    match = { class = ".*Signal.*" },
+  name      = "signal",
+  match     = { class = ".*Signal.*" },
 
-    workspace = "9 silent",
+  workspace = "9 silent",
 })
 
 
@@ -159,86 +169,86 @@ hl.window_rule({
 --------------------------------
 
 hl.window_rule({
-    name  = "about-windows",
-    match = { title = "About .*" },
+  name  = "about-windows",
+  match = { title = "About .*" },
 
-    float = true,
+  float = true,
 })
 
 hl.window_rule({
-    name  = "gtk-file-picker",
-    match = { class = "xdg-desktop-portal-gtk" },
+  name  = "gtk-file-picker",
+  match = { class = "xdg-desktop-portal-gtk" },
 
-    float = true,
+  float = true,
 })
 
 hl.window_rule({
-    name  = "obs",
-    match = { class = "hyprland-share-picker|com.obsproject.Studio" },
+  name  = "obs",
+  match = { class = "hyprland-share-picker|com.obsproject.Studio" },
 
-    float = true,
+  float = true,
 })
 
 hl.window_rule({
-    name  = "sc2000",
-    match = { title = "SimCity 2000.*" },
+  name  = "sc2000",
+  match = { title = "SimCity 2000.*" },
 
-    float = true,
+  float = true,
 })
 
 hl.window_rule({
-    name  = "nemo",
-    match = { class = "nemo" },
+  name  = "nemo",
+  match = { class = "nemo" },
 
-    float = true,
+  float = true,
 })
 
 hl.window_rule({
-    name  = "PlayKid",
-    match = { title = "Play Kid" },
+  name  = "PlayKid",
+  match = { title = "Play Kid" },
 
-    float = true,
+  float = true,
 })
 
 hl.window_rule({
-    name  = "gaiasky",
-    match = {
-        title = "Gaia Sky.*",
-    },
+  name  = "gaiasky",
+  match = {
+    title = "Gaia Sky.*",
+  },
 
-    float = true,
+  float = true,
 })
 
 hl.window_rule({
-    name  = "bluemanmanager",
-    match = { class = "blueman-manager" },
+  name   = "bluemanmanager",
+  match  = { class = "blueman-manager" },
 
-    float  = true,
-    center = true,
+  float  = true,
+  center = true,
 })
 
 hl.window_rule({
-    name  = "networkmanager",
-    match = { class = "nm-connection-editor" },
+  name   = "networkmanager",
+  match  = { class = "nm-connection-editor" },
 
-    float  = true,
-    center = true,
+  float  = true,
+  center = true,
 })
 
 hl.window_rule({
-    name  = "mpv",
-    match = { class = "mpv" },
+  name   = "mpv",
+  match  = { class = "mpv" },
 
-    float  = true,
-    center = true,
+  float  = true,
+  center = true,
 })
 
 hl.window_rule({
-    name  = "speedcrunch",
-    match = { class = "org.speedcrunch.speedcrunch" },
+  name   = "speedcrunch",
+  match  = { class = "org.speedcrunch.speedcrunch" },
 
-    float  = true,
-    center = true,
+  float  = true,
+  center = true,
 })
 
 
@@ -247,40 +257,40 @@ hl.window_rule({
 --------------------------------
 
 hl.window_rule({
-    name  = "thunderbird",
-    match = { class = "org.mozilla.Thunderbird" },
+  name      = "thunderbird",
+  match     = { class = "org.mozilla.Thunderbird" },
 
-    workspace = "3 silent",
+  workspace = "3 silent",
 })
 
 hl.window_rule({
-    name  = "thunderbird-reminder",
-    match = {
-        class = "org.mozilla.Thunderbird",
-        title = ".*Reminders?",
-    },
+  name  = "thunderbird-reminder",
+  match = {
+    class = "org.mozilla.Thunderbird",
+    title = ".*Reminders?",
+  },
 
-    float = true,
+  float = true,
 })
 
 hl.window_rule({
-    name  = "thunderbird-feed",
-    match = {
-        class = "org.mozilla.Thunderbird",
-        title = "Feed Subscriptions",
-    },
+  name  = "thunderbird-feed",
+  match = {
+    class = "org.mozilla.Thunderbird",
+    title = "Feed Subscriptions",
+  },
 
-    float = true,
+  float = true,
 })
 
 hl.window_rule({
-    name  = "thunderbird-write",
-    match = {
-        class = "org.mozilla.Thunderbird",
-        title = "Write: .*",
-    },
+  name  = "thunderbird-write",
+  match = {
+    class = "org.mozilla.Thunderbird",
+    title = "Write: .*",
+  },
 
-    float = true,
+  float = true,
 })
 
 
@@ -289,17 +299,17 @@ hl.window_rule({
 --------------------------------
 
 hl.window_rule({
-    name  = "zenity",
-    match = { class = ".*zenity.*" },
+  name  = "zenity",
+  match = { class = ".*zenity.*" },
 
-    float = true,
+  float = true,
 })
 
 hl.window_rule({
-    name  = "export-image",
-    match = { title = "Export Image as.*" },
+  name  = "export-image",
+  match = { title = "Export Image as.*" },
 
-    float = true,
+  float = true,
 })
 
 
@@ -308,13 +318,13 @@ hl.window_rule({
 --------------------------------
 
 hl.window_rule({
-    name  = "picture-in-picture",
-    match = { title = "^(Picture in picture|Picture-in-picture|Picture-in-Picture)$" },
+  name  = "picture-in-picture",
+  match = { title = "^(Picture in picture|Picture-in-picture|Picture-in-Picture)$" },
 
-    float = true,
-    pin   = true,
-    move  = "(monitor_w*0.67) (monitor_h*0.72)",
-    size  = "(monitor_w*0.33) (monitor_h*0.28)",
+  float = true,
+  pin   = true,
+  move  = "(monitor_w*0.67) (monitor_h*0.72)",
+  size  = "(monitor_w*0.33) (monitor_h*0.28)",
 })
 
 
@@ -324,26 +334,26 @@ hl.window_rule({
 
 -- Start IntelliJ/PhpStorm correctly (maximize on splash/empty title)
 hl.window_rule({
-    name  = "intellij-php",
-    match = {
-        class         = "^jetbrains-.*$",
-        initial_title = "^\\s$",
-    },
+  name     = "intellij-php",
+  match    = {
+    class         = "^jetbrains-.*$",
+    initial_title = "^\\s$",
+  },
 
-    maximize = true,
+  maximize = true,
 })
 
 -- No Hyprland border around popups
 hl.window_rule({
-    name  = "intellij-popups",
-    match = {
-        class = "^jetbrains-.*$",
-        title = "^win.*$",
-        float = true,
-    },
+  name        = "intellij-popups",
+  match       = {
+    class = "^jetbrains-.*$",
+    title = "^win.*$",
+    float = true,
+  },
 
-    border_size = 0,
-    no_focus    = true,
+  border_size = 0,
+  no_focus    = true,
 })
 
 -----------------------
@@ -355,3 +365,12 @@ hl.layer_rule({
   blur = true,
   ignore_alpha = 0,
 })
+
+--------------------------------
+-- PERSISTENT WORKSPACES     ---
+--------------------------------
+hl.workspace_rule({ workspace = "1", persistent = true, default_name = "term" })
+hl.workspace_rule({ workspace = "2", persistent = true, default_name = "web" })
+hl.workspace_rule({ workspace = "3", persistent = true, default_name = "mail" })
+hl.workspace_rule({ workspace = "4", persistent = true, default_name = "code" })
+hl.workspace_rule({ workspace = "5", persistent = true, default_name = "game" })
