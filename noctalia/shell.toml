@@ -13,3 +13,11 @@ date_format = "{:%A}\n{:%Y-%m-%d}" # default date format for shell UI without it
 [shell.screenshot]
 directory = "~/Pictures/Screenshots/"
 filename_pattern = "Screenshot_%Y-%m-%dT%H-%M-%S"
+save_to_file = false
+pipe_to_command = true
+# JPG
+# pipe_command = 'magick png:- -quality 90 "${NOCTALIA_SCREENSHOT_PATH%.png}.jpg"'
+# AVIF
+# pipe_command = 'magick png:- -quality 90 "${NOCTALIA_SCREENSHOT_PATH%.png}.avif"'
+# JXL
+pipe_command = 'magick png:- -quality 90 "${NOCTALIA_SCREENSHOT_PATH%.png}.jxl"'
