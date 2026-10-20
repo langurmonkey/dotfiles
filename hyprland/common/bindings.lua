@@ -48,7 +48,7 @@ hl.config({
 hl.bind(mod .. " + RETURN",
   hl.dsp.exec_cmd(term .. " --working-directory $(" .. home .. "/.dotfiles/bin/hyprcwd || echo ~)"))
 hl.bind(mod .. " + Q", hl.dsp.window.kill())
-hl.bind(mod .. " + escape", hl.dsp.exec_cmd("vicinae vicinae://launch/power"))
+hl.bind(mod .. " + escape", hl.dsp.exec_cmd(ipc .. "panel-toggle session"))
 
 --------------------------------
 ---- APPLICATIONS           ----
