@@ -1,0 +1,5 @@
+[bar.default]
+position = "top"
+
+[bar.top]
+thickness = 90

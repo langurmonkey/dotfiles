@@ -365,12 +365,3 @@ hl.layer_rule({
   blur = true,
   ignore_alpha = 0,
 })
-
---------------------------------
--- PERSISTENT WORKSPACES     ---
---------------------------------
-hl.workspace_rule({ workspace = "1", persistent = true, default_name = "term" })
-hl.workspace_rule({ workspace = "2", persistent = true, default_name = "web" })
-hl.workspace_rule({ workspace = "3", persistent = true, default_name = "mail" })
-hl.workspace_rule({ workspace = "4", persistent = true, default_name = "code" })
-hl.workspace_rule({ workspace = "5", persistent = true, default_name = "game" })

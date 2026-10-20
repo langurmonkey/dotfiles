@@ -1,501 +1,496 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -Eeuo pipefail
 
-# PATHS ==========================================
+# ============================================================
+# Dotfiles deployment
+# ============================================================
 
-DOTFILES_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
-DIR_PROJ=~/Projects
+DOTFILES_PATH="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
+DIR_PROJ="$HOME/Projects"
+CONFIG="$HOME/.config"
+LOCAL_BIN="$HOME/.local/bin"
+LOCAL_FONTS="$HOME/.local/share/fonts"
 
-DIR_VIMCONFIG=~/.config/nvim
-DIR_HELIXCONFIG=~/.config/helix
-DIR_MITOSCONFIG=~/.config/mitos
-FILE_VIMINIT=$DIR_VIMCONFIG/init.vim
-DIR_VIMPLUGINS=$DIR_VIMCONFIG/plugged
+# Colors
+if [[ -t 1 ]]; then
+    BLUE='\033[0;34m'
+    GREEN='\033[0;32m'
+    YELLOW='\033[0;33m'
+    RED='\033[0;31m'
+    DIM='\033[38;5;240m'
+    RESET='\033[0m'
+else
+    BLUE='' GREEN='' YELLOW='' RED='' DIM='' RESET=''
+fi
 
-DIR_ROFI=~/.config/rofi
+# Deployment summary
+declare -a INSTALLED=()
+declare -a SKIPPED=()
+declare -a FAILED=()
 
-DIR_RANGER=~/.config/ranger
-DIR_NNN=~/.config/nnn
-DIR_LF=~/.config/lf
-DIR_YAZI=~/.config/yazi
-DIR_JJ=~/.config/jj
+# ============================================================
+# Logging
+# ============================================================
 
-DIR_I3=~/.config/i3
-DIR_SWAY=~/.config/sway
-DIR_HYPR=~/.config/hypr
+info() { printf "${BLUE}[ .. ]${RESET} %s\n" "$*"; }
+ok()   { printf "${GREEN}[ OK ]${RESET} %s\n" "$*"; }
+skip() { printf "${DIM}[SKIP]${RESET} %s\n" "$*"; }
+warn() { printf "${YELLOW}[WARN]${RESET} %s\n" "$*"; }
+fail() { printf "${RED}[FAIL]${RESET} %s\n" "$*" >&2; }
 
-DIR_NOCTALIA=~/.config/noctalia
-
-DIR_XOB=~/.config/xob
-DIR_WAYBAR=~/.config/waybar
-DIR_POLYBAR=~/.config/polybar
-DIR_I3BLOCKS=~/.config/i3blocks
-
-DIR_KITTY=~/.config/kitty
-DIR_ALACRITTY=~/.config/alacritty
-
-DIR_ZSHPLUGINS=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins
-DIR_FISH=~/.config/fish
-DIR_STARSHIP=~/.config
-
-DIR_MPD=~/.config/mpd
-DIR_NCMPCPP=~/.config/ncmpcpp
-DIR_CAVA=~/.config/cava
-
-DIR_NEWSBOAT=~/.config/newsboat
-
-DIR_MUTT=~/.config/mutt
-
-# HELPERS ========================================
-
-function echo-debug { echo "$@" | sed -e "s%$HOME%~%g" -e "s%$DOTFILES%.%g"; }
-function echo-info  { printf "\r\033[2K\033[0;34m[ .. ]\033[0m %s\n" "$*"; }
-function echo-skip  { printf "\r\033[2K\033[38;05;240m[SKIP]\033[0m %s\n" "$*"; }
-function echo-ok    { printf "\r\033[2K\033[0;32m[ OK ]\033[0m %s\n" "$*"; }
-function echo-fail { printf "\r\033[2K\033[0;31m[FAIL]\033[0m %s\n" "$*"; }
-function echo-custom { printf "\n\r\033[2K\033[0;33m[$1]\033[0m %s\n" "$2"; }
-
-
-# FUNCTIONS ======================================
-
-# Clones a git repo to the target directory
-# USAGE: do-clone targetdir url name
-function do-clone {
-    #echo-debug "    Folder: $1"
-    #echo-debug "       URL: $2"
-    #echo-debug "      Name: $3"
-    if [ ! -d $1 ]; then
-        echo-info "Installing $3"
-        git clone $2 $1
-        echo-ok "Done"
-    elif [ -d $1/.git ]; then
-        echo-info "Updating $3"
-        git --work-tree=$1 --git-dir=$1/.git pull origin master
-        echo-ok "Done"
-    else
-        echo-skip "$3"
-    fi
+section() {
+    printf "\n${YELLOW}==== %s ====${RESET}\n\n" "$*"
 }
 
-# Pulls a file from curl and puts them into a specific location
-# If the directory where target is does not exist, it is created
-# USAGE: do-curl-fetchfile target url name
-function do-curl-fetchfile {
-    #echo-debug "    Target: $1"
-    #echo-debug "       URL: $2"
-    #echo-debug "      Name: $3"
-    if [ ! -f $1 ]; then
-        echo-info "Installing $3"
-        LOCATION=$(dirname "${1}")
-        mkdir -p "$LOCATION" 
-        curl -LSso $1 $2
-        echo-ok "Done" else
-        echo-skip "$3"
-    fi
+on_error() {
+    local rc=$?
+    fail "Unexpected error (exit $rc, line ${BASH_LINENO[0]})"
+    exit "$rc"
 }
+trap on_error ERR
 
-# Does a symlink between target and link_name, deleting it if it exists
-# USAGE: do-symlink target link_name
-function do-symlink {
-    #echo-debug "    Target: $1"
-    #echo-debug " Link name: $2"
-    echo-info "Symlink: $2 -> $1"
-    # Remove link if exists
-    if [ -L $2 ]; then
-        rm $2
-    fi
-    if [ -d $2 ]; then
-        rm -rf $2
-    fi
-    # Create parent directory of link if necessary
-    mkdir -p "$(dirname "$2")"
-    ln -s $1 $2
-}
+# ============================================================
+# Interactive prompts
+# ============================================================
 
-# Sources a shell file in the given shell's rc file, if it is not there yet
-# USAGE: do-source shell file
-function do-source {
-    #echo-debug "      Shell: $1"
-    #echo-debug "       File: $2"
-    if [ -x "$(command -v $1)" ]; then
-        CONF=~/.$1rc
-        FILENAME=$(basename "$2")
-        # If file not yet sourced, source it
-        if ! grep -q $FILENAME $CONF
-        then
-            echo-info "$2: $CONF"
-            echo -e "\n# Auto source $FILENAME\nif [ -f $2 ]; then\n\tsource $2\nfi" >> $CONF
+ask() {
+    local prompt=$1 default=${2:-y} answer
+
+    if (( YES )); then
+        [[ $default == y ]]
+        return
+    fi
+
+    while true; do
+        if [[ $default == y ]]; then
+            read -r -p "$prompt [Y/n] " answer || answer=''
+            answer=${answer:-y}
         else
-            echo-skip "$1"
+            read -r -p "$prompt [y/N] " answer || answer=''
+            answer=${answer:-n}
+        fi
+
+        case "$answer" in
+            y|Y|yes|YES) return 0 ;;
+            n|N|no|NO)   return 1 ;;
+            *) printf 'Please answer y or n.\n' ;;
+        esac
+    done
+}
+
+
+choose() {
+    local prompt=$1
+    shift
+
+    local options=("$@")
+    local answer
+    local old_ps3=${PS3-}
+
+    printf '\n%s\n' "$prompt" >&2
+    PS3="Choice: "
+
+    select answer in "${options[@]}"; do
+        if [[ -n ${answer:-} ]]; then
+            break
+        fi
+        printf 'Invalid choice. Try again.\n' >&2
+    done
+
+    PS3=$old_ps3
+    printf '%s\n' "$answer"
+}
+
+
+usage() {
+    cat <<EOF
+Usage: $(basename "$0") [OPTIONS]
+
+Options:
+  -y, --yes       Use defaults without prompting
+  -h, --help      Show this help
+
+Without --yes, deployment choices are interactive.
+EOF
+}
+
+YES=0
+
+while (($#)); do
+    case "$1" in
+        -y|--yes)  YES=1 ;;
+        -h|--help) usage; exit 0 ;;
+        *)         fail "Unknown option: $1"; usage; exit 2 ;;
+    esac
+    shift
+done
+
+# ============================================================
+# Filesystem helpers
+# ============================================================
+
+# Safely back up an existing file, directory, or symlink.
+backup() {
+    local path=$1
+    local destination="${path}.bak.$(date +%Y%m%d-%H%M%S)"
+
+    mv -- "$path" "$destination"
+    warn "Backed up $path to $destination"
+}
+
+# Create a symlink without silently destroying existing data.
+link() {
+    local source=$1 destination=$2
+    local parent
+
+    if [[ ! -e $source && ! -L $source ]]; then
+        fail "Source does not exist: $source"
+        FAILED+=("$destination")
+        return 1
+    fi
+
+    parent=$(dirname -- "$destination")
+    mkdir -p -- "$parent"
+
+    # Already correctly linked.
+    if [[ -L $destination ]] &&
+       [[ $(readlink -- "$destination") == "$source" ]]; then
+        skip "$destination"
+        SKIPPED+=("$destination")
+        return 0
+    fi
+
+    # Preserve conflicting files, directories, and broken symlinks.
+    if [[ -e $destination || -L $destination ]]; then
+        backup "$destination"
+    fi
+
+    ln -s -- "$source" "$destination"
+    ok "$destination -> $source"
+    INSTALLED+=("$destination")
+}
+
+# Clone a repository if absent; update it if already present.
+clone_repo() {
+    local destination=$1 url=$2 name=$3
+
+    if [[ -d $destination/.git ]]; then
+        info "Updating $name"
+        if git -C "$destination" pull --ff-only; then
+            ok "$name"
+            SKIPPED+=("$name (already installed; updated)")
+        else
+            fail "Could not update $name"
+            FAILED+=("$name")
+        fi
+    elif [[ -e $destination ]]; then
+        warn "Skipping $name: destination exists and is not a Git repository"
+        SKIPPED+=("$name")
+    else
+        mkdir -p -- "$(dirname -- "$destination")"
+        info "Installing $name"
+        if git clone "$url" "$destination"; then
+            ok "$name"
+            INSTALLED+=("$name")
+        else
+            fail "Could not clone $name"
+            FAILED+=("$name")
         fi
     fi
 }
 
-# START ===================================
+# Add a source statement to Bash or Zsh rc files.
+source_env() {
+    local shell=$1 file=$2 rc marker
 
-#
-# MAILCAP
-#
-echo-custom " ** " "==== MAILCAP ===="
+    case "$shell" in
+        bash) rc="$HOME/.bashrc" ;;
+        zsh)  rc="$HOME/.zshrc" ;;
+        *)    return 2 ;;
+    esac
 
-do-symlink $DOTFILES_PATH/mailcap/.mailcap ~/.mailcap
+    [[ -x $(command -v "$shell" 2>/dev/null) ]] || return 0
+    [[ -f $file ]] || {
+        warn "Missing environment file: $file"
+        return 0
+    }
 
-#
-# NEOVIM
-#
-echo-custom " ** " "==== NEOVIM ===="
+    mkdir -p -- "$(dirname -- "$rc")"
+    touch "$rc"
 
-do-symlink $DOTFILES_PATH/nvim $DIR_VIMCONFIG
+    marker="# dotfiles: $(basename "$file")"
+    if grep -Fq -- "$marker" "$rc"; then
+        skip "$rc already sources $(basename "$file")"
+        return 0
+    fi
 
-# Create dictionary symlinks
-do-symlink $DOTFILES_PATH/words/en.utf-8.dic $DIR_VIMCONFIG/spell/en.utf-8.add
+    {
+        printf '\n%s\n' "$marker"
+        printf '[[ -f %q ]] && source %q\n' "$file" "$file"
+    } >> "$rc"
 
-#
-# HELIX
-#
-echo-custom " ** " "==== HELIX ===="
+    ok "Added $(basename "$file") to $rc"
+    INSTALLED+=("$rc")
+}
 
-do-symlink $DOTFILES_PATH/helix $DIR_HELIXCONFIG
+# Link a directory of configuration files.
+link_config() {
+    local name=$1 source=$2 destination=$3
 
-#
-# MITOS
-#
-echo-custom " ** " "==== MITOS ===="
+    section "$name"
+    link "$source" "$destination"
+}
 
-do-symlink $DOTFILES_PATH/mitos $DIR_HELIXCONFIG
+# ============================================================
+# Choose what to deploy
+# ============================================================
 
-#
-# TMUX
-#
-echo-custom " ** " "==== TMUX ===="
+section "Deployment options"
 
-# Install tmux resurrect
-DIR_TMUXR="$DIR_PROJ/tmux-resurrect/"
-if [ ! -d "$DIR_TMUXR" ]; then
-    mkdir -p ~/git
-    git clone https://github.com/tmux-plugins/tmux-resurrect $DIR_TMUXR
+if (( YES )); then
+    WM=hyprland
+    BAR=waybar
+    TERMINAL=both
+else
+    WM=$(choose "Which window manager / compositor?" \
+        hyprland i3 sway none)
+
+    case "$WM" in
+        hyprland|sway)
+            BAR=$(choose "Which panel / bar?" \
+                waybar noctalia none)
+            ;;
+        i3)
+            BAR=$(choose "Which panel / bar?" \
+                polybar i3blocks waybar none)
+            ;;
+        *)
+            BAR=none
+            ;;
+    esac
+
+    TERMINAL=$(choose "Which terminal configuration?" \
+        both kitty alacritty none)
 fi
 
-# Create .tmux.conf symlink
-rm ~/.tmux.conf
-ln -s $DOTFILES_PATH/tmux/.tmux.conf ~/.tmux.conf
+# ============================================================
+# Core configuration
+# ============================================================
 
-#
-# RANGER
-#
-echo-custom " ** " "==== RANGER ===="
+section "Core configuration"
 
-if [ ! -d "$DIR_RANGER" ]; then
-    mkdir -p $DIR_RANGER
-fi
+link "$DOTFILES_PATH/mailcap/.mailcap" "$HOME/.mailcap"
+link "$DOTFILES_PATH/nvim" "$CONFIG/nvim"
+mkdir -p "$CONFIG/nvim/spell"
+link "$DOTFILES_PATH/words/en.utf-8.dic" \
+    "$CONFIG/nvim/spell/en.utf-8.add"
 
-# Create scope.sh and rc.conf symlinks
-do-symlink $DOTFILES_PATH/ranger/scope.sh $DIR_RANGER/scope.sh
-do-symlink $DOTFILES_PATH/ranger/rc.conf $DIR_RANGER/rc.conf
-do-symlink $DOTFILES_PATH/ranger/rifle.conf $DIR_RANGER/rifle.conf
+link "$DOTFILES_PATH/helix" "$CONFIG/helix"
+link "$DOTFILES_PATH/mitos" "$CONFIG/mitos"
 
-#
-# NNN
-#
-echo-custom " ** " "==== NNN ===="
+link "$DOTFILES_PATH/git/.gitconfig" "$HOME/.gitconfig"
+link "$DOTFILES_PATH/jj" "$CONFIG/jj"
+link "$DOTFILES_PATH/fish" "$CONFIG/fish"
+link "$DOTFILES_PATH/starship/starship.toml" \
+    "$CONFIG/starship.toml"
 
-if [ ! -d "$DIR_NNN" ]; then
-    mkdir -p $DIR_NNN
-fi
-
-# Create nnn config symlink
-do-symlink $DOTFILES_PATH/nnn $DIR_NNN
-
-#
-# LF
-#
-echo-custom " ** " "==== LF ===="
-
-# Create lf config symlink
-do-symlink $DOTFILES_PATH/lf $DIR_LF
-
-#
-# YAZI
-#
-echo-custom " ** " "==== YAZI ===="
-
-# Create yazi config symlink
-do-symlink $DOTFILES_PATH/yazi $DIR_YAZI
-
-#
-# SCREEN
-#
-echo-custom " ** " "==== GNU SCREEN ===="
-
-# Create .screenrc symlink
-do-symlink $DOTFILES_PATH/screen/.screenrc ~/.screenrc
-
-
-#
-# zsh-autosuggestions and zsh-syntax-highlighting
-#
-echo-custom " ** " "==== ZSH-AUTOSUGGESTIONS ===="
-do-clone "$DIR_ZSHPLUGINS"/zsh-autosuggestions https://github.com/zsh-users/zsh-autosuggestions zsh-autosuggestions
-echo-custom " ** " "==== ZSH-SYNTAX-HIGHLIGHTING ===="
-do-clone "$DIR_ZSHPLUGINS"/zsh-syntax-highlighting https://github.com/zsh-users/zsh-syntax-highlighting zsh-syntax-highlighting
-#
-# SHELL ENVIRONMENT
-#
-echo-custom " ** " "==== SHELL ENVIRONMENT ===="
-
-# Source in bash and zsh
-do-source "bash" $DOTFILES_PATH/env/env_global.sh
-do-source "zsh"  $DOTFILES_PATH/env/env_global.sh
-do-source "bash" $DOTFILES_PATH/env/env_fun.sh
-do-source "zsh"  $DOTFILES_PATH/env/env_fun.sh
-
+# Shell environment
+for file in env_global.sh env_fun.sh; do
+    source_env bash "$DOTFILES_PATH/env/$file"
+    source_env zsh "$DOTFILES_PATH/env/$file"
+done
 
 if [[ -f /etc/arch-release ]]; then
-    do-source "bash" $DOTFILES_PATH/env/env_arch.sh
-    do-source "zsh" $DOTFILES_PATH/env/env_arch.sh
+    source_env bash "$DOTFILES_PATH/env/env_arch.sh"
+    source_env zsh "$DOTFILES_PATH/env/env_arch.sh"
 fi
 
-echo-ok "Done"
+# Shell plugins
+if [[ -d ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom} ]]; then
+    ZSH_PLUGINS="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins"
 
-#
-# FISH
-#
-echo-custom " ** " "==== FISH CONFIG ===="
-do-symlink $DOTFILES_PATH/fish $DIR_FISH
-echo-ok "Done"
+    clone_repo "$ZSH_PLUGINS/zsh-autosuggestions" \
+        https://github.com/zsh-users/zsh-autosuggestions \
+        zsh-autosuggestions
 
-
-#
-# GIT
-#
-echo-custom " ** " "==== GIT CONFIG ===="
-do-symlink $DOTFILES_PATH/git/.gitconfig ~/.gitconfig
-echo-ok "Done"
-
-#
-# JJ
-#
-echo-custom " ** " "==== JJ CONFIG ===="
-do-symlink $DOTFILES_PATH/jj $DIR_JJ
-echo-ok "Done"
-
-#
-# i3
-#
-echo-custom " ** " "==== i3 CONFIG ===="
-
-# Symlink i3 configuration
-do-symlink $DOTFILES_PATH/i3 $DIR_I3
-do-symlink $DOTFILES_PATH/i3blocks $DIR_I3BLOCKS
-echo-ok "Done"
-
-#
-# sway
-#
-echo-custom " ** " "==== sway CONFIG ===="
-
-# Symlink sway configuration
-do-symlink $DOTFILES_PATH/sway $DIR_SWAY
-echo-ok "Done"
-
-#
-# waybar
-#
-echo-custom " ** " "==== waybar CONFIG ===="
-
-# Symlink waybar configuration
-do-symlink $DOTFILES_PATH/waybar $DIR_WAYBAR
-echo-ok "Done"
-
-#
-# Hyprland
-#
-echo-custom " ** " "==== Hyprland CONFIG ===="
-
-# Symlink hypr configuration
-do-symlink $DOTFILES_PATH/hyprland $DIR_HYPR
-echo-ok "Done"
-
-# Symlink noctalia configuration
-do-symlink $DOTFILES_PATH/noctalia $DIR_NOCTALIA
-echo-ok "Done"
-
-# Symlink rofi config
-echo-custom " ** " "==== Rofi CONFIG ===="
-do-symlink $DOTFILES_PATH/rofi $DIR_ROFI
-
-# xkblayout
-mkdir -p ~/.local/bin/
-cp $DOTFILES_PATH/bin/xkblayout-state ~/.local/bin/
-
-#
-# POLYBAR
-#
-echo-custom " ** " "==== POLYBAR ===="
-
-# Scripts
-do-clone "$DIR_PROJ"/polybar-scripts https://github.com/x70b1/polybar-scripts.git polybar-scripts
-# Config
-do-symlink $DOTFILES_PATH/polybar $DIR_POLYBAR
-echo-ok "Done"
-
-
-#
-# X, URXVT, Alacritty, Kitty
-#
-echo-custom " ** " "==== X, URXVT, Termite ===="
-
-mkdir -p ~/.urxvt/ext/
-# .Xdefaults and .Xresources
-XRES_H=$(xwininfo -root|sed '/Height/!d;s/.* //')
-XRES_W=$(xwininfo -root|sed '/Width/!d;s/.* //')
-MYHOSTNAME=$(hostname)
-if [[ $XRES_H -gt 1400 ]] && [[ $XRES_W -gt 2000 ]] || [[ $MYHOSTAME == "hidalgo" ]]; then
-    # HiDPI
-    echo "HiDPI detected: xres=($XRES_W,$XRES_H), host=$MYHOSTNAME"
-    do-symlink $DOTFILES_PATH/X/.Xresources-hidpi ~/.Xresources
-    do-symlink $DOTFILES_PATH/X/.Xdefaults-hidpi ~/.Xdefaults
+    clone_repo "$ZSH_PLUGINS/zsh-syntax-highlighting" \
+        https://github.com/zsh-users/zsh-syntax-highlighting \
+        zsh-syntax-highlighting
 else
-    # Regular
-    echo "Normal DPI: xres=($XRES_W,$XRES_H), host=$MYHOSTNAME"
-    do-symlink $DOTFILES_PATH/X/.Xdefaults ~/.Xdefaults
-fi
-# .xinitrc
-do-symlink $DOTFILES_PATH/X/.xinitrc ~/.xinitrc
-
-# font-size urxvt plugin
-do-symlink $DOTFILES_PATH/urxvt/font-size ~/.urxvt/ext/font-size
-#Kitty config
-do-symlink $DOTFILES_PATH/kitty $DIR_KITTY
-# Alacritty config
-do-symlink $DOTFILES_PATH/alacritty $DIR_ALACRITTY
-echo-ok "Done"
-
-#
-# NCMPCPP
-#
-echo-custom " ** " " ==== NCMPCPP ===="
-do-symlink $DOTFILES_PATH/ncmpcpp $DIR_NCMPCPP
-echo-ok "Done"
-
-#
-# MPD
-#
-echo-custom " ** " " ==== MPD ===="
-do-symlink $DOTFILES_PATH/mpd/config $DIR_MPD
-do-symlink $DOTFILES_PATH/mpd/playlists ~/.local/share/mpd/playlists
-echo-ok "Done"
-
-#
-# xob
-#
-echo-custom " ** " "==== XOB ===="
-
-do-symlink $DOTFILES_PATH/xob $DIR_XOB
-echo-ok "Done"
-
-#
-# QUTEBROWSER
-#
-echo-custom " ** " "==== QUTEBROWSER ===="
-
-QB_CONFIG=~/.config/qutebrowser
-QB_DATA=~/.local/share/qutebrowser
-
-# Symlink qutebrowser config
-do-symlink $DOTFILES_PATH/qutebrowser/config $QB_CONFIG
-# Symlink userscripts
-do-symlink $DOTFILES_PATH/qutebrowser/data/userscripts $QB_DATA/userscripts
-# Symlink greasemonkey js
-do-symlink $DOTFILES_PATH/qutebrowser/data/greasemonkey $QB_DATA/greasemonkey
-
-echo-ok "Done"
-
-
-#
-# FNOTT
-#
-echo-custom " ** " "==== FNOTT ===="
-DIR_FNOTT=~/.config/fnott
-do-symlink $DOTFILES_PATH/fnott $DIR_FNOTT
-echo-ok "Done"
-
-
-#
-# MPV
-#
-echo-custom " ** " "==== MPV ===="
-
-MPV_CONFIG=~/.config/mpv
-do-symlink $DOTFILES_PATH/mpv $MPV_CONFIG
-echo-ok "Done"
-
-#
-# MUTT
-#
-echo-custom " ** " "==== MUTT ===="
-mkdir -p $DOTFILES_PATH/mutt/ari.uni-heidelberg.de/cache
-mkdir -p $DOTFILES_PATH/mutt/tonisagrista.com/cache
-do-symlink $DOTFILES_PATH/mutt $DIR_MUTT
-echo-ok "Done"
-
-#
-# CAVA
-#
-echo-custom " ** " "==== CAVA ===="
-do-symlink $DOTFILES_PATH/cava $DIR_CAVA
-echo-ok "Done"
-
-#
-# NEWSBOAT
-#
-echo-custom " ** " "==== NEWSBOAT ===="
-do-symlink $DOTFILES_PATH/newsboat $DIR_NEWSBOAT
-echo-ok "Done"
-
-# STARSHIP SHELL
-echo-custom " ** " "==== STARSHIP ===="
-do-symlink $DOTFILES_PATH/starship/starship.toml $DIR_STARSHIP/starship.toml
-echo-ok "Done"
-
-
-# Set keyboard repeat and delay - gnome or i3 only
-echo-custom " ** " "==== REPEAT DELAY 250 ms ===="
-SESSION_TYPE="${DISPLAY:+x11}${WAYLAND_DISPLAY:+wayland}"
-# Capture DE
-if [ "$XDG_CURRENT_DESKTOP" = "" ]; then
-    desktop=$(echo "$XDG_DATA_DIRS" | grep -Eo 'xfce\|kde\|gnome')
-else
-    desktop=$XDG_CURRENT_DESKTOP
-fi
-# Capture WM if DE is blank
-if [ "$desktop" = "" ]; then
-    desktop=$(wmctrl -m | grep "Name:" | awk '{print $2}')
-fi
-desktop=${desktop,,}  # convert to lower case
-if [ "$desktop" = "gnome" ] && [ "$SESSION_TYPE" = "x11" ]; then
-    gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 20
-    gsettings set org.gnome.desktop.peripherals.keyboard delay 250
-    echo-ok "Repeat delay set for desktop: $desktop"
-elif [ "$desktop" = "i3" ] && [ "$SESSION_TYPE" = "x11" ]; then
-    echo-ok "Repeat interval and delay for $desktop set in ~/.config/i3/config"
-elif [ "$SESSION_TYPE" = "x11" ]; then
-    echo-fail "Not setting repeat interval for desktop: $desktop"
-else
-    echo-fail "Not setting repeat interval for wayland"
+    skip "Zsh plugins: Oh My Zsh custom directory not found"
+    SKIPPED+=("Zsh plugins")
 fi
 
-#
-# FONTS
-#
-echo-custom " ** " "==== FONTS ===="
-do-symlink $DOTFILES_PATH/fonts/ttf ~/.local/share/fonts/ttf
-do-symlink $DOTFILES_PATH/fonts/otf ~/.local/share/fonts/otf
-fc-cache
-echo-ok "Done"
+# Tmux and GNU Screen
+link "$DOTFILES_PATH/tmux/.tmux.conf" "$HOME/.tmux.conf"
+link "$DOTFILES_PATH/screen/.screenrc" "$HOME/.screenrc"
 
-# SERVICES
-systemctl --user enable --now hyprpolkitagent.service
+if ask "Install/update tmux-resurrect?" n; then
+    clone_repo "$DIR_PROJ/tmux-resurrect" \
+        https://github.com/tmux-plugins/tmux-resurrect \
+        tmux-resurrect
+fi
 
-# Done
-echo ""
-echo-ok "Done! Your environment should be ready to go"
+# File managers
+link "$DOTFILES_PATH/ranger/scope.sh" "$CONFIG/ranger/scope.sh"
+link "$DOTFILES_PATH/ranger/rc.conf" "$CONFIG/ranger/rc.conf"
+link "$DOTFILES_PATH/ranger/rifle.conf" "$CONFIG/ranger/rifle.conf"
+link "$DOTFILES_PATH/nnn" "$CONFIG/nnn"
+link "$DOTFILES_PATH/lf" "$CONFIG/lf"
+link "$DOTFILES_PATH/yazi" "$CONFIG/yazi"
+
+# Media and applications
+link "$DOTFILES_PATH/ncmpcpp" "$CONFIG/ncmpcpp"
+link "$DOTFILES_PATH/mpd/config" "$CONFIG/mpd"
+link "$DOTFILES_PATH/mpd/playlists" "$HOME/.local/share/mpd/playlists"
+link "$DOTFILES_PATH/cava" "$CONFIG/cava"
+link "$DOTFILES_PATH/newsboat" "$CONFIG/newsboat"
+link "$DOTFILES_PATH/mutt" "$CONFIG/mutt"
+link "$DOTFILES_PATH/mpv" "$CONFIG/mpv"
+link "$DOTFILES_PATH/qutebrowser/config" "$CONFIG/qutebrowser"
+link "$DOTFILES_PATH/qutebrowser/data/userscripts" \
+    "$HOME/.local/share/qutebrowser/userscripts"
+link "$DOTFILES_PATH/qutebrowser/data/greasemonkey" \
+    "$HOME/.local/share/qutebrowser/greasemonkey"
+link "$DOTFILES_PATH/fnott" "$CONFIG/fnott"
+link "$DOTFILES_PATH/xob" "$CONFIG/xob"
+
+# Mutt cache directories are runtime data, not configuration.
+mkdir -p "$HOME/.cache/mutt/ari.uni-heidelberg.de" \
+    "$HOME/.cache/mutt/tonisagrista.com"
+
+# ============================================================
+# Window manager / compositor
+# ============================================================
+
+case "$WM" in
+    hyprland)
+        link_config "Hyprland" "$DOTFILES_PATH/hyprland" "$CONFIG/hypr"
+        ;;
+    i3)
+        link_config "i3" "$DOTFILES_PATH/i3" "$CONFIG/i3"
+        ;;
+    sway)
+        link_config "Sway" "$DOTFILES_PATH/sway" "$CONFIG/sway"
+        ;;
+    none)
+        skip "Window manager / compositor"
+        ;;
+esac
+
+# ============================================================
+# Panel / bar
+# ============================================================
+
+case "$BAR" in
+    waybar)
+        link_config "Waybar" "$DOTFILES_PATH/waybar" "$CONFIG/waybar"
+        ;;
+    polybar)
+        link_config "Polybar" "$DOTFILES_PATH/polybar" "$CONFIG/polybar"
+        clone_repo "$DIR_PROJ/polybar-scripts" \
+            https://github.com/x70b1/polybar-scripts.git \
+            polybar-scripts
+        ;;
+    i3blocks)
+        link_config "i3blocks" "$DOTFILES_PATH/i3blocks" "$CONFIG/i3blocks"
+        ;;
+    noctalia)
+        link_config "Noctalia" "$DOTFILES_PATH/noctalia" "$CONFIG/noctalia"
+        ;;
+    none)
+        skip "Panel / bar"
+        ;;
+esac
+
+# ============================================================
+# Terminal configuration
+# ============================================================
+
+case "$TERMINAL" in
+    both|kitty)
+        link_config "Kitty" "$DOTFILES_PATH/kitty" "$CONFIG/kitty"
+        ;;&
+    both|alacritty)
+        link_config "Alacritty" "$DOTFILES_PATH/alacritty" "$CONFIG/alacritty"
+        ;;
+esac
+
+if [[ $TERMINAL == none ]]; then
+    skip "Terminal configuration"
+fi
+
+# ============================================================
+# X11 / X resources
+# ============================================================
+
+if ask "Deploy X11 resources and URxvt configuration?" n; then
+    mkdir -p "$HOME/.urxvt/ext"
+
+    # Use the normal DPI configuration as a safe fallback.
+    if command -v xwininfo >/dev/null 2>&1; then
+        XRES_H=$(xwininfo -root | sed -n 's/.*Height: *//p')
+        XRES_W=$(xwininfo -root | sed -n 's/.*Width: *//p')
+    else
+        XRES_H=0
+        XRES_W=0
+    fi
+
+    MYHOSTNAME=$(hostname)
+
+    if { [[ $XRES_H =~ ^[0-9]+$ ]] &&
+         [[ $XRES_W =~ ^[0-9]+$ ]] &&
+         (( XRES_H > 1400 && XRES_W > 2000 )); } ||
+       [[ $MYHOSTNAME == hidalgo ]]; then
+        link "$DOTFILES_PATH/X/.Xresources-hidpi" "$HOME/.Xresources"
+        link "$DOTFILES_PATH/X/.Xdefaults-hidpi" "$HOME/.Xdefaults"
+    else
+        link "$DOTFILES_PATH/X/.Xdefaults" "$HOME/.Xdefaults"
+    fi
+
+    link "$DOTFILES_PATH/X/.xinitrc" "$HOME/.xinitrc"
+    link "$DOTFILES_PATH/urxvt/font-size" "$HOME/.urxvt/ext/font-size"
+fi
+
+# ============================================================
+# Fonts and utilities
+# ============================================================
+
+if ask "Deploy fonts and refresh font cache?" y; then
+    if [[ -d "$DOTFILES_PATH/fonts/ttf" ]]; then
+        link "$DOTFILES_PATH/fonts/ttf" "$LOCAL_FONTS/ttf"
+    else
+        warn "TTF font directory not found; skipping"
+        SKIPPED+=("TTF fonts")
+    fi
+
+    if command -v fc-cache >/dev/null 2>&1; then
+        if fc-cache -f; then
+            ok "Font cache refreshed"
+        else
+            fail "Could not refresh font cache"
+            FAILED+=("font cache")
+        fi
+    else
+        warn "fc-cache is not installed"
+    fi
+fi
+
+# ============================================================
+# Summary
+# ============================================================
+
+section "Deployment summary"
+
+printf "${GREEN}Installed / changed:${RESET} %d\n" "${#INSTALLED[@]}"
+printf "${DIM}Skipped:${RESET} %d\n" "${#SKIPPED[@]}"
+printf "${RED}Failed:${RESET} %d\n" "${#FAILED[@]}"
+
+if ((${#FAILED[@]})); then
+    printf '\nFailed items:\n'
+    printf '  - %s\n' "${FAILED[@]}"
+    exit 1
+fi
+
+printf '\n'
+ok "Deployment finished"
