@@ -13,11 +13,7 @@ color-modes = true
 true-color = true
 # Where to put the vertical rulers
 rulers = [100, 150]
-
-# Always show the tabs at the top
-#[editor.bufferline]
-#render-mode = "always"
-#separator = "|"
+# Bufferline config
 bufferline = "always"
 
 [editor.cursor-shape]

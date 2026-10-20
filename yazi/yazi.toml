@@ -7,36 +7,32 @@ linemode = "size"
 
 [opener]
 pdf = [
-	{ run = 'zathura %s', desc = "zathura", block = false },
-	{ run = 'papers "%s', desc = "papers", block = false },
-	{ run = 'evince %s', desc = "evince", block = false },
-	{ run = 'xournalpp %s', desc = "xournal++", block = false },
+  { run = 'zathura %s', desc = "zathura", block = false },
+  { run = 'papers "%s', desc = "papers", block = false },
+  { run = 'evince %s', desc = "evince", block = false },
+  { run = 'xournalpp %s', desc = "xournal++", block = false },
 ]
 image = [
-    { run = 'nsxiv %s', desc = "nsxiv", block = false },
-    { run = 'eog "%s', desc = "eog", block = false },
-    { run = 'krita %s', desc = "krita", block = false },
-    { run = 'flatpak run org.kde.krita %s', desc = "krita (flatpak)", block = false },
-    { run = 'feh %s', desc = "feh", block = false },
-    { run = 'gimp %s', desc = "gimp", block = false },
-    { run = 'flatpak run org.gimp.GIMP %s', desc = "gimp (flatpak)", block = false },
+  { run = 'nsxiv %s', desc = "nsxiv", block = false },
+  { run = 'eog "%s', desc = "eog", block = false },
+  { run = 'krita %s', desc = "krita", block = false },
+  { run = 'flatpak run org.kde.krita %s', desc = "krita (flatpak)", block = false },
+  { run = 'feh %s', desc = "feh", block = false },
+  { run = 'gimp %s', desc = "gimp", block = false },
+  { run = 'flatpak run org.gimp.GIMP %s', desc = "gimp (flatpak)", block = false },
 ]
 text = [
-    { run = 'less %s', desc = "less", block = true },
-    { run = 'bat %s', desc = "bat", block = true },
+  { run = 'less %s', desc = "less", block = true },
+  { run = 'bat %s', desc = "bat", block = true },
 ]
 edit = [
-    { run = 'ms %s', desc = "mitos", block = true },
-    { run = 'hx %s', desc = "helix", block = true },
-    { run = 'nvim %s', desc = "nvim", block = true },
-    { run = 'gedit %s', desc = "gedit", block = false },
+  { run = 'ms %s', desc = "mitos", block = true },
+  { run = 'helix %s', desc = "helix", block = true },
+  { run = 'nvim %s', desc = "nvim", block = true },
+  { run = 'gedit %s', desc = "gedit", block = false },
 ]
-video = [
-    { run = 'mpv %s', desc = "mpv", block = false },
-]
-audio = [
-    { run = 'mpv --force-window %s', desc = "mpv", block = false },
-]
+video = [{ run = 'mpv %s', desc = "mpv", block = false }]
+audio = [{ run = 'mpv --force-window %s', desc = "mpv", block = false }]
 
 [open]
 prepend_rules = [
@@ -68,6 +64,4 @@ prepend_rules = [
   { url = "*.wav", use = "audio" },
   { url = "*.ogg", use = "audio" },
 ]
-append_rules = [
-	{ url = "*", use = "less" },
-]
+append_rules = [{ url = "*", use = "less" }]
