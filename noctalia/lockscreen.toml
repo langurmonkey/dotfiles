@@ -1,0 +1,27 @@
+[lockscreen]
+transition_duration = 500
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = ["clock_main"]
+
+[lockscreen_widgets.grid]
+cell_size = 16
+major_interval = 4
+visible = true
+
+[lockscreen_widgets.widget.clock_main]
+type = "clock"
+output = "all"
+box_height = 96.0
+box_width = 304.0
+cx = 1736.0
+cy = 92.0
+placement_height = 1080.0
+placement_width = 1920.0
+rotation = 0.0
+
+[lockscreen_widgets.widget.clock_main.settings]
+clock_style = "digital"
+format = "{:%Y-%m-%d}\\n{:%H:%M}"
