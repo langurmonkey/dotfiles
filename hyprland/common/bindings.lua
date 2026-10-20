@@ -165,14 +165,11 @@ hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 ---- SCREENSHOTS            ----
 --------------------------------
 
-local screenshot_dir  = home .. "/Pictures/Screenshots"
-local screenshot_name = "Screenshot_$(date -u +%Y-%m-%dT%H:%M:%S).jpg"
 
-hl.bind("Print", hl.dsp.exec_cmd("hyprshot -o " .. screenshot_dir .. " -f " .. screenshot_name .. " -m output"))
-hl.bind(mod .. " + Print", hl.dsp.exec_cmd("hyprshot -o " .. screenshot_dir .. " -f " .. screenshot_name .. " -m region"))
-hl.bind(mod .. " + CONTROL + Print",
-  hl.dsp.exec_cmd("hyprshot -o " .. screenshot_dir .. " -f " .. screenshot_name .. " -m window"))
-hl.bind(mod .. " + ALT + P", hl.dsp.exec_cmd("hyprpicker -a"))
+hl.bind("Print", hl.dsp.exec_cmd(ipc .. "screenshot-fullscreen"))
+hl.bind(mod .. " + Print", hl.dsp.exec_cmd(ipc .. "screenshot-region"))
+hl.bind(mod .. " + CONTROL + Print", hl.dsp.exec_cmd(ipc .. "screenshot-fullscreen pick"))
+hl.bind(mod .. " + ALT + Print", hl.dsp.exec_cmd(ipc .. "screenshot-annotate"))
 
 --------------------------------
 ---- MEDIA / AUDIO          ----

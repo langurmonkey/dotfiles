@@ -9,3 +9,7 @@ popup_shadows = true               # draw drop shadows behind popups and dropdow
 font_family = "Hack Nerd Font"
 time_format = "{:%H:%M:%S}"        # default time format for shell UI without its own setting
 date_format = "{:%A}\n{:%Y-%m-%d}" # default date format for shell UI without its own setting
+
+[shell.screenshot]
+output_directory = "~/Pictures/Screnshots"
+filename_pattern = "Screenshot_%Y-%m-%dT%H-%M-%S"
