@@ -356,12 +356,27 @@ hl.window_rule({
   no_focus    = true,
 })
 
------------------------
--- VICINAE BLUR     ---
------------------------
-hl.layer_rule({
-  match = { namespace = "vicinae" },
-  name = "vicinae-blur",
-  blur = true,
-  ignore_alpha = 0,
-})
+---------------------------
+-- NOCTALIA WORKSPACES  ---
+---------------------------
+
+-- "1": "1  ",
+-- "2": "2  ",
+-- "3": "3 﫯 ",
+-- "4": "4  ",
+-- "5": "5  ",
+-- "6": "6 ",
+-- "7": "7 ♫",
+-- "8": "8 ☠",
+-- "9": "9  ",
+-- "10":"10  ",
+hl.workspace_rule({ workspace = "1", persistent = false, default_name = "1 " })
+hl.workspace_rule({ workspace = "2", persistent = false, default_name = "2  " })
+hl.workspace_rule({ workspace = "3", persistent = false, default_name = "3 﫯" })
+hl.workspace_rule({ workspace = "4", persistent = false, default_name = "4  " })
+hl.workspace_rule({ workspace = "5", persistent = false, default_name = "5  " })
+hl.workspace_rule({ workspace = "6", persistent = false, default_name = "6 " })
+hl.workspace_rule({ workspace = "7", persistent = false, default_name = "7 ♫" })
+hl.workspace_rule({ workspace = "8", persistent = false, default_name = "8 ☠" })
+hl.workspace_rule({ workspace = "9", persistent = false, default_name = "9  " })
+hl.workspace_rule({ workspace = "10", persistent = false, default_name = "10 " })
