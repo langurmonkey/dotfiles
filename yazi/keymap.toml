@@ -1,49 +1,49 @@
 [[mgr.prepend_keymap]]
-on ="l"
+on = "l"
 run = "plugin smart-enter"
 desc = "Enter the child directory, or open the file"
 
 [[mgr.prepend_keymap]]
-on   = [ "<C-s>" ]
-run  = 'shell "$SHELL" --block --confirm'
+on = ["<C-s>"]
+run = 'shell "$SHELL" --block --confirm'
 desc = "Open shell here"
 
 [[mgr.append_keymap]]
-on   = [ "g", "v" ]
-run  = 'cd ~/Videos'
+on = ["g", "v"]
+run = 'cd ~/Videos'
 desc = "Go to the ~/Videos directory"
 
 [[mgr.append_keymap]]
-on   = [ "g", "p" ]
-run  = 'cd ~/Pictures'
+on = ["g", "p"]
+run = 'cd ~/Pictures'
 desc = "Go to the ~/Pictures directory"
 
 [[mgr.append_keymap]]
-on   = [ "g", "s" ]
-run  = 'cd ~/Projects'
+on = ["g", "s"]
+run = 'cd ~/Projects'
 desc = "Go to the Projects directory"
 
 [[mgr.append_keymap]]
-on   = [ "g", "s" ]
-run  = 'cd ~/Projects/gaiasky'
+on = ["g", "s"]
+run = 'cd ~/Projects/gaiasky'
 desc = "Go to the Gaia Sky directory"
 
 [[mgr.append_keymap]]
-on   = [ "g", "b" ]
-run  = 'cd ~/.local/share/gaiasky/data'
+on = ["g", "b"]
+run = 'cd ~/.local/share/gaiasky/data'
 desc = "Go to the Gaia Sky data directory"
 
 [[mgr.append_keymap]]
-on   = [ "b", "g" ]
-run  = 'shell -- ~/.dotfiles/bin/wallpapermgr -s %h --confirm --orphan'
+on = ["b", "g"]
+run = 'shell -- noctalia msg wallpaper-set %h'
 desc = "Set as Wallpaper"
 
 [[mgr.append_keymap]]
-on   = [ "<C-o>" ]
-run  = 'back'
+on = ["<C-o>"]
+run = 'back'
 desc = "Go back to the previous directory"
 
 [[mgr.append_keymap]]
-on   = [ "<C-i>" ]
-run  = 'forward'
+on = ["<C-i>"]
+run = 'forward'
 desc = "Go forward to the next directory"
