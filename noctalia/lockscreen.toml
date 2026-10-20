@@ -1,27 +1,30 @@
-[lockscreen]
+[lockscreen]  
+enabled         = true  
 transition_duration = 500
+blurred_desktop = true  
+blur_intensity  = 0.7  
+tint_intensity  = 0.3  
 
 [lockscreen_widgets]
 enabled = true
 schema_version = 2
-widget_order = ["clock_main"]
+widget_order = [ "main_clock" ]
 
-[lockscreen_widgets.grid]
-cell_size = 16
-major_interval = 4
-visible = true
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
 
-[lockscreen_widgets.widget.clock_main]
-type = "clock"
-output = "all"
-box_height = 96.0
-box_width = 304.0
-cx = 1736.0
-cy = 92.0
-placement_height = 1080.0
-placement_width = 1920.0
-rotation = 0.0
+    [lockscreen_widgets.widget."main_clock"]
+    box_height = 144.0
+    box_width = 544.0
+    cx = 1584.0
+    cy = 132.0
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "clock"
 
-[lockscreen_widgets.widget.clock_main.settings]
-clock_style = "digital"
-format = "{:%Y-%m-%d}\\n{:%H:%M}"
+    [lockscreen_widgets.widget."main_clock".settings]
+    clock_style = "digital"
+    format = "{:%Y-%m-%d}\\n{:%H:%M}"

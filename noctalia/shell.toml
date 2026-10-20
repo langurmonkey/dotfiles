@@ -1,3 +1,5 @@
+config_version = 15
+
 [shell]
 corner_radius_scale = 0.0          # 0 = square, 1 = default, 2 = extra rounded
 button_borders = true              # draw outlines around buttons throughout the shell
@@ -21,3 +23,7 @@ pipe_to_command = true
 # pipe_command = 'magick png:- -quality 90 "${NOCTALIA_SCREENSHOT_PATH%.png}.avif"'
 # JXL
 pipe_command = 'magick png:- -quality 90 "${NOCTALIA_SCREENSHOT_PATH%.png}.jxl"'
+
+[location]
+address = "Heidelberg, Germany"
+
