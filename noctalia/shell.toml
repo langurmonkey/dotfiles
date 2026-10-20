@@ -1,0 +1,11 @@
+[shell]
+corner_radius_scale = 0.0          # 0 = square, 1 = default, 2 = extra rounded
+button_borders = true              # draw outlines around buttons throughout the shell
+input_borders = true               # draw outlines around text fields and other inputs
+popup_borders = true               # draw outlines around popups and dropdowns (dialogs always have outlines)
+card_borders = true                # draw outlines around section cards inside panels and settings
+show_close_buttons = true          # show close buttons on shell surfaces (panels, toasts, popups, dialogs, Settings)
+popup_shadows = true               # draw drop shadows behind popups and dropdowns
+font_family = "Hack Nerd Font"
+time_format = "{:%H:%M:%S}"        # default time format for shell UI without its own setting
+date_format = "{:%A}\n{:%Y-%m-%d}" # default date format for shell UI without its own setting

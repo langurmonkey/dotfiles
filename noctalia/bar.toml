@@ -1,5 +1,61 @@
 [bar.default]
 position = "top"
+enabled = true
+auto_hide = false               # slide out after pointer leaves; reveal from edge trigger strip
+auto_hide_delay_ms = 0          # wait after pointer leaves before hiding, 0 to 600000 ms
+smart_auto_hide = false         # show when the active workspace is empty; hide when it has windows
+show_on_workspace_switch = true # with auto_hide: briefly reveal when the active workspace changes
+reserve_space = true            # reserve compositor exclusive zone / push windows away
+layer = "top"                   # top | overlay; overlay appears above fullscreen apps
 
-[bar.top]
-thickness = 90
+thickness = 34              # bar cross-axis size in pixels (height for horizontal, width for vertical)
+background_opacity = 0.75   # 0.0 (transparent) to 1.0 (opaque)
+compositor_blur = true      # publish a compositor blur region for this bar
+border = "outline"          # color role or #RRGGBB for the bar outline
+border_width = 0.0          # inside outline width in pixels; 0 disables it
+shadow = true               # cast the global [shell.shadow]
+contact_shadow = false      # dark gradient between an attached panel and the bar (depth at the seam)
+panel_overlap = 1           # logical px an attached panel overlaps the bar edge to hide the seam
+radius = 15                 # global corner radius fallback
+concave_edge_corners = true # carve the screen-edge corners inward; requires margin_edge = 0
+margin_ends = 20            # inset from each end of the bar along its main axis
+margin_edge = 0             # distance from the nearest screen edge (positive values float the bar)
+margin_opposite_edge = 0    # extra reserved space on the inward side of the bar (below for top, above for bottom)
+padding = 12                # main-axis padding from bar edges to start/end widget sections
+widget_spacing = 8          # gap between widgets within a section
+hover_highlight = true      # softly tint the widget under the mouse pointer with its foreground color
+show_tooltip = true         # show hover tooltips for widgets on this bar; per-widget show_tooltip overrides
+scale = 1.0                 # content scale multiplier for icons, spacing, and base text size
+font_scale = 1.0            # additional text-only scale multiplier
+font_weight = 500           # CSS weight 100–1000 (e.g. 400 regular, 700 bold); primary label weight for bar widgets
+font_family = ""            # typeface for this bar's widgets; empty inherits the global font
+
+# Default capsule style for all widgets on this bar (see Widget Capsule section)
+capsule = false
+capsule_fill = "surface_variant"
+capsule_thickness = 0.76         # capsule size across the bar as a fraction of bar thickness (1.0 fills the bar)
+capsule_radius = 8.0             # omit for automatic pill radius
+capsule_opacity = 1.0
+# capsule_border   = "outline"   # omit this key for no border by default
+capsule_border_width = 1.0 # outline thickness in logical pixels (0-8), drawn only with capsule_border
+
+start = ["launcher", "wallpaper", "workspaces"]
+center = ["clock"]
+end = [
+  "media",
+  "tray",
+  "notifications",
+  "clipboard",
+  "network",
+  "bluetooth",
+  "volume",
+  "brightness",
+  "battery",
+  "control-center",
+  "session",
+]
+
+[widget.clock]
+format = " {:%Y-%m-%d}   {:%H:%M:%S} "
+vertical_format = "{:%H\n%M}"
+tooltip_format = "{:%A, %B %d, %Y}"
