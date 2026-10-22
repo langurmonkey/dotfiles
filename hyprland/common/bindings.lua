@@ -183,14 +183,14 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 
 
-hl.bind(mod .. " + CONTROL + 0", hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ +1%"), { repeating = true })
-hl.bind(mod .. " + CONTROL + 9", hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ -1%"), { repeating = true })
+hl.bind(mod .. " + CONTROL + 0", hl.dsp.exec_cmd(ipc .. "volume-up"), { repeating = true })
+hl.bind(mod .. " + CONTROL + 9", hl.dsp.exec_cmd(ipc .. "volume-down"), { repeating = true })
 hl.bind(mod .. " + CONTROL + P", hl.dsp.exec_cmd("playerctl play-pause"))
 hl.bind(mod .. " + CONTROL + S", hl.dsp.exec_cmd("playerctl stop"))
 hl.bind(mod .. " + CONTROL + Z", hl.dsp.exec_cmd("mpc random"))
 hl.bind(mod .. " + CONTROL + period", hl.dsp.exec_cmd("playerctl next"))
 hl.bind(mod .. " + CONTROL + comma", hl.dsp.exec_cmd("playerctl previous"))
-hl.bind(mod .. " + CONTROL + M", hl.dsp.exec_cmd(term .. " --class=wm-floating-big ncmpcpp"))
+hl.bind(mod .. " + CONTROL + M", hl.dsp.exec_cmd(term .. " --class=wm-floating-big rmpc"))
 
 --------------------------------
 ---- BRIGHTNESS             ----

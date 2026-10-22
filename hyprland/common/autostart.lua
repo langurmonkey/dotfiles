@@ -4,7 +4,7 @@ hl.on("hyprland.start", function()
   local autostart = {
     home .. "/.dotfiles/bin/run-portals",
     "uwsm app -- gnome-keyring-daemon --start --components=secrets",
-    "uwsm app -- noctalia",
+    "uwsm app -- noctalia -d",
   }
 
   for _, cmd in ipairs(autostart) do
