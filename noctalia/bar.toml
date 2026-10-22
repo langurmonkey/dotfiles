@@ -44,29 +44,39 @@ start = [
   "wallpaper",
   "workspaces",
   "spacer",
+
   "active_window",
   "spacer",
+
   "media",
   "audio_visualizer"
 ]
-center = ["clock", "spacer", "weather"]
-end = [
-  "keyboard_layout",
-  "privacy",
+center = [
+  "weather",
   "spacer",
+  "keyboard_layout"
+ ]
+end = [
+  "sysmon",
+  "spacer",
+
   "notifications",
   "caffeine",
   "nightlight",
   "clipboard",
   "spacer",
+
   "battery",
   "brightness",
   "volume",
   "spacer",
+
   "network",
   "bluetooth",
   "spacer",
+
   "tray",
+  "clock",
   "session",
 ]
 
@@ -100,3 +110,12 @@ empty_color = "surface_variant"
 urgent_color = "error"
 change_color_on_hover = true     # false = keep configured workspace colors while hovering
 focused_output_only = false      # true = only the focused monitor highlights its active workspace
+
+[widget.battery]
+display_mode = "glyph"
+
+[widget.sysmon]
+visualization = "graph"
+
+[widget.network]
+show_label = false
