@@ -39,10 +39,13 @@ capsule_opacity = 1.0
 # capsule_border   = "outline"   # omit this key for no border by default
 capsule_border_width = 1.0 # outline thickness in logical pixels (0-8), drawn only with capsule_border
 
-start = ["launcher", "wallpaper", "workspaces"]
+start = ["launcher", "wallpaper", "workspaces", "active_window"]
 center = ["clock"]
 end = [
+  "keyboard_layout",
   "media",
+  "privacy",
+  "nightlight",
   "tray",
   "notifications",
   "clipboard",
