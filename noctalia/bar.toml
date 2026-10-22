@@ -39,15 +39,26 @@ capsule_opacity = 1.0
 # capsule_border   = "outline"   # omit this key for no border by default
 capsule_border_width = 1.0 # outline thickness in logical pixels (0-8), drawn only with capsule_border
 
-start = ["launcher", "wallpaper", "workspaces", "active_window", "media"]
-center = ["clock"]
+start = [
+  "launcher",
+  "wallpaper",
+  "workspaces",
+  "spacer",
+  "active_window",
+  "spacer",
+  "media",
+  "audio_visualizer"
+]
+center = ["clock", "spacer", "weather"]
 end = [
   "keyboard_layout",
-  "humblemane/pricebar:price",
   "privacy",
-  "nightlight",
+  "spacer",
   "tray",
+  "spacer",
   "notifications",
+  "caffeine",
+  "nightlight",
   "clipboard",
   "network",
   "bluetooth",
@@ -57,6 +68,10 @@ end = [
   "control-center",
   "session",
 ]
+
+[widget.active_window]
+display = "text_only"
+title_scroll = "on_hover"
 
 [widget.clock]
 format = " {:%Y-%m-%d}   {:%H:%M:%S} "
