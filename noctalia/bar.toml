@@ -54,24 +54,27 @@ end = [
   "keyboard_layout",
   "privacy",
   "spacer",
-  "tray",
-  "spacer",
   "notifications",
   "caffeine",
   "nightlight",
   "clipboard",
+  "spacer",
+  "battery",
+  "brightness",
+  "volume",
+  "spacer",
   "network",
   "bluetooth",
-  "volume",
-  "brightness",
-  "battery",
-  "control-center",
+  "spacer",
+  "tray",
   "session",
 ]
 
 [widget.active_window]
 display = "text_only"
 title_scroll = "on_hover"
+min_length = 0
+max_length = 290
 
 [widget.clock]
 format = " {:%Y-%m-%d}   {:%H:%M:%S} "
