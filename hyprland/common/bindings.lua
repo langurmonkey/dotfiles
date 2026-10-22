@@ -165,7 +165,6 @@ hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 ---- SCREENSHOTS            ----
 --------------------------------
 
-
 hl.bind("Print", hl.dsp.exec_cmd(ipc .. "screenshot-fullscreen"))
 hl.bind(mod .. " + Print", hl.dsp.exec_cmd(ipc .. "screenshot-region"))
 hl.bind(mod .. " + CONTROL + Print", hl.dsp.exec_cmd(ipc .. "screenshot-fullscreen pick"))
@@ -178,18 +177,20 @@ hl.bind(mod .. " + ALT + Print", hl.dsp.exec_cmd(ipc .. "screenshot-annotate"))
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(ipc .. "volume-up"))
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(ipc .. "volume-down"))
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd(ipc .. "volume-mute"))
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(ipc .. "media previous"), { locked = true })
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd(ipc .. "media next"), { locked = true })
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(ipc .. "media play"), { locked = true })
 
 
 hl.bind(mod .. " + CONTROL + 0", hl.dsp.exec_cmd(ipc .. "volume-up"), { repeating = true })
 hl.bind(mod .. " + CONTROL + 9", hl.dsp.exec_cmd(ipc .. "volume-down"), { repeating = true })
-hl.bind(mod .. " + CONTROL + P", hl.dsp.exec_cmd("playerctl play-pause"))
-hl.bind(mod .. " + CONTROL + S", hl.dsp.exec_cmd("playerctl stop"))
+hl.bind(mod .. " + CONTROL + P", hl.dsp.exec_cmd(ipc .. "media play"))
+hl.bind(mod .. " + CONTROL + S", hl.dsp.exec_cmd(ipc .. "media stop"))
 hl.bind(mod .. " + CONTROL + Z", hl.dsp.exec_cmd("mpc random"))
-hl.bind(mod .. " + CONTROL + period", hl.dsp.exec_cmd("playerctl next"))
-hl.bind(mod .. " + CONTROL + comma", hl.dsp.exec_cmd("playerctl previous"))
+hl.bind(mod .. " + CONTROL + period", hl.dsp.exec_cmd(ipc .. "media next"))
+hl.bind(mod .. " + CONTROL + comma", hl.dsp.exec_cmd(ipc .. "media previous"))
+hl.bind(mod .. " + CONTROL + SHIFT + period", hl.dsp.exec_cmd(ipc .. "media next-player"))
+hl.bind(mod .. " + CONTROL + SHIFT + comma", hl.dsp.exec_cmd(ipc .. "media previous-player"))
 hl.bind(mod .. " + CONTROL + M", hl.dsp.exec_cmd(term .. " --class=wm-floating-big rmpc"))
 
 --------------------------------
