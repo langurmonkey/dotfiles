@@ -108,10 +108,6 @@ alias sdisable="sudo systemctl disable"
 alias catradio="mpv https://directes-radio-int.3catdirectes.cat/live-content/catalunya-radio-hls/bitrate_1.m3u8"
 alias rac1="mpv 'https://playerservices.streamtheworld.com/api/livestream-redirect/RAC_1.mp3'"
 
-# Crypto
-alias crypto="curl eur.rate.sx/?n=2"
-alias btc="curl rate.sx/btc@30d"
-alias eth="curl rate.sx/eth@30d"
 
 # Alias gimp to flatpak if gimp is not in the system
 if ! command -v gimp &> /dev/null

@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+import sys
+
+import requests
+
+GREEN = "\033[32m"
+RED = "\033[31m"
+GRAY = "\033[90m"
+RESET = "\033[0m"
+
+
+def get_price(coin):
+    coin = coin.upper()
+    if coin not in ("XBT", "ETH"):
+        sys.exit("Usage: btc-price.py [XBT|ETH]")
+
+    symbol = "₿" if coin == "XBT" else "Ξ"
+    pair = f"{coin}EUR"
+
+    try:
+        response = requests.get(
+            "https://api.kraken.com/0/public/Ticker",
+            params={"pair": pair},
+            timeout=10,
+        )
+        response.raise_for_status()
+        data = response.json()
+
+        if data.get("error"):
+            sys.exit(f"Kraken API error: {', '.join(data['error'])}")
+
+        ticker = next(iter(data["result"].values()))
+        current_price = float(ticker["a"][0])
+        vwap_24h = float(ticker["p"][1])
+
+        if vwap_24h:
+            change = (current_price - vwap_24h) / vwap_24h * 100
+            color = GREEN if change > 0 else RED if change < 0 else GRAY
+            arrow = "↑" if change > 0 else "↓" if change < 0 else ""
+            print(f"{symbol} €{current_price:,.2f} {color}{arrow}{change:.2f}%{RESET}")
+        else:
+            print(f"{symbol} €{current_price:,.2f}")
+
+    except requests.RequestException as e:
+        sys.exit(f"Could not fetch price: {e}")
+
+
+coin = sys.argv[1] if len(sys.argv) > 1 else "XBT"
+get_price(coin)
