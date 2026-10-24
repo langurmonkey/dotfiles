@@ -73,6 +73,7 @@ end = [
 
   "network",
   "bluetooth",
+  "aristides/udiskie:status",
   "spacer",
 
   "tray",
