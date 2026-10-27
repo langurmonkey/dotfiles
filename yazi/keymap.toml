@@ -19,19 +19,19 @@ run = 'cd ~/Pictures'
 desc = "Go to the ~/Pictures directory"
 
 [[mgr.append_keymap]]
-on = ["g", "s"]
+on = ["g", "r"]
 run = 'cd ~/Projects'
 desc = "Go to the Projects directory"
 
 [[mgr.append_keymap]]
 on = ["g", "s"]
 run = 'cd ~/Projects/gaiasky'
-desc = "Go to the Gaia Sky directory"
+desc = "Go to Gaia Sky directory"
 
 [[mgr.append_keymap]]
 on = ["g", "b"]
 run = 'cd ~/.local/share/gaiasky/data'
-desc = "Go to the Gaia Sky data directory"
+desc = "Go to Gaia Sky data directory"
 
 [[mgr.append_keymap]]
 on = ["b", "g"]
