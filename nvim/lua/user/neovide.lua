@@ -1,7 +1,7 @@
 if vim.g.neovide then
   local neovide_options = {
-    guifont = "Hack Nerd Font:h11",         -- font for graphical nvim
-    linespace = 4,                         -- space between lines
+    guifont = "Monaspace Argon NF:h11", -- font for graphical nvim
+    linespace = 4,                      -- space between lines
   }
 
   for k, v in pairs(neovide_options) do
@@ -11,5 +11,4 @@ if vim.g.neovide then
   -- transparency value
   vim.g.neovide_transparency = 0.7
   vim.g.transparency = 0.7
-
 end

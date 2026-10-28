@@ -11,7 +11,7 @@ set $mod2 Mod1
 set $myterm kitty
 
 # Font for window titles.
-font pango:Hack Nerd Font 10
+font pango:Monaspace Argon NF 10
 
 # Gaps
 #for_window [class="^.*"] border pixel 0 
@@ -468,7 +468,7 @@ bar {
   swaybar_command waybar
   workspace_buttons yes
   tray_output primary
-  font pango:Hack Nerd Font 10
+  font pango:Monaspace Argon NF 10
   colors {
     background #000000
     statusline #ffffff

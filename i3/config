@@ -10,7 +10,7 @@ set $mod2 Mod1
 set $myterm kitty
 
 # Font for window titles.
-font pango:Hack Nerd Font 10
+font pango:Monaspace Agon NF 10
 
 # Gaps
 title_align center
@@ -505,5 +505,5 @@ bar {
 
   position top
   tray_output primary
-  font pango:Hack Nerd Font 10
+  font pango:Monaspace Argon NF 10
 }

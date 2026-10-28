@@ -3,7 +3,7 @@
   border-radius: 8;
   padding: 0.15em;
   /* `otf-font-awesome` is required to be installed for icons */
-  font-family: "Hack Nerd Font";
+  font-family: "Monaspace Argon NF";
   font-size: 13px;
   font-weight: 400;
   text-shadow: 1px 1px 1px black;
@@ -13,7 +13,7 @@
 window#waybar {
   border-bottom: 0;
   color: #ffffff;
-  background: rgba(0,0,0,0);
+  background: rgba(0, 0, 0, 0);
 }
 
 window#waybar.hidden {
@@ -88,9 +88,11 @@ background-color: #FFFFFF;
   margin: 0 0.5;
   color: #ffffff;
 }
-#tray > * {
-    -gtk-icon-shadow: 1px 1px 1px black;
+
+#tray>* {
+  -gtk-icon-shadow: 1px 1px 1px black;
 }
+
 #idle_inhibitor {
   padding: 0 10px 0 5px;
   margin: 0 0.5;
@@ -101,39 +103,46 @@ background-color: #FFFFFF;
 #clock {
   background-color: #295499;
 }
+
 #battery {
   background-color: #555555;
 }
+
 #battery.charging {
   color: #ffffff;
   background-color: #26A65B;
 }
+
 #pulseaudio {
   background-color: #FF7228;
 }
+
 #pulseaudio.muted {
   background-color: #d32f2f;
 }
+
 #backlight {
   color: #ffffff;
   background-color: #F4B400;
 }
-#custom-cpulevels{
+
+#custom-cpulevels {
   padding: 0;
   margin: 1;
   margin-bottom: -5px;
   color: #0E8C4F;
 }
+
 #cpu,
 #memory {
   background-color: #0E8C4F;
 }
 
 @keyframes blink {
-to {
-  background-color: #ffffff;
-  color: #000000;
-}
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
 }
 
 #battery.critical:not(.charging) {
@@ -163,6 +172,7 @@ label:focus {
   background-color: #ffdd55;
   text-shadow: none;
 }
+
 tooltip {
   background: rgba(43, 48, 59, 0.6);
   border: 1px solid rgba(100, 114, 125, 0.5);

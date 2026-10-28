@@ -8,7 +8,7 @@ popup_borders = true               # draw outlines around popups and dropdowns (
 card_borders = true                # draw outlines around section cards inside panels and settings
 show_close_buttons = true          # show close buttons on shell surfaces (panels, toasts, popups, dialogs, Settings)
 popup_shadows = true               # draw drop shadows behind popups and dropdowns
-font_family = "Hack Nerd Font"
+font_family = "Monaspace Argon NF"
 time_format = "{:%H:%M:%S}"        # default time format for shell UI without its own setting
 date_format = "{:%A}\n{:%Y-%m-%d}" # default date format for shell UI without its own setting
 
@@ -26,4 +26,3 @@ pipe_command = 'magick png:- -quality 90 "${NOCTALIA_SCREENSHOT_PATH%.png}.jxl"'
 
 [location]
 address = "Heidelberg, Germany"
-
