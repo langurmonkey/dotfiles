@@ -372,7 +372,7 @@ hl.window_rule({
 -- "10":"10  ",
 hl.workspace_rule({ workspace = "1", persistent = false, default_name = "1 " })
 hl.workspace_rule({ workspace = "2", persistent = false, default_name = "2  " })
-hl.workspace_rule({ workspace = "3", persistent = false, default_name = "3 﫯" })
+hl.workspace_rule({ workspace = "3", persistent = false, default_name = "3 ✉" })
 hl.workspace_rule({ workspace = "4", persistent = false, default_name = "4  " })
 hl.workspace_rule({ workspace = "5", persistent = false, default_name = "5  " })
 hl.workspace_rule({ workspace = "6", persistent = false, default_name = "6 " })
