@@ -1,0 +1,61 @@
+#!/bin/bash
+
+LOGFILMS="$HOME/Documents/syncfilms.log"
+LOGSHOWS="$HOME/Documents/syncshows.log"
+
+# Optional argument: films | shows (default: both)
+SYNC_TARGET="${1:-both}"
+
+case "$SYNC_TARGET" in
+    films|shows|both)
+        ;;
+    *)
+        echo "Usage: $0 [films|shows]"
+        exit 1
+        ;;
+esac
+
+# Run selected sync(s) sequentially in the background
+nohup bash -c '
+    target="$1"
+    logfilms="$2"
+    logshows="$3"
+
+    status=0
+
+    if [[ "$target" == "films" || "$target" == "both" ]]; then
+        echo "===== $(date): Starting Films sync =====" >> "$logfilms"
+
+        rsync -avh \
+            -e "ssh -o BatchMode=yes -o IdentitiesOnly=yes -i /home/pi/.ssh/id_ed25519_sync" \
+            /media/pi/mybook/Films/ \
+            pi@rpi5:/media/pi/NappaDisk/Media/Films/ \
+            >> "$logfilms" 2>&1
+
+        films_status=$?
+        echo "===== $(date): Films sync finished (exit code: $films_status) =====" >> "$logfilms"
+        status=$films_status
+    fi
+
+    if [[ "$target" == "shows" || ( "$target" == "both" && "$status" -eq 0 ) ]]; then
+        echo "===== $(date): Starting Shows sync =====" >> "$logshows"
+
+        rsync -avh \
+            -e "ssh -o BatchMode=yes -o IdentitiesOnly=yes -i /home/pi/.ssh/id_ed25519_sync" \
+            /media/pi/mybook/Shows/ \
+            pi@rpi5:/media/pi/NappaDisk/Media/Shows/ \
+            >> "$logshows" 2>&1
+
+        shows_status=$?
+        echo "===== $(date): Shows sync finished (exit code: $shows_status) =====" >> "$logshows"
+        status=$(( status != 0 || shows_status != 0 ))
+    elif [[ "$target" == "both" && "$status" -ne 0 ]]; then
+        echo "===== $(date): Shows sync skipped because Films sync failed =====" >> "$logshows"
+    fi
+
+    exit "$status"
+' _ "$SYNC_TARGET" "$LOGFILMS" "$LOGSHOWS" </dev/null >/dev/null 2>&1 &
+
+echo "Sync started in background (target: $SYNC_TARGET)."
+echo "Films log: $LOGFILMS"
+echo "Shows log: $LOGSHOWS"
