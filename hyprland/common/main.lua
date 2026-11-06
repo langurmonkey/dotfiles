@@ -11,8 +11,8 @@ hl.config({
         gaps_out = 6,
         border_size = 2,
         col = {
-            active_border   = { colors = {"rgba(334488ff)", "rgba(5566bbff)"}, angle = 90 },
-            inactive_border = "rgba(666666aa)",
+            active_border   = { colors = { "rgba(aa8811ff)", "rgba(bb9922ff)" }, angle = 90 },
+            inactive_border = "rgba(444444ff)",
         },
         resize_on_border = false,
         allow_tearing = false,
@@ -23,10 +23,10 @@ hl.config({
         rounding = 12,
         rounding_power = 2,
         blur = {
-            enabled   = true,
-            size      = 3,
-            passes    = 1,
-            vibrancy  = 0.1696,
+            enabled  = true,
+            size     = 3,
+            passes   = 1,
+            vibrancy = 0.1696,
         },
         shadow = {
             enabled      = true,
@@ -53,9 +53,8 @@ hl.config({
     },
 
     misc = {
-        force_default_wallpaper = -1,    -- Set to 0 or 1 to disable the anime mascot wallpapers
+        force_default_wallpaper  = -1,   -- Set to 0 or 1 to disable the anime mascot wallpapers
         disable_splash_rendering = true,
-        disable_hyprland_logo   = true, -- If true disables the random hyprland logo / anime girl background. :(
+        disable_hyprland_logo    = true, -- If true disables the random hyprland logo / anime girl background. :(
     },
 })
-
