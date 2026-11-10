@@ -50,22 +50,16 @@ edit = [
   { run = 'nvim %s', desc = "nvim", block = true },
   { run = 'gedit %s', desc = "gedit", block = false },
 ]
+markdown = [{ run = 'glow -p %s', desc = "glow", block = true }]
 video = [{ run = 'mpv %s', desc = "mpv", block = false }]
 audio = [{ run = 'mpv --force-window %s', desc = "mpv", block = false }]
 
 [open]
 prepend_rules = [
-  # Mime types
-  { mime = "application/pdf", use = "pdf" },
-  { mime = "image/*", use = "image" },
-  { mime = "video/*", use = "video" },
-  { mime = "audio/*", use = "audio" },
-  { mime = "text/*", use = ["edit", "text"] },
-
   # File extensions
   { url = "*.pdf", use = "pdf" },
   { url = "*.json", use = "edit" },
-  { url = "*.md", use = ["edit"] },
+  { url = "*.md", use = ["markdown", "edit"] },
   { url = "*.html", use = ["edit", "text"] },
   { url = "*.sh", use = "edit" },
   { url = "*.txt", use = ["edit", "text"] },
@@ -82,5 +76,13 @@ prepend_rules = [
   { url = "*.mp3", use = "audio" },
   { url = "*.wav", use = "audio" },
   { url = "*.ogg", use = "audio" },
+
+  # Mime types
+  { mime = "application/pdf", use = "pdf" },
+  { mime = "image/*", use = "image" },
+  { mime = "video/*", use = "video" },
+  { mime = "audio/*", use = "audio" },
+  { mime = "text/markdown", use = ["markdown", "edit", "text"] },
+  { mime = "text/*", use = ["edit", "text"] },
 ]
 append_rules = [{ url = "*", use = "less" }]
