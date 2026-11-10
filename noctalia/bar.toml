@@ -32,9 +32,9 @@ font_family = ""            # typeface for this bar's widgets; empty inherits th
 
 # Default capsule style for all widgets on this bar (see Widget Capsule section)
 capsule = false
-capsule_fill = "surface_variant"
-capsule_thickness = 0.76         # capsule size across the bar as a fraction of bar thickness (1.0 fills the bar)
-capsule_radius = 8.0             # omit for automatic pill radius
+capsule_fill = "surface_container"
+capsule_thickness = 0.76           # capsule size across the bar as a fraction of bar thickness (1.0 fills the bar)
+capsule_radius = 8.0               # omit for automatic pill radius
 capsule_opacity = 1.0
 # capsule_border   = "outline"   # omit this key for no border by default
 capsule_border_width = 1.0 # outline thickness in logical pixels (0-8), drawn only with capsule_border
@@ -89,24 +89,24 @@ vertical_format = "{:%H\n%M}"
 tooltip_format = "{:%A, %B %d, %Y}"
 
 [widget.workspaces]
-style = "regular"                # regular | minimal | focus_hint
-show_labels = true               # false = unlabeled pills (Focus Hint: app icon only)
-show_icons = false               # focus_hint only; false = active pill without the focused app icon
-label_source = "name"            # id | name
-max_label_chars = 4              # truncate long workspace names (e.g. "VESKTOP" → "VE")
-show_tooltip = true              # false = no full-name tooltip on hover
-labels_only_when_occupied = true # (1) (2*) ( ) (4) - occupied tags and the active tag show labels (*active but empty)
+style = "regular"                 # regular | minimal | focus_hint
+show_labels = true                # false = unlabeled pills (Focus Hint: app icon only)
+show_icons = false                # focus_hint only; false = active pill without the focused app icon
+label_source = "name"             # id | name
+max_label_chars = 4               # truncate long workspace names (e.g. "VESKTOP" → "VE")
+show_tooltip = true               # false = no full-name tooltip on hover
+labels_only_when_occupied = true  # (1) (2*) ( ) (4) - occupied tags and the active tag show labels (*active but empty)
 hide_when_empty = true
-show_all_outputs = false         # true = include workspaces from every monitor; this bar's monitor comes first
+show_all_outputs = false          # true = include workspaces from every monitor; this bar's monitor comes first
 pill_scale = 1.0
 active_pill_size = 2.2
 inactive_pill_size = 1.0
 focused_color = "primary"
 occupied_color = "secondary"
-empty_color = "surface_variant"
+empty_color = "surface_container"
 urgent_color = "error"
-change_color_on_hover = true     # false = keep configured workspace colors while hovering
-focused_output_only = false      # true = only the focused monitor highlights its active workspace
+change_color_on_hover = true      # false = keep configured workspace colors while hovering
+focused_output_only = false       # true = only the focused monitor highlights its active workspace
 
 [widget.battery]
 display_mode = "glyph"
