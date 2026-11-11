@@ -1,8 +1,7 @@
 # Dotfiles
 
 **This** is my Linux configuration. 
-It contains utilities to bootstrap and deploy my environment and dotfiles for
-i3wm, polybar, vim, ranger, and some other programs.
+It contains utilities to bootstrap and deploy my environment.
 
 ## Bootstrap
 
@@ -19,18 +18,15 @@ Deploy the environment anytime using the `deploy` script:
 ```console
 ~/.dotfiles/deploy
 ```
+## Environment
 
-## More info
+This is possibly outdated, but still.
 
-- [Background story](docs/bg.md)
-- [Deploying](docs/deploy.md)
-- [i3wm](docs/i3wm.md)
-- [qutebrowser](docs/qutebrowser.md)
-- [dmenu](docs/dmenu.md)
-- [ranger](docs/ranger.md)
-- [neovim](docs/neovim.md)
-- [pass](docs/pass.md)
-- [HOWTO HiDPI](docs/hidpi.md)
+- Hyprland
+- kitty
+- Noctalia
+- yazi
+- mitos
 
 ## Going from i3 to hyprland (dpi)
 

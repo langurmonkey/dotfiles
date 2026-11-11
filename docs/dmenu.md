@@ -1,3 +1,0 @@
-# `dmenu`
-
-TODO
