@@ -48,7 +48,10 @@ edit = [
   { run = 'ms %s', desc = "mitos", block = true },
   { run = 'gedit %s', desc = "gedit", block = false },
 ]
-markdown = [{ run = 'glow -p %s', desc = "glow", block = true }]
+markdown = [
+  { run = 'glow -p %s', desc = "glow", block = true },
+  { run = 'mdr %s', desc = "mdr", block = false },
+]
 video = [{ run = 'mpv %s', desc = "mpv", block = false }]
 audio = [{ run = 'mpv --force-window %s', desc = "mpv", block = false }]
 
