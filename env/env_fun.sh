@@ -13,3 +13,4 @@ elif command_exists fortune && ! command_exists cowsay && command_exists lolcat;
 elif command_exists fortune; then
     fortune
 fi
+echo ""
