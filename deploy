@@ -289,6 +289,7 @@ link "$DOTFILES_PATH/helix" "$CONFIG/helix"
 link "$DOTFILES_PATH/mitos" "$CONFIG/mitos"
 
 link "$DOTFILES_PATH/git/.gitconfig" "$HOME/.gitconfig"
+link "$DOTFILES_PATH/tridactyl" "$CONFIG/tridactyl"
 link "$DOTFILES_PATH/jj" "$CONFIG/jj"
 link "$DOTFILES_PATH/fish" "$CONFIG/fish"
 link "$DOTFILES_PATH/starship/starship.toml" \

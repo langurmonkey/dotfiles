@@ -1,0 +1,8 @@
+" Open URL in a new tab
+bind O fillcmdline tabopen
+
+" Edit current URL in the current tab
+bind e current_url open -c
+
+" Edit current URL in a new tab
+bind E current_url tabopen -c
